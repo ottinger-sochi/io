@@ -10,6 +10,9 @@
             margin: 0;
             padding: 0;
         }
+        html {
+            scroll-behavior: smooth; /* Плавная прокрутка к каталогу */
+        }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: #0d0d0d;
@@ -162,6 +165,71 @@
             color: #ffffff;
         }
 
+        /* Блок 3. Каталог */
+        .catalog-section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid #222222;
+        }
+        .catalog-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .product-card {
+            background-color: #121212;
+            border: 1px solid #222222;
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-badge {
+            font-size: 0.75rem;
+            background-color: #222222;
+            color: #b3b3b3;
+            padding: 4px 8px;
+            border-radius: 4px;
+            align-self: flex-start;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .product-name {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .product-desc {
+            font-size: 0.95rem;
+            color: #b3b3b3;
+            margin-bottom: 20px;
+        }
+        .product-specs {
+            margin-bottom: 25px;
+            border-top: 1px solid #222222;
+            padding-top: 15px;
+        }
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        .spec-label {
+            color: #777777;
+        }
+        .spec-value {
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .btn-catalog {
+            font-size: 0.9rem;
+            padding: 12px 20px;
+        }
+
         /* Адаптивность для планшетов и ПК */
         @media (min-width: 768px) {
             header {
@@ -205,6 +273,15 @@
             .stat-card {
                 flex: 1;
                 padding: 40px 20px;
+            }
+
+            /* Сетка каталога */
+            .catalog-grid {
+                flex-direction: row;
+            }
+            .product-card {
+                flex: 1;
+                padding: 30px;
             }
         }
     </style>
@@ -252,6 +329,92 @@
             <div class="stat-card">
                 <div class="stat-value">0 ₽</div>
                 <p><strong>Трат на стеклохолст и клей.</strong> Вы закупаете меньше позиций материалов на объект.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Блок каталога -->
+    <section class="catalog-section" id="catalog">
+        <h2 class="section-title">Материалы для идеального результата</h2>
+        <div class="catalog-grid">
+            
+            <!-- Продукт 1 -->
+            <div class="product-card">
+                <div>
+                    <span class="product-badge">Этап 1: Подготовка</span>
+                    <h3 class="product-name">Primer Konzentrat</h3>
+                    <p class="product-desc">Грунт глубокого проникновения. Повышает сцепление шпатлевки с основанием, выравнивает впитывающую способность гипсокартона и штукатурки.</p>
+                </div>
+                <div>
+                    <div class="product-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Разбавление:</span>
+                            <span class="spec-value">водой до 1:4</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Расход:</span>
+                            <span class="spec-value">~10 м²/л</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Фасовка:</span>
+                            <span class="spec-value">5л / 10л</span>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/79782214051?text=Хочу%20заказать%20образцы%20грунта%20Primer%20Konzentrat" class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
+                </div>
+            </div>
+
+            <!-- Продукт 2 -->
+            <div class="product-card">
+                <div>
+                    <span class="product-badge" style="color: #ff5722; background-color: #291510;">Этап 2: Выравнивание</span>
+                    <h3 class="product-name">Basis Finish Pro</h3>
+                    <p class="product-desc">Финишная готовая полимерная шпатлевка. Образует сверхпрочный эластичный слой, который не трескается и легко выводится под покраску.</p>
+                </div>
+                <div>
+                    <div class="product-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Толщина слоя:</span>
+                            <span class="spec-value">до 3 мм</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Расход:</span>
+                            <span class="spec-value">от 0.5 кг/м²</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Фасовка:</span>
+                            <span class="spec-value">5кг / 25кг</span>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/79782214051?text=Хочу%20заказать%20образцы%20шпатлевки%20Basis%20Finish%20Pro" class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
+                </div>
+            </div>
+
+            <!-- Продукт 3 -->
+            <div class="product-card">
+                <div>
+                    <span class="product-badge" style="color: #4caf50; background-color: #122215;">Этап 3: Окрашивание</span>
+                    <h3 class="product-name">Premium Keramik Matt</h3>
+                    <p class="product-desc">Матовая интерьерная краска с керамическими микрочастицами. Устойчива к мытью, защищает от проникновения бытовых жиров, кофе и вина.</p>
+                </div>
+                <div>
+                    <div class="product-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Степень глянца:</span>
+                            <span class="spec-value">матовая 5</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Расход:</span>
+                            <span class="spec-value">10 м²/л</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Фасовка:</span>
+                            <span class="spec-value">0.9л / 2.5л / 9л</span>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/79782214051?text=Хочу%20заказать%20образцы%20краски%20Premium%20Keramik%20Matt" class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
+                </div>
             </div>
 
         </div>
