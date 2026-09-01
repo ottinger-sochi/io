@@ -46,14 +46,14 @@
             font-size: 0.9rem;
         }
 
-        /* Первый экран - центрированный макет */
+        /* Первый экран */
         .hero {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             padding: 50px 20px;
-            max-width: 900px;
+            max-width: 1000px; /* Немного расширили для красивой разбивки строк */
             margin: 0 auto;
             min-height: calc(100vh - 70px);
             justify-content: center;
@@ -62,13 +62,21 @@
             margin-bottom: 40px;
             width: 100%;
         }
+        
+        /* Стилизация заголовка */
         h1 {
             font-size: 2.2rem;
-            line-height: 1.2;
+            line-height: 1.3;
             margin-bottom: 30px;
             font-weight: 800;
             color: #ffffff;
         }
+        
+        /* Выделение ключевых слов */
+        .accent-color {
+            color: #ff5722;
+        }
+        
         .cta-container {
             display: flex;
             justify-content: center;
@@ -95,7 +103,7 @@
             background-color: #e04a1b;
         }
         
-        /* Демонстрационный GIF по центру внизу */
+        /* GIF-анимация */
         .hero-media {
             width: 100%;
             max-width: 640px;
@@ -120,7 +128,18 @@
                 padding: 60px 40px;
             }
             h1 {
-                font-size: 3.2rem;
+                font-size: 3.4rem; /* Увеличили размер на десктопе для эффекта */
+            }
+            /* Принудительный перенос строки на больших экранах для лучшего ритма */
+            h1 br {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            /* Отключаем перенос строк на мобильных, там текст перенесется сам по ширине экрана */
+            h1 br {
+                display: none;
             }
         }
     </style>
@@ -134,7 +153,8 @@
 
     <main class="hero">
         <div class="hero-content">
-            <h1>Как навсегда избавить малярные работы от брака и бесконечных переделок</h1>
+            <!-- Ключевые слова "брака" и "бесконечных переделок" обернуты в тег span с классом accent-color -->
+            <h1>Как навсегда избавить малярные работы <br>от <span class="accent-color">брака</span> и <span class="accent-color">бесконечных переделок</span></h1>
             <div class="cta-container">
                 <a href="#how-it-works" class="btn btn-primary">Как это работает ↓</a>
             </div>
