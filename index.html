@@ -14,7 +14,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: #0d0d0d;
             color: #ffffff;
-            line-height: 1.5;
+            line-height: 1.4;
         }
         
         /* Шапка */
@@ -47,7 +47,7 @@
         .hero {
             display: flex;
             flex-direction: column;
-            padding: 50px 20px;
+            padding: 40px 20px;
             max-width: 1200px;
             margin: 0 auto;
             min-height: calc(100vh - 70px);
@@ -68,8 +68,8 @@
             margin-bottom: 15px;
         }
         h1 {
-            font-size: 2rem;
-            line-height: 1.2;
+            font-size: 2.2rem;
+            line-height: 1.15;
             margin-bottom: 15px;
             font-weight: 800;
         }
@@ -119,80 +119,46 @@
             object-fit: cover;
         }
 
-        /* Блок 2. Сравнение технологий */
-        .comparison-section {
-            padding: 60px 20px;
+        /* Блок 2. Визуальные цифры */
+        .stats-section {
+            padding: 50px 20px;
             max-width: 1200px;
             margin: 0 auto;
             border-top: 1px solid #222222;
         }
         .section-title {
             text-align: center;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 800;
-            margin-bottom: 40px;
-            line-height: 1.3;
+            margin-bottom: 35px;
         }
-        .comparison-grid {
+        .stats-grid {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
         }
-        .comp-card {
-            background-color: #161616;
+        .stat-card {
+            background-color: #121212;
             border-radius: 8px;
             padding: 25px;
+            text-align: center;
             border: 1px solid #222222;
         }
-        .comp-card.active-tech {
-            border-color: #ff5722;
-            background-color: #1c1310;
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1;
+            color: #ff5722;
+            margin-bottom: 10px;
         }
-        .card-header {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .card-header span {
-            font-size: 0.8rem;
-            padding: 4px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
-        }
-        .badge-red {
-            background-color: #3d1c1c;
-            color: #ff5252;
-        }
-        .badge-green {
-            background-color: #1e3d23;
+        .stat-card.alternative .stat-value {
             color: #4caf50;
         }
-        .tech-list {
-            list-style: none;
-        }
-        .tech-list li {
-            margin-bottom: 12px;
-            padding-left: 25px;
-            position: relative;
+        .stat-card p {
             font-size: 0.95rem;
-            color: #d1d1d1;
+            color: #b3b3b3;
         }
-        .tech-list li::before {
-            content: "•";
-            position: absolute;
-            left: 5px;
-            font-size: 1.2rem;
-        }
-        .card-red li::before {
-            color: #ff5252;
-        }
-        .card-green li::before {
-            color: #4caf50;
-        }
-        .card-green li strong {
+        .stat-card strong {
             color: #ffffff;
         }
 
@@ -228,17 +194,17 @@
                 aspect-ratio: 4 / 3;
             }
             
-            /* Сетка сравнения */
+            /* Сетка преимуществ */
             .section-title {
-                font-size: 2.4rem;
-                margin-bottom: 50px;
+                font-size: 2.2rem;
+                margin-bottom: 40px;
             }
-            .comparison-grid {
+            .stats-grid {
                 flex-direction: row;
             }
-            .comp-card {
+            .stat-card {
                 flex: 1;
-                padding: 35px;
+                padding: 40px 20px;
             }
         }
     </style>
@@ -255,7 +221,7 @@
             <span class="tagline">Технология без стеклохолста</span>
             <h1>Материалы OTTINGER с армирующим фиброволокном</h1>
             <p class="description">
-                Исключите процесс оклейки стеклохолстом между базовым и финишным слоями. Сокращайте сроки малярных работ в Сочи и защищайте стены от трещин с первого слоя.
+                Исключите процесс оклейки стеклохолстом между базовым и финишным слоями. Сокращайте сроки малярных работ и защищайте стены от трещин с первого слоя.
             </p>
             <div class="cta-container">
                 <a href="https://wa.me/79782214051" class="btn btn-primary" target="_blank">Заказать образцы на объект</a>
@@ -268,39 +234,24 @@
         </div>
     </main>
 
-    <!-- Блок сравнения -->
-    <section class="comparison-section">
-        <h2 class="section-title">Какая технология выгоднее для вашего объекта?</h2>
-        <div class="comparison-grid">
+    <!-- Блок цифр -->
+    <section class="stats-section">
+        <h2 class="section-title">Экономика объекта в трех цифрах</h2>
+        <div class="stats-grid">
             
-            <!-- Обычная технология -->
-            <div class="comp-card">
-                <div class="card-header">
-                    Классический метод
-                    <span class="badge-red">Долго и дорого</span>
-                </div>
-                <ul class="tech-list card-red">
-                    <li>Необходимость покупки клея и самого стеклохолста.</li>
-                    <li>Дополнительный этап работ: наклейка холста малярами.</li>
-                    <li>Увеличение времени сдачи объекта из-за сушки клея.</li>
-                    <li>Риск вздутия и отслоения холста при последующем намокании.</li>
-                    <li>Возможные трещины на стыках холстов при несоблюдении стыковки.</li>
-                </ul>
+            <div class="stat-card">
+                <div class="stat-value">3 слоя</div>
+                <p>Вместо стандартных 5. <strong>Шпатлевка OTTINGER</strong> исключает лишние этапы работ.</p>
             </div>
 
-            <!-- Метод Ottinger -->
-            <div class="comp-card active-tech">
-                <div class="card-header">
-                    Система OTTINGER
-                    <span class="badge-green">Выбор профи</span>
-                </div>
-                <ul class="tech-list card-green">
-                    <li><strong>Экономия бюджета:</strong> нет затрат на холст и клей.</li>
-                    <li><strong>Скорость:</strong> исключается один из самых трудоемких процессов.</li>
-                    <li><strong>Прочность:</strong> армирующее фиброволокно распределено по всей массе шпатлевки.</li>
-                    <li><strong>Монолитная стена:</strong> однородное, ровное основание под финишную покраску.</li>
-                    <li><strong>Минимум рисков:</strong> защита от микротрещин и отсутствие дорогостоящих переделок.</li>
-                </ul>
+            <div class="stat-card alternative">
+                <div class="stat-value">-40%</div>
+                <p><strong>Времени на малярку.</strong> Сдача объекта заказчику происходит значительно быстрее.</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-value">0 ₽</div>
+                <p><strong>Трат на стеклохолст и клей.</strong> Вы закупаете меньше позиций материалов на объект.</p>
             </div>
 
         </div>
