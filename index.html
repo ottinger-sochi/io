@@ -46,26 +46,25 @@
             font-size: 0.9rem;
         }
 
-        /* Первый экран */
+        /* Первый экран - Оптимизирован по высоте на мобильных */
         .hero {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 40px 15px; /* Немного уменьшили отступы на мобильных */
+            padding: 20px 15px 40px 15px; /* Минимальный отступ сверху на телефонах */
             max-width: 1000px;
             margin: 0 auto;
-            min-height: calc(100vh - 70px);
-            justify-content: center;
+            justify-content: flex-start; /* Прижимаем контент ближе к шапке на мобильных */
         }
         .hero-content {
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             width: 100%;
         }
         
-        /* Стилизация заголовка - Оптимизировано для мобильных */
+        /* Стилизация заголовка */
         h1 {
-            font-size: 1.6rem; /* Уменьшили базовый размер для идеальной посадки на мобильных */
+            font-size: 1.6rem;
             line-height: 1.3;
             margin-bottom: 25px;
             font-weight: 800;
@@ -117,7 +116,7 @@
             background-color: #1a1a1a;
             aspect-ratio: 16 / 9;
             border: 1px solid #222222;
-            margin-top: 25px; /* Добавили отступ сверху на мобильных */
+            margin-top: 25px;
         }
         .hero-media img {
             width: 100%;
@@ -125,16 +124,18 @@
             object-fit: cover;
         }
 
-        /* Адаптивность для планшетов и ПК */
+        /* Адаптивность для ПК */
         @media (min-width: 768px) {
             header {
                 padding: 20px 40px;
             }
             .hero {
                 padding: 60px 40px;
+                min-height: calc(100vh - 70px); /* На больших экранах возвращаем комфортную центровку по высоте */
+                justify-content: center;
             }
             h1 {
-                font-size: 3.4rem; /* Возвращаем крупный эффектный шрифт на больших экранах */
+                font-size: 3.4rem;
                 line-height: 1.35;
             }
             h1 br {
