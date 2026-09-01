@@ -52,22 +52,22 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 50px 20px;
+            padding: 40px 15px; /* Немного уменьшили отступы на мобильных */
             max-width: 1000px;
             margin: 0 auto;
             min-height: calc(100vh - 70px);
             justify-content: center;
         }
         .hero-content {
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             width: 100%;
         }
         
-        /* Стилизация заголовка */
+        /* Стилизация заголовка - Оптимизировано для мобильных */
         h1 {
-            font-size: 2.2rem;
-            line-height: 1.35;
-            margin-bottom: 30px;
+            font-size: 1.6rem; /* Уменьшили базовый размер для идеальной посадки на мобильных */
+            line-height: 1.3;
+            margin-bottom: 25px;
             font-weight: 800;
             color: #ffffff;
         }
@@ -117,6 +117,7 @@
             background-color: #1a1a1a;
             aspect-ratio: 16 / 9;
             border: 1px solid #222222;
+            margin-top: 25px; /* Добавили отступ сверху на мобильных */
         }
         .hero-media img {
             width: 100%;
@@ -124,7 +125,7 @@
             object-fit: cover;
         }
 
-        /* Адаптивность для ПК */
+        /* Адаптивность для планшетов и ПК */
         @media (min-width: 768px) {
             header {
                 padding: 20px 40px;
@@ -133,16 +134,15 @@
                 padding: 60px 40px;
             }
             h1 {
-                font-size: 3.4rem;
+                font-size: 3.4rem; /* Возвращаем крупный эффектный шрифт на больших экранах */
+                line-height: 1.35;
             }
-            /* Показываем аккуратные переносы строк на компьютере */
             h1 br {
                 display: block;
             }
         }
         
         @media (max-width: 767px) {
-            /* Скрываем принудительные переносы на мобильных, чтобы текст сам заполнял экран */
             h1 br {
                 display: none;
             }
@@ -158,7 +158,6 @@
 
     <main class="hero">
         <div class="hero-content">
-            <!-- Класс nowrap гарантирует, что "бесконечных переделок" всегда будут на одной строке -->
             <h1>
                 Как навсегда избавить малярные работы <br>
                 от <span class="accent-color">брака</span> и <br>
