@@ -53,7 +53,7 @@
             align-items: center;
             text-align: center;
             padding: 50px 20px;
-            max-width: 1000px; /* Немного расширили для красивой разбивки строк */
+            max-width: 1000px;
             margin: 0 auto;
             min-height: calc(100vh - 70px);
             justify-content: center;
@@ -66,7 +66,7 @@
         /* Стилизация заголовка */
         h1 {
             font-size: 2.2rem;
-            line-height: 1.3;
+            line-height: 1.35;
             margin-bottom: 30px;
             font-weight: 800;
             color: #ffffff;
@@ -75,6 +75,11 @@
         /* Выделение ключевых слов */
         .accent-color {
             color: #ff5722;
+        }
+        
+        /* Запрет переноса слов внутри тега */
+        .nowrap {
+            white-space: nowrap;
         }
         
         .cta-container {
@@ -128,16 +133,16 @@
                 padding: 60px 40px;
             }
             h1 {
-                font-size: 3.4rem; /* Увеличили размер на десктопе для эффекта */
+                font-size: 3.4rem;
             }
-            /* Принудительный перенос строки на больших экранах для лучшего ритма */
+            /* Показываем аккуратные переносы строк на компьютере */
             h1 br {
                 display: block;
             }
         }
         
         @media (max-width: 767px) {
-            /* Отключаем перенос строк на мобильных, там текст перенесется сам по ширине экрана */
+            /* Скрываем принудительные переносы на мобильных, чтобы текст сам заполнял экран */
             h1 br {
                 display: none;
             }
@@ -153,8 +158,12 @@
 
     <main class="hero">
         <div class="hero-content">
-            <!-- Ключевые слова "брака" и "бесконечных переделок" обернуты в тег span с классом accent-color -->
-            <h1>Как навсегда избавить малярные работы <br>от <span class="accent-color">брака</span> и <span class="accent-color">бесконечных переделок</span></h1>
+            <!-- Класс nowrap гарантирует, что "бесконечных переделок" всегда будут на одной строке -->
+            <h1>
+                Как навсегда избавить малярные работы <br>
+                от <span class="accent-color">брака</span> и <br>
+                <span class="accent-color nowrap">бесконечных переделок</span>
+            </h1>
             <div class="cta-container">
                 <a href="#how-it-works" class="btn btn-primary">Как это работает ↓</a>
             </div>
