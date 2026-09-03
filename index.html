@@ -48,13 +48,13 @@
             font-size: 0.9rem;
         }
 
-        /* Первый экран */
+        /* ПЕРВЫЙ ЭКРАН */
         .hero {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 25px 15px 40px 15px; /* Минимальный верхний отступ */
+            padding: 25px 15px 40px 15px;
             max-width: 1100px;
             margin: 0 auto;
             min-height: calc(100vh - 70px);
@@ -64,18 +64,14 @@
             margin-bottom: 35px;
             width: 100%;
         }
-        
-        /* Стилизация заголовка */
         h1 {
-            font-size: 1.5rem; /* Оптимальный размер, чтобы третья строка гарантированно не переносилась на телефонах */
+            font-size: 1.5rem;
             line-height: 1.35;
             margin-bottom: 25px;
             font-weight: 800;
             color: #ffffff;
             letter-spacing: -0.3px;
         }
-        
-        /* Строка 2: Капс по центру */
         .uppercase-line {
             display: block;
             text-transform: uppercase;
@@ -84,17 +80,12 @@
             margin: 8px 0;
             font-weight: 900;
         }
-        
-        /* Выделение ключевых слов */
         .accent-color {
             color: #ff5722;
         }
-        
-        /* Запрет переноса слов внутри тега */
         .nowrap {
             white-space: nowrap;
         }
-        
         .cta-container {
             display: flex;
             justify-content: center;
@@ -120,8 +111,6 @@
         .btn-primary:active {
             background-color: #e04a1b;
         }
-        
-        /* GIF-анимация */
         .hero-media {
             width: 100%;
             max-width: 600px;
@@ -138,7 +127,83 @@
             object-fit: cover;
         }
 
-        /* Адаптивность для планшетов и ПК */
+        /* ЖУРНАЛЬНЫЙ СТИЛЬ (БЛОК 2 И БЛОК 3) */
+        .editorial-section {
+            background-color: #0d0d0d;
+            padding: 80px 20px;
+            border-top: 1px solid #1a1a1a;
+        }
+        .section-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: left;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+            line-height: 1.25;
+            max-width: 850px;
+            letter-spacing: -0.8px;
+            color: #ffffff;
+        }
+        
+        .editorial-list {
+            display: flex;
+            flex-direction: column;
+        }
+        .editorial-item {
+            display: flex;
+            flex-direction: column;
+            padding: 35px 0;
+            border-top: 1px solid #222222;
+        }
+        .editorial-item:last-child {
+            border-bottom: 1px solid #222222;
+        }
+        
+        /* Жирные минималистичные цифры */
+        .item-num {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #ff5722; 
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+        
+        .item-text h3 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 10px;
+            letter-spacing: -0.3px;
+        }
+        .item-text p {
+            color: #8c8c8c;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            max-width: 750px;
+        }
+
+        /* Переходной блок */
+        .transition-block {
+            text-align: left;
+            max-width: 850px;
+            margin: 50px 0 0 0;
+            padding-top: 30px;
+        }
+        .transition-block h3 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.4;
+            letter-spacing: -0.5px;
+        }
+        .transition-block h3 span {
+            color: #ff5722;
+        }
+
+        /* Адаптивность для ПК */
         @media (min-width: 768px) {
             header {
                 padding: 20px 40px;
@@ -147,15 +212,50 @@
                 padding: 50px 40px;
             }
             h1 {
-                font-size: 2.8rem; /* Крупный размер для десктопа */
+                font-size: 2.8rem;
                 line-height: 1.35;
                 max-width: 1100px;
                 margin: 0 auto 30px auto;
             }
             .uppercase-line {
-                font-size: 3.6rem; /* Крупный Капс на ПК */
+                font-size: 3.6rem;
                 margin: 12px 0;
                 letter-spacing: 4px;
+            }
+            
+            .editorial-section {
+                padding: 120px 40px;
+            }
+            .section-title {
+                font-size: 3.2rem;
+                margin-bottom: 80px;
+            }
+            .editorial-item {
+                flex-direction: row;
+                align-items: flex-start;
+                padding: 50px 0;
+            }
+            .item-num {
+                font-size: 3.5rem;
+                min-width: 140px;
+                margin-bottom: 0;
+                padding-top: 5px;
+            }
+            .item-text {
+                padding-top: 5px;
+            }
+            .item-text h3 {
+                font-size: 1.6rem;
+            }
+            .item-text p {
+                font-size: 1.05rem;
+            }
+            .transition-block {
+                margin-top: 80px;
+                padding-top: 40px;
+            }
+            .transition-block h3 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -170,7 +270,6 @@
     <!-- ПЕРВЫЙ ЭКРАН -->
     <main class="hero">
         <div class="hero-content">
-            <!-- Строгая трехстрочная структура, адаптированная под мобильные и десктопы -->
             <h1>
                 Как навсегда избавить <br>
                 <span class="uppercase-line">малярные работы</span>
@@ -187,15 +286,14 @@
         </div>
     </main>
 
-    <!-- СОВРЕМЕННЫЙ ЖУРНАЛЬНЫЙ БЛОК 2 -->
-    <section class="how-it-works-section" id="how-it-works">
+    <!-- БЛОК 2: ПРОБЛЕМЫ -->
+    <section class="editorial-section" id="how-it-works">
         <div class="section-container">
             
             <h2 class="section-title">Почему малярка — самый неблагодарный этап ремонта?</h2>
             
             <div class="editorial-list">
                 
-                <!-- Пункт 01 -->
                 <div class="editorial-item">
                     <div class="item-num">01</div>
                     <div class="item-text">
@@ -204,7 +302,6 @@
                     </div>
                 </div>
 
-                <!-- Пункт 02 -->
                 <div class="editorial-item">
                     <div class="item-num">02</div>
                     <div class="item-text">
@@ -213,7 +310,6 @@
                     </div>
                 </div>
 
-                <!-- Пункт 03 -->
                 <div class="editorial-item">
                     <div class="item-num">03</div>
                     <div class="item-text">
@@ -224,9 +320,46 @@
 
             </div>
 
-            <!-- ПЕРЕХОДНОЙ БЛОК -->
+        </div>
+    </section>
+
+    <!-- БЛОК 3: ТЕХНОЛОГИЧЕСКОЕ РЕШЕНИЕ OTTINGER -->
+    <section class="editorial-section" style="border-top: none;">
+        <div class="section-container">
+            
+            <h2 class="section-title">Как полимерная броня OTTINGER решает эти проблемы</h2>
+            
+            <div class="editorial-list">
+                
+                <div class="editorial-item">
+                    <div class="item-num">01</div>
+                    <div class="item-text">
+                        <h3>Упругость вместо хрупкости</h3>
+                        <p>Шпатлевка OTTINGER создана на эластичной полимерной базе. В отличие от жесткого гипса, она гасит микродеформации стен и случайные удары, защищая углы от сколов.</p>
+                    </div>
+                </div>
+
+                <div class="editorial-item">
+                    <div class="item-num">02</div>
+                    <div class="item-text">
+                        <h3>Армирование фиброволокном без холста и клея</h3>
+                        <p>Микроволокна связывают состав шпатлевки изнутри, удерживая швы от трещин. Это позволяет полностью отказаться от долгой поклейки стеклохолста и клея.</p>
+                    </div>
+                </div>
+
+                <div class="editorial-item">
+                    <div class="item-num">03</div>
+                    <div class="item-text">
+                        <h3>Моющаяся керамика против грязи и трения</h3>
+                        <p>Финишная краска содержит керамические микрочастицы. Она образует сверхплотную мембрану: следы от сумок, обуви или жира отмываются простой водой без затертостей и глянцевых пятен.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ПЕРЕХОДНОЙ БЛОК К ЭКОНОМИКЕ И ПРОДУКТАМ -->
             <div class="transition-block">
-                <h3>Именно для решения этих системных проблем создана полимерная система отделки <span>OTTINGER</span></h3>
+                <h3>Итог: на практике эта технология сокращает сроки малярки на <span>40%</span> и защищает вас от переделок</h3>
             </div>
 
         </div>
