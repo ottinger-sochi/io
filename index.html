@@ -54,8 +54,8 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 30px 15px 40px 15px; /* Сбалансированный верхний отступ */
-            max-width: 1000px;
+            padding: 25px 15px 40px 15px; /* Минимальный верхний отступ */
+            max-width: 1100px;
             margin: 0 auto;
             min-height: calc(100vh - 70px);
             justify-content: center;
@@ -67,21 +67,21 @@
         
         /* Стилизация заголовка */
         h1 {
-            font-size: 1.6rem;
-            line-height: 1.4;
+            font-size: 1.5rem; /* Оптимальный размер, чтобы третья строка гарантированно не переносилась на телефонах */
+            line-height: 1.35;
             margin-bottom: 25px;
             font-weight: 800;
             color: #ffffff;
             letter-spacing: -0.3px;
         }
         
-        /* Выделение "МАЛЯРНЫЕ РАБОТЫ" на отдельной строке */
+        /* Строка 2: Капс по центру */
         .uppercase-line {
             display: block;
             text-transform: uppercase;
-            font-size: 1.8rem; /* Чуть крупнее для акцента */
-            letter-spacing: 2px; /* Премиальный разнос букв */
-            margin: 10px 0;
+            font-size: 1.7rem; 
+            letter-spacing: 2px; 
+            margin: 8px 0;
             font-weight: 900;
         }
         
@@ -147,14 +147,14 @@
                 padding: 50px 40px;
             }
             h1 {
-                font-size: 3rem; /* Сбалансированный размер на ПК */
+                font-size: 2.8rem; /* Крупный размер для десктопа */
                 line-height: 1.35;
                 max-width: 1100px;
                 margin: 0 auto 30px auto;
             }
             .uppercase-line {
                 font-size: 3.6rem; /* Крупный Капс на ПК */
-                margin: 15px 0;
+                margin: 12px 0;
                 letter-spacing: 4px;
             }
         }
@@ -170,7 +170,7 @@
     <!-- ПЕРВЫЙ ЭКРАН -->
     <main class="hero">
         <div class="hero-content">
-            <!-- Точная разбивка строк: МАЛЯРНЫЕ РАБОТЫ строго на одной строке по центру капсом -->
+            <!-- Строгая трехстрочная структура, адаптированная под мобильные и десктопы -->
             <h1>
                 Как навсегда избавить <br>
                 <span class="uppercase-line">малярные работы</span>
