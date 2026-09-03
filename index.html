@@ -53,30 +53,26 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 20px 15px 40px 15px;
+            padding: 40px 15px;
             max-width: 1200px;
             margin: 0 auto;
-            justify-content: flex-start;
+            min-height: calc(100vh - 70px);
+            justify-content: center;
         }
         .hero-content {
-            margin-bottom: 25px;
+            max-width: 1000px;
+            margin: 0 auto 35px auto;
             width: 100%;
         }
-        
-        /* Стилизация заголовка */
         h1 {
-            font-size: 1.6rem;
+            font-size: 2.2rem;
             line-height: 1.3;
             font-weight: 800;
             color: #ffffff;
         }
-        
-        /* Выделение ключевых слов */
         .accent-color {
             color: #ff5722;
         }
-        
-        /* Запрет переноса слов внутри тега */
         .nowrap {
             white-space: nowrap;
         }
@@ -90,7 +86,7 @@
             background-color: #1a1a1a;
             aspect-ratio: 16 / 9;
             border: 1px solid #222222;
-            margin-bottom: 30px;
+            margin: 0 auto 30px auto;
         }
         .hero-media img {
             width: 100%;
@@ -98,7 +94,7 @@
             object-fit: cover;
         }
         
-        /* Кнопка */
+        /* Кнопка под GIF */
         .cta-container {
             display: flex;
             justify-content: center;
@@ -108,7 +104,7 @@
         .btn {
             display: inline-block;
             text-align: center;
-            padding: 16px 32px;
+            padding: 18px 36px;
             font-size: 1rem;
             font-weight: bold;
             text-decoration: none;
@@ -147,6 +143,7 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
+            margin-bottom: 40px; /* Отступ перед переходной фразой */
         }
         
         /* Современная карточка-плитка */
@@ -208,6 +205,24 @@
             line-height: 1.4;
         }
 
+        /* Переходной блок к решению OTTINGER */
+        .transition-block {
+            text-align: center;
+            max-width: 800px;
+            margin: 40px auto 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid #222222;
+        }
+        .transition-block h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+        .transition-block h3 span {
+            color: #ff5722;
+        }
+
         /* Адаптивность для ПК */
         @media (min-width: 768px) {
             header {
@@ -239,6 +254,13 @@
             }
             .pain-card {
                 height: 450px;
+            }
+            .transition-block {
+                margin-top: 60px;
+                padding-top: 40px;
+            }
+            .transition-block h3 {
+                font-size: 1.8rem;
             }
         }
         
@@ -275,41 +297,47 @@
         </div>
     </main>
 
-    <!-- СОВРЕМЕННЫЙ БЛОК 2 -->
+    <!-- СОВРЕМЕННЫЙ БЛОК 2: КАРТОЧКИ С ПРОБЛЕМАМИ -->
     <section class="how-it-works-section" id="how-it-works">
         <div class="section-container">
             <h2 class="section-title">Почему малярные работы всегда превращаются в бесконечные переделки?</h2>
             
             <div class="pain-grid">
                 
-                <!-- Карточка 1 (Сбитые углы) -->
-                <div class="pain-card" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80');">
+                <!-- Карточка 1 (Маляры всегда крайние) -->
+                <div class="pain-card" style="background-image: url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80');">
                     <span class="card-num">01</span>
                     <div class="card-content">
-                        <h3>Сбитые углы</h3>
-                        <p>Хрупкий гипс в шпатлевках выкрашивается от любого случайного касания стремянкой или коробкой.</p>
+                        <h3>Маляры всегда крайние</h3>
+                        <p>Покраску считают «легким» этапом. Но именно маляры завершают объект и отвечают за все дефекты перед заказчиком.</p>
                     </div>
                 </div>
 
-                <!-- Карточка 2 (Пятна при подкрасах) -->
-                <div class="pain-card" style="background-image: url('https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80');">
+                <!-- Карточка 2 (Мебельщики — главный враг) -->
+                <div class="pain-card" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80');">
                     <span class="card-num">02</span>
                     <div class="card-content">
-                        <h3>Пятна при подкрасах</h3>
-                        <p>На обычной краске невозможно закрасить царапину локально — останется заметный глянцевый «ореол».</p>
+                        <h3>Мебельщики — главный враг</h3>
+                        <p>Один скол при монтаже кухни означает переделку. С хрупким гипсом нельзя просто затереть изъян — приходится перекрашивать всю стену.</p>
                     </div>
                 </div>
 
-                <!-- Карточка 3 (Брак материалов) -->
-                <div class="pain-card" style="background-image: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80');">
+                <!-- Карточка 3 (Курортный износ в Сочи) -->
+                <div class="pain-card" style="background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80');">
                     <span class="card-num">03</span>
                     <div class="card-content">
-                        <h3>Брак материалов</h3>
-                        <p>Дешевая шпатлевка усаживается и дает трещины на стыках, а краска ложится пятнами.</p>
+                        <h3>Курортный износ</h3>
+                        <p>В Сочи апартаменты сдаются непрерывно. Постоянный поток туристов с чемоданами уничтожает стандартную нежную отделку за один сезон.</p>
                     </div>
                 </div>
 
             </div>
+
+            <!-- ПЕРЕХОДНОЙ БЛОК К РЕШЕНИЮ OTTINGER -->
+            <div class="transition-block">
+                <h3>Именно для решения этих реальных проблем создана полимерная система отделки <span>OTTINGER</span></h3>
+            </div>
+
         </div>
     </section>
 
