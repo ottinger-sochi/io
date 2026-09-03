@@ -163,6 +163,7 @@
             flex-direction: column;
             padding: 35px 0;
             border-top: 1px solid #222222;
+            gap: 25px; /* Зазор между текстом и плейсхолдером на мобильных */
         }
         .editorial-item:last-child {
             border-bottom: 1px solid #222222;
@@ -188,6 +189,23 @@
             max-width: 750px;
         }
 
+        /* Стиль "окна-плейсхолдера" для картинок */
+        .image-window {
+            width: 100%;
+            height: 220px;
+            background-color: #121212;
+            border: 1px dashed #333333;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #555555;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
         /* БЛОК 3: ТЕХНОЛОГИЧЕСКИЙ РЯД */
         .tech-section {
             background-color: #0d0d0d;
@@ -203,7 +221,7 @@
             background-color: #121212;
             border: 1px solid #222222;
             border-radius: 8px;
-            padding: 30px;
+            padding: 25px;
             transition: border-color 0.2s ease, transform 0.2s ease;
         }
         .tech-card:hover {
@@ -229,48 +247,69 @@
             font-size: 0.9rem;
             line-height: 1.5;
         }
+        .tech-image-window {
+            width: 100%;
+            height: 140px;
+            background-color: #0d0d0d;
+            border: 1px dashed #222222;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #444444;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
 
-        /* БЛОК 4: ЭКОНОМИКА (ДВУХКОЛОНОЧНЫЙ СПЛИТ) */
-        .economics-section {
+        /* БЛОК 4: ЭКОНОМИКА (ЦИФРОВОЙ ДАШБОРД) */
+        .metrics-section {
             background-color: #0d0d0d;
             padding: 80px 20px;
             border-top: 1px solid #1a1a1a;
         }
-        .economics-split {
+        .metrics-group {
+            margin-bottom: 40px;
+        }
+        .metrics-group-title {
+            font-size: 0.8rem;
+            font-weight: 900;
+            color: #ff5722;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #1a1a1a;
+            padding-bottom: 10px;
+        }
+        .metrics-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 50px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .econ-col {
-            display: flex;
-            flex-direction: column;
-        }
-        .econ-col-title {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #ff5722; /* Оранжевая подчеркивающая линия */
-            padding-bottom: 10px;
-            letter-spacing: -0.5px;
-        }
-        .econ-list {
-            display: flex;
-            flex-direction: column;
             gap: 25px;
         }
-        .econ-item h4 {
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 8px;
+        .metric-card {
+            border-top: 1px solid #222222;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
         }
-        .econ-item p {
+        .metric-val {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 1;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        .metric-label {
+            font-size: 0.95rem;
             color: #8c8c8c;
-            font-size: 0.9rem;
-            line-height: 1.45;
+            line-height: 1.4;
+        }
+        .metric-label strong {
+            color: #ffffff;
         }
 
         /* Переходной блок */
@@ -298,6 +337,8 @@
             }
             .hero {
                 padding: 50px 40px;
+                min-height: calc(100vh - 70px);
+                justify-content: center;
             }
             h1 {
                 font-size: 2.8rem;
@@ -320,24 +361,29 @@
                 margin-bottom: 80px;
             }
             .editorial-item {
-                flex-direction: row;
-                align-items: flex-start;
+                flex-direction: row; /* Текст слева, Окно справа */
+                align-items: center;
                 padding: 50px 0;
+                gap: 50px;
             }
             .item-num {
                 font-size: 3.5rem;
-                min-width: 140px;
+                min-width: 120px;
                 margin-bottom: 0;
-                padding-top: 5px;
             }
             .item-text {
-                padding-top: 5px;
+                flex: 1;
             }
             .item-text h3 {
                 font-size: 1.6rem;
             }
             .item-text p {
                 font-size: 1.05rem;
+            }
+            .image-window {
+                width: 380px; /* Фиксированная ширина окна на ПК */
+                height: 240px;
+                flex-shrink: 0;
             }
 
             /* Блок 3 */
@@ -349,25 +395,26 @@
                 gap: 25px;
             }
             .tech-card {
-                padding: 40px 30px;
+                padding: 30px;
             }
 
             /* Блок 4 */
-            .economics-section {
+            .metrics-section {
                 padding: 120px 40px;
             }
-            .economics-split {
-                grid-template-columns: 1fr 1fr; /* Две колонки: Сроки слева, Деньги справа */
-                gap: 60px;
+            .metrics-group-title {
+                font-size: 0.9rem;
+                margin-bottom: 35px;
             }
-            .econ-col-title {
-                font-size: 2rem;
+            .metrics-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 40px;
             }
-            .econ-item h4 {
-                font-size: 1.3rem;
+            .metric-val {
+                font-size: 3.6rem;
             }
-            .econ-item p {
-                font-size: 0.95rem;
+            .metric-label {
+                font-size: 1.05rem;
             }
 
             .transition-block {
@@ -414,28 +461,37 @@
             
             <div class="editorial-list">
                 
+                <!-- Пункт 01 -->
                 <div class="editorial-item">
                     <div class="item-num">01</div>
                     <div class="item-text">
                         <h3>Маляр всегда отвечает за косяки предыдущих бригад</h3>
                         <p>«Да там просто валиком покатать» — говорят заказчики. Но если треснет черновая штукатурка или поведет гипсокартон, винят маляра, ведь дефект вылез на его финишной краске.</p>
                     </div>
+                    <!-- Окно для картинки -->
+                    <div class="image-window">[ Окно для фото дефекта стыка ]</div>
                 </div>
 
+                <!-- Пункт 02 -->
                 <div class="editorial-item">
                     <div class="item-num">02</div>
                     <div class="item-text">
                         <h3>Мебельщики заносят шкаф — маляр красит стену заново</h3>
                         <p>Один случайный скол на углу при монтаже кухни означает полную переделку. С хрупкими материалами нельзя просто затереть изъян — приходится заново перекатывать всю плоскость от угла до угла.</p>
                     </div>
+                    <!-- Окно для картинки -->
+                    <div class="image-window">[ Окно для фото скола на углу ]</div>
                 </div>
 
+                <!-- Пункт 03 -->
                 <div class="editorial-item">
                     <div class="item-num">03</div>
                     <div class="item-text">
                         <h3>Сезон в Сочи стирает обычную краску вместе с грязью</h3>
                         <p>Постоянный поток гостей с чемоданами, мокрые полотенца на стенах и высокая влажность быстро уничтожают нежную отделку. На первой же уборке обычная краска смывается до лысых пятен.</p>
                     </div>
+                    <!-- Окно для картинки -->
+                    <div class="image-window">[ Окно для фото износа / грязных стен ]</div>
                 </div>
 
             </div>
@@ -451,19 +507,28 @@
             
             <div class="tech-grid">
                 
+                <!-- Карточка 1 -->
                 <div class="tech-card">
+                    <!-- Окно для картинки -->
+                    <div class="tech-image-window">[ Схема / фото полимерной базы ]</div>
                     <div class="tech-num">01</div>
                     <h3>Упругость вместо хрупкости</h3>
                     <p>Шпатлевка OTTINGER создана на эластичной полимерной базе. В отличие от жесткого гипса, она гасит микродеформации стен и случайные удары, защищая углы от сколов.</p>
                 </div>
 
+                <!-- Карточка 2 -->
                 <div class="tech-card">
+                    <!-- Окно для картинки -->
+                    <div class="tech-image-window">[ Срез фиброволокна под микроскопом ]</div>
                     <div class="tech-num">02</div>
                     <h3>Армирование без холста</h3>
                     <p>Микроволокна связывают состав шпатлевки изнутри, удерживая швы от трещин. Это позволяет полностью отказаться от долгой поклейки стеклохолста и клея.</p>
                 </div>
 
+                <!-- Карточка 3 -->
                 <div class="tech-card">
+                    <!-- Окно для картинки -->
+                    <div class="tech-image-window">[ Тест краски: мокрая очистка ]</div>
                     <div class="tech-num">03</div>
                     <h3>Моющаяся керамика</h3>
                     <p>Финишная краска содержит керамические микрочастицы. Она образует сверхплотную мембрану: следы от сумок, обуви или жира отмываются простой водой без затертостей.</p>
@@ -474,55 +539,63 @@
         </div>
     </section>
 
-    <!-- БЛОК 4: ЭКОНОМИКА (СКОРОСТЬ И РАСХОД) -->
-    <section class="economics-section">
-        <div class="economics-split">
-            
-            <!-- Левая колонка: Скорость -->
-            <div class="econ-col">
-                <h3 class="econ-col-title">Как сдать объект на 40% быстрее?</h3>
-                <div class="econ-list">
-                    <div class="econ-item">
-                        <h4>3 слоя вместо 5</h4>
-                        <p>Из технологии полностью исключаются стеклохолст и клей. Больше не нужно грунтовать холст сверху и бесконечно ждать высыхания каждого промежуточного слоя.</p>
-                    </div>
-                    <div class="econ-item">
-                        <h4>Работа без простоев</h4>
-                        <p>Маляры работают непрерывно. Отделка идет в 1.5 раза быстрее, потому что исключен долгий процесс сушки клея под холст.</p>
-                    </div>
-                    <div class="econ-item">
-                        <h4>0 рублей на гарантийный ремонт</h4>
-                        <p>Вы сдаете готовую малярку с первого раза. Никаких трещин на стыках холста и никаких ночных доделок перед приездом технадзора.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Правая колонка: Расход -->
-            <div class="econ-col">
-                <h3 class="econ-col-title">Сколько шпатлевки вы сошкуриваете на пол?</h3>
-                <div class="econ-list">
-                    <div class="econ-item">
-                        <h4>Вы не выбрасываете свои деньги</h4>
-                        <p>Обычные финишные пасты дают сильную усадку. Малярам приходится наносить материал с запасом, а потом сошкуривать половину шпатлевки на пол в мешки для мусора. Усадка OTTINGER равна нулю — весь нанесенный материал остается на стене.</p>
-                    </div>
-                    <div class="econ-item">
-                        <h4>1 канистра заменяет 3 позиции</h4>
-                        <p>Одна канистра OTTINGER BASIS FINISH PRO заменяет: 2 ведра стандартного финиша (Semin) + 1 ведро специального клея + рулон стеклохолста.</p>
-                    </div>
-                    <div class="econ-item">
-                        <h4>Чистый объект без гор пыли</h4>
-                        <p>При шлифовке OTTINGER дает тяжелую крупную пыль, которая сразу падает на пол, а не висит в воздухе неделями, забивая наждачку и легкие мастеров.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
+    <!-- БЛОК 4: ЭКОНОМИКА (ЦИФРОВОЙ ДАШБОРД) -->
+    <section class="metrics-section">
         <div class="section-container">
+            
+            <h2 class="section-title text-center">Экономика вашего объекта в цифрах</h2>
+            
+            <!-- Группа 1: Сроки -->
+            <div class="metrics-group">
+                <div class="metrics-group-title">Скорость и Сроки</div>
+                <div class="metrics-grid">
+                    
+                    <div class="metric-card">
+                        <div class="metric-val">3 слоя</div>
+                        <div class="metric-label"><strong>Вместо стандартных 5.</strong> Исключаем клей и стеклохолст из процесса малярных работ.</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-val">-40%</div>
+                        <div class="metric-label"><strong>Времени на малярку.</strong> Отделка идет непрерывно, без простоя на сушку клея под холст.</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-val">0 переделок</div>
+                        <div class="metric-label"><strong>Сдача с первого раза.</strong> Стены сдаются заказчику без трещин на стыках швов.</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Группа 2: Расход -->
+            <div class="metrics-group">
+                <div class="metrics-group-title">Расход и Материалы</div>
+                <div class="metrics-grid">
+                    
+                    <div class="metric-card">
+                        <div class="metric-val">1 ведро</div>
+                        <div class="metric-label"><strong>OTTINGER.</strong> Полностью заменяет: 2 ведра стандартного финиша (Semin) + ведро клея.</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-val">0% усадки</div>
+                        <div class="metric-label"><strong>Чистый расход.</strong> Шпатлевка остается на стене, а не сошкуривается в мусорные мешки.</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-val">Без пыли</div>
+                        <div class="metric-label"><strong>Чистый объект.</strong> Тяжелая пыль сразу падает вниз, а не висит в воздухе неделями.</div>
+                    </div>
+
+                </div>
+            </div>
+
             <!-- ПЕРЕХОДНОЙ БЛОК -->
             <div class="transition-block" style="text-align: center;">
                 <h3>Итог: на практике эта технология сокращает сроки малярки на <span>40%</span> и защищает вас от переделок</h3>
             </div>
+
         </div>
     </section>
 
