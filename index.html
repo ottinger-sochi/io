@@ -100,7 +100,7 @@
             font-weight: bold;
             text-decoration: none;
             border-radius: 6px;
-            transition: background-color 0.2s ease;
+            transition: background-color 0.2s ease, transform 0.1s ease;
             width: 100%;
             max-width: 320px;
         }
@@ -109,7 +109,7 @@
             color: #ffffff;
         }
         .btn-primary:active {
-            background-color: #e04a1b;
+            transform: scale(0.98);
         }
         .hero-media {
             width: 100%;
@@ -163,7 +163,7 @@
             flex-direction: column;
             padding: 35px 0;
             border-top: 1px solid #222222;
-            gap: 25px; /* Зазор между текстом и плейсхолдером на мобильных */
+            gap: 25px;
         }
         .editorial-item:last-child {
             border-bottom: 1px solid #222222;
@@ -189,7 +189,7 @@
             max-width: 750px;
         }
 
-        /* Стиль "окна-плейсхолдера" для картинок */
+        /* Стиль "окна-плейсхолдера" для картинок Блока 2 */
         .image-window {
             width: 100%;
             height: 220px;
@@ -206,7 +206,7 @@
             font-weight: bold;
         }
 
-        /* БЛОК 3: ТЕХНОЛОГИЧЕСКИЙ РЯД */
+        /* БЛОК 3: ТЕХНОЛОГИЧЕСКИЙ РЯД (ГРИД) */
         .tech-section {
             background-color: #0d0d0d;
             padding: 80px 20px;
@@ -264,7 +264,7 @@
             font-weight: bold;
         }
 
-        /* БЛОК 4: ЭКОНОМИКА (ЦИФРОВОЙ ДАШБОРД) */
+        /* БЛОК 4: ЭКОНОМИКА (ДАШБОРД) */
         .metrics-section {
             background-color: #0d0d0d;
             padding: 80px 20px;
@@ -310,6 +310,91 @@
         }
         .metric-label strong {
             color: #ffffff;
+        }
+
+        /* БЛОК 5: КАТАЛОГ БАЗОВЫХ ПРОДУКТОВ */
+        .products-section {
+            background-color: #0d0d0d;
+            padding: 80px 20px;
+            border-top: 1px solid #1a1a1a;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        .product-card {
+            background-color: #121212;
+            border: 1px solid #222222;
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-card:hover {
+            border-color: #ff5722;
+        }
+        .product-image-window {
+            width: 100%;
+            height: 200px;
+            background-color: #0d0d0d;
+            border: 1px dashed #222222;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #444444;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+        .product-step {
+            font-size: 0.75rem;
+            color: #ff5722;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+        }
+        .product-card h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 10px;
+            letter-spacing: -0.3px;
+        }
+        .product-desc {
+            color: #8c8c8c;
+            font-size: 0.9rem;
+            line-height: 1.45;
+            margin-bottom: 20px;
+            min-height: 60px; /* Выравнивает высоту описания */
+        }
+        .product-specs {
+            border-top: 1px solid #222222;
+            padding-top: 15px;
+            margin-bottom: 25px;
+        }
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+        .spec-lbl {
+            color: #555555;
+        }
+        .spec-val {
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .btn-catalog {
+            font-size: 0.9rem;
+            padding: 12px 20px;
+            max-width: 100%;
         }
 
         /* Переходной блок */
@@ -361,7 +446,7 @@
                 margin-bottom: 80px;
             }
             .editorial-item {
-                flex-direction: row; /* Текст слева, Окно справа */
+                flex-direction: row;
                 align-items: center;
                 padding: 50px 0;
                 gap: 50px;
@@ -381,7 +466,7 @@
                 font-size: 1.05rem;
             }
             .image-window {
-                width: 380px; /* Фиксированная ширина окна на ПК */
+                width: 380px;
                 height: 240px;
                 flex-shrink: 0;
             }
@@ -415,6 +500,18 @@
             }
             .metric-label {
                 font-size: 1.05rem;
+            }
+
+            /* Блок 5 */
+            .products-section {
+                padding: 120px 40px;
+            }
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr); /* 3 ровные карточки на ПК */
+                gap: 25px;
+            }
+            .product-card {
+                padding: 30px;
             }
 
             .transition-block {
@@ -461,36 +558,30 @@
             
             <div class="editorial-list">
                 
-                <!-- Пункт 01 -->
                 <div class="editorial-item">
                     <div class="item-num">01</div>
                     <div class="item-text">
                         <h3>Маляр всегда отвечает за косяки предыдущих бригад</h3>
                         <p>«Да там просто валиком покатать» — говорят заказчики. Но если треснет черновая штукатурка или поведет гипсокартон, винят маляра, ведь дефект вылез на его финишной краске.</p>
                     </div>
-                    <!-- Окно для картинки -->
                     <div class="image-window">[ Окно для фото дефекта стыка ]</div>
                 </div>
 
-                <!-- Пункт 02 -->
                 <div class="editorial-item">
                     <div class="item-num">02</div>
                     <div class="item-text">
                         <h3>Мебельщики заносят шкаф — маляр красит стену заново</h3>
                         <p>Один случайный скол на углу при монтаже кухни означает полную переделку. С хрупкими материалами нельзя просто затереть изъян — приходится заново перекатывать всю плоскость от угла до угла.</p>
                     </div>
-                    <!-- Окно для картинки -->
                     <div class="image-window">[ Окно для фото скола на углу ]</div>
                 </div>
 
-                <!-- Пункт 03 -->
                 <div class="editorial-item">
                     <div class="item-num">03</div>
                     <div class="item-text">
                         <h3>Сезон в Сочи стирает обычную краску вместе с грязью</h3>
                         <p>Постоянный поток гостей с чемоданами, мокрые полотенца на стенах и высокая влажность быстро уничтожают нежную отделку. На первой же уборке обычная краска смывается до лысых пятен.</p>
                     </div>
-                    <!-- Окно для картинки -->
                     <div class="image-window">[ Окно для фото износа / грязных стен ]</div>
                 </div>
 
@@ -507,27 +598,21 @@
             
             <div class="tech-grid">
                 
-                <!-- Карточка 1 -->
                 <div class="tech-card">
-                    <!-- Окно для картинки -->
                     <div class="tech-image-window">[ Схема / фото полимерной базы ]</div>
                     <div class="tech-num">01</div>
                     <h3>Упругость вместо хрупкости</h3>
                     <p>Шпатлевка OTTINGER создана на эластичной полимерной базе. В отличие от жесткого гипса, она гасит микродеформации стен и случайные удары, защищая углы от сколов.</p>
                 </div>
 
-                <!-- Карточка 2 -->
                 <div class="tech-card">
-                    <!-- Окно для картинки -->
                     <div class="tech-image-window">[ Срез фиброволокна под микроскопом ]</div>
                     <div class="tech-num">02</div>
                     <h3>Армирование без холста</h3>
                     <p>Микроволокна связывают состав шпатлевки изнутри, удерживая швы от трещин. Это позволяет полностью отказаться от долгой поклейки стеклохолста и клея.</p>
                 </div>
 
-                <!-- Карточка 3 -->
                 <div class="tech-card">
-                    <!-- Окно для картинки -->
                     <div class="tech-image-window">[ Тест краски: мокрая очистка ]</div>
                     <div class="tech-num">03</div>
                     <h3>Моющаяся керамика</h3>
@@ -539,13 +624,12 @@
         </div>
     </section>
 
-    <!-- БЛОК 4: ЭКОНОМИКА (ЦИФРОВОЙ ДАШБОРД) -->
+    <!-- БЛОК 4: ЭКОНОМИКА (ДАШБОРД) -->
     <section class="metrics-section">
         <div class="section-container">
             
             <h2 class="section-title text-center">Экономика вашего объекта в цифрах</h2>
             
-            <!-- Группа 1: Сроки -->
             <div class="metrics-group">
                 <div class="metrics-group-title">Скорость и Сроки</div>
                 <div class="metrics-grid">
@@ -568,7 +652,6 @@
                 </div>
             </div>
 
-            <!-- Группа 2: Расход -->
             <div class="metrics-group">
                 <div class="metrics-group-title">Расход и Материалы</div>
                 <div class="metrics-grid">
@@ -589,6 +672,61 @@
                     </div>
 
                 </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- БЛОК 5: КАТАЛОГ МАТЕРИАЛОВ -->
+    <section class="products-section" id="products">
+        <div class="section-container">
+            
+            <h2 class="section-title text-center">Материалы для создания монолитных стен</h2>
+            
+            <div class="product-grid">
+                
+                <!-- Продукт 1 -->
+                <div class="product-card">
+                    <div class="product-image-window">[ Канистра Primer Konzentrat ]</div>
+                    <div class="product-step">Этап 1: Подготовка</div>
+                    <h3>Primer Konzentrat</h3>
+                    <p class="product-desc">Намертво связывает строительную пыль, укрепляет черновую штукатурку и ГКЛ перед шпатлеванием.</p>
+                    <div class="product-specs">
+                        <div class="spec-row"><span class="spec-lbl">Разбавление:</span><span class="spec-val">водой до 1:4</span></div>
+                        <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">~10 м²/л</span></div>
+                        <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5л / 10л</span></div>
+                    </div>
+                    <a href="https://wa.me/79782214051?text=Хочу%20запросить%20образец%20грунта%20Primer%20Konzentrat" class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
+                </div>
+
+                <!-- Продукт 2 -->
+                <div class="product-card">
+                    <div class="product-image-window">[ Ведро Basis Finish Pro ]</div>
+                    <div class="product-step">Этап 2: Выравнивание</div>
+                    <h3>Basis Finish Pro</h3>
+                    <p class="product-desc">Готовая полимерная шпатлевка для финишного выравнивания. Обладает ультратонким нанесением и легкой шлифовкой.</p>
+                    <div class="product-specs">
+                        <div class="spec-row"><span class="spec-lbl">Толщина слоя:</span><span class="spec-val">до 3 мм</span></div>
+                        <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">от 0.5 кг/м²</span></div>
+                        <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5кг / 25кг</span></div>
+                    </div>
+                    <a href="https://wa.me/79782214051?text=Хочу%20запросить%20образец%20шпатлевки%20Basis%20Finish%20Pro" class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
+                </div>
+
+                <!-- Продукт 3 -->
+                <div class="product-card">
+                    <div class="product-image-window">[ Ведро Premium Keramik Matt ]</div>
+                    <div class="product-step">Этап 3: Окрашивание</div>
+                    <h3>Premium Keramik Matt</h3>
+                    <p class="product-desc">Премиальная матовая краска с керамическими добавками. Грязеотталкивающая, выдерживает интенсивное мытье.</p>
+                    <div class="product-specs">
+                        <div class="spec-row"><span class="spec-lbl">Степень глянца:</span><span class="spec-val">матовая 5</span></div>
+                        <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">10 м²/л</span></div>
+                        <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">0.9л / 2.5л / 9л</span></div>
+                    </div>
+                    <a href="https://wa.me/79782214051?text=Хочу%20запросить%20образец%20краски%20Premium%20Keramik%20Matt" class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
+                </div>
+
             </div>
 
             <!-- ПЕРЕХОДНОЙ БЛОК -->
