@@ -53,31 +53,35 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 40px 15px;
+            padding: 20px 15px 40px 15px;
             max-width: 1200px;
             margin: 0 auto;
-            min-height: calc(100vh - 70px);
-            justify-content: center;
+            justify-content: flex-start;
         }
         .hero-content {
-            max-width: 1000px;
-            margin: 0 auto 35px auto;
+            margin-bottom: 25px;
             width: 100%;
         }
+        
+        /* Стилизация заголовка */
         h1 {
             font-size: 1.6rem;
             line-height: 1.3;
             font-weight: 800;
             color: #ffffff;
         }
+        
+        /* Выделение ключевых слов */
         .accent-color {
             color: #ff5722;
         }
+        
+        /* Запрет переноса слов внутри тега */
         .nowrap {
             white-space: nowrap;
         }
 
-        /* GIF-анимация по центру */
+        /* GIF-анимация */
         .hero-media {
             width: 100%;
             max-width: 600px;
@@ -86,7 +90,7 @@
             background-color: #1a1a1a;
             aspect-ratio: 16 / 9;
             border: 1px solid #222222;
-            margin: 0 auto 30px auto;
+            margin-bottom: 30px;
         }
         .hero-media img {
             width: 100%;
@@ -94,7 +98,7 @@
             object-fit: cover;
         }
         
-        /* Кнопка под GIF */
+        /* Кнопка */
         .cta-container {
             display: flex;
             justify-content: center;
@@ -104,7 +108,7 @@
         .btn {
             display: inline-block;
             text-align: center;
-            padding: 18px 36px;
+            padding: 16px 32px;
             font-size: 1rem;
             font-weight: bold;
             text-decoration: none;
@@ -116,13 +120,12 @@
         .btn-primary {
             background-color: #ff5722;
             color: #ffffff;
-            box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
         }
         .btn-primary:active {
             transform: scale(0.98);
         }
 
-        /* СОВРЕМЕННЫЙ БЛОК 2 - Карточки с фоновыми картинками */
+        /* БЛОК 2 - Сетка с живыми демо-картинками */
         .how-it-works-section {
             background-color: #0d0d0d;
             padding: 60px 15px;
@@ -146,7 +149,7 @@
             gap: 20px;
         }
         
-        /* Стиль современной карточки-плитки */
+        /* Современная карточка-плитка */
         .pain-card {
             position: relative;
             height: 380px;
@@ -160,10 +163,9 @@
             background-size: cover;
             background-position: center;
             transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.3s ease;
-            cursor: pointer;
         }
         
-        /* Градиент поверх картинки, чтобы белый текст читался идеально */
+        /* Затемнение картинки для читаемости текста */
         .pain-card::before {
             content: "";
             position: absolute;
@@ -171,9 +173,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.1) 100%);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0.2) 100%);
             z-index: 1;
-            transition: opacity 0.3s ease;
         }
         
         .pain-card:hover {
@@ -181,7 +182,6 @@
             border-color: #ff5722;
         }
         
-        /* Контент внутри карточки */
         .card-content {
             position: relative;
             z-index: 2;
@@ -214,7 +214,9 @@
                 padding: 20px 40px;
             }
             .hero {
-                padding: 60px 40px;
+                padding: 50px 40px;
+                min-height: calc(100vh - 70px);
+                justify-content: center;
             }
             h1 {
                 font-size: 3.4rem;
@@ -224,7 +226,6 @@
                 display: block;
             }
             
-            /* Сетка Блока 2 на ПК */
             .how-it-works-section {
                 padding: 100px 40px;
             }
@@ -233,11 +234,11 @@
                 margin-bottom: 60px;
             }
             .pain-grid {
-                grid-template-columns: repeat(3, 1fr); /* 3 ровные современные плитки */
+                grid-template-columns: repeat(3, 1fr);
                 gap: 25px;
             }
             .pain-card {
-                height: 450px; /* Сделали карточки выше и эффектнее на ПК */
+                height: 450px;
             }
         }
         
@@ -274,7 +275,7 @@
         </div>
     </main>
 
-    <!-- СОВРЕМЕННЫЙ БЛОК 2: КАРТОЧКИ С КАРТИНКАМИ -->
+    <!-- СОВРЕМЕННЫЙ БЛОК 2 -->
     <section class="how-it-works-section" id="how-it-works">
         <div class="section-container">
             <h2 class="section-title">Почему малярные работы всегда превращаются в бесконечные переделки?</h2>
@@ -282,8 +283,7 @@
             <div class="pain-grid">
                 
                 <!-- Карточка 1 (Сбитые углы) -->
-                <!-- Путь к картинке: images/card1.jpg. Замените её на сгенерированную по промту 1 -->
-                <div class="pain-card" style="background-image: url('images/card1.jpg');">
+                <div class="pain-card" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80');">
                     <span class="card-num">01</span>
                     <div class="card-content">
                         <h3>Сбитые углы</h3>
@@ -292,8 +292,7 @@
                 </div>
 
                 <!-- Карточка 2 (Пятна при подкрасах) -->
-                <!-- Путь к картинке: images/card2.jpg. Замените её на сгенерированную по промту 2 -->
-                <div class="pain-card" style="background-image: url('images/card2.jpg');">
+                <div class="pain-card" style="background-image: url('https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80');">
                     <span class="card-num">02</span>
                     <div class="card-content">
                         <h3>Пятна при подкрасах</h3>
@@ -302,8 +301,7 @@
                 </div>
 
                 <!-- Карточка 3 (Брак материалов) -->
-                <!-- Путь к картинке: images/card3.jpg. Замените её на сгенерированную по промту 3 -->
-                <div class="pain-card" style="background-image: url('images/card3.jpg');">
+                <div class="pain-card" style="background-image: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80');">
                     <span class="card-num">03</span>
                     <div class="card-content">
                         <h3>Брак материалов</h3>
