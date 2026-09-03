@@ -47,27 +47,26 @@
             font-size: 0.9rem;
         }
 
-        /* ПЕРВЫЙ ЭКРАН - Строгая симметричная верстка */
+        /* ПЕРВЫЙ ЭКРАН */
         .hero {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 40px 20px;
+            padding: 40px 15px;
             max-width: 1200px;
             margin: 0 auto;
             min-height: calc(100vh - 70px);
             justify-content: center;
         }
         .hero-content {
-            max-width: 850px; /* Ограничение ширины заголовка на ПК */
-            margin: 0 auto 30px auto;
+            max-width: 1000px;
+            margin: 0 auto 35px auto;
             width: 100%;
         }
-        
         h1 {
-            font-size: 2.2rem;
-            line-height: 1.25;
+            font-size: 1.6rem;
+            line-height: 1.3;
             font-weight: 800;
             color: #ffffff;
         }
@@ -81,7 +80,7 @@
         /* GIF-анимация по центру */
         .hero-media {
             width: 100%;
-            max-width: 600px; /* Фиксированный оптимальный размер на ПК */
+            max-width: 600px;
             border-radius: 12px;
             overflow: hidden;
             background-color: #1a1a1a;
@@ -123,10 +122,10 @@
             transform: scale(0.98);
         }
 
-        /* БЛОК 2 - Сетка проблем малярки */
+        /* СОВРЕМЕННЫЙ БЛОК 2 - Карточки с фоновыми картинками */
         .how-it-works-section {
-            background-color: #121212;
-            padding: 60px 20px;
+            background-color: #0d0d0d;
+            padding: 60px 15px;
             border-top: 1px solid #222222;
         }
         .section-container {
@@ -139,39 +138,77 @@
             font-weight: 800;
             margin-bottom: 40px;
             line-height: 1.3;
+            letter-spacing: -0.5px;
         }
         .pain-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 25px;
+            gap: 20px;
         }
+        
+        /* Стиль современной карточки-плитки */
         .pain-card {
-            background-color: #1a1a1a;
+            position: relative;
+            height: 380px;
+            border-radius: 12px;
+            overflow: hidden;
             border: 1px solid #222222;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
             padding: 30px;
-            border-radius: 8px;
-            text-align: left;
-            transition: border-color 0.2s ease;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.3s ease;
+            cursor: pointer;
         }
+        
+        /* Градиент поверх картинки, чтобы белый текст читался идеально */
+        .pain-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.1) 100%);
+            z-index: 1;
+            transition: opacity 0.3s ease;
+        }
+        
         .pain-card:hover {
-            border-color: #444444;
+            transform: translateY(-5px);
+            border-color: #ff5722;
+        }
+        
+        /* Контент внутри карточки */
+        .card-content {
+            position: relative;
+            z-index: 2;
+        }
+        .card-num {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.15);
+            z-index: 2;
         }
         .pain-card h3 {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #ff5722;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 10px;
+            letter-spacing: -0.3px;
         }
         .pain-card p {
-            color: #b3b3b3;
-            font-size: 0.95rem;
-            line-height: 1.5;
+            color: #cccccc;
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
 
-        /* Адаптивность для больших экранов (Desktop) */
+        /* Адаптивность для ПК */
         @media (min-width: 768px) {
             header {
                 padding: 20px 40px;
@@ -181,12 +218,13 @@
             }
             h1 {
                 font-size: 3.4rem;
+                line-height: 1.35;
             }
             h1 br {
                 display: block;
             }
             
-            /* Стили Блока 2 на ПК */
+            /* Сетка Блока 2 на ПК */
             .how-it-works-section {
                 padding: 100px 40px;
             }
@@ -195,8 +233,11 @@
                 margin-bottom: 60px;
             }
             .pain-grid {
-                grid-template-columns: repeat(3, 1fr); /* Ровно 3 колонки */
-                gap: 30px;
+                grid-template-columns: repeat(3, 1fr); /* 3 ровные современные плитки */
+                gap: 25px;
+            }
+            .pain-card {
+                height: 450px; /* Сделали карточки выше и эффектнее на ПК */
             }
         }
         
@@ -233,35 +274,41 @@
         </div>
     </main>
 
-    <!-- БЛОК 2: ПРОБЛЕМЫ МАЛЯРНЫХ РАБОТ -->
+    <!-- СОВРЕМЕННЫЙ БЛОК 2: КАРТОЧКИ С КАРТИНКАМИ -->
     <section class="how-it-works-section" id="how-it-works">
         <div class="section-container">
             <h2 class="section-title">Почему малярные работы всегда превращаются в бесконечные переделки?</h2>
             
             <div class="pain-grid">
                 
-                <!-- Карточка 1 -->
-                <div class="pain-card">
-                    <h3>Сбитые углы</h3>
-                    <p>
-                        Классические шпатлевки на основе гипса или мела очень хрупкие. Они легко выкрашиваются от любого случайного зацепа стремянкой или коробкой. Каждый легкий удар превращается в скол, который приходится восстанавливать заново.
-                    </p>
+                <!-- Карточка 1 (Сбитые углы) -->
+                <!-- Путь к картинке: images/card1.jpg. Замените её на сгенерированную по промту 1 -->
+                <div class="pain-card" style="background-image: url('images/card1.jpg');">
+                    <span class="card-num">01</span>
+                    <div class="card-content">
+                        <h3>Сбитые углы</h3>
+                        <p>Хрупкий гипс в шпатлевках выкрашивается от любого случайного касания стремянкой или коробкой.</p>
+                    </div>
                 </div>
 
-                <!-- Карточка 2 -->
-                <div class="pain-card">
-                    <h3>Пятна при подкрасах</h3>
-                    <p>
-                        На обычной матовой краске невозможно точечно закрасить мелкую царапину — на стене гарантированно останется заметное глянцевое пятно («ореол»). Из-за одного дефекта маляры вынуждены перекрашивать всю стену от угла до угла за свой счет.
-                    </p>
+                <!-- Карточка 2 (Пятна при подкрасах) -->
+                <!-- Путь к картинке: images/card2.jpg. Замените её на сгенерированную по промту 2 -->
+                <div class="pain-card" style="background-image: url('images/card2.jpg');">
+                    <span class="card-num">02</span>
+                    <div class="card-content">
+                        <h3>Пятна при подкрасах</h3>
+                        <p>На обычной краске невозможно закрасить царапину локально — останется заметный глянцевый «ореол».</p>
+                    </div>
                 </div>
 
-                <!-- Карточка 3 -->
-                <div class="pain-card">
-                    <h3>Брак материалов</h3>
-                    <p>
-                        Нестабильные шпатлевки дают сильную усадку и со временем трещат на стыках гипсокартона. Обычная интерьерная краска ложится пятнами из-за слабой укрывистости. Маляр тратит время, исправляя дефекты самого материала.
-                    </p>
+                <!-- Карточка 3 (Брак материалов) -->
+                <!-- Путь к картинке: images/card3.jpg. Замените её на сгенерированную по промту 3 -->
+                <div class="pain-card" style="background-image: url('images/card3.jpg');">
+                    <span class="card-num">03</span>
+                    <div class="card-content">
+                        <h3>Брак материалов</h3>
+                        <p>Дешевая шпатлевка усаживается и дает трещины на стыках, а краска ложится пятнами.</p>
+                    </div>
                 </div>
 
             </div>
