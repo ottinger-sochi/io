@@ -48,53 +48,42 @@
             font-size: 0.9rem;
         }
 
-        /* ПЕРВЫЙ ЭКРАН - Центрированный премиум-макет */
+        /* Первый экран */
         .hero {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 20px 15px 40px 15px;
-            max-width: 1000px;
+            padding: 40px 15px;
+            max-width: 1200px;
             margin: 0 auto;
             min-height: calc(100vh - 70px);
             justify-content: center;
         }
         .hero-content {
-            margin-bottom: 25px;
+            margin-bottom: 35px;
             width: 100%;
         }
+        
+        /* Стилизация заголовка - Оптимальный размер для мобильных */
         h1 {
             font-size: 1.6rem;
-            line-height: 1.3;
+            line-height: 1.35;
+            margin-bottom: 25px;
             font-weight: 800;
             color: #ffffff;
         }
+        
+        /* Выделение ключевых слов */
         .accent-color {
             color: #ff5722;
         }
+        
+        /* Запрет переноса слов внутри тега */
         .nowrap {
             white-space: nowrap;
         }
-
-        /* GIF-анимация */
-        .hero-media {
-            width: 100%;
-            max-width: 600px;
-            border-radius: 12px;
-            overflow: hidden;
-            background-color: #1a1a1a;
-            aspect-ratio: 16 / 9;
-            border: 1px solid #222222;
-            margin-bottom: 30px;
-        }
-        .hero-media img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
         
-        /* Кнопка под GIF */
         .cta-container {
             display: flex;
             justify-content: center;
@@ -109,7 +98,7 @@
             font-weight: bold;
             text-decoration: none;
             border-radius: 6px;
-            transition: background-color 0.2s ease, transform 0.1s ease;
+            transition: background-color 0.2s ease;
             width: 100%;
             max-width: 320px;
         }
@@ -118,10 +107,54 @@
             color: #ffffff;
         }
         .btn-primary:active {
-            transform: scale(0.98);
+            background-color: #e04a1b;
+        }
+        
+        /* GIF-анимация */
+        .hero-media {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #1a1a1a;
+            aspect-ratio: 16 / 9;
+            border: 1px solid #222222;
+            margin: 0 auto 30px auto;
+        }
+        .hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        /* БЛОК 2 - ЖУРНАЛЬНЫЙ СТИЛЬ (STARK EDITORIAL) */
+        /* Адаптивность для планшетов и ПК */
+        @media (min-width: 768px) {
+            header {
+                padding: 20px 40px;
+            }
+            .hero {
+                padding: 50px 40px;
+            }
+            h1 {
+                font-size: 3.4rem;
+                line-height: 1.3;
+                max-width: 1080px; /* Жесткий лимит ширины на ПК, чтобы строчки не ломались лишний раз */
+                margin: 0 auto 30px auto;
+            }
+            /* Показываем перенос строки строго после слова "работы" на ПК */
+            h1 br {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            /* Скрываем принудительный перенос строки на мобильных для плавной адаптации по ширине */
+            h1 br {
+                display: none;
+            }
+        }
+        
+        /* СОВРЕМЕННЫЙ ЖУРНАЛЬНЫЙ БЛОК 2 */
         .how-it-works-section {
             background-color: #0d0d0d;
             padding: 80px 20px;
@@ -132,7 +165,7 @@
             margin: 0 auto;
         }
         .section-title {
-            text-align: left; /* Журнальное выравнивание по левому краю */
+            text-align: left;
             font-size: 2rem;
             font-weight: 800;
             margin-bottom: 50px;
@@ -142,7 +175,6 @@
             color: #ffffff;
         }
         
-        /* Список проблем */
         .editorial-list {
             display: flex;
             flex-direction: column;
@@ -151,13 +183,12 @@
             display: flex;
             flex-direction: column;
             padding: 30px 0;
-            border-top: 1px solid #222222; /* Тонкая линия-разделитель */
+            border-top: 1px solid #222222;
         }
         .editorial-item:last-child {
             border-bottom: 1px solid #222222;
         }
         
-        /* Огромные тонкие оранжевые цифры */
         .item-num {
             font-size: 3rem;
             font-weight: 200;
@@ -181,7 +212,6 @@
             max-width: 750px;
         }
 
-        /* Переходной блок к решению OTTINGER */
         .transition-block {
             text-align: left;
             max-width: 850px;
@@ -199,25 +229,7 @@
             color: #ff5722;
         }
 
-        /* Адаптивность для больших экранов (Desktop) */
         @media (min-width: 768px) {
-            header {
-                padding: 20px 40px;
-            }
-            .hero {
-                padding: 50px 40px;
-                min-height: calc(100vh - 70px);
-                justify-content: center;
-            }
-            h1 {
-                font-size: 3.4rem;
-                line-height: 1.35;
-            }
-            h1 br {
-                display: block;
-            }
-            
-            /* Блок 2 на ПК */
             .how-it-works-section {
                 padding: 120px 40px;
             }
@@ -226,13 +238,13 @@
                 margin-bottom: 80px;
             }
             .editorial-item {
-                flex-direction: row; /* Горизонтальное расположение: цифра слева, текст справа */
+                flex-direction: row;
                 align-items: flex-start;
                 padding: 45px 0;
             }
             .item-num {
                 font-size: 4.5rem;
-                min-width: 180px; /* Фиксированное расстояние под цифру */
+                min-width: 180px;
                 margin-bottom: 0;
             }
             .item-text {
@@ -252,12 +264,6 @@
                 font-size: 2rem;
             }
         }
-        
-        @media (max-width: 767px) {
-            h1 br {
-                display: none;
-            }
-        }
     </style>
 </head>
 <body>
@@ -270,10 +276,10 @@
     <!-- ПЕРВЫЙ ЭКРАН -->
     <main class="hero">
         <div class="hero-content">
+            <!-- Ровный, сбалансированный перенос строки на ПК с помощью тега <br> -->
             <h1>
                 Как навсегда избавить малярные работы <br>
-                от <span class="accent-color">брака</span> и <br>
-                <span class="accent-color nowrap">бесконечных переделок</span>
+                от <span class="accent-color">брака</span> и <span class="accent-color nowrap">бесконечных переделок</span>
             </h1>
         </div>
 
@@ -286,7 +292,7 @@
         </div>
     </main>
 
-    <!-- БЛОК 2: ЖУРНАЛЬНЫЙ СТИЛЬ С ПРОВЕРЕННЫМИ ТЕКСТАМИ -->
+    <!-- СОВРЕМЕННЫЙ ЖУРНАЛЬНЫЙ БЛОК 2 -->
     <section class="how-it-works-section" id="how-it-works">
         <div class="section-container">
             
