@@ -206,7 +206,7 @@
             font-weight: bold;
         }
 
-        /* БЛОК 3: ТЕХНОЛОГИЧЕСКИЙ РЯД (ГРИД) */
+        /* БЛОК 3: ТЕХНОЛОГИЧЕСКИЙ РЯД */
         .tech-section {
             background-color: #0d0d0d;
             padding: 80px 20px;
@@ -322,6 +322,7 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 30px;
+            margin-bottom: 40px; /* Зазор перед банером каталога */
         }
         .product-card {
             background-color: #121212;
@@ -371,7 +372,7 @@
             font-size: 0.9rem;
             line-height: 1.45;
             margin-bottom: 20px;
-            min-height: 60px; /* Выравнивает высоту описания */
+            min-height: 60px;
         }
         .product-specs {
             border-top: 1px solid #222222;
@@ -395,6 +396,44 @@
             font-size: 0.9rem;
             padding: 12px 20px;
             max-width: 100%;
+        }
+
+        /* Стиль банера-запроса полного каталога */
+        .catalog-callout {
+            border: 1px solid #222222;
+            background-color: #121212;
+            border-radius: 8px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: left;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .callout-text h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+        }
+        .callout-text p {
+            color: #8c8c8c;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        .btn-callout {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #444444;
+            font-size: 0.9rem;
+            padding: 14px 28px;
+            max-width: 100%;
+        }
+        .btn-callout:hover {
+            border-color: #ff5722;
+            background-color: #1a1412;
         }
 
         /* Переходной блок */
@@ -507,11 +546,29 @@
                 padding: 120px 40px;
             }
             .product-grid {
-                grid-template-columns: repeat(3, 1fr); /* 3 ровные карточки на ПК */
+                grid-template-columns: repeat(3, 1fr);
                 gap: 25px;
             }
             .product-card {
                 padding: 30px;
+            }
+
+            /* Банер полного каталога на ПК */
+            .catalog-callout {
+                flex-direction: row; /* Текст слева, Кнопка справа */
+                justify-content: space-between;
+                align-items: center;
+                padding: 40px;
+            }
+            .callout-text {
+                max-width: 650px;
+            }
+            .callout-text h3 {
+                font-size: 1.5rem;
+            }
+            .btn-callout {
+                max-width: 320px;
+                flex-shrink: 0;
             }
 
             .transition-block {
@@ -606,7 +663,7 @@
                 </div>
 
                 <div class="tech-card">
-                    <div class="tech-image-window">[ Срез фиброволокна под микроскопом ]</div>
+                    <div class="tech-image-window">[ Срез фиброволокна под микроскостом ]</div>
                     <div class="tech-num">02</div>
                     <h3>Армирование без холста</h3>
                     <p>Микроволокна связывают состав шпатлевки изнутри, удерживая швы от трещин. Это позволяет полностью отказаться от долгой поклейки стеклохолста и клея.</p>
@@ -677,7 +734,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 5: КАТАЛОГ МАТЕРИАЛОВ -->
+    <!-- БЛОК 5: КАТАЛОГ МАТЕРИАЛОВ С ПРИЗЫВОМ ЗАКАЗАТЬ ПОЛНЫЙ ПРАЙС -->
     <section class="products-section" id="products">
         <div class="section-container">
             
@@ -729,7 +786,16 @@
 
             </div>
 
-            <!-- ПЕРЕХОДНОЙ БЛОК -->
+            <!-- ИНТЕРАКТИВНЫЙ БАНЕР-ЗАПРОС ПОЛНОГО КАТАЛОГА -->
+            <div class="catalog-callout">
+                <div class="callout-text">
+                    <h3>В линейке OTTINGER более 20 специализированных материалов</h3>
+                    <p>Влагостойкие шпатлевки для стыков, грунт-краски Q3/Q4, глубокоматовые интерьерные финиши и клей. Получите полный технический каталог и прайс-лист для вашего объекта в Сочи.</p>
+                </div>
+                <a href="https://wa.me/79782214051?text=Здравствуйте!%20Пришлите,%20пожалуйста,%20полный%20каталог%20и%20прайс-лист%20продукции%20OTTINGER." class="btn btn-callout" target="_blank">Получить полный прайс-лист</a>
+            </div>
+
+            <!-- ПЕРЕХОДНОЙ БЛОК К ТЕСТ-ДРАЙВУ -->
             <div class="transition-block" style="text-align: center;">
                 <h3>Итог: на практике эта технология сокращает сроки малярки на <span>40%</span> и защищает вас от переделок</h3>
             </div>
