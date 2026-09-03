@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OTTINGER Sochi — Профессиональные отделочные материалы</title>
     <style>
+        /* Базовые стили и сброс */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -46,50 +47,47 @@
             font-size: 0.9rem;
         }
 
-        /* Первый экран - Оптимизированный макет */
+        /* ПЕРВЫЙ ЭКРАН - Строгая симметричная верстка */
         .hero {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 20px 15px 40px 15px; /* Компактный верхний отступ */
-            max-width: 1000px;
+            padding: 40px 20px;
+            max-width: 1200px;
             margin: 0 auto;
-            justify-content: flex-start;
+            min-height: calc(100vh - 70px);
+            justify-content: center;
         }
         .hero-content {
-            margin-bottom: 25px; /* Уменьшили зазор перед GIF */
+            max-width: 850px; /* Ограничение ширины заголовка на ПК */
+            margin: 0 auto 30px auto;
             width: 100%;
         }
         
-        /* Стилизация заголовка */
         h1 {
-            font-size: 1.6rem;
-            line-height: 1.3;
+            font-size: 2.2rem;
+            line-height: 1.25;
             font-weight: 800;
             color: #ffffff;
         }
-        
-        /* Выделение ключевых слов */
         .accent-color {
             color: #ff5722;
         }
-        
-        /* Запрет переноса слов внутри тега */
         .nowrap {
             white-space: nowrap;
         }
 
-        /* Демонстрационный GIF в центре */
+        /* GIF-анимация по центру */
         .hero-media {
             width: 100%;
-            max-width: 640px;
+            max-width: 600px; /* Фиксированный оптимальный размер на ПК */
             border-radius: 12px;
             overflow: hidden;
             background-color: #1a1a1a;
             aspect-ratio: 16 / 9;
             border: 1px solid #222222;
-            margin-bottom: 30px; /* Отступ снизу для кнопки */
+            margin: 0 auto 30px auto;
         }
         .hero-media img {
             width: 100%;
@@ -97,7 +95,7 @@
             object-fit: cover;
         }
         
-        /* Кнопка действия под GIF-файлом */
+        /* Кнопка под GIF */
         .cta-container {
             display: flex;
             justify-content: center;
@@ -107,39 +105,98 @@
         .btn {
             display: inline-block;
             text-align: center;
-            padding: 16px 32px;
+            padding: 18px 36px;
             font-size: 1rem;
             font-weight: bold;
             text-decoration: none;
             border-radius: 6px;
-            transition: background-color 0.2s ease;
+            transition: background-color 0.2s ease, transform 0.1s ease;
             width: 100%;
             max-width: 320px;
         }
         .btn-primary {
             background-color: #ff5722;
             color: #ffffff;
+            box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
         }
         .btn-primary:active {
-            background-color: #e04a1b;
+            transform: scale(0.98);
         }
 
-        /* Адаптивность для планшетов и ПК */
+        /* БЛОК 2 - Сетка проблем малярки */
+        .how-it-works-section {
+            background-color: #121212;
+            padding: 60px 20px;
+            border-top: 1px solid #222222;
+        }
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            line-height: 1.3;
+        }
+        .pain-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        .pain-card {
+            background-color: #1a1a1a;
+            border: 1px solid #222222;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: left;
+            transition: border-color 0.2s ease;
+        }
+        .pain-card:hover {
+            border-color: #444444;
+        }
+        .pain-card h3 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ff5722;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .pain-card p {
+            color: #b3b3b3;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Адаптивность для больших экранов (Desktop) */
         @media (min-width: 768px) {
             header {
                 padding: 20px 40px;
             }
             .hero {
-                padding: 50px 40px;
-                min-height: calc(100vh - 70px);
-                justify-content: center; /* Центрируем контент по вертикали на больших экранах */
+                padding: 60px 40px;
             }
             h1 {
                 font-size: 3.4rem;
-                line-height: 1.35;
             }
             h1 br {
                 display: block;
+            }
+            
+            /* Стили Блока 2 на ПК */
+            .how-it-works-section {
+                padding: 100px 40px;
+            }
+            .section-title {
+                font-size: 2.6rem;
+                margin-bottom: 60px;
+            }
+            .pain-grid {
+                grid-template-columns: repeat(3, 1fr); /* Ровно 3 колонки */
+                gap: 30px;
             }
         }
         
@@ -157,8 +214,8 @@
         <a href="tel:+79782214051" class="phone">+7 (978) 221-40-51</a>
     </header>
 
+    <!-- ПЕРВЫЙ ЭКРАН -->
     <main class="hero">
-        <!-- 1. Заголовок -->
         <div class="hero-content">
             <h1>
                 Как навсегда избавить малярные работы <br>
@@ -167,16 +224,49 @@
             </h1>
         </div>
 
-        <!-- 2. Демонстрационный GIF по центру -->
         <div class="hero-media">
             <img src="ottinger-demo.gif" alt="Демонстрация нанесения OTTINGER" loading="eager">
         </div>
 
-        <!-- 3. Кнопка действия в самом низу первого экрана -->
         <div class="cta-container">
             <a href="#how-it-works" class="btn btn-primary">Как это работает ↓</a>
         </div>
     </main>
+
+    <!-- БЛОК 2: ПРОБЛЕМЫ МАЛЯРНЫХ РАБОТ -->
+    <section class="how-it-works-section" id="how-it-works">
+        <div class="section-container">
+            <h2 class="section-title">Почему малярные работы всегда превращаются в бесконечные переделки?</h2>
+            
+            <div class="pain-grid">
+                
+                <!-- Карточка 1 -->
+                <div class="pain-card">
+                    <h3>Сбитые углы</h3>
+                    <p>
+                        Классические шпатлевки на основе гипса или мела очень хрупкие. Они легко выкрашиваются от любого случайного зацепа стремянкой или коробкой. Каждый легкий удар превращается в скол, который приходится восстанавливать заново.
+                    </p>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="pain-card">
+                    <h3>Пятна при подкрасах</h3>
+                    <p>
+                        На обычной матовой краске невозможно точечно закрасить мелкую царапину — на стене гарантированно останется заметное глянцевое пятно («ореол»). Из-за одного дефекта маляры вынуждены перекрашивать всю стену от угла до угла за свой счет.
+                    </p>
+                </div>
+
+                <!-- Карточка 3 -->
+                <div class="pain-card">
+                    <h3>Брак материалов</h3>
+                    <p>
+                        Нестабильные шпатлевки дают сильную усадку и со временем трещат на стыках гипсокартона. Обычная интерьерная краска ложится пятнами из-за слабой укрывистости. Маляр тратит время, исправляя дефекты самого материала.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
