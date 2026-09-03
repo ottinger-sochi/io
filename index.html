@@ -127,7 +127,7 @@
             object-fit: cover;
         }
 
-        /* ЖУРНАЛЬНЫЙ СТИЛЬ (БЛОК 2 И БЛОК 3) */
+        /* БЛОК 2: ЖУРНАЛЬНЫЙ СТИЛЬ (ПРОБЛЕМЫ) */
         .editorial-section {
             background-color: #0d0d0d;
             padding: 80px 20px;
@@ -147,6 +147,12 @@
             letter-spacing: -0.8px;
             color: #ffffff;
         }
+        .section-title.text-center {
+            text-align: center;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
         
         .editorial-list {
             display: flex;
@@ -161,8 +167,6 @@
         .editorial-item:last-child {
             border-bottom: 1px solid #222222;
         }
-        
-        /* Жирные минималистичные цифры */
         .item-num {
             font-size: 2.2rem;
             font-weight: 900;
@@ -170,7 +174,6 @@
             margin-bottom: 12px;
             line-height: 1;
         }
-        
         .item-text h3 {
             font-size: 1.35rem;
             font-weight: 800;
@@ -185,11 +188,53 @@
             max-width: 750px;
         }
 
+        /* БЛОК 3: ТЕХНОЛОГИЧЕСКИЙ РЯД (ГРИД-ПЛИТКА) */
+        .tech-section {
+            background-color: #0d0d0d;
+            padding: 80px 20px;
+            border-top: 1px solid #1a1a1a;
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .tech-card {
+            background-color: #121212;
+            border: 1px solid #222222;
+            border-radius: 8px;
+            padding: 30px;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        .tech-card:hover {
+            border-color: #ff5722;
+            transform: translateY(-2px);
+        }
+        .tech-num {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #ff5722;
+            margin-bottom: 15px;
+            font-family: "Courier New", Courier, monospace;
+        }
+        .tech-card h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+        .tech-card p {
+            color: #8c8c8c;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
         /* Переходной блок */
         .transition-block {
             text-align: left;
             max-width: 850px;
-            margin: 50px 0 0 0;
+            margin: 50px auto 0 auto;
             padding-top: 30px;
         }
         .transition-block h3 {
@@ -223,6 +268,7 @@
                 letter-spacing: 4px;
             }
             
+            /* Блок 2 */
             .editorial-section {
                 padding: 120px 40px;
             }
@@ -249,6 +295,18 @@
             }
             .item-text p {
                 font-size: 1.05rem;
+            }
+
+            /* Блок 3 */
+            .tech-section {
+                padding: 120px 40px;
+            }
+            .tech-grid {
+                grid-template-columns: repeat(3, 1fr); /* Ровно 3 технологические колонки */
+                gap: 25px;
+            }
+            .tech-card {
+                padding: 40px 30px;
             }
             .transition-block {
                 margin-top: 80px;
@@ -323,42 +381,39 @@
         </div>
     </section>
 
-    <!-- БЛОК 3: ТЕХНОЛОГИЧЕСКОЕ РЕШЕНИЕ OTTINGER -->
-    <section class="editorial-section" style="border-top: none;">
+    <!-- БЛОК 3: ТЕХНОЛОГИИ (НОВЫЙ КОНТРАСТНЫЙ ГРИД-МАКЕТ) -->
+    <section class="tech-section">
         <div class="section-container">
             
-            <h2 class="section-title">Как полимерная броня OTTINGER решает эти проблемы</h2>
+            <h2 class="section-title text-center">Три инженерных решения, которые меняют физику стен</h2>
             
-            <div class="editorial-list">
+            <div class="tech-grid">
                 
-                <div class="editorial-item">
-                    <div class="item-num">01</div>
-                    <div class="item-text">
-                        <h3>Упругость вместо хрупкости</h3>
-                        <p>Шпатлевка OTTINGER создана на эластичной полимерной базе. В отличие от жесткого гипса, она гасит микродеформации стен и случайные удары, защищая углы от сколов.</p>
-                    </div>
+                <!-- Карточка 1 -->
+                <div class="tech-card">
+                    <div class="tech-num">01</div>
+                    <h3>Упругость вместо хрупкости</h3>
+                    <p>Шпатлевка OTTINGER создана на эластичной полимерной базе. В отличие от жесткого гипса, она гасит микродеформации стен и случайные удары, защищая углы от сколов.</p>
                 </div>
 
-                <div class="editorial-item">
-                    <div class="item-num">02</div>
-                    <div class="item-text">
-                        <h3>Армирование фиброволокном без холста и клея</h3>
-                        <p>Микроволокна связывают состав шпатлевки изнутри, удерживая швы от трещин. Это позволяет полностью отказаться от долгой поклейки стеклохолста и клея.</p>
-                    </div>
+                <!-- Карточка 2 -->
+                <div class="tech-card">
+                    <div class="tech-num">02</div>
+                    <h3>Армирование без холста</h3>
+                    <p>Микроволокна связывают состав шпатлевки изнутри, удерживая швы от трещин. Это позволяет полностью отказаться от долгой поклейки стеклохолста и клея.</p>
                 </div>
 
-                <div class="editorial-item">
-                    <div class="item-num">03</div>
-                    <div class="item-text">
-                        <h3>Моющаяся керамика против грязи и трения</h3>
-                        <p>Финишная краска содержит керамические микрочастицы. Она образует сверхплотную мембрану: следы от сумок, обуви или жира отмываются простой водой без затертостей и глянцевых пятен.</p>
-                    </div>
+                <!-- Карточка 3 -->
+                <div class="tech-card">
+                    <div class="tech-num">03</div>
+                    <h3>Моющаяся керамика</h3>
+                    <p>Финишная краска содержит керамические микрочастицы. Она образует сверхплотную мембрану: следы от сумок, обуви или жира отмываются простой водой без затертостей.</p>
                 </div>
 
             </div>
 
-            <!-- ПЕРЕХОДНОЙ БЛОК К ЭКОНОМИКЕ И ПРОДУКТАМ -->
-            <div class="transition-block">
+            <!-- ПЕРЕХОДНОЙ БЛОК -->
+            <div class="transition-block" style="text-align: center;">
                 <h3>Итог: на практике эта технология сокращает сроки малярки на <span>40%</span> и защищает вас от переделок</h3>
             </div>
 
