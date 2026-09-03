@@ -322,7 +322,7 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 30px;
-            margin-bottom: 40px; /* Зазор перед банером каталога */
+            margin-bottom: 40px;
         }
         .product-card {
             background-color: #121212;
@@ -434,6 +434,148 @@
         .btn-callout:hover {
             border-color: #ff5722;
             background-color: #1a1412;
+        }
+
+        /* БЛОК 6: ПРИМЕРЫ РАБОТ (КЕЙСЫ ГАЛЕРЕЯ) */
+        .cases-section {
+            background-color: #0d0d0d;
+            padding: 80px 20px;
+            border-top: 1px solid #1a1a1a;
+        }
+        .cases-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        .case-card {
+            background-color: #121212;
+            border: 1px solid #222222;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .case-image-window {
+            width: 100%;
+            height: 200px;
+            background-color: #0d0d0d;
+            border: 1px dashed #222222;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #444444;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+        .case-card h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .case-card p {
+            color: #8c8c8c;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* БЛОК 7: НАМ ДОВЕРЯЮТ (ПАРТНЕРЫ) */
+        .partners-section {
+            background-color: #0d0d0d;
+            padding: 80px 20px;
+            border-top: 1px solid #1a1a1a;
+        }
+        .partners-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        .partner-card {
+            border-top: 1px solid #222222;
+            padding-top: 20px;
+        }
+        .partner-card h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #ff5722;
+            margin-bottom: 10px;
+        }
+        .partner-card p {
+            color: #8c8c8c;
+            font-size: 0.95rem;
+            line-height: 1.45;
+        }
+
+        /* БЛОК 8: ГЛАВНЫЙ CTA (ТЕСТ-ДРАЙВ) */
+        .cta-section {
+            background-color: #121212;
+            padding: 80px 20px;
+            border-top: 1px solid #1a1a1a;
+            text-align: center;
+        }
+        .cta-box {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .cta-box h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        .cta-box p {
+            color: #b3b3b3;
+            font-size: 1rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        /* БЛОК 9: КОНТАКТЫ (FOOTER) */
+        footer {
+            background-color: #0d0d0d;
+            padding: 60px 20px;
+            border-top: 1px solid #1a1a1a;
+        }
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .footer-info h2 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #ffffff;
+        }
+        .footer-info h2 span {
+            color: #ff5722;
+        }
+        .footer-contacts-list {
+            list-style: none;
+        }
+        .footer-contacts-list li {
+            font-size: 1rem;
+            color: #b3b3b3;
+            margin-bottom: 12px;
+        }
+        .footer-contacts-list a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer-hours {
+            font-size: 0.9rem;
+            color: #555555;
+            border-top: 1px solid #1a1a1a;
+            padding-top: 15px;
         }
 
         /* Переходной блок */
@@ -555,7 +697,7 @@
 
             /* Банер полного каталога на ПК */
             .catalog-callout {
-                flex-direction: row; /* Текст слева, Кнопка справа */
+                flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
                 padding: 40px;
@@ -571,12 +713,47 @@
                 flex-shrink: 0;
             }
 
-            .transition-block {
-                margin-top: 80px;
-                padding-top: 40px;
+            /* Блок 6 */
+            .cases-section {
+                padding: 120px 40px;
             }
-            .transition-block h3 {
-                font-size: 2rem;
+            .cases-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 25px;
+            }
+
+            /* Блок 7 */
+            .partners-section {
+                padding: 120px 40px;
+            }
+            .partners-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
+
+            /* Блок 8 */
+            .cta-section {
+                padding: 120px 40px;
+            }
+            .cta-box h2 {
+                font-size: 2.6rem;
+                margin-bottom: 25px;
+            }
+            .cta-box p {
+                font-size: 1.15rem;
+            }
+
+            /* Блок 9 (Footer) */
+            footer {
+                padding: 80px 40px;
+            }
+            .footer-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            .footer-info h2 {
+                font-size: 2.2rem;
             }
         }
     </style>
@@ -585,7 +762,7 @@
 
     <header>
         <div class="logo">OTTINGER<span>.</span> SOCHI</div>
-        <a href="tel:+79782214051" class="phone">+7 (978) 221-40-51</a>
+        <a href="tel:+79219121895" class="phone">+7 (921) 912-18-95</a>
     </header>
 
     <!-- ПЕРВЫЙ ЭКРАН -->
@@ -663,7 +840,7 @@
                 </div>
 
                 <div class="tech-card">
-                    <div class="tech-image-window">[ Срез фиброволокна под микроскостом ]</div>
+                    <div class="tech-image-window">[ Срез фиброволокна под микроскопом ]</div>
                     <div class="tech-num">02</div>
                     <h3>Армирование без холста</h3>
                     <p>Микроволокна связывают состав шпатлевки изнутри, удерживая швы от трещин. Это позволяет полностью отказаться от долгой поклейки стеклохолста и клея.</p>
@@ -734,7 +911,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 5: КАТАЛОГ МАТЕРИАЛОВ С ПРИЗЫВОМ ЗАКАЗАТЬ ПОЛНЫЙ ПРАЙС -->
+    <!-- БЛОК 5: КАТАЛОГ МАТЕРИАЛОВ -->
     <section class="products-section" id="products">
         <div class="section-container">
             
@@ -753,7 +930,7 @@
                         <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">~10 м²/л</span></div>
                         <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5л / 10л</span></div>
                     </div>
-                    <a href="https://wa.me/79782214051?text=Хочу%20запросить%20образец%20грунта%20Primer%20Konzentrat" class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
+                    <a href="https://wa.me/79219121895?text=Хочу%20запросить%20образец%20грунта%20Primer%20Konzentrat" class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
                 <!-- Продукт 2 -->
@@ -767,7 +944,7 @@
                         <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">от 0.5 кг/м²</span></div>
                         <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5кг / 25кг</span></div>
                     </div>
-                    <a href="https://wa.me/79782214051?text=Хочу%20запросить%20образец%20шпатлевки%20Basis%20Finish%20Pro" class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
+                    <a href="https://wa.me/79219121895?text=Хочу%20запросить%20образец%20шпатлевки%20Basis%20Finish%20Pro" class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
                 <!-- Продукт 3 -->
@@ -781,7 +958,7 @@
                         <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">10 м²/л</span></div>
                         <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">0.9л / 2.5л / 9л</span></div>
                     </div>
-                    <a href="https://wa.me/79782214051?text=Хочу%20запросить%20образец%20краски%20Premium%20Keramik%20Matt" class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
+                    <a href="https://wa.me/79219121895?text=Хочу%20запросить%20образец%20краски%20Premium%20Keramik%20Matt" class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
             </div>
@@ -792,16 +969,106 @@
                     <h3>В линейке OTTINGER более 20 специализированных материалов</h3>
                     <p>Влагостойкие шпатлевки для стыков, грунт-краски Q3/Q4, глубокоматовые интерьерные финиши и клей. Получите полный технический каталог и прайс-лист для вашего объекта в Сочи.</p>
                 </div>
-                <a href="https://wa.me/79782214051?text=Здравствуйте!%20Пришлите,%20пожалуйста,%20полный%20каталог%20и%20прайс-лист%20продукции%20OTTINGER." class="btn btn-callout" target="_blank">Получить полный прайс-лист</a>
+                <a href="https://wa.me/79219121895?text=Здравствуйте!%20Пришлите,%20пожалуйста,%20полный%20каталог%20и%20прайс-лист%20продукции%20OTTINGER." class="btn btn-callout" target="_blank">Получить полный прайс-лист</a>
             </div>
 
-            <!-- ПЕРЕХОДНОЙ БЛОК К ТЕСТ-ДРАЙВУ -->
+            <!-- ПЕРЕХОДНОЙ БЛОК -->
             <div class="transition-block" style="text-align: center;">
                 <h3>Итог: на практике эта технология сокращает сроки малярки на <span>40%</span> и защищает вас от переделок</h3>
             </div>
 
         </div>
     </section>
+
+    <!-- БЛОК 6: ПРИМЕРЫ РАБОТ (КЕЙСЫ) -->
+    <section class="cases-section">
+        <div class="section-container">
+            
+            <h2 class="section-title text-center">Стены на реальных объектах</h2>
+            
+            <div class="cases-grid">
+                
+                <!-- Кейс 1 -->
+                <div class="case-card">
+                    <div class="case-image-window">[ Фото готовых стен в апартаментах ]</div>
+                    <h3>Апартаменты под сдачу в Сочи</h3>
+                    <p>Стены подготовлены без использования стеклохолста. Финишный слой краски с керамикой выдерживает влажную уборку и любые бытовые пятна.</p>
+                </div>
+
+                <!-- Кейс 2 -->
+                <div class="case-card">
+                    <div class="case-image-window">[ Фото коридора отеля ]</div>
+                    <h3>Коридор гостиничного комплекса</h3>
+                    <p>Проходная зона с экстремальной нагрузкой. Упругая полимерная база шпатлевки защищает углы от сколов при ударах чемоданами и колясками.</p>
+                </div>
+
+                <!-- Кейс 3 -->
+                <div class="case-card">
+                    <div class="case-image-window">[ Фото готового интерьера ]</div>
+                    <h3>Премиальный жилой интерьер</h3>
+                    <p>Стены подготовлены под строгий проявочный свет (качество Q4). Глубокоматовая краска не дает бликов и затертостей в проходных зонах.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 7: НАМ ДОВЕРЯЮТ (ПАРТНЕРЫ) -->
+    <section class="partners-section">
+        <div class="section-container">
+            
+            <h2 class="section-title text-center">Кто выбирает полимерную отделку?</h2>
+            
+            <div class="partners-grid">
+                
+                <div class="partner-card">
+                    <h3>Прорабы и строители</h3>
+                    <p>Сдают объекты вовремя, не переделывают работу за мебельщиками и экономят бюджет за счет исключения холста и клея.</p>
+                </div>
+
+                <div class="partner-card">
+                    <h3>Дизайнеры интерьера</h3>
+                    <p>Уверены, что их сложные проекты с глубокими матовыми стенами не затрутся и не пойдут трещинами через месяц после сдачи.</p>
+                </div>
+
+                <div class="partner-card">
+                    <h3>Владельцы и отельеры</h3>
+                    <p>Получают долговечный ремонт, который не требует обновления и косметических подкрасок перед каждым туристическим сезоном.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 8: ГЛАВНЫЙ CTA (ТЕСТ-ДРАЙВ) -->
+    <section class="cta-section">
+        <div class="cta-box">
+            <h2>Проверить прочность материалов на своем объекте</h2>
+            <p>Не верьте на слово — проверьте все лично. Мы бесплатно приедем на ваш объект в Сочи со своими материалами. Вы сами нанесете шпатлевку, попробуете ударить ее инструментом, поцарапать шпателем или отмыть грязное пятно на краске.</p>
+            <a href="https://wa.me/79219121895?text=Здравствуйте!%20Хочу%20провести%20тест-драйв%20материалов%20OTTINGER%20на%20объекте." class="btn btn-primary" target="_blank">Заказать бесплатный тест-драйв</a>
+        </div>
+    </section>
+
+    <!-- БЛОК 9: КОНТАКТЫ (FOOTER) -->
+    <footer>
+        <div class="footer-container">
+            
+            <div class="footer-info">
+                <h2>OTTINGER<span>.</span> SOCHI</h2>
+                <ul class="footer-contacts-list">
+                    <li>Телефон: <a href="tel:+79219121895">+7 (921) 912-18-95</a></li>
+                    <li>Адрес офиса: Сочи, ул. Яна Фабрициуса, 57Б</li>
+                </ul>
+            </div>
+
+            <div class="footer-hours">
+                <p>ПН–ПТ | 8:00 – 18:00</p>
+                <p>СБ | 8:00 – 16:00</p>
+                <p>ВС | выходной</p>
+            </div>
+
+        </div>
+    </footer>
 
 </body>
 </html>
