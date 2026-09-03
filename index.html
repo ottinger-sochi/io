@@ -127,7 +127,7 @@
             object-fit: cover;
         }
 
-        /* БЛОК 2: ЖУРНАЛЬНЫЙ СТИЛЬ (ПРОБЛЕМЫ) */
+        /* ЖУРНАЛЬНЫЙ СТИЛЬ (БЛОК 2) */
         .editorial-section {
             background-color: #0d0d0d;
             padding: 80px 20px;
@@ -188,7 +188,7 @@
             max-width: 750px;
         }
 
-        /* БЛОК 3: ТЕХНОЛОГИЧЕСКИЙ РЯД (ГРИД-ПЛИТКА) */
+        /* БЛОК 3: ТЕХНОЛОГИЧЕСКИЙ РЯД */
         .tech-section {
             background-color: #0d0d0d;
             padding: 80px 20px;
@@ -228,6 +228,49 @@
             color: #8c8c8c;
             font-size: 0.9rem;
             line-height: 1.5;
+        }
+
+        /* БЛОК 4: ЭКОНОМИКА (ДВУХКОЛОНОЧНЫЙ СПЛИТ) */
+        .economics-section {
+            background-color: #0d0d0d;
+            padding: 80px 20px;
+            border-top: 1px solid #1a1a1a;
+        }
+        .economics-split {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .econ-col {
+            display: flex;
+            flex-direction: column;
+        }
+        .econ-col-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ff5722; /* Оранжевая подчеркивающая линия */
+            padding-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        .econ-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .econ-item h4 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        .econ-item p {
+            color: #8c8c8c;
+            font-size: 0.9rem;
+            line-height: 1.45;
         }
 
         /* Переходной блок */
@@ -302,12 +345,31 @@
                 padding: 120px 40px;
             }
             .tech-grid {
-                grid-template-columns: repeat(3, 1fr); /* Ровно 3 технологические колонки */
+                grid-template-columns: repeat(3, 1fr);
                 gap: 25px;
             }
             .tech-card {
                 padding: 40px 30px;
             }
+
+            /* Блок 4 */
+            .economics-section {
+                padding: 120px 40px;
+            }
+            .economics-split {
+                grid-template-columns: 1fr 1fr; /* Две колонки: Сроки слева, Деньги справа */
+                gap: 60px;
+            }
+            .econ-col-title {
+                font-size: 2rem;
+            }
+            .econ-item h4 {
+                font-size: 1.3rem;
+            }
+            .econ-item p {
+                font-size: 0.95rem;
+            }
+
             .transition-block {
                 margin-top: 80px;
                 padding-top: 40px;
@@ -381,7 +443,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 3: ТЕХНОЛОГИИ (НОВЫЙ КОНТРАСТНЫЙ ГРИД-МАКЕТ) -->
+    <!-- БЛОК 3: ТЕХНОЛОГИИ -->
     <section class="tech-section">
         <div class="section-container">
             
@@ -389,21 +451,18 @@
             
             <div class="tech-grid">
                 
-                <!-- Карточка 1 -->
                 <div class="tech-card">
                     <div class="tech-num">01</div>
                     <h3>Упругость вместо хрупкости</h3>
                     <p>Шпатлевка OTTINGER создана на эластичной полимерной базе. В отличие от жесткого гипса, она гасит микродеформации стен и случайные удары, защищая углы от сколов.</p>
                 </div>
 
-                <!-- Карточка 2 -->
                 <div class="tech-card">
                     <div class="tech-num">02</div>
                     <h3>Армирование без холста</h3>
                     <p>Микроволокна связывают состав шпатлевки изнутри, удерживая швы от трещин. Это позволяет полностью отказаться от долгой поклейки стеклохолста и клея.</p>
                 </div>
 
-                <!-- Карточка 3 -->
                 <div class="tech-card">
                     <div class="tech-num">03</div>
                     <h3>Моющаяся керамика</h3>
@@ -412,11 +471,58 @@
 
             </div>
 
+        </div>
+    </section>
+
+    <!-- БЛОК 4: ЭКОНОМИКА (СКОРОСТЬ И РАСХОД) -->
+    <section class="economics-section">
+        <div class="economics-split">
+            
+            <!-- Левая колонка: Скорость -->
+            <div class="econ-col">
+                <h3 class="econ-col-title">Как сдать объект на 40% быстрее?</h3>
+                <div class="econ-list">
+                    <div class="econ-item">
+                        <h4>3 слоя вместо 5</h4>
+                        <p>Из технологии полностью исключаются стеклохолст и клей. Больше не нужно грунтовать холст сверху и бесконечно ждать высыхания каждого промежуточного слоя.</p>
+                    </div>
+                    <div class="econ-item">
+                        <h4>Работа без простоев</h4>
+                        <p>Маляры работают непрерывно. Отделка идет в 1.5 раза быстрее, потому что исключен долгий процесс сушки клея под холст.</p>
+                    </div>
+                    <div class="econ-item">
+                        <h4>0 рублей на гарантийный ремонт</h4>
+                        <p>Вы сдаете готовую малярку с первого раза. Никаких трещин на стыках холста и никаких ночных доделок перед приездом технадзора.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Правая колонка: Расход -->
+            <div class="econ-col">
+                <h3 class="econ-col-title">Сколько шпатлевки вы сошкуриваете на пол?</h3>
+                <div class="econ-list">
+                    <div class="econ-item">
+                        <h4>Вы не выбрасываете свои деньги</h4>
+                        <p>Обычные финишные пасты дают сильную усадку. Малярам приходится наносить материал с запасом, а потом сошкуривать половину шпатлевки на пол в мешки для мусора. Усадка OTTINGER равна нулю — весь нанесенный материал остается на стене.</p>
+                    </div>
+                    <div class="econ-item">
+                        <h4>1 канистра заменяет 3 позиции</h4>
+                        <p>Одна канистра OTTINGER BASIS FINISH PRO заменяет: 2 ведра стандартного финиша (Semin) + 1 ведро специального клея + рулон стеклохолста.</p>
+                    </div>
+                    <div class="econ-item">
+                        <h4>Чистый объект без гор пыли</h4>
+                        <p>При шлифовке OTTINGER дает тяжелую крупную пыль, которая сразу падает на пол, а не висит в воздухе неделями, забивая наждачку и легкие мастеров.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="section-container">
             <!-- ПЕРЕХОДНОЙ БЛОК -->
             <div class="transition-block" style="text-align: center;">
                 <h3>Итог: на практике эта технология сокращает сроки малярки на <span>40%</span> и защищает вас от переделок</h3>
             </div>
-
         </div>
     </section>
 
