@@ -60,6 +60,11 @@
             border-left: 1px solid #333333;
             padding-left: 10px;
         }
+        .header-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
         .phone {
             color: #ffffff;
             text-decoration: none;
@@ -69,6 +74,20 @@
         }
         .phone:hover {
             color: #ff5722;
+        }
+        .tg-link {
+            color: #ff5722;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.85rem;
+            border: 1px solid #ff5722;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        .tg-link:hover {
+            background-color: #ff5722;
+            color: #ffffff;
         }
 
         /* ОБЩИЕ СТИЛИ СЕКЦИЙ */
@@ -82,7 +101,7 @@
             font-weight: 900;
             margin-bottom: 50px;
             line-height: 1.2;
-            max-width: 850px;
+            max-width: 900px;
             letter-spacing: -0.5px;
             text-transform: uppercase;
             color: #ffffff;
@@ -101,6 +120,14 @@
             text-transform: uppercase;
             color: #ff5722;
             margin-bottom: 12px;
+        }
+
+        /* АКЦЕНТНЫЙ ЦВЕТ ДЛЯ ЗАГОЛОВКОВ */
+        .accent-color {
+            color: #ff5722;
+        }
+        .nowrap {
+            white-space: nowrap;
         }
 
         /* КНОПКИ */
@@ -182,12 +209,6 @@
             margin: 8px 0;
             font-weight: 900;
         }
-        .accent-color {
-            color: #ff5722;
-        }
-        .nowrap {
-            white-space: nowrap;
-        }
         .cta-container {
             display: flex;
             justify-content: center;
@@ -252,7 +273,7 @@
             max-width: 750px;
         }
 
-        /* БЛОК 3: МАЛЯРНЫЙ ПИРОГ (ОБНОВЛЕННЫЙ ЗАГОЛОВОК С ДИАПАЗОНОМ) */
+        /* БЛОК 3: МАЛЯРНЫЙ ПИРОГ */
         .pie-section {
             background-color: #0d0d0d;
             padding: 80px 20px;
@@ -714,7 +735,10 @@
             <div class="logo-text">OTTINGER<span>.</span></div>
             <div class="logo-sub">SOCHI</div>
         </div>
-        <a href="tel:+79219121895" class="phone">+7 (921) 912-18-95</a>
+        <div class="header-links">
+            <a href="tel:+79219121895" class="phone">+7 (921) 912-18-95</a>
+            <a href="https://t.me/Hropovic" class="tg-link" target="_blank">Telegram: @Hropovic</a>
+        </div>
     </header>
 
     <!-- БЛОК 1: ПЕРВЫЙ ЭКРАН -->
@@ -740,7 +764,7 @@
     <section class="editorial-section" id="how-it-works">
         <div class="section-container">
             <span class="section-tag">Суровая правда малярки</span>
-            <h2 class="section-title">Почему за любые трещины на стене всегда платит маляр?</h2>
+            <h2 class="section-title">Почему за любые трещины на стене <span class="accent-color">всегда платит маляр</span>?</h2>
             
             <div class="editorial-list">
                 
@@ -779,11 +803,11 @@
         </div>
     </section>
 
-    <!-- БЛОК 3: МАЛЯРНЫЙ ПИРОГ (ОБНОВЛЕННЫЙ ЗАГОЛОВОК С ДИАПАЗОНОМ) -->
+    <!-- БЛОК 3: МАЛЯРНЫЙ ПИРОГ -->
     <section class="pie-section">
         <div class="section-container">
             <span class="section-tag">Сравнение технологий</span>
-            <h2 class="section-title">Малярный пирог: 3 слоя вместо 7–15 классических операций</h2>
+            <h2 class="section-title">Малярный пирог: <span class="accent-color">3 слоя</span> вместо <span class="accent-color">7–15 классических</span> операций</h2>
             
             <div class="pie-comparison-grid">
                 
@@ -831,7 +855,7 @@
     <section class="tech-section">
         <div class="section-container">
             <span class="section-tag">Инженерия материалов</span>
-            <h2 class="section-title text-center">Почему основание OTTINGER невозможно испортить?</h2>
+            <h2 class="section-title text-center">Почему основание OTTINGER <span class="accent-color">невозможно испортить</span>?</h2>
             
             <div class="tech-grid">
                 
@@ -864,7 +888,7 @@
     <section class="myth-section">
         <div class="section-container">
             <div class="myth-box">
-                <h3>Миф: «OTTINGER слишком тяжело шлифуется»</h3>
+                <h3>Миф: «OTTINGER <span class="accent-color">слишком тяжело шлифуется</span>»</h3>
                 <p>Материал набирает прочность сверху, образуя твердую полимерную корку. Если знать простую технику, стена выводится под покраску в разы быстрее обычного гипса:</p>
                 <div class="myth-steps">
                     <div class="myth-step-item">
@@ -884,7 +908,7 @@
     <section class="products-section" id="products">
         <div class="section-container">
             <span class="section-tag">Базовая линейка</span>
-            <h2 class="section-title text-center">4 материала, закрывающих 100% задач</h2>
+            <h2 class="section-title text-center"><span class="accent-color">4 материала</span>, закрывающих <span class="accent-color">100% задач</span></h2>
             
             <div class="product-grid">
                 
@@ -899,7 +923,7 @@
                         <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">~10 м²/л</span></div>
                         <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5л / 10л</span></div>
                     </div>
-                    <a href="https://wa.me/79219121895?text=Хочу%20запросить%20образец%20грунта%20Primer%20Konzentrat" class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
+                    <a href="https://t.me/Hropovic" class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
                 <!-- Продукт 2 -->
@@ -913,7 +937,7 @@
                         <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">от 0.5 кг/м²</span></div>
                         <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5кг / 25кг</span></div>
                     </div>
-                    <a href="https://wa.me/79219121895?text=Хочу%20запросить%20образец%20шпатлевки%20Basis%20Start" class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
+                    <a href="https://t.me/Hropovic" class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
                 <!-- Продукт 3 -->
@@ -927,7 +951,7 @@
                         <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">от 0.5 кг/м²</span></div>
                         <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5кг / 25кг</span></div>
                     </div>
-                    <a href="https://wa.me/79219121895?text=Хочу%20запросить%20образец%20шпатлевки%20Basis%20Aqua" class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
+                    <a href="https://t.me/Hropovic" class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
                 <!-- Продукт 4 -->
@@ -941,7 +965,7 @@
                         <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">10 м²/л</span></div>
                         <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">0.9л / 2.5л / 9л</span></div>
                     </div>
-                    <a href="https://wa.me/79219121895?text=Хочу%20запросить%20образец%20краски%20Premium%20Keramik%20Matt" class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
+                    <a href="https://t.me/Hropovic" class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
             </div>
@@ -952,7 +976,7 @@
                     <h3>В линейке OTTINGER более 20 специализированных материалов</h3>
                     <p>Колеруемый клей для холста, эластичные фасадные пасты, шпатлевки для стыков Joint и грунты-краски Q3/Q4. Получите полный прайс-лист.</p>
                 </div>
-                <a href="https://wa.me/79219121895?text=Здравствуйте!%20Пришлите,%20пожалуйста,%20полный%20каталог%20и%20прайс-лист%20продукции%20OTTINGER." class="btn btn-callout" target="_blank">Получить полный прайс-лист</a>
+                <a href="https://t.me/Hropovic" class="btn btn-callout" target="_blank">Получить полный прайс-лист</a>
             </div>
 
         </div>
@@ -962,7 +986,7 @@
     <section class="metrics-section">
         <div class="section-container">
             <span class="section-tag">Экономика пирога</span>
-            <h2 class="section-title text-center">Считайте стоимость пирога, а не ведра</h2>
+            <h2 class="section-title text-center">Считайте <span class="accent-color">стоимость пирога</span>, а не ведра</h2>
             
             <div class="metrics-grid">
                 
@@ -989,9 +1013,9 @@
     <section class="cta-section">
         <div class="cta-box">
             <span class="section-tag">Практика на объекте</span>
-            <h2>Проверьте прочность материалов на своем объекте</h2>
+            <h2>Проверьте <span class="accent-color">прочность материалов</span> на своем объекте</h2>
             <p>Мы бесплатно приедем на ваш объект в Сочи со своими ведрами. Покажем правильную технику нанесения («тысяча линий»), дадим инструмент в руки и предложим лично поцарапать или ударить стену.</p>
-            <a href="https://wa.me/79219121895?text=Здравствуйте!%20Хочу%20провести%20тест-драйв%20материалов%20OTTINGER%20на%20объекте%20в%20Сочи." class="btn btn-primary" target="_blank">Заказать бесплатный тест-драйв</a>
+            <a href="https://t.me/Hropovic" class="btn btn-primary" target="_blank">Заказать бесплатный тест-драйв</a>
         </div>
     </section>
 
@@ -1002,6 +1026,7 @@
                 <h2>OTTINGER<span>.</span> SOCHI</h2>
                 <ul class="footer-contacts-list">
                     <li>Телефон: <a href="tel:+79219121895">+7 (921) 912-18-95</a></li>
+                    <li>Telegram: <a href="https://t.me/Hropovic" target="_blank">@Hropovic</a></li>
                     <li>Адрес склада и офиса: Сочи, ул. Яна Фабрициуса, 57Б</li>
                 </ul>
             </div>
