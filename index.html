@@ -43,8 +43,8 @@
         }
         .logo-text {
             font-weight: 900;
-            font-size: 1.3rem;
-            letter-spacing: 3px;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
             color: #ffffff;
             text-transform: uppercase;
         }
@@ -60,34 +60,16 @@
             border-left: 1px solid #333333;
             padding-left: 10px;
         }
-        .header-links {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
         .phone {
             color: #ffffff;
             text-decoration: none;
             font-weight: 700;
             font-size: 0.9rem;
+            white-space: nowrap; /* Запрет переноса телефонного номера */
             transition: color 0.2s ease;
         }
         .phone:hover {
             color: #ff5722;
-        }
-        .tg-link {
-            color: #ff5722;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 0.85rem;
-            border: 1px solid #ff5722;
-            padding: 6px 12px;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-        }
-        .tg-link:hover {
-            background-color: #ff5722;
-            color: #ffffff;
         }
 
         /* ОБЩИЕ СТИЛИ СЕКЦИЙ */
@@ -177,38 +159,31 @@
             font-weight: 700;
         }
 
-        /* БЛОК 1: ПЕРВЫЙ ЭКРАН (ВСЕ ЗАГЛАВНЫМИ БУКВАМИ) */
+        /* БЛОК 1: ПЕРВЫЙ ЭКРАН (ОДНОРОДНЫЙ СИММЕТРИЧНЫЙ ТЕКСТ) */
         .hero {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 25px 15px 40px 15px;
+            padding: 30px 15px 40px 15px;
             max-width: 1100px;
             margin: 0 auto;
             min-height: calc(100vh - 70px);
             justify-content: center;
         }
         .hero-content {
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             width: 100%;
         }
         h1 {
-            font-size: 1.45rem;
+            font-size: 1.6rem; /* Единый размер шрифта для всех строк на мобильных */
             line-height: 1.35;
-            margin-bottom: 25px;
             font-weight: 900;
             color: #ffffff;
             letter-spacing: 0.5px;
-            text-transform: uppercase; /* Заглавный регистр для всего H1 */
-        }
-        .uppercase-line {
-            display: block;
             text-transform: uppercase;
-            font-size: 1.7rem; 
-            letter-spacing: 3px; 
-            margin: 8px 0;
-            font-weight: 900;
+            margin: 0 auto;
+            max-width: 900px;
         }
         .cta-container {
             display: flex;
@@ -663,16 +638,11 @@
                 justify-content: center;
             }
             h1 {
-                font-size: 2.8rem;
+                font-size: 3rem; /* Единый крупный размер шрифта для всех 3 строк на ПК */
                 line-height: 1.3;
                 max-width: 1100px;
                 margin: 0 auto 30px auto;
-                letter-spacing: 1px;
-            }
-            .uppercase-line {
-                font-size: 3.4rem;
-                margin: 12px 0;
-                letter-spacing: 4px;
+                letter-spacing: 2px;
             }
             
             /* Блок 2 */
@@ -737,19 +707,16 @@
             <div class="logo-text">OTTINGER<span>.</span></div>
             <div class="logo-sub">SOCHI</div>
         </div>
-        <div class="header-links">
-            <a href="tel:+79219121895" class="phone">+7 (921) 912-18-95</a>
-            <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20узнать%20подробнее%20о%20продукции%20OTTINGER." class="tg-link" target="_blank">Telegram</a>
-        </div>
+        <a href="tel:+79219121895" class="phone">+7 (921) 912-18-95</a>
     </header>
 
-    <!-- БЛОК 1: ПЕРВЫЙ ЭКРАН (ПОЛНОСТЬЮ КАПСОМ) -->
+    <!-- БЛОК 1: ПЕРВЫЙ ЭКРАН (ОДНОРОДНЫЙ ШРИФТ В 3 СТРОКИ) -->
     <main class="hero">
         <div class="hero-content">
             <h1>
                 КАК НАВСЕГДА ИЗБАВИТЬ <br>
-                <span class="uppercase-line">МАЛЯРНЫЕ РАБОТЫ</span>
-                ОТ <span class="accent-color">БРАКА</span> И <span class="accent-color nowrap">БЕСКОНЕЧНЫХ ПЕРЕДЕЛОК</span>
+                МАЛЯРНЫЕ РАБОТЫ <br>
+                ОТ <span class="accent-color">БРАКА И ПЕРЕДЕЛОК</span>
             </h1>
         </div>
 
