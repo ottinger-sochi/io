@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* БАЗОВЫЕ НАСТРОЙКИ */
+        /* БАЗОВЫЕ НАСТРОЙКИ (ТЕМНАЯ ТЕМА) */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -20,15 +20,15 @@
         }
         body {
             font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: #ffffff;
-            color: #111111;
+            background-color: #080808;
+            color: #ffffff;
             line-height: 1.4;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
             position: relative;
         }
         
-        /* ШАПКА САЙТА */
+        /* ШАПКА САЙТА (HEADER) */
         header {
             display: flex;
             justify-content: space-between;
@@ -36,7 +36,7 @@
             padding: 16px 20px;
             max-width: 1200px;
             margin: 0 auto;
-            border-bottom: 1px solid #eaeaea;
+            border-bottom: 1px solid #1c1c1c;
             position: relative;
             z-index: 10;
         }
@@ -49,7 +49,7 @@
             font-weight: 900;
             font-size: 1.35rem;
             letter-spacing: 3px;
-            color: #111111;
+            color: #ffffff;
             text-transform: uppercase;
         }
         .logo-text span {
@@ -65,7 +65,7 @@
             padding-left: 10px;
         }
         .phone {
-            color: #111111;
+            color: #ffffff;
             text-decoration: none;
             font-weight: 800;
             font-size: 0.95rem;
@@ -74,20 +74,6 @@
         }
         .phone:hover {
             color: #ff5722;
-        }
-
-        /* ФИРМЕННЫЕ ВЕКТОРНЫЕ ЛИНИИ */
-        .bg-vortex {
-            position: absolute;
-            pointer-events: none;
-            z-index: 1;
-        }
-        .vortex-top-right {
-            top: -120px;
-            right: -150px;
-            width: 700px;
-            height: 700px;
-            opacity: 0.85;
         }
 
         /* ОБЩИЕ СТИЛИ СЕКЦИЙ */
@@ -106,7 +92,7 @@
             max-width: 900px;
             letter-spacing: -0.5px;
             text-transform: uppercase;
-            color: #111111;
+            color: #ffffff;
         }
         .section-title.text-center {
             text-align: center;
@@ -161,23 +147,6 @@
             transform: scale(0.98);
         }
 
-        /* ОКНА-ПЛЕЙСХОЛДЕРЫ ДЛЯ ИЗОБРАЖЕНИЙ */
-        .image-window {
-            width: 100%;
-            height: 220px;
-            background-color: #f9f9f9;
-            border: 1px dashed #d8d8d8;
-            border-radius: 6px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #888888;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 700;
-        }
-
         /* БЛОК 1: ПЕРВЫЙ ЭКРАН */
         .hero {
             display: flex;
@@ -202,7 +171,7 @@
             line-height: 1.35;
             margin-bottom: 25px;
             font-weight: 900;
-            color: #111111;
+            color: #ffffff;
             letter-spacing: 0.5px;
             text-transform: uppercase;
             margin: 0 auto;
@@ -221,13 +190,12 @@
             max-width: 600px;
             border-radius: 8px;
             overflow: hidden;
-            background-color: #f9f9f9;
+            background-color: #121212;
             aspect-ratio: 16 / 9;
-            border: 1px solid #e5e5e5;
+            border: 1px solid #1f1f1f;
             margin: 0 auto 25px auto;
             position: relative;
             z-index: 2;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
         }
         .hero-media img {
             width: 100%;
@@ -235,12 +203,151 @@
             object-fit: cover;
         }
 
-        /* БЛОК 2: РЕАЛЬНОСТЬ СТРОЙКИ */
-        .editorial-section {
-            background-color: #ffffff;
-            padding: 80px 20px;
-            border-top: 1px solid #eaeaea;
+        /* НОВЫЙ БЛОК 2: ВИДЕО-КАРУСЕЛЬ (STORIES / REELS 9:16) */
+        .video-section {
+            background-color: #0c0c0c;
+            padding: 70px 20px;
+            border-top: 1px solid #191919;
+            border-bottom: 1px solid #191919;
+        }
+        .video-carousel {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .video-carousel::-webkit-scrollbar {
+            display: none;
+        }
+        .video-card {
+            flex: 0 0 200px;
+            aspect-ratio: 9 / 16; /* Строго вертикальный формат 9:16 */
+            background-color: #161616;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #262626;
             position: relative;
+            cursor: pointer;
+            scroll-snap-align: start;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 15px;
+            background-size: cover;
+            background-position: center;
+        }
+        .video-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 100%);
+            z-index: 1;
+        }
+        .video-card:hover {
+            border-color: #ff5722;
+            transform: translateY(-4px);
+        }
+        .video-play-icon {
+            width: 44px;
+            height: 44px;
+            background-color: rgba(255, 87, 34, 0.9);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-size: 1.1rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: transform 0.2s ease;
+        }
+        .video-card:hover .video-play-icon {
+            transform: translate(-50%, -50%) scale(1.1);
+            background-color: #ff5722;
+        }
+        .video-badge {
+            align-self: flex-start;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 4px 8px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 2;
+        }
+        .video-info {
+            position: relative;
+            z-index: 2;
+        }
+        .video-info h4 {
+            font-size: 0.95rem;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+        .video-info p {
+            font-size: 0.75rem;
+            color: #aaaaaa;
+            line-height: 1.3;
+        }
+
+        /* МОДАЛЬНОЕ ОКНО ДЛЯ ПРОСМОТРА ВИДЕО */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .video-modal.active {
+            display: flex;
+        }
+        .video-modal-content {
+            position: relative;
+            width: 100%;
+            max-width: 360px; /* Вертикальный размер под 9:16 на ПК */
+            aspect-ratio: 9 / 16;
+            background-color: #000000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+        }
+        .video-modal-content video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .video-modal-close {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* БЛОК 3: РЕАЛЬНОСТЬ СТРОЙКИ */
+        .editorial-section {
+            background-color: #080808;
+            padding: 80px 20px;
+            border-top: 1px solid #141414;
         }
         .editorial-list {
             display: flex;
@@ -250,11 +357,11 @@
             display: flex;
             flex-direction: column;
             padding: 35px 0;
-            border-top: 1px solid #eaeaea;
+            border-top: 1px solid #1c1c1c;
             gap: 25px;
         }
         .editorial-item:last-child {
-            border-bottom: 1px solid #eaeaea;
+            border-bottom: 1px solid #1c1c1c;
         }
         .item-num {
             font-size: 2.2rem;
@@ -267,79 +374,38 @@
         .item-text h3 {
             font-size: 1.35rem;
             font-weight: 800;
-            color: #111111;
+            color: #ffffff;
             margin-bottom: 10px;
             letter-spacing: -0.3px;
         }
         .item-text p {
-            color: #666666;
+            color: #8c8c8c;
             font-size: 0.95rem;
             line-height: 1.5;
             max-width: 750px;
         }
 
-        /* БЛОК 3: ИНТЕРАКТИВНЫЙ МАЛЯРНЫЙ ПИРОГ */
+        /* БЛОК 4: МАЛЯРНЫЙ ПИРОГ */
         .pie-section {
-            background-color: #fcfcfc;
+            background-color: #0c0c0c;
             padding: 80px 20px;
-            border-top: 1px solid #eaeaea;
-            position: relative;
+            border-top: 1px solid #191919;
         }
-        
-        /* Интерактивные кнопки-переключатели (Табы) */
-        .pie-tab-nav {
-            display: flex;
-            gap: 12px;
+        .pie-comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
             margin-bottom: 30px;
-            justify-content: center;
-            flex-wrap: wrap;
         }
-        .pie-tab-btn {
-            padding: 14px 24px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            border: 1px solid #e0e0e0;
-            background-color: #ffffff;
-            color: #666666;
-            transition: all 0.2s ease;
-        }
-        .pie-tab-btn.active {
-            background-color: #ff5722;
-            color: #ffffff;
-            border-color: #ff5722;
-            box-shadow: 0 4px 15px rgba(255, 87, 34, 0.2);
-        }
-        
-        /* Интерактивные панели пирога */
-        .pie-panel {
-            display: none;
-            animation: fadeIn 0.3s ease-in-out forwards;
-        }
-        .pie-panel.active {
-            display: block;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         .pie-card {
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
+            background-color: #121212;
+            border: 1px solid #1f1f1f;
             border-radius: 8px;
             padding: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            max-width: 900px;
-            margin: 0 auto 25px auto;
         }
         .pie-card.highlight {
             border-color: #ff5722;
-            background: linear-gradient(180deg, #fff5f2 0%, #ffffff 100%);
-            box-shadow: 0 4px 20px rgba(255, 87, 34, 0.08);
+            background-color: #140d0a;
         }
         .pie-card-header {
             font-size: 1.25rem;
@@ -349,7 +415,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #111111;
         }
         .pie-tag {
             font-size: 0.7rem;
@@ -358,45 +423,27 @@
             font-weight: 800;
             text-transform: uppercase;
         }
-        .tag-red { background-color: #ffebee; color: #d32f2f; }
+        .tag-red { background-color: #331515; color: #ff5252; }
         .tag-orange { background-color: #ff5722; color: #ffffff; }
         .pie-steps-list {
             list-style: none;
         }
         .pie-steps-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 0.95rem;
-            color: #555555;
+            padding: 10px 0;
+            border-bottom: 1px solid #1c1c1c;
+            font-size: 0.9rem;
+            color: #b3b3b3;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
-        .pie-steps-list li strong { color: #111111; }
+        .pie-steps-list li strong { color: #ffffff; }
 
-        /* Плашка результата сравнения */
-        .pie-savings-banner {
-            background-color: #111111;
-            color: #ffffff;
-            padding: 20px 30px;
-            border-radius: 6px;
-            text-align: center;
-            font-size: 0.95rem;
-            font-weight: 700;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .pie-savings-banner span {
-            color: #ff5722;
-            font-weight: 900;
-        }
-
-        /* БЛОК 4: ФИЗИКА OTTINGER */
+        /* БЛОК 5: ФИЗИКА OTTINGER */
         .tech-section {
-            background-color: #ffffff;
+            background-color: #080808;
             padding: 80px 20px;
-            border-top: 1px solid #eaeaea;
-            position: relative;
+            border-top: 1px solid #141414;
         }
         .tech-grid {
             display: grid;
@@ -404,16 +451,15 @@
             gap: 20px;
         }
         .tech-card {
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
+            background-color: #121212;
+            border: 1px solid #1f1f1f;
             border-radius: 8px;
             padding: 25px;
             transition: all 0.2s ease;
         }
         .tech-card:hover {
             border-color: #ff5722;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            transform: translateY(-2px);
         }
         .tech-num {
             font-size: 1.5rem;
@@ -425,55 +471,38 @@
         .tech-card h3 {
             font-size: 1.25rem;
             font-weight: 800;
-            color: #111111;
+            color: #ffffff;
             margin-bottom: 12px;
             letter-spacing: -0.3px;
         }
         .tech-card p {
-            color: #666666;
+            color: #8c8c8c;
             font-size: 0.9rem;
             line-height: 1.5;
         }
-        .tech-image-window {
-            width: 100%;
-            height: 140px;
-            background-color: #f9f9f9;
-            border: 1px dashed #d0d0d0;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #888888;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
-        }
 
-        /* БЛОК 5: ЛАЙФХАК ПО ШЛИФОВКЕ */
+        /* БЛОК 6: ЛАЙФХАК ПО ШЛИФОВКЕ */
         .myth-section {
-            background-color: #fcfcfc;
+            background-color: #0c0c0c;
             padding: 60px 20px;
-            border-top: 1px solid #eaeaea;
+            border-top: 1px solid #191919;
         }
         .myth-box {
-            border: 1px solid #e0e0e0;
+            border: 1px solid #2a2a2a;
             border-left: 4px solid #ff5722;
-            background-color: #ffffff;
+            background-color: #121212;
             padding: 30px;
             border-radius: 0 8px 8px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
         .myth-box h3 {
             font-size: 1.3rem;
             font-weight: 900;
-            color: #111111;
+            color: #ffffff;
             margin-bottom: 15px;
             text-transform: uppercase;
         }
         .myth-box p {
-            color: #666666;
+            color: #a0a0a0;
             font-size: 0.95rem;
             line-height: 1.5;
             margin-bottom: 15px;
@@ -489,7 +518,7 @@
             align-items: center;
             gap: 12px;
             font-size: 0.9rem;
-            color: #111111;
+            color: #ffffff;
             font-weight: 700;
         }
         .step-badge {
@@ -500,12 +529,11 @@
             font-size: 0.75rem;
         }
 
-        /* БЛОК 6: КАТАЛОГ МАТЕРИАЛОВ */
+        /* БЛОК 7: КАТАЛОГ МАТЕРИАЛОВ */
         .products-section {
-            background-color: #ffffff;
+            background-color: #080808;
             padding: 80px 20px;
-            border-top: 1px solid #eaeaea;
-            position: relative;
+            border-top: 1px solid #141414;
         }
         .product-grid {
             display: grid;
@@ -514,51 +542,17 @@
             margin-bottom: 40px;
         }
         .product-card {
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
+            background-color: #121212;
+            border: 1px solid #1f1f1f;
             border-radius: 8px;
             padding: 25px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            transition: border-color 0.2s ease;
         }
-        .product-card::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background-color: #ff5722;
-        }
-        .card-aqua::after { background-color: #00b0ff; }
-        .card-paint::after { background-color: #111111; }
-        .card-primer::after { background-color: #777777; }
-
         .product-card:hover {
             border-color: #ff5722;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-        }
-        .product-image-window {
-            width: 100%;
-            height: 180px;
-            background-color: #f9f9f9;
-            border: 1px dashed #d0d0d0;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #888888;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
         }
         .product-step {
             font-size: 0.7rem;
@@ -569,26 +563,25 @@
             margin-bottom: 6px;
         }
         .badge-blue { color: #00b0ff; }
-        .badge-dark { color: #111111; }
+        .badge-white { color: #ffffff; }
         .badge-gray { color: #777777; }
 
         .product-card h3 {
             font-size: 1.35rem;
             font-weight: 900;
-            color: #111111;
+            color: #ffffff;
             margin-bottom: 10px;
             letter-spacing: -0.3px;
-            text-transform: uppercase;
         }
         .product-desc {
-            color: #666666;
+            color: #8c8c8c;
             font-size: 0.88rem;
             line-height: 1.45;
             margin-bottom: 20px;
             min-height: 55px;
         }
         .product-specs {
-            border-top: 1px solid #f0f0f0;
+            border-top: 1px solid #1c1c1c;
             padding-top: 15px;
             margin-bottom: 20px;
         }
@@ -596,21 +589,20 @@
             display: flex;
             justify-content: space-between;
             font-size: 0.82rem;
-            padding: 6px 0;
-            border-bottom: 1px solid #f9f9f9;
+            margin-bottom: 8px;
         }
-        .spec-lbl { color: #888888; text-transform: uppercase; font-size: 0.72rem; font-weight: 700; }
-        .spec-val { font-weight: 800; color: #111111; }
+        .spec-lbl { color: #666666; }
+        .spec-val { font-weight: 700; color: #ffffff; }
         .btn-catalog {
             font-size: 0.85rem;
-            padding: 14px 18px;
+            padding: 12px 18px;
             max-width: 100%;
         }
 
         /* БАНЕР ПОЛНОГО КАТАЛОГА */
         .catalog-callout {
-            border: 1px solid #e0e0e0;
-            background-color: #fcfcfc;
+            border: 1px solid #1f1f1f;
+            background-color: #121212;
             border-radius: 8px;
             padding: 30px;
             display: flex;
@@ -623,36 +615,35 @@
         .callout-text h3 {
             font-size: 1.25rem;
             font-weight: 900;
-            color: #111111;
+            color: #ffffff;
             margin-bottom: 8px;
             text-transform: uppercase;
         }
         .callout-text p {
-            color: #666666;
+            color: #8c8c8c;
             font-size: 0.9rem;
             line-height: 1.4;
         }
         .btn-callout {
             background-color: transparent;
-            color: #111111;
-            border: 1px solid #cccccc;
+            color: #ffffff;
+            border: 1px solid #333333;
             font-size: 0.85rem;
             padding: 14px 28px;
             max-width: 100%;
             text-transform: uppercase;
-            font-weight: 800;
+            font-weight: 700;
         }
         .btn-callout:hover {
             border-color: #ff5722;
-            color: #ff5722;
-            background-color: #fff5f2;
+            background-color: #1a1412;
         }
 
-        /* БЛОК 7: ЦЕНООБРАЗОВАНИЕ */
+        /* БЛОК 8: ЦЕНООБРАЗОВАНИЕ */
         .metrics-section {
-            background-color: #ffffff;
+            background-color: #080808;
             padding: 80px 20px;
-            border-top: 1px solid #eaeaea;
+            border-top: 1px solid #141414;
         }
         .metrics-grid {
             display: grid;
@@ -660,7 +651,7 @@
             gap: 25px;
         }
         .metric-card {
-            border-top: 1px solid #eaeaea;
+            border-top: 1px solid #1c1c1c;
             padding-top: 20px;
             display: flex;
             flex-direction: column;
@@ -669,23 +660,23 @@
         .metric-val {
             font-size: 2.8rem;
             font-weight: 900;
-            color: #111111;
+            color: #ffffff;
             line-height: 1;
             margin-bottom: 10px;
             letter-spacing: -0.5px;
         }
         .metric-label {
             font-size: 0.92rem;
-            color: #666666;
+            color: #8c8c8c;
             line-height: 1.4;
         }
-        .metric-label strong { color: #111111; }
+        .metric-label strong { color: #ffffff; }
 
-        /* БЛОК 8: ГЛАВНЫЙ CTA */
+        /* БЛОК 9: ГЛАВНЫЙ CTA */
         .cta-section {
-            background-color: #f9f9f9;
+            background-color: #121212;
             padding: 80px 20px;
-            border-top: 1px solid #eaeaea;
+            border-top: 1px solid #1f1f1f;
             text-align: center;
         }
         .cta-box {
@@ -698,20 +689,19 @@
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: -0.5px;
-            color: #111111;
         }
         .cta-box p {
-            color: #666666;
+            color: #b3b3b3;
             font-size: 0.95rem;
             margin-bottom: 30px;
             line-height: 1.5;
         }
 
-        /* БЛОК 9: КОНТАКТЫ (FOOTER) */
+        /* БЛОК 10: КОНТАКТЫ (FOOTER) */
         footer {
-            background-color: #ffffff;
+            background-color: #050505;
             padding: 60px 20px;
-            border-top: 1px solid #eaeaea;
+            border-top: 1px solid #141414;
         }
         .footer-container {
             max-width: 1100px;
@@ -723,7 +713,7 @@
         .footer-info h2 {
             font-size: 1.6rem;
             font-weight: 900;
-            color: #111111;
+            color: #ffffff;
             margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -732,27 +722,27 @@
         .footer-contacts-list { list-style: none; }
         .footer-contacts-list li {
             font-size: 0.95rem;
-            color: #666666;
+            color: #8c8c8c;
             margin-bottom: 10px;
         }
         .footer-contacts-list a {
-            color: #111111;
+            color: #ffffff;
             text-decoration: none;
             font-weight: 700;
         }
         .footer-hours {
             font-size: 0.85rem;
-            color: #888888;
-            border-top: 1px solid #eaeaea;
+            color: #555555;
+            border-top: 1px solid #141414;
             padding-top: 15px;
         }
 
         /* АДАПТИВНОСТЬ ДЛЯ ПК */
         @media (min-width: 768px) {
-            header { padding: 22px 40px; }
+            header { padding: 20px 40px; }
             .phone { font-size: 1.25rem; font-weight: 900; }
             .hero {
-                padding: 30px 40px 60px 40px;
+                padding: 30px 40px 50px 40px;
                 min-height: calc(100vh - 85px);
                 justify-content: center;
             }
@@ -763,6 +753,18 @@
                 margin: 0 auto 30px auto;
                 letter-spacing: 1px;
             }
+            
+            /* Видео-карусель на ПК */
+            .video-section { padding: 100px 40px; }
+            .video-carousel {
+                justify-content: center;
+                gap: 25px;
+            }
+            .video-card {
+                flex: 0 0 240px;
+            }
+
+            /* Блок 3 */
             .editorial-section { padding: 120px 40px; }
             .section-title { font-size: 2.8rem; margin-bottom: 70px; }
             .editorial-item {
@@ -775,12 +777,16 @@
             .item-text { flex: 1; }
             .item-text h3 { font-size: 1.5rem; }
             .item-text p { font-size: 1rem; }
-            .image-window { width: 380px; height: 240px; flex-shrink: 0; }
 
+            /* Блок 4 */
             .pie-section { padding: 120px 40px; }
+            .pie-comparison-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+
+            /* Блок 5 */
             .tech-section { padding: 120px 40px; }
             .tech-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
 
+            /* Блок 7 (Каталог) */
             .products-section { padding: 120px 40px; }
             .product-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
             .catalog-callout {
@@ -792,13 +798,16 @@
             .callout-text { max-width: 650px; }
             .btn-callout { max-width: 300px; flex-shrink: 0; }
 
+            /* Блок 8 */
             .metrics-section { padding: 120px 40px; }
             .metrics-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
             .metric-val { font-size: 3.4rem; }
 
+            /* Блок 9 */
             .cta-section { padding: 120px 40px; }
             .cta-box h2 { font-size: 2.4rem; }
 
+            /* Блок 10 */
             footer { padding: 80px 40px; }
             .footer-container {
                 flex-direction: row;
@@ -809,15 +818,6 @@
     </style>
 </head>
 <body>
-
-    <!-- ВЕКТОРНЫЕ КОНЦЕНТРИЧЕСКИЕ ДУГИ OTTINGER -->
-    <svg class="bg-vortex vortex-top-right" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="800" cy="0" r="200" stroke="#ff5722" stroke-width="1.5" stroke-opacity="0.15" stroke-dasharray="8 6"/>
-        <circle cx="800" cy="0" r="320" stroke="#111111" stroke-width="2" stroke-opacity="0.06"/>
-        <circle cx="800" cy="0" r="450" stroke="#ff5722" stroke-width="2.5" stroke-opacity="0.1"/>
-        <circle cx="800" cy="0" r="580" stroke="#111111" stroke-width="3" stroke-opacity="0.05"/>
-        <circle cx="800" cy="0" r="720" stroke="#111111" stroke-width="4" stroke-opacity="0.04"/>
-    </svg>
 
     <!-- ШАПКА -->
     <header>
@@ -843,11 +843,74 @@
         </div>
 
         <div class="cta-container">
-            <a href="#how-it-works" class="btn btn-primary">Как это работает ↓</a>
+            <a href="#videos" class="btn btn-primary">Как это работает ↓</a>
         </div>
     </main>
 
-    <!-- БЛОК 2: РЕАЛЬНОСТЬ СТРОЙКИ -->
+    <!-- НОВЫЙ БЛОК 2: ВИДЕО-КАРУСЕЛЬ (9:16 REELS / STORIES) -->
+    <section class="video-section" id="videos">
+        <div class="section-container">
+            <span class="section-tag">Видео-доказательства</span>
+            <h2 class="section-title text-center">OTTINGER в деле: <span class="accent-color">Смотрите краш-тесты</span></h2>
+            
+            <!-- Горизонтальная карусель с вертикальными видео 9:16 -->
+            <div class="video-carousel">
+                
+                <!-- Ролик 1: Тест на упругость -->
+                <div class="video-card" onclick="openVideoModal('ottinger-demo.gif')" style="background-image: url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80');">
+                    <span class="video-badge">0:15</span>
+                    <div class="video-play-icon">▶</div>
+                    <div class="video-info">
+                        <h4>Тест на упругость</h4>
+                        <p>Сворачиваем слой в трубку</p>
+                    </div>
+                </div>
+
+                <!-- Ролик 2: Царапаем ручкой -->
+                <div class="video-card" onclick="openVideoModal('ottinger-demo.gif')" style="background-image: url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=600&q=80');">
+                    <span class="video-badge">0:20</span>
+                    <div class="video-play-icon">▶</div>
+                    <div class="video-info">
+                        <h4>Царапаем ручкой</h4>
+                        <p>Стойкость к сколам</p>
+                    </div>
+                </div>
+
+                <!-- Ролик 3: Шлифовка жирафом -->
+                <div class="video-card" onclick="openVideoModal('ottinger-demo.gif')" style="background-image: url('https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=600&q=80');">
+                    <span class="video-badge">0:25</span>
+                    <div class="video-play-icon">▶</div>
+                    <div class="video-info">
+                        <h4>Шлифовка жирафом</h4>
+                        <p>Защита от дурака</p>
+                    </div>
+                </div>
+
+                <!-- Ролик 4: Мокрая очистка -->
+                <div class="video-card" onclick="openVideoModal('ottinger-demo.gif')" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80');">
+                    <span class="video-badge">0:18</span>
+                    <div class="video-play-icon">▶</div>
+                    <div class="video-info">
+                        <h4>Мокрая очистка</h4>
+                        <p>Смываем грязь и жир</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ ПРОСМОТРА ВИДЕО -->
+    <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+        <div class="video-modal-content" onclick="event.stopPropagation()">
+            <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
+            <video id="modalPlayer" controls playsinline autoplay loop muted>
+                <source src="" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <!-- БЛОК 3: РЕАЛЬНОСТЬ СТРОЙКИ -->
     <section class="editorial-section" id="how-it-works">
         <div class="section-container">
             <span class="section-tag">Суровая правда малярки</span>
@@ -855,34 +918,28 @@
             
             <div class="editorial-list">
                 
-                <!-- Пункт 01 -->
                 <div class="editorial-item">
                     <div class="item-num">01</div>
                     <div class="item-text">
                         <h3>Принял основание — плати за чужие косяки</h3>
                         <p>По судебной практике и требованиям технадзора маляр, начавший покраску, несет ответственность за весь пирог вплоть до бетона. Аргумент «новостройка дала усадку» не работает в суде — если основание лопнуло, переделки ложатся на маляра.</p>
                     </div>
-                    <div class="image-window">[ Окно для фото дефекта основания ]</div>
                 </div>
 
-                <!-- Пункт 02 -->
                 <div class="editorial-item">
                     <div class="item-num">02</div>
                     <div class="item-text">
                         <h3>Скрытые дефекты холста: сухие проплешины и дыры</h3>
                         <p>При механизированном нанесении клея края факела дают тонкий опыл. Образуются сухие пустоты, где холст пузырится при покраске. А если случайно прошкурить холст до дыр — армирование в этом месте аннулируется.</p>
                     </div>
-                    <div class="image-window">[ Окно для фото пузырей холста ]</div>
                 </div>
 
-                <!-- Пункт 03 -->
                 <div class="editorial-item">
                     <div class="item-num">03</div>
                     <div class="item-text">
                         <h3>Вы сошкуриваете свои деньги в мусорные мешки</h3>
                         <p>Покупая 20 мешков обычной гипсовой смеси, маляры наносят ее с запасом из-за сильной усадки, а затем 10 мешков сошкуривают на пол в виде пыли. Это ваши выброшенные деньги и тяжелый мусор.</p>
                     </div>
-                    <div class="image-window">[ Окно для фото мешков с пылью ]</div>
                 </div>
 
             </div>
@@ -890,42 +947,18 @@
         </div>
     </section>
 
-    <!-- БЛОК 3: ИНТЕРАКТИВНЫЙ МАЛЯРНЫЙ ПИРОГ -->
+    <!-- БЛОК 4: МАЛЯРНЫЙ ПИРОГ -->
     <section class="pie-section">
         <div class="section-container">
             <span class="section-tag">Сравнение технологий</span>
-            <h2 class="section-title text-center">Малярный пирог: <span class="accent-color">3 слоя</span> вместо <span class="accent-color">7–15 классических</span> операций</h2>
+            <h2 class="section-title">Малярный пирог: <span class="accent-color">3 слоя</span> вместо <span class="accent-color">7–15 классических</span> операций</h2>
             
-            <!-- Кнопки-переключатели -->
-            <div class="pie-tab-nav">
-                <button class="pie-tab-btn active" onclick="switchPieTab('ottinger')">✓ Пирог OTTINGER (3 слоя)</button>
-                <button class="pie-tab-btn" onclick="switchPieTab('classic')">✕ Классический метод (15 операций)</button>
-            </div>
-
-            <!-- Панель 1: Пирог OTTINGER (По умолчанию активен) -->
-            <div id="pie-ottinger" class="pie-panel active">
-                <div class="pie-card highlight">
-                    <div class="pie-card-header">
-                        Пирог OTTINGER
-                        <span class="pie-tag tag-orange">Всего 3 монолитных слоя</span>
-                    </div>
-                    <ul class="pie-steps-list">
-                        <li><strong>1. Primer Konzentrat:</strong> честные 20% сухого остатка, укрепляет ГКЛ и связывает пыль.</li>
-                        <li><strong>2. Двойной слой Basis Start:</strong> 10-микронная фибра заменяет холст и клей.</li>
-                        <li><strong>3. Premium Keramik Matt:</strong> моющийся финиш без затертостей и глянцевых пятен.</li>
-                        <li style="border: none; color: #ff5722; font-weight: 800; padding-top: 15px;">
-                            ✓ Исключены клей, холст, лишние промежуточные сушки и пыль.
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Панель 2: Классический метод -->
-            <div id="pie-classic" class="pie-panel">
+            <div class="pie-comparison-grid">
+                
                 <div class="pie-card">
                     <div class="pie-card-header">
-                        Классический прайс
-                        <span class="pie-tag tag-red">15 долгих операций</span>
+                        Классический пирог
+                        <span class="pie-tag tag-red">7–15 операций</span>
                     </div>
                     <ul class="pie-steps-list">
                         <li>1. Шлифовка штукатурки + обеспыливание</li>
@@ -934,23 +967,33 @@
                         <li>4. Базовое шпатлевание (2-й слой)</li>
                         <li>5. Шлифовка базы + повторный грунт</li>
                         <li>6. Нанесение клея для холста</li>
-                        <li>7. Поклейка стеклохолста (риск пузырей)</li>
+                        <li>7. Поклейка стеклохолста</li>
                         <li>8. Нанесение стабилизирующей грунт-краски</li>
                         <li>9. Финишная шпатлевка (в 2 слоя)</li>
-                        <li>10. Долгая шлифовка под Р240 + горы мусора</li>
+                        <li>10. Долгая шлифовка под Р240</li>
                     </ul>
                 </div>
-            </div>
 
-            <!-- Живая плашка экономии -->
-            <div class="pie-savings-banner">
-                Результат: <span>минус 12 операций</span>, <span>на 40% быстрее сдача</span> и <span>0 ₽ на переделки</span>
-            </div>
+                <div class="pie-card highlight">
+                    <div class="pie-card-header">
+                        Пирог OTTINGER
+                        <span class="pie-tag tag-orange">Всего 3 слоя</span>
+                    </div>
+                    <ul class="pie-steps-list">
+                        <li><strong>1. Primer Konzentrat:</strong> честные 20% сухого остатка, связывает пыль.</li>
+                        <li><strong>2. Двойной слой Basis Start:</strong> 10-микронная фибра заменяет холст и клей.</li>
+                        <li><strong>3. Premium Keramik Matt:</strong> моющийся финиш без затертостей.</li>
+                        <li style="border: none; color: #ff5722; font-weight: 800; padding-top: 15px;">
+                            ✓ Исключены клей, холст и лишние промежуточные сушки.
+                        </li>
+                    </ul>
+                </div>
 
+            </div>
         </div>
     </section>
 
-    <!-- БЛОК 4: ФИЗИКА И ЗАЩИТА ОТ ДУРАКА -->
+    <!-- БЛОК 5: ФИЗИКА И ЗАЩИТА ОТ ДУРАКА -->
     <section class="tech-section">
         <div class="section-container">
             <span class="section-tag">Инженерия материалов</span>
@@ -959,21 +1002,18 @@
             <div class="tech-grid">
                 
                 <div class="tech-card">
-                    <div class="tech-image-window">[ Тест: сворачивание слоя в трубку ]</div>
                     <div class="tech-num">01</div>
                     <h3>Резиновая упругость</h3>
                     <p>Застывший Basis Start превращается в упругий композит. Его можно свернуть в кольцо или с усилием царапать ручкой — он не скалывается и не крошится, как гипс.</p>
                 </div>
 
                 <div class="tech-card">
-                    <div class="tech-image-window">[ Шлифовка жирафом на скорости ]</div>
                     <div class="tech-num">02</div>
                     <h3>Защита от дурака</h3>
                     <p>Основание настолько плотное, что подсобник с жирафом на максимальных оборотах физически не сможет прорыть яму в плоскости стены.</p>
                 </div>
 
                 <div class="tech-card">
-                    <div class="tech-image-window">[ Сошлифовка в ноль без ожогов ]</div>
                     <div class="tech-num">03</div>
                     <h3>Без ожогов и перетиров</h3>
                     <p>Материал не переуплотняется при повторной шлифовке. Впитываемость одинаковая по всей глубине — переходов и пятен под лампой не будет.</p>
@@ -983,7 +1023,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 5: ЛАЙФХАК ПО ШЛИФОВКЕ -->
+    <!-- БЛОК 6: ЛАЙФХАК ПО ШЛИФОВКЕ -->
     <section class="myth-section">
         <div class="section-container">
             <div class="myth-box">
@@ -1003,7 +1043,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 6: КАТАЛОГ МАТЕРИАЛОВ -->
+    <!-- БЛОК 7: КАТАЛОГ МАТЕРИАЛОВ -->
     <section class="products-section" id="products">
         <div class="section-container">
             <span class="section-tag">Базовая линейка</span>
@@ -1011,9 +1051,7 @@
             
             <div class="product-grid">
                 
-                <!-- Продукт 1 -->
-                <div class="product-card card-primer">
-                    <div class="product-image-window">[ Канистра Primer Konzentrat ]</div>
+                <div class="product-card">
                     <div class="product-step badge-gray">Грунт 20% остатка</div>
                     <h3>Primer Konzentrat</h3>
                     <p class="product-desc">Честный концентрат 1:4. Глубоко укрепляет штукатурку и связывает складскую пыль на ГКЛ.</p>
@@ -1025,9 +1063,7 @@
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20грунта%20Primer%20Konzentrat." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
-                <!-- Продукт 2 -->
                 <div class="product-card">
-                    <div class="product-image-window">[ Ведро Basis Start ]</div>
                     <div class="product-step">Доминанта (90% задач)</div>
                     <h3>Basis Start</h3>
                     <p class="product-desc">Базовая шпатлевка с 10-микронной фиброй. Держит слой до 5 мм, заменяет стеклохолст и клей.</p>
@@ -1039,9 +1075,7 @@
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20шпатлевки%20Basis%20Start." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
-                <!-- Продукт 3 -->
-                <div class="product-card card-aqua">
-                    <div class="product-image-window">[ Ведро Basis Aqua ]</div>
+                <div class="product-card">
                     <div class="product-step badge-blue">Микростеклосферы</div>
                     <h3>Basis Aqua</h3>
                     <p class="product-desc">Шпатлевка тонкого помола. Зимняя формула. Идеальна под ленты Strait-Flex, влажные зоны и дефектовку.</p>
@@ -1053,10 +1087,8 @@
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20шпатлевки%20Basis%20Aqua." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
-                <!-- Продукт 4 -->
-                <div class="product-card card-paint">
-                    <div class="product-image-window">[ Ведро Premium Keramik Matt ]</div>
-                    <div class="product-step badge-dark">Моющаяся керамика</div>
+                <div class="product-card">
+                    <div class="product-step badge-white">Моющаяся керамика</div>
                     <h3>Keramik Matt</h3>
                     <p class="product-desc">Премиальная матовая краска. Создает плотную мембрану, устойчивую к бытовым жирам и мытью.</p>
                     <div class="product-specs">
@@ -1069,7 +1101,6 @@
 
             </div>
 
-            <!-- БАНЕР ПОЛНОГО КАТАЛОГА -->
             <div class="catalog-callout">
                 <div class="callout-text">
                     <h3>В линейке OTTINGER более 20 специализированных материалов</h3>
@@ -1081,7 +1112,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 7: ЦЕНООБРАЗОВАНИЕ -->
+    <!-- БЛОК 8: ЦЕНООБРАЗОВАНИЕ -->
     <section class="metrics-section">
         <div class="section-container">
             <span class="section-tag">Экономика пирога</span>
@@ -1108,7 +1139,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 8: ГЛАВНЫЙ CTA -->
+    <!-- БЛОК 9: ГЛАВНЫЙ CTA -->
     <section class="cta-section">
         <div class="cta-box">
             <span class="section-tag">Практика на объекте</span>
@@ -1118,7 +1149,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 9: КОНТАКТЫ (FOOTER) -->
+    <!-- БЛОК 10: КОНТАКТЫ (FOOTER) -->
     <footer>
         <div class="footer-container">
             <div class="footer-info">
@@ -1137,23 +1168,22 @@
         </div>
     </footer>
 
-    <!-- JS СКРИПТ ДЛЯ ПЕРЕКЛЮЧЕНИЯ ТАБОВ ПИРОГА (ЭТАП 1) -->
+    <!-- JS СКРИПТ ДЛЯ ПРОСМОТРА ВИДЕО В МОДАЛЬНОМ ОКНЕ -->
     <script>
-        function switchPieTab(type) {
-            // Кнопки
-            const buttons = document.querySelectorAll('.pie-tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+        function openVideoModal(videoSrc) {
+            const modal = document.getElementById('videoModal');
+            const player = document.getElementById('modalPlayer');
+            player.src = videoSrc;
+            modal.classList.add('active');
+            player.play();
+        }
 
-            // Панели
-            document.getElementById('pie-ottinger').classList.remove('active');
-            document.getElementById('pie-classic').classList.remove('active');
-
-            if (type === 'ottinger') {
-                document.getElementById('pie-ottinger').classList.add('active');
-            } else {
-                document.getElementById('pie-classic').classList.add('active');
-            }
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const player = document.getElementById('modalPlayer');
+            player.pause();
+            player.src = '';
+            modal.classList.remove('active');
         }
     </script>
 
