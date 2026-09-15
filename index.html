@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* БАЗОВЫЕ НАСТРОЙКИ (СВЕТЛАЯ СЕРО-БЕЛАЯ ТЕМА) */
+        /* БАЗОВЫЕ НАСТРОЙКИ (СВЕТЛАЯ ТЕМА) */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -74,20 +74,6 @@
         }
         .phone:hover {
             color: #ff5722;
-        }
-
-        /* ФИРМЕННЫЕ ВЕКТОРНЫЕ ЛИНИИ */
-        .bg-vortex {
-            position: absolute;
-            pointer-events: none;
-            z-index: 1;
-        }
-        .vortex-top-right {
-            top: -120px;
-            right: -150px;
-            width: 700px;
-            height: 700px;
-            opacity: 0.85;
         }
 
         /* ОБЩИЕ СТИЛИ СЕКЦИЙ */
@@ -161,7 +147,7 @@
             transform: scale(0.98);
         }
 
-        /* ОКНА-ПЛЕЙСХОЛДЕРЫ ДЛЯ ИЗОБРАЖЕНИЙ */
+        /* ОКНА-ПЛЕЙСХОЛДЕРЫ */
         .image-window {
             width: 100%;
             height: 220px;
@@ -180,21 +166,55 @@
             padding: 15px;
         }
 
-        /* БЛОК 1: ПЕРВЫЙ ЭКРАН */
+        /* БЛОК 1: ПЕРВЫЙ ЭКРАН (С ФИРМЕННЫМ ЛОГОТИПОМ) */
         .hero {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 15px 15px 40px 15px;
+            padding: 20px 15px 40px 15px;
             max-width: 1100px;
             margin: 0 auto;
             justify-content: flex-start;
             position: relative;
         }
+        /* Водяной знак вихря на фоне */
+        .hero-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 450px;
+            height: 450px;
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Фирменный логотип-эмблема в начале блока */
+        .hero-brand-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-emblem {
+            width: 55px;
+            height: 55px;
+            margin-bottom: 10px;
+        }
+        .hero-brand-title {
+            font-size: 1.1rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: #111111;
+            text-transform: uppercase;
+        }
+
         .hero-content {
             margin-bottom: 25px;
-            margin-top: 15px;
             width: 100%;
             position: relative;
             z-index: 2;
@@ -202,14 +222,32 @@
         h1 {
             font-size: 1.55rem;
             line-height: 1.35;
-            margin-bottom: 25px;
+            margin-bottom: 18px;
             font-weight: 900;
             color: #111111;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            margin: 0 auto;
+            margin-left: auto;
+            margin-right: auto;
             max-width: 900px;
         }
+        
+        /* Новый подзаголовок в стиле слайда */
+        .hero-subhead {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #666666;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        .hero-subhead span {
+            color: #ff5722;
+            font-weight: 900;
+        }
+
         .cta-container {
             display: flex;
             justify-content: center;
@@ -545,7 +583,7 @@
             line-height: 1.5;
         }
 
-        /* БЛОК 7: ВИДЕО-КАРУСЕЛЬ (ПЕРЕНЕСЕНА СЮДА СО СТРЕЛКАМИ) */
+        /* БЛОК 7: ВИДЕО-КАРУСЕЛЬ СО СТРЕЛКАМИ */
         .video-section {
             background-color: #f8f8f8;
             padding: 80px 20px;
@@ -653,7 +691,6 @@
             line-height: 1.3;
         }
 
-        /* Кнопки-стрелки перелистывания карусели */
         .carousel-arrow {
             width: 46px;
             height: 46px;
@@ -1127,12 +1164,26 @@
                 min-height: calc(100vh - 85px);
                 justify-content: center;
             }
+            .hero-emblem {
+                width: 70px;
+                height: 70px;
+                margin-bottom: 15px;
+            }
+            .hero-brand-title {
+                font-size: 1.3rem;
+                letter-spacing: 6px;
+            }
             h1 {
-                font-size: 3rem;
+                font-size: 2.8rem;
                 line-height: 1.3;
                 max-width: 1100px;
-                margin: 0 auto 30px auto;
+                margin: 0 auto 20px auto;
                 letter-spacing: 1px;
+            }
+            .hero-subhead {
+                font-size: 1rem;
+                letter-spacing: 2px;
+                margin-bottom: 30px;
             }
 
             .editorial-section { padding: 120px 40px; }
@@ -1159,14 +1210,13 @@
             .tech-section { padding: 120px 40px; }
             .tech-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
 
-            /* Видео-карусель на ПК со стрелками */
             .video-section { padding: 100px 40px; }
             .video-carousel {
                 justify-content: flex-start;
                 gap: 20px;
             }
             .video-card { flex: 0 0 250px; }
-            .carousel-arrow { display: flex; } /* Показываем стрелки на ПК */
+            .carousel-arrow { display: flex; }
 
             .products-section { padding: 120px 40px; }
             .product-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
@@ -1206,15 +1256,6 @@
 </head>
 <body>
 
-    <!-- ВЕКТОРНЫЕ КОНЦЕНТРИЧЕСКИЕ ДУГИ OTTINGER -->
-    <svg class="bg-vortex vortex-top-right" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="800" cy="0" r="200" stroke="#ff5722" stroke-width="1.5" stroke-opacity="0.15" stroke-dasharray="8 6"/>
-        <circle cx="800" cy="0" r="320" stroke="#111111" stroke-width="2" stroke-opacity="0.06"/>
-        <circle cx="800" cy="0" r="450" stroke="#ff5722" stroke-width="2.5" stroke-opacity="0.1"/>
-        <circle cx="800" cy="0" r="580" stroke="#111111" stroke-width="3" stroke-opacity="0.05"/>
-        <circle cx="800" cy="0" r="720" stroke="#111111" stroke-width="4" stroke-opacity="0.04"/>
-    </svg>
-
     <!-- ШАПКА -->
     <header>
         <div class="logo-box">
@@ -1224,14 +1265,38 @@
         <a href="tel:+79219121895" class="phone">+7 (921) 912-18-95</a>
     </header>
 
-    <!-- БЛОК 1: ПЕРВЫЙ ЭКРАН -->
+    <!-- БЛОК 1: ПЕРВЫЙ ЭКРАН (С ФИРМЕННЫМ ЛОГОТИПОМ И ПОДЗАГОЛОВКОМ) -->
     <main class="hero">
+        
+        <!-- Водяной знак на фоне -->
+        <svg class="hero-watermark" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="300" cy="300" r="100" stroke="#111111" stroke-width="2" stroke-dasharray="8 6"/>
+            <circle cx="300" cy="300" r="160" stroke="#111111" stroke-width="3"/>
+            <circle cx="300" cy="300" r="230" stroke="#111111" stroke-width="4"/>
+            <circle cx="300" cy="300" r="290" stroke="#111111" stroke-width="5"/>
+        </svg>
+
+        <!-- Фирменная эмблема и надпись над заголовком -->
+        <div class="hero-brand-badge">
+            <svg class="hero-emblem" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="46" stroke="#111111" stroke-width="4"/>
+                <circle cx="50" cy="50" r="35" stroke="#ff5722" stroke-width="3"/>
+                <circle cx="50" cy="50" r="24" stroke="#111111" stroke-width="3"/>
+                <circle cx="50" cy="50" r="13" stroke="#ff5722" stroke-width="4"/>
+            </svg>
+            <div class="hero-brand-title">OTTINGER PROFESSIONAL</div>
+        </div>
+
         <div class="hero-content">
             <h1>
                 КАК НАВСЕГДА ИЗБАВИТЬ <br>
                 МАЛЯРНЫЕ РАБОТЫ <br>
                 ОТ <span class="accent-color">БРАКА И ПЕРЕДЕЛОК</span>
             </h1>
+            <!-- Новый подзаголовок в фирменном стиле -->
+            <p class="hero-subhead">
+                Инновационная полимерная система отделки с <span>10-микронным фиброволокном</span>. Сокращает малярный пирог до 3 слоев без использования стеклохолста.
+            </p>
         </div>
 
         <div class="hero-media">
@@ -1428,14 +1493,13 @@
         </div>
     </section>
 
-    <!-- БЛОК 7: ВИДЕО-КАРУСЕЛЬ (ПЕРЕНЕСЕНА СЮДА СО СТРЕЛКАМИ) -->
+    <!-- БЛОК 7: ВИДЕО-КАРУСЕЛЬ (СО СТРЕЛКАМИ) -->
     <section class="video-section">
         <div class="section-container">
             <span class="section-tag">Видео-доказательства</span>
             <h2 class="section-title text-center">OTTINGER в деле: <span class="accent-color">Смотрите краш-тесты</span></h2>
             
             <div class="video-carousel-wrapper">
-                <!-- Стрелка влево -->
                 <button class="carousel-arrow arrow-left" onclick="scrollCarousel(-1)">&#8249;</button>
 
                 <div class="video-carousel" id="videoCarousel">
@@ -1476,7 +1540,6 @@
                     </div>
                 </div>
 
-                <!-- Стрелка вправо -->
                 <button class="carousel-arrow arrow-right" onclick="scrollCarousel(1)">&#8250;</button>
             </div>
         </div>
@@ -1582,7 +1645,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 10: РОССИЙСКОЕ ПРОИЗВОДСТВО И БЕСПЕРЕБОЙНЫЕ ПОСТАВКИ -->
+    <!-- БЛОК 10: РОССИЙСКОЕ ПРОИЗВОДСТВО -->
     <section class="factory-section">
         <div class="section-container">
             <span class="section-tag">Надежность и доступность</span>
@@ -1632,7 +1695,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 12: ПРИМЕРЫ РАБОТ (КЕЙСЫ) -->
+    <!-- БЛОК 12: ПРИМЕРЫ РАБОТ -->
     <section class="cases-section">
         <div class="section-container">
             <span class="section-tag">Реальный опыт</span>
@@ -1714,7 +1777,7 @@
         </div>
     </footer>
 
-    <!-- JS СКРИПТЫ: ТАБЫ, ВИДЕО И ПЕРЕЛИСТЫВАНИЕ СТРЕЛКАМИ -->
+    <!-- JS СКРИПТЫ -->
     <script>
         // Табы пирога
         function switchPieTab(type) {
