@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* БАЗОВЫЕ НАСТРОЙКИ */
+        /* БАЗОВЫЕ НАСТРОЙКИ (СВЕТЛАЯ СЕРО-БЕЛАЯ ТЕМА) */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -20,8 +20,8 @@
         }
         body {
             font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: #080808;
-            color: #ffffff;
+            background-color: #ffffff;
+            color: #111111;
             line-height: 1.4;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
@@ -33,10 +33,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 20px;
+            padding: 18px 20px;
             max-width: 1200px;
             margin: 0 auto;
-            border-bottom: 1px solid #1c1c1c;
+            border-bottom: 1px solid #eaeaea;
             position: relative;
             z-index: 10;
         }
@@ -49,7 +49,7 @@
             font-weight: 900;
             font-size: 1.35rem;
             letter-spacing: 3px;
-            color: #ffffff;
+            color: #111111;
             text-transform: uppercase;
         }
         .logo-text span {
@@ -65,7 +65,7 @@
             padding-left: 10px;
         }
         .phone {
-            color: #ffffff;
+            color: #111111;
             text-decoration: none;
             font-weight: 800;
             font-size: 0.95rem;
@@ -74,6 +74,27 @@
         }
         .phone:hover {
             color: #ff5722;
+        }
+
+        /* ФИРМЕННЫЕ ВЕКТОРНЫЕ ЛИНИИ НА ФОНЕ */
+        .bg-vortex {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .vortex-top-right {
+            top: -120px;
+            right: -150px;
+            width: 700px;
+            height: 700px;
+            opacity: 0.85;
+        }
+        .vortex-mid-left {
+            top: 40%;
+            left: -200px;
+            width: 800px;
+            height: 800px;
+            opacity: 0.5;
         }
 
         /* ОБЩИЕ СТИЛИ СЕКЦИЙ */
@@ -92,7 +113,7 @@
             max-width: 900px;
             letter-spacing: -0.5px;
             text-transform: uppercase;
-            color: #ffffff;
+            color: #111111;
         }
         .section-title.text-center {
             text-align: center;
@@ -147,6 +168,25 @@
             transform: scale(0.98);
         }
 
+        /* ОКНА-ПЛЕЙСХОЛДЕРЫ ДЛЯ ИЗОБРАЖЕНИЙ */
+        .image-window {
+            width: 100%;
+            height: 220px;
+            background-color: #f8f8f8;
+            border: 1px dashed #d6d6d6;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #888888;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            text-align: center;
+            padding: 15px;
+        }
+
         /* БЛОК 1: ПЕРВЫЙ ЭКРАН */
         .hero {
             display: flex;
@@ -171,7 +211,7 @@
             line-height: 1.35;
             margin-bottom: 25px;
             font-weight: 900;
-            color: #ffffff;
+            color: #111111;
             letter-spacing: 0.5px;
             text-transform: uppercase;
             margin: 0 auto;
@@ -190,12 +230,13 @@
             max-width: 600px;
             border-radius: 8px;
             overflow: hidden;
-            background-color: #121212;
+            background-color: #f8f8f8;
             aspect-ratio: 16 / 9;
-            border: 1px solid #1f1f1f;
+            border: 1px solid #e0e0e0;
             margin: 0 auto 25px auto;
             position: relative;
             z-index: 2;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
         }
         .hero-media img {
             width: 100%;
@@ -205,10 +246,10 @@
 
         /* БЛОК 2: ВИДЕО-КАРУСЕЛЬ (9:16 REELS) */
         .video-section {
-            background-color: #0c0c0c;
+            background-color: #fbfbfb;
             padding: 70px 20px;
-            border-top: 1px solid #191919;
-            border-bottom: 1px solid #191919;
+            border-top: 1px solid #eaeaea;
+            border-bottom: 1px solid #eaeaea;
         }
         .video-carousel {
             display: flex;
@@ -225,10 +266,10 @@
         .video-card {
             flex: 0 0 200px;
             aspect-ratio: 9 / 16;
-            background-color: #161616;
+            background-color: #1a1a1a;
             border-radius: 10px;
             overflow: hidden;
-            border: 1px solid #262626;
+            border: 1px solid #e0e0e0;
             position: relative;
             cursor: pointer;
             scroll-snap-align: start;
@@ -244,17 +285,18 @@
             content: "";
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 100%);
+            background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.85) 100%);
             z-index: 1;
         }
         .video-card:hover {
             border-color: #ff5722;
             transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         .video-play-icon {
             width: 44px;
             height: 44px;
-            background-color: rgba(255, 87, 34, 0.9);
+            background-color: rgba(255, 87, 34, 0.95);
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -266,7 +308,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 2;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             transition: transform 0.2s ease;
         }
         .video-card:hover .video-play-icon {
@@ -275,7 +317,7 @@
         }
         .video-badge {
             align-self: flex-start;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.7);
             color: #ffffff;
             font-size: 0.65rem;
             font-weight: 800;
@@ -298,7 +340,7 @@
         }
         .video-info p {
             font-size: 0.75rem;
-            color: #aaaaaa;
+            color: #cccccc;
             line-height: 1.3;
         }
 
@@ -343,11 +385,12 @@
             border: none;
         }
 
-        /* БЛОК 3: РЕАЛЬНОСТЬ СТРОЙКИ */
+        /* БЛОК 3: РЕАЛЬНОСТЬ СТРОЙКИ (EDITORIAL) */
         .editorial-section {
-            background-color: #080808;
+            background-color: #ffffff;
             padding: 80px 20px;
-            border-top: 1px solid #141414;
+            border-top: 1px solid #eaeaea;
+            position: relative;
         }
         .editorial-list {
             display: flex;
@@ -357,11 +400,11 @@
             display: flex;
             flex-direction: column;
             padding: 35px 0;
-            border-top: 1px solid #1c1c1c;
+            border-top: 1px solid #eaeaea;
             gap: 25px;
         }
         .editorial-item:last-child {
-            border-bottom: 1px solid #1c1c1c;
+            border-bottom: 1px solid #eaeaea;
         }
         .item-num {
             font-size: 2.2rem;
@@ -374,38 +417,74 @@
         .item-text h3 {
             font-size: 1.35rem;
             font-weight: 800;
-            color: #ffffff;
+            color: #111111;
             margin-bottom: 10px;
             letter-spacing: -0.3px;
         }
         .item-text p {
-            color: #8c8c8c;
+            color: #666666;
             font-size: 0.95rem;
             line-height: 1.5;
             max-width: 750px;
         }
 
-        /* БЛОК 4: МАЛЯРНЫЙ ПИРОГ */
+        /* БЛОК 4: ИНТЕРАКТИВНЫЙ МАЛЯРНЫЙ ПИРОГ */
         .pie-section {
-            background-color: #0c0c0c;
+            background-color: #f8f8f8;
             padding: 80px 20px;
-            border-top: 1px solid #191919;
+            border-top: 1px solid #eaeaea;
+            position: relative;
         }
-        .pie-comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
+        .pie-tab-nav {
+            display: flex;
+            gap: 12px;
             margin-bottom: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .pie-tab-btn {
+            padding: 14px 24px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border: 1px solid #dcdcdc;
+            background-color: #ffffff;
+            color: #666666;
+            transition: all 0.2s ease;
+        }
+        .pie-tab-btn.active {
+            background-color: #ff5722;
+            color: #ffffff;
+            border-color: #ff5722;
+            box-shadow: 0 4px 15px rgba(255, 87, 34, 0.25);
+        }
+        .pie-panel {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out forwards;
+        }
+        .pie-panel.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .pie-card {
-            background-color: #121212;
-            border: 1px solid #1f1f1f;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
             border-radius: 8px;
             padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            max-width: 900px;
+            margin: 0 auto 25px auto;
         }
         .pie-card.highlight {
             border-color: #ff5722;
-            background-color: #140d0a;
+            background: linear-gradient(180deg, #fff5f2 0%, #ffffff 100%);
+            box-shadow: 0 4px 20px rgba(255, 87, 34, 0.08);
         }
         .pie-card-header {
             font-size: 1.25rem;
@@ -415,6 +494,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            color: #111111;
         }
         .pie-tag {
             font-size: 0.7rem;
@@ -423,27 +503,42 @@
             font-weight: 800;
             text-transform: uppercase;
         }
-        .tag-red { background-color: #331515; color: #ff5252; }
+        .tag-red { background-color: #ffebee; color: #d32f2f; }
         .tag-orange { background-color: #ff5722; color: #ffffff; }
         .pie-steps-list {
             list-style: none;
         }
         .pie-steps-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #1c1c1c;
-            font-size: 0.9rem;
-            color: #b3b3b3;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.95rem;
+            color: #555555;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
-        .pie-steps-list li strong { color: #ffffff; }
+        .pie-steps-list li strong { color: #111111; }
+        .pie-savings-banner {
+            background-color: #111111;
+            color: #ffffff;
+            padding: 20px 30px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 700;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .pie-savings-banner span {
+            color: #ff5722;
+            font-weight: 900;
+        }
 
         /* БЛОК 5: ПОШАГОВЫЙ ПРОЦЕСС НАНЕСЕНИЯ */
         .process-section {
-            background-color: #080808;
+            background-color: #ffffff;
             padding: 80px 20px;
-            border-top: 1px solid #141414;
+            border-top: 1px solid #eaeaea;
         }
         .process-grid {
             display: grid;
@@ -451,27 +546,29 @@
             gap: 25px;
         }
         .process-card {
-            background-color: #121212;
-            border: 1px solid #1f1f1f;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
             border-radius: 8px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
         .process-card:hover {
             border-color: #ff5722;
             transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
         }
         .process-gif-window {
             width: 100%;
             aspect-ratio: 16 / 10;
-            background-color: #050505;
-            border-bottom: 1px solid #1f1f1f;
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #eaeaea;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #555555;
+            color: #777777;
             font-size: 0.75rem;
             text-transform: uppercase;
             font-weight: 800;
@@ -493,35 +590,36 @@
         .process-info h3 {
             font-size: 1.3rem;
             font-weight: 900;
-            color: #ffffff;
+            color: #111111;
             margin-bottom: 10px;
             text-transform: uppercase;
         }
         .process-info p {
-            color: #8c8c8c;
+            color: #666666;
             font-size: 0.9rem;
             line-height: 1.45;
         }
 
-        /* НОВЫЙ БЛОК 6: ПРАВИЛА РАБОТЫ И ЧАСТЫЕ ОШИБКИ */
+        /* БЛОК 6: ПРАВИЛА РАБОТЫ И ЧАСТЫЕ ОШИБКИ */
         .rules-section {
-            background-color: #0c0c0c;
+            background-color: #f8f8f8;
             padding: 80px 20px;
-            border-top: 1px solid #191919;
+            border-top: 1px solid #eaeaea;
         }
         .rules-box {
-            border: 1px solid #2a2a2a;
+            border: 1px solid #e0e0e0;
             border-left: 4px solid #ff5722;
-            background: linear-gradient(180deg, #140d0a 0%, #101010 100%);
+            background: #ffffff;
             padding: 35px;
             border-radius: 0 8px 8px 0;
             max-width: 1100px;
             margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
         }
         .rules-box h3 {
             font-size: 1.4rem;
             font-weight: 900;
-            color: #ffffff;
+            color: #111111;
             margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: -0.3px;
@@ -533,8 +631,8 @@
             margin-top: 25px;
         }
         .rule-card {
-            background-color: rgba(0, 0, 0, 0.4);
-            border: 1px solid #222222;
+            background-color: #fafafa;
+            border: 1px solid #eaeaea;
             padding: 20px;
             border-radius: 6px;
         }
@@ -546,16 +644,16 @@
             text-transform: uppercase;
         }
         .rule-card p {
-            color: #a0a0a0;
+            color: #666666;
             font-size: 0.88rem;
             line-height: 1.45;
         }
 
         /* БЛОК 7: ФИЗИКА OTTINGER */
         .tech-section {
-            background-color: #080808;
+            background-color: #ffffff;
             padding: 80px 20px;
-            border-top: 1px solid #141414;
+            border-top: 1px solid #eaeaea;
         }
         .tech-grid {
             display: grid;
@@ -563,15 +661,17 @@
             gap: 20px;
         }
         .tech-card {
-            background-color: #121212;
-            border: 1px solid #1f1f1f;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
             border-radius: 8px;
             padding: 25px;
             transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
         .tech-card:hover {
             border-color: #ff5722;
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
         }
         .tech-num {
             font-size: 1.5rem;
@@ -583,38 +683,39 @@
         .tech-card h3 {
             font-size: 1.25rem;
             font-weight: 800;
-            color: #ffffff;
+            color: #111111;
             margin-bottom: 12px;
             letter-spacing: -0.3px;
         }
         .tech-card p {
-            color: #8c8c8c;
+            color: #666666;
             font-size: 0.9rem;
             line-height: 1.5;
         }
 
         /* БЛОК 8: ЛАЙФХАК ПО ШЛИФОВКЕ */
         .myth-section {
-            background-color: #0c0c0c;
+            background-color: #f8f8f8;
             padding: 60px 20px;
-            border-top: 1px solid #191919;
+            border-top: 1px solid #eaeaea;
         }
         .myth-box {
-            border: 1px solid #2a2a2a;
+            border: 1px solid #e0e0e0;
             border-left: 4px solid #ff5722;
-            background-color: #121212;
+            background-color: #ffffff;
             padding: 30px;
             border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
         .myth-box h3 {
             font-size: 1.3rem;
             font-weight: 900;
-            color: #ffffff;
+            color: #111111;
             margin-bottom: 15px;
             text-transform: uppercase;
         }
         .myth-box p {
-            color: #a0a0a0;
+            color: #666666;
             font-size: 0.95rem;
             line-height: 1.5;
             margin-bottom: 15px;
@@ -630,7 +731,7 @@
             align-items: center;
             gap: 12px;
             font-size: 0.9rem;
-            color: #ffffff;
+            color: #111111;
             font-weight: 700;
         }
         .step-badge {
@@ -643,9 +744,9 @@
 
         /* БЛОК 9: КАТАЛОГ МАТЕРИАЛОВ */
         .products-section {
-            background-color: #080808;
+            background-color: #ffffff;
             padding: 80px 20px;
-            border-top: 1px solid #141414;
+            border-top: 1px solid #eaeaea;
         }
         .product-grid {
             display: grid;
@@ -654,17 +755,49 @@
             margin-bottom: 40px;
         }
         .product-card {
-            background-color: #121212;
-            border: 1px solid #1f1f1f;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
             border-radius: 8px;
             padding: 25px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: border-color 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
+        .product-card::after {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background-color: #ff5722;
+        }
+        .card-aqua::after { background-color: #00b0ff; }
+        .card-paint::after { background-color: #111111; }
+        .card-primer::after { background-color: #777777; }
+
         .product-card:hover {
             border-color: #ff5722;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+        }
+        .product-image-window {
+            width: 100%;
+            height: 180px;
+            background-color: #f8f8f8;
+            border: 1px dashed #d0d0d0;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #888888;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
         }
         .product-step {
             font-size: 0.7rem;
@@ -675,25 +808,26 @@
             margin-bottom: 6px;
         }
         .badge-blue { color: #00b0ff; }
-        .badge-white { color: #ffffff; }
+        .badge-dark { color: #111111; }
         .badge-gray { color: #777777; }
 
         .product-card h3 {
             font-size: 1.35rem;
             font-weight: 900;
-            color: #ffffff;
+            color: #111111;
             margin-bottom: 10px;
             letter-spacing: -0.3px;
+            text-transform: uppercase;
         }
         .product-desc {
-            color: #8c8c8c;
+            color: #666666;
             font-size: 0.88rem;
             line-height: 1.45;
             margin-bottom: 20px;
             min-height: 55px;
         }
         .product-specs {
-            border-top: 1px solid #1c1c1c;
+            border-top: 1px solid #f0f0f0;
             padding-top: 15px;
             margin-bottom: 20px;
         }
@@ -701,20 +835,21 @@
             display: flex;
             justify-content: space-between;
             font-size: 0.82rem;
-            margin-bottom: 8px;
+            padding: 6px 0;
+            border-bottom: 1px solid #f8f8f8;
         }
-        .spec-lbl { color: #666666; }
-        .spec-val { font-weight: 700; color: #ffffff; }
+        .spec-lbl { color: #888888; text-transform: uppercase; font-size: 0.72rem; font-weight: 700; }
+        .spec-val { font-weight: 800; color: #111111; }
         .btn-catalog {
             font-size: 0.85rem;
-            padding: 12px 18px;
+            padding: 14px 18px;
             max-width: 100%;
         }
 
         /* БАНЕР ПОЛНОГО КАТАЛОГА */
         .catalog-callout {
-            border: 1px solid #1f1f1f;
-            background-color: #121212;
+            border: 1px solid #e0e0e0;
+            background-color: #f8f8f8;
             border-radius: 8px;
             padding: 30px;
             display: flex;
@@ -727,35 +862,67 @@
         .callout-text h3 {
             font-size: 1.25rem;
             font-weight: 900;
-            color: #ffffff;
+            color: #111111;
             margin-bottom: 8px;
             text-transform: uppercase;
         }
         .callout-text p {
-            color: #8c8c8c;
+            color: #666666;
             font-size: 0.9rem;
             line-height: 1.4;
         }
         .btn-callout {
             background-color: transparent;
-            color: #ffffff;
-            border: 1px solid #333333;
+            color: #111111;
+            border: 1px solid #cccccc;
             font-size: 0.85rem;
             padding: 14px 28px;
             max-width: 100%;
             text-transform: uppercase;
-            font-weight: 700;
+            font-weight: 800;
         }
         .btn-callout:hover {
             border-color: #ff5722;
-            background-color: #1a1412;
+            color: #ff5722;
+            background-color: #fff5f2;
         }
 
-        /* БЛОК 10: ЦЕНООБРАЗОВАНИЕ */
-        .metrics-section {
-            background-color: #080808;
+        /* НОВЫЙ БЛОК 10: РОССИЙСКОЕ ПРОИЗВОДСТВО И ЛОГИСТИКА */
+        .factory-section {
+            background-color: #f8f8f8;
             padding: 80px 20px;
-            border-top: 1px solid #141414;
+            border-top: 1px solid #eaeaea;
+        }
+        .factory-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        .factory-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .factory-card h3 {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: #111111;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        .factory-card p {
+            color: #666666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* БЛОК 11: ЦЕНООБРАЗОВАНИЕ */
+        .metrics-section {
+            background-color: #ffffff;
+            padding: 80px 20px;
+            border-top: 1px solid #eaeaea;
         }
         .metrics-grid {
             display: grid;
@@ -763,7 +930,7 @@
             gap: 25px;
         }
         .metric-card {
-            border-top: 1px solid #1c1c1c;
+            border-top: 1px solid #eaeaea;
             padding-top: 20px;
             display: flex;
             flex-direction: column;
@@ -772,23 +939,96 @@
         .metric-val {
             font-size: 2.8rem;
             font-weight: 900;
-            color: #ffffff;
+            color: #111111;
             line-height: 1;
             margin-bottom: 10px;
             letter-spacing: -0.5px;
         }
         .metric-label {
             font-size: 0.92rem;
-            color: #8c8c8c;
+            color: #666666;
             line-height: 1.4;
         }
-        .metric-label strong { color: #ffffff; }
+        .metric-label strong { color: #111111; }
 
-        /* БЛОК 11: ГЛАВНЫЙ CTA */
-        .cta-section {
-            background-color: #121212;
+        /* БЛОК 12: ПРИМЕРЫ РАБОТ (КЕЙСЫ) */
+        .cases-section {
+            background-color: #f8f8f8;
             padding: 80px 20px;
-            border-top: 1px solid #1f1f1f;
+            border-top: 1px solid #eaeaea;
+        }
+        .cases-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        .case-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .case-image-window {
+            width: 100%;
+            height: 200px;
+            background-color: #f8f8f8;
+            border: 1px dashed #d0d0d0;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #888888;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+        .case-card h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #111111;
+            margin-bottom: 10px;
+        }
+        .case-card p {
+            color: #666666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* БЛОК 13: НАМ ДОВЕРЯЮТ */
+        .partners-section {
+            background-color: #ffffff;
+            padding: 80px 20px;
+            border-top: 1px solid #eaeaea;
+        }
+        .partners-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        .partner-card {
+            border-top: 1px solid #eaeaea;
+            padding-top: 20px;
+        }
+        .partner-card h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #ff5722;
+            margin-bottom: 10px;
+        }
+        .partner-card p {
+            color: #666666;
+            font-size: 0.95rem;
+            line-height: 1.45;
+        }
+
+        /* БЛОК 14: ГЛАВНЫЙ CTA (ТЕСТ-ДРАЙВ) */
+        .cta-section {
+            background-color: #f8f8f8;
+            padding: 80px 20px;
+            border-top: 1px solid #eaeaea;
             text-align: center;
         }
         .cta-box {
@@ -801,19 +1041,20 @@
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: -0.5px;
+            color: #111111;
         }
         .cta-box p {
-            color: #b3b3b3;
+            color: #666666;
             font-size: 0.95rem;
             margin-bottom: 30px;
             line-height: 1.5;
         }
 
-        /* БЛОК 12: КОНТАКТЫ (FOOTER) */
+        /* БЛОК 15: КОНТАКТЫ (FOOTER ПО СТРАНИЦЕ 119 КАТАЛОГА) */
         footer {
-            background-color: #050505;
+            background-color: #ffffff;
             padding: 60px 20px;
-            border-top: 1px solid #141414;
+            border-top: 1px solid #eaeaea;
         }
         .footer-container {
             max-width: 1100px;
@@ -825,7 +1066,7 @@
         .footer-info h2 {
             font-size: 1.6rem;
             font-weight: 900;
-            color: #ffffff;
+            color: #111111;
             margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -834,24 +1075,24 @@
         .footer-contacts-list { list-style: none; }
         .footer-contacts-list li {
             font-size: 0.95rem;
-            color: #8c8c8c;
+            color: #666666;
             margin-bottom: 10px;
         }
         .footer-contacts-list a {
-            color: #ffffff;
+            color: #111111;
             text-decoration: none;
             font-weight: 700;
         }
         .footer-hours {
             font-size: 0.85rem;
-            color: #555555;
-            border-top: 1px solid #141414;
+            color: #888888;
+            border-top: 1px solid #eaeaea;
             padding-top: 15px;
         }
 
-        /* АДАПТИВНОСТЬ ДЛЯ ПК */
+        /* АДАПТИВНОСТЬ ДЛЯ ПК (DESKTOP) */
         @media (min-width: 768px) {
-            header { padding: 20px 40px; }
+            header { padding: 22px 40px; }
             .phone { font-size: 1.25rem; font-weight: 900; }
             .hero {
                 padding: 30px 40px 50px 40px;
@@ -865,18 +1106,13 @@
                 margin: 0 auto 30px auto;
                 letter-spacing: 1px;
             }
-            
-            /* Видео-карусель */
             .video-section { padding: 100px 40px; }
             .video-carousel {
                 justify-content: center;
                 gap: 25px;
             }
-            .video-card {
-                flex: 0 0 240px;
-            }
+            .video-card { flex: 0 0 240px; }
 
-            /* Блок 3 */
             .editorial-section { padding: 120px 40px; }
             .section-title { font-size: 2.8rem; margin-bottom: 70px; }
             .editorial-item {
@@ -889,24 +1125,18 @@
             .item-text { flex: 1; }
             .item-text h3 { font-size: 1.5rem; }
             .item-text p { font-size: 1rem; }
+            .image-window { width: 380px; height: 240px; flex-shrink: 0; }
 
-            /* Блок 4 */
             .pie-section { padding: 120px 40px; }
-            .pie-comparison-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
-
-            /* Блок 5 */
             .process-section { padding: 120px 40px; }
             .process-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
 
-            /* Блок 6 (Правила работы) */
             .rules-section { padding: 100px 40px; }
             .rules-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
 
-            /* Блок 7 */
             .tech-section { padding: 120px 40px; }
             .tech-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
 
-            /* Блок 9 (Каталог) */
             .products-section { padding: 120px 40px; }
             .product-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
             .catalog-callout {
@@ -918,16 +1148,22 @@
             .callout-text { max-width: 650px; }
             .btn-callout { max-width: 300px; flex-shrink: 0; }
 
-            /* Блок 10 */
+            .factory-section { padding: 120px 40px; }
+            .factory-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
+
             .metrics-section { padding: 120px 40px; }
             .metrics-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
             .metric-val { font-size: 3.4rem; }
 
-            /* Блок 11 */
+            .cases-section { padding: 120px 40px; }
+            .cases-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
+
+            .partners-section { padding: 120px 40px; }
+            .partners-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+
             .cta-section { padding: 120px 40px; }
             .cta-box h2 { font-size: 2.4rem; }
 
-            /* Блок 12 */
             footer { padding: 80px 40px; }
             .footer-container {
                 flex-direction: row;
@@ -938,6 +1174,15 @@
     </style>
 </head>
 <body>
+
+    <!-- ВЕКТОРНЫЕ КОНЦЕНТРИЧЕСКИЕ ДУГИ OTTINGER -->
+    <svg class="bg-vortex vortex-top-right" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="800" cy="0" r="200" stroke="#ff5722" stroke-width="1.5" stroke-opacity="0.15" stroke-dasharray="8 6"/>
+        <circle cx="800" cy="0" r="320" stroke="#111111" stroke-width="2" stroke-opacity="0.06"/>
+        <circle cx="800" cy="0" r="450" stroke="#ff5722" stroke-width="2.5" stroke-opacity="0.1"/>
+        <circle cx="800" cy="0" r="580" stroke="#111111" stroke-width="3" stroke-opacity="0.05"/>
+        <circle cx="800" cy="0" r="720" stroke="#111111" stroke-width="4" stroke-opacity="0.04"/>
+    </svg>
 
     <!-- ШАПКА -->
     <header>
@@ -1036,6 +1281,7 @@
                         <h3>Принял основание — плати за чужие косяки</h3>
                         <p>По судебной практике и требованиям технадзора маляр, начавший покраску, несет ответственность за весь пирог вплоть до бетона. Аргумент «новостройка дала усадку» не работает в суде — если основание лопнуло, переделки ложатся на маляра.</p>
                     </div>
+                    <div class="image-window">[ Фото дефекта основания ]</div>
                 </div>
 
                 <div class="editorial-item">
@@ -1044,6 +1290,7 @@
                         <h3>Скрытые дефекты холста: сухие проплешины и дыры</h3>
                         <p>При механизированном нанесении клея края факела дают тонкий опыл. Образуются сухие пустоты, где холст пузырится при покраске. А если случайно прошкурить холст до дыр — армирование в этом месте аннулируется.</p>
                     </div>
+                    <div class="image-window">[ Фото пузырей холста ]</div>
                 </div>
 
                 <div class="editorial-item">
@@ -1052,22 +1299,45 @@
                         <h3>Вы сошкуриваете свои деньги в мусорные мешки</h3>
                         <p>Покупая 20 мешков обычной гипсовой смеси, маляры наносят ее с запасом из-за сильной усадки, а затем 10 мешков сошкуривают на пол в виде пыли. Это ваши выброшенные деньги и тяжелый мусор.</p>
                     </div>
+                    <div class="image-window">[ Фото мешков с пылью ]</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- БЛОК 4: МАЛЯРНЫЙ ПИРОГ -->
+    <!-- БЛОК 4: ИНТЕРАКТИВНЫЙ МАЛЯРНЫЙ ПИРОГ -->
     <section class="pie-section">
         <div class="section-container">
             <span class="section-tag">Сравнение технологий</span>
-            <h2 class="section-title">Малярный пирог: <span class="accent-color">3 слоя</span> вместо <span class="accent-color">7–15 классических</span> операций</h2>
+            <h2 class="section-title text-center">Малярный пирог: <span class="accent-color">3 слоя</span> вместо <span class="accent-color">7–15 классических</span> операций</h2>
             
-            <div class="pie-comparison-grid">
+            <div class="pie-tab-nav">
+                <button class="pie-tab-btn active" onclick="switchPieTab('ottinger')">✓ Пирог OTTINGER (3 слоя)</button>
+                <button class="pie-tab-btn" onclick="switchPieTab('classic')">✕ Классический метод (15 операций)</button>
+            </div>
+
+            <div id="pie-ottinger" class="pie-panel active">
+                <div class="pie-card highlight">
+                    <div class="pie-card-header">
+                        Пирог OTTINGER
+                        <span class="pie-tag tag-orange">Всего 3 монолитных слоя</span>
+                    </div>
+                    <ul class="pie-steps-list">
+                        <li><strong>1. Primer Konzentrat:</strong> честные 20% сухого остатка, укрепляет ГКЛ и связывает пыль.</li>
+                        <li><strong>2. Двойной слой Basis Start:</strong> 10-микронная фибра заменяет холст и клей.</li>
+                        <li><strong>3. Premium Keramik Matt:</strong> моющийся финиш без затертостей и глянцевых пятен.</li>
+                        <li style="border: none; color: #ff5722; font-weight: 800; padding-top: 15px;">
+                            ✓ Исключены клей, холст, лишние промежуточные сушки и пыль.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="pie-classic" class="pie-panel">
                 <div class="pie-card">
                     <div class="pie-card-header">
-                        Классический пирог
-                        <span class="pie-tag tag-red">7–15 операций</span>
+                        Классический прайс
+                        <span class="pie-tag tag-red">15 долгих операций</span>
                     </div>
                     <ul class="pie-steps-list">
                         <li>1. Шлифовка штукатурки + обеспыливание</li>
@@ -1076,27 +1346,16 @@
                         <li>4. Базовое шпатлевание (2-й слой)</li>
                         <li>5. Шлифовка базы + повторный грунт</li>
                         <li>6. Нанесение клея для холста</li>
-                        <li>7. Поклейка стеклохолста</li>
+                        <li>7. Поклейка стеклохолста (риск пузырей)</li>
                         <li>8. Нанесение стабилизирующей грунт-краски</li>
                         <li>9. Финишная шпатлевка (в 2 слоя)</li>
-                        <li>10. Долгая шлифовка под Р240</li>
+                        <li>10. Долгая шлифовка под Р240 + горы мусора</li>
                     </ul>
                 </div>
+            </div>
 
-                <div class="pie-card highlight">
-                    <div class="pie-card-header">
-                        Пирог OTTINGER
-                        <span class="pie-tag tag-orange">Всего 3 слоя</span>
-                    </div>
-                    <ul class="pie-steps-list">
-                        <li><strong>1. Primer Konzentrat:</strong> честные 20% сухого остатка, связывает пыль.</li>
-                        <li><strong>2. Двойной слой Basis Start:</strong> 10-микронная фибра заменяет холст и клей.</li>
-                        <li><strong>3. Premium Keramik Matt:</strong> моющийся финиш без затертостей.</li>
-                        <li style="border: none; color: #ff5722; font-weight: 800; padding-top: 15px;">
-                            ✓ Исключены клей, холст и лишние промежуточные сушки.
-                        </li>
-                    </ul>
-                </div>
+            <div class="pie-savings-banner">
+                Результат: <span>минус 12 операций</span>, <span>на 40% быстрее сдача</span> и <span>0 ₽ на переделки</span>
             </div>
         </div>
     </section>
@@ -1138,11 +1397,11 @@
         </div>
     </section>
 
-    <!-- НОВЫЙ БЛОК 6: ПРАВИЛА РАБОТЫ И ЧАСТЫЕ ОШИБКИ -->
+    <!-- БЛОК 6: ПРАВИЛА РАБОТЫ И ЧАСТЫЕ ОШИБКИ -->
     <section class="rules-section">
         <div class="section-container">
             <div class="rules-box">
-                <span class="section-tag">Важно для маляров</span>
+                <span class="section-tag">Важно для мастеров</span>
                 <h3>Инновационный полимер требует нового подхода: не работайте по старым канонам</h3>
                 <p>90% трудностей на старте возникают, когда полимерную систему пытаются наносить привычными гипсовыми методами. Соблюдайте три золотых правила:</p>
                 
@@ -1221,7 +1480,8 @@
             <h2 class="section-title text-center"><span class="accent-color">4 материала</span>, закрывающих <span class="accent-color">100% задач</span></h2>
             
             <div class="product-grid">
-                <div class="product-card">
+                <div class="product-card card-primer">
+                    <div class="product-image-window">[ Канистра Primer Konzentrat ]</div>
                     <div class="product-step badge-gray">Грунт 20% остатка</div>
                     <h3>Primer Konzentrat</h3>
                     <p class="product-desc">Честный концентрат 1:4. Глубоко укрепляет штукатурку и связывает складскую пыль на ГКЛ.</p>
@@ -1234,6 +1494,7 @@
                 </div>
 
                 <div class="product-card">
+                    <div class="product-image-window">[ Ведро Basis Start ]</div>
                     <div class="product-step">Доминанта (90% задач)</div>
                     <h3>Basis Start</h3>
                     <p class="product-desc">Базовая шпатлевка с 10-микронной фиброй. Держит слой до 5 мм, заменяет стеклохолст и клей.</p>
@@ -1245,7 +1506,8 @@
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20шпатлевки%20Basis%20Start." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card card-aqua">
+                    <div class="product-image-window">[ Ведро Basis Aqua ]</div>
                     <div class="product-step badge-blue">Микростеклосферы</div>
                     <h3>Basis Aqua</h3>
                     <p class="product-desc">Шпатлевка тонкого помола. Зимняя формула. Идеальна под ленты Strait-Flex, влажные зоны и дефектовку.</p>
@@ -1257,8 +1519,9 @@
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20шпатлевки%20Basis%20Aqua." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
-                <div class="product-card">
-                    <div class="product-step badge-white">Моющаяся керамика</div>
+                <div class="product-card card-paint">
+                    <div class="product-image-window">[ Ведро Premium Keramik Matt ]</div>
+                    <div class="product-step badge-dark">Моющаяся керамика</div>
                     <h3>Keramik Matt</h3>
                     <p class="product-desc">Премиальная матовая краска. Создает плотную мембрану, устойчивую к бытовым жирам и мытью.</p>
                     <div class="product-specs">
@@ -1280,7 +1543,32 @@
         </div>
     </section>
 
-    <!-- БЛОК 10: ЦЕНООБРАЗОВАНИЕ -->
+    <!-- НОВЫЙ БЛОК 10: РОССИЙСКОЕ ПРОИЗВОДСТВО И БЕСПЕРЕБОЙНЫЕ ПОСТАВКИ -->
+    <section class="factory-section">
+        <div class="section-container">
+            <span class="section-tag">Надежность и доступность</span>
+            <h2 class="section-title text-center">Производство в России и <span class="accent-color">поставки без задержек</span></h2>
+            
+            <div class="factory-grid">
+                <div class="factory-card">
+                    <h3>Заводы в г. Подольск и г. Ижевск</h3>
+                    <p>Все краски, грунты и шпатлевки OTTINGER производятся на собственных высокотехнологичных заводах в РФ. Никаких санкционных рисков и зависимости от импортных поставок.</p>
+                </div>
+
+                <div class="factory-card">
+                    <h3>Постоянное наличие на складе в Сочи</h3>
+                    <p>Вам больше не нужно ждать материал из Москвы неделями. Все ходовые позиции (25 кг ведра шпатлевки, грунты и краски) хранятся на складе в Сочи и готовы к отгрузке от 1 дня.</p>
+                </div>
+
+                <div class="factory-card">
+                    <h3>Стабильное заводское качество</h3>
+                    <p>Автоматизированный контроль помола, точная дозировка 10-микронного фиброволокна и единый химический состав. Качество не плавает от партии к партии.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 11: ЦЕНООБРАЗОВАНИЕ -->
     <section class="metrics-section">
         <div class="section-container">
             <span class="section-tag">Экономика пирога</span>
@@ -1305,7 +1593,60 @@
         </div>
     </section>
 
-    <!-- БЛОК 11: ГЛАВНЫЙ CTA -->
+    <!-- БЛОК 12: ПРИМЕРЫ РАБОТ (КЕЙСЫ) -->
+    <section class="cases-section">
+        <div class="section-container">
+            <span class="section-tag">Реальный опыт</span>
+            <h2 class="section-title text-center">Стены на реальных объектах</h2>
+            
+            <div class="cases-grid">
+                <div class="case-card">
+                    <div class="case-image-window">[ Фото готовых стен в апартаментах ]</div>
+                    <h3>Апартаменты под сдачу в Сочи</h3>
+                    <p>Стены подготовлены без использования стеклохолста. Финишный слой краски с керамикой выдерживает влажную уборку и любые бытовые пятна.</p>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-image-window">[ Фото коридора отеля ]</div>
+                    <h3>Коридор гостиничного комплекса</h3>
+                    <p>Проходная зона с экстремальной нагрузкой. Упругая полимерная база шпатлевки защищает углы от сколов при ударах чемоданами и колясками.</p>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-image-window">[ Фото готового интерьера ]</div>
+                    <h3>Премиальный жилой интерьер</h3>
+                    <p>Стены подготовлены под строгий проявочный свет (качество Q4). Глубокоматовая краска не дает бликов и затертостей в проходных зонах.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 13: НАМ ДОВЕРЯЮТ -->
+    <section class="partners-section">
+        <div class="section-container">
+            <span class="section-tag">Профессиональное сообщество</span>
+            <h2 class="section-title text-center">Кто выбирает полимерную отделку?</h2>
+            
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <h3>Прорабы и строители</h3>
+                    <p>Сдают объекты вовремя, не переделывают работу за мебельщиками и экономят бюджет за счет исключения холста и клея.</p>
+                </div>
+
+                <div class="partner-card">
+                    <h3>Дизайнеры интерьера</h3>
+                    <p>Уверены, что их сложные проекты с глубокими матовыми стенами не затрутся и не пойдут трещинами через месяц после сдачи.</p>
+                </div>
+
+                <div class="partner-card">
+                    <h3>Владельцы и отельеры</h3>
+                    <p>Получают долговечный ремонт, который не требует обновления и косметических подкрасок перед каждым туристическим сезоном.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 14: ГЛАВНЫЙ CTA -->
     <section class="cta-section">
         <div class="cta-box">
             <span class="section-tag">Практика на объекте</span>
@@ -1315,7 +1656,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 12: КОНТАКТЫ (FOOTER) -->
+    <!-- БЛОК 15: КОНТАКТЫ (FOOTER ПО СТРАНИЦЕ 119 КАТАЛОГА) -->
     <footer>
         <div class="footer-container">
             <div class="footer-info">
@@ -1334,8 +1675,25 @@
         </div>
     </footer>
 
-    <!-- JS СКРИПТ ДЛЯ ПРОСМОТРА ВИДЕО -->
+    <!-- JS СКРИПТЫ: ТАБЫ И ВИДЕО МОДАЛКА -->
     <script>
+        // Переключение табов малярного пирога (Блок 4)
+        function switchPieTab(type) {
+            const buttons = document.querySelectorAll('.pie-tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            document.getElementById('pie-ottinger').classList.remove('active');
+            document.getElementById('pie-classic').classList.remove('active');
+
+            if (type === 'ottinger') {
+                document.getElementById('pie-ottinger').classList.add('active');
+            } else {
+                document.getElementById('pie-classic').classList.add('active');
+            }
+        }
+
+        // Модальное окно для видео
         function openVideoModal(videoSrc) {
             const modal = document.getElementById('videoModal');
             const player = document.getElementById('modalPlayer');
