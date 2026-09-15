@@ -20,10 +20,11 @@
         }
         body {
             font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: #080808;
+            background-color: #050505;
             color: #ffffff;
             line-height: 1.4;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
         
         /* ШАПКА САЙТА (HEADER) */
@@ -31,20 +32,22 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 20px;
+            padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
-            border-bottom: 1px solid #1c1c1c;
+            border-bottom: 1px solid #141414;
+            position: relative;
+            z-index: 10;
         }
         .logo-box {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         .logo-text {
             font-weight: 900;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
+            font-size: 1.35rem;
+            letter-spacing: 3px;
             color: #ffffff;
             text-transform: uppercase;
         }
@@ -53,11 +56,11 @@
         }
         .logo-sub {
             font-size: 0.65rem;
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: 2px;
-            color: #777777;
+            color: #888888;
             text-transform: uppercase;
-            border-left: 1px solid #333333;
+            border-left: 2px solid #ff5722;
             padding-left: 10px;
         }
         .phone {
@@ -65,7 +68,7 @@
             text-decoration: none;
             font-weight: 700;
             font-size: 0.9rem;
-            white-space: nowrap; /* Запрет переноса телефонного номера */
+            white-space: nowrap;
             transition: color 0.2s ease;
         }
         .phone:hover {
@@ -76,6 +79,8 @@
         .section-container {
             max-width: 1100px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
         .section-title {
             text-align: left;
@@ -116,11 +121,11 @@
         .btn {
             display: inline-block;
             text-align: center;
-            padding: 16px 32px;
+            padding: 18px 36px;
             font-size: 0.95rem;
-            font-weight: 800;
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-decoration: none;
             border-radius: 4px;
             transition: all 0.2s ease;
@@ -132,22 +137,23 @@
             background-color: #ff5722;
             color: #ffffff;
             border: 1px solid #ff5722;
-            box-shadow: 0 4px 20px rgba(255, 87, 34, 0.25);
+            box-shadow: 0 4px 25px rgba(255, 87, 34, 0.35);
         }
         .btn-primary:hover {
             background-color: #e64a19;
-            box-shadow: 0 6px 25px rgba(255, 87, 34, 0.4);
+            box-shadow: 0 6px 30px rgba(255, 87, 34, 0.5);
+            transform: translateY(-2px);
         }
         .btn-primary:active {
             transform: scale(0.98);
         }
 
-        /* ОКНА-ПЛЕЙСХОЛДЕРЫ */
+        /* ОКНА-ПЛЕЙСХОЛДЕРЫ ДЛЯ ИЗОБРАЖЕНИЙ */
         .image-window {
             width: 100%;
             height: 220px;
-            background-color: #121212;
-            border: 1px dashed #2a2a2a;
+            background-color: #0f0f0f;
+            border: 1px dashed #282828;
             border-radius: 6px;
             display: flex;
             justify-content: center;
@@ -159,24 +165,41 @@
             font-weight: 700;
         }
 
-        /* БЛОК 1: ПЕРВЫЙ ЭКРАН (ОДНОРОДНЫЙ СИММЕТРИЧНЫЙ ТЕКСТ) */
+        /* БЛОК 1: ПЕРВЫЙ ЭКРАН (С ФИРМЕННЫМ ГРАФИЧЕСКИМ ФОНОМ) */
         .hero {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 30px 15px 40px 15px;
+            padding: 40px 15px 50px 15px;
             max-width: 1100px;
             margin: 0 auto;
-            min-height: calc(100vh - 70px);
+            min-height: calc(100vh - 80px);
             justify-content: center;
+            position: relative;
+        }
+        /* Фирменные концентрические круги OTTINGER на фоне */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 87, 34, 0.05) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            z-index: 1;
+            pointer-events: none;
         }
         .hero-content {
             margin-bottom: 30px;
             width: 100%;
+            position: relative;
+            z-index: 2;
         }
         h1 {
-            font-size: 1.6rem; /* Единый размер шрифта для всех строк на мобильных */
+            font-size: 1.6rem;
             line-height: 1.35;
             font-weight: 900;
             color: #ffffff;
@@ -190,16 +213,20 @@
             justify-content: center;
             align-items: center;
             width: 100%;
+            position: relative;
+            z-index: 2;
         }
         .hero-media {
             width: 100%;
             max-width: 600px;
             border-radius: 8px;
             overflow: hidden;
-            background-color: #121212;
+            background-color: #0f0f0f;
             aspect-ratio: 16 / 9;
-            border: 1px solid #1f1f1f;
+            border: 1px solid #1a1a1a;
             margin: 0 auto 30px auto;
+            position: relative;
+            z-index: 2;
         }
         .hero-media img {
             width: 100%;
@@ -221,11 +248,11 @@
             display: flex;
             flex-direction: column;
             padding: 35px 0;
-            border-top: 1px solid #1c1c1c;
+            border-top: 1px solid #191919;
             gap: 25px;
         }
         .editorial-item:last-child {
-            border-bottom: 1px solid #1c1c1c;
+            border-bottom: 1px solid #191919;
         }
         .item-num {
             font-size: 2.2rem;
@@ -251,7 +278,7 @@
 
         /* БЛОК 3: МАЛЯРНЫЙ ПИРОГ */
         .pie-section {
-            background-color: #0d0d0d;
+            background-color: #050505;
             padding: 80px 20px;
             border-top: 1px solid #141414;
         }
@@ -262,14 +289,14 @@
             margin-bottom: 30px;
         }
         .pie-card {
-            background-color: #121212;
-            border: 1px solid #1f1f1f;
+            background-color: #0c0c0c;
+            border: 1px solid #1a1a1a;
             border-radius: 8px;
             padding: 30px;
         }
         .pie-card.highlight {
             border-color: #ff5722;
-            background-color: #140d0a;
+            background: linear-gradient(180deg, #140d0a 0%, #0c0c0c 100%);
         }
         .pie-card-header {
             font-size: 1.25rem;
@@ -294,7 +321,7 @@
         }
         .pie-steps-list li {
             padding: 10px 0;
-            border-bottom: 1px solid #1c1c1c;
+            border-bottom: 1px solid #141414;
             font-size: 0.9rem;
             color: #b3b3b3;
             display: flex;
@@ -315,15 +342,15 @@
             gap: 20px;
         }
         .tech-card {
-            background-color: #121212;
-            border: 1px solid #1f1f1f;
+            background-color: #0c0c0c;
+            border: 1px solid #1a1a1a;
             border-radius: 8px;
             padding: 25px;
             transition: all 0.2s ease;
         }
         .tech-card:hover {
             border-color: #ff5722;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
         .tech-num {
             font-size: 1.5rem;
@@ -347,7 +374,7 @@
         .tech-image-window {
             width: 100%;
             height: 140px;
-            background-color: #080808;
+            background-color: #050505;
             border: 1px dashed #222222;
             border-radius: 6px;
             margin-bottom: 20px;
@@ -363,14 +390,14 @@
 
         /* БЛОК 5: ЛАЙФХАК ПО ШЛИФОВКЕ */
         .myth-section {
-            background-color: #0d0d0d;
+            background-color: #050505;
             padding: 60px 20px;
             border-top: 1px solid #141414;
         }
         .myth-box {
-            border: 1px solid #2a2a2a;
+            border: 1px solid #222222;
             border-left: 4px solid #ff5722;
-            background-color: #121212;
+            background-color: #0c0c0c;
             padding: 30px;
             border-radius: 0 8px 8px 0;
         }
@@ -409,7 +436,7 @@
             font-size: 0.75rem;
         }
 
-        /* БЛОК 6: КАТАЛОГ МАТЕРИАЛОВ */
+        /* БЛОК 6: КАТАЛОГ МАТЕРИАЛОВ (В СТИЛЕ БРЕНДБУКА OTTINGER) */
         .products-section {
             background-color: #080808;
             padding: 80px 20px;
@@ -422,22 +449,38 @@
             margin-bottom: 40px;
         }
         .product-card {
-            background-color: #121212;
-            border: 1px solid #1f1f1f;
+            background-color: #0c0c0c;
+            border: 1px solid #1a1a1a;
             border-radius: 8px;
             padding: 25px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
+            overflow: hidden;
             transition: border-color 0.2s ease;
         }
+        /* Фирменные цветные полоски внизу карточек как в каталоге */
+        .product-card::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: #ff5722;
+        }
+        .card-aqua::after { background-color: #00b0ff; }
+        .card-paint::after { background-color: #ffffff; }
+        .card-primer::after { background-color: #777777; }
+
         .product-card:hover {
-            border-color: #ff5722;
+            border-color: #333333;
         }
         .product-image-window {
             width: 100%;
             height: 180px;
-            background-color: #080808;
+            background-color: #050505;
             border: 1px dashed #222222;
             border-radius: 6px;
             margin-bottom: 20px;
@@ -458,12 +501,17 @@
             letter-spacing: 1.5px;
             margin-bottom: 6px;
         }
+        .badge-blue { color: #00b0ff; }
+        .badge-white { color: #ffffff; }
+        .badge-gray { color: #888888; }
+
         .product-card h3 {
             font-size: 1.35rem;
             font-weight: 900;
             color: #ffffff;
             margin-bottom: 10px;
             letter-spacing: -0.3px;
+            text-transform: uppercase;
         }
         .product-desc {
             color: #8c8c8c;
@@ -472,8 +520,10 @@
             margin-bottom: 20px;
             min-height: 55px;
         }
+        
+        /* Фирменная таблица характеристик OTTINGER */
         .product-specs {
-            border-top: 1px solid #1c1c1c;
+            border-top: 1px solid #1a1a1a;
             padding-top: 15px;
             margin-bottom: 20px;
         }
@@ -481,20 +531,21 @@
             display: flex;
             justify-content: space-between;
             font-size: 0.82rem;
-            margin-bottom: 8px;
+            padding: 5px 0;
+            border-bottom: 1px solid #111111;
         }
-        .spec-lbl { color: #666666; }
-        .spec-val { font-weight: 700; color: #ffffff; }
+        .spec-lbl { color: #666666; text-transform: uppercase; font-size: 0.72rem; font-weight: 700; }
+        .spec-val { font-weight: 800; color: #ffffff; }
         .btn-catalog {
             font-size: 0.85rem;
-            padding: 12px 18px;
+            padding: 14px 18px;
             max-width: 100%;
         }
 
         /* БАНЕР ПОЛНОГО КАТАЛОГА */
         .catalog-callout {
-            border: 1px solid #1f1f1f;
-            background-color: #121212;
+            border: 1px solid #1a1a1a;
+            background-color: #0c0c0c;
             border-radius: 8px;
             padding: 30px;
             display: flex;
@@ -524,16 +575,16 @@
             padding: 14px 28px;
             max-width: 100%;
             text-transform: uppercase;
-            font-weight: 700;
+            font-weight: 800;
         }
         .btn-callout:hover {
             border-color: #ff5722;
-            background-color: #1a1412;
+            background-color: #140d0a;
         }
 
-        /* БЛОК 7: ЦЕНООБРАЗОВАНИЕ */
+        /* БЛОК 7: ЦЕНООБРАЗОВАНИЕ (МЕТРИКИ) */
         .metrics-section {
-            background-color: #080808;
+            background-color: #050505;
             padding: 80px 20px;
             border-top: 1px solid #141414;
         }
@@ -543,7 +594,7 @@
             gap: 25px;
         }
         .metric-card {
-            border-top: 1px solid #1c1c1c;
+            border-top: 1px solid #1a1a1a;
             padding-top: 20px;
             display: flex;
             flex-direction: column;
@@ -564,11 +615,11 @@
         }
         .metric-label strong { color: #ffffff; }
 
-        /* БЛОК 8: ГЛАВНЫЙ CTA */
+        /* БЛОК 8: ГЛАВНЫЙ CTA (ТЕСТ-ДРАЙВ) */
         .cta-section {
-            background-color: #121212;
+            background-color: #0c0c0c;
             padding: 80px 20px;
-            border-top: 1px solid #1f1f1f;
+            border-top: 1px solid #1a1a1a;
             text-align: center;
         }
         .cta-box {
@@ -591,7 +642,7 @@
 
         /* БЛОК 9: КОНТАКТЫ (FOOTER) */
         footer {
-            background-color: #050505;
+            background-color: #030303;
             padding: 60px 20px;
             border-top: 1px solid #141414;
         }
@@ -631,18 +682,18 @@
 
         /* АДАПТИВНОСТЬ ДЛЯ ПК */
         @media (min-width: 768px) {
-            header { padding: 20px 40px; }
+            header { padding: 25px 40px; }
             .hero {
-                padding: 50px 40px;
-                min-height: calc(100vh - 70px);
+                padding: 60px 40px;
+                min-height: calc(100vh - 80px);
                 justify-content: center;
             }
             h1 {
-                font-size: 3rem; /* Единый крупный размер шрифта для всех 3 строк на ПК */
+                font-size: 3rem;
                 line-height: 1.3;
                 max-width: 1100px;
                 margin: 0 auto 30px auto;
-                letter-spacing: 2px;
+                letter-spacing: 1px;
             }
             
             /* Блок 2 */
@@ -710,7 +761,7 @@
         <a href="tel:+79219121895" class="phone">+7 (921) 912-18-95</a>
     </header>
 
-    <!-- БЛОК 1: ПЕРВЫЙ ЭКРАН (ОДНОРОДНЫЙ ШРИФТ В 3 СТРОКИ) -->
+    <!-- БЛОК 1: ПЕРВЫЙ ЭКРАН -->
     <main class="hero">
         <div class="hero-content">
             <h1>
@@ -873,7 +924,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 6: КАТАЛОГ МАТЕРИАЛОВ -->
+    <!-- БЛОК 6: КАТАЛОГ МАТЕРИАЛОВ (В СТИЛЕ БРЕНДБУКА OTTINGER) -->
     <section class="products-section" id="products">
         <div class="section-container">
             <span class="section-tag">Базовая линейка</span>
@@ -882,13 +933,13 @@
             <div class="product-grid">
                 
                 <!-- Продукт 1 -->
-                <div class="product-card">
+                <div class="product-card card-primer">
                     <div class="product-image-window">[ Канистра Primer Konzentrat ]</div>
-                    <div class="product-step">Грунт 20% остатка</div>
+                    <div class="product-step badge-gray">Грунт 20% остатка</div>
                     <h3>Primer Konzentrat</h3>
                     <p class="product-desc">Честный концентрат 1:4. Глубоко укрепляет штукатурку и связывает складскую пыль на ГКЛ.</p>
                     <div class="product-specs">
-                        <div class="spec-row"><span class="spec-lbl">Разбавление:</span><span class="spec-val">водой до 1:4</span></div>
+                        <div class="spec-row"><span class="spec-lbl">Разбавление:</span><span class="spec-val">до 1:4</span></div>
                         <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">~10 м²/л</span></div>
                         <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5л / 10л</span></div>
                     </div>
@@ -910,9 +961,9 @@
                 </div>
 
                 <!-- Продукт 3 -->
-                <div class="product-card">
+                <div class="product-card card-aqua">
                     <div class="product-image-window">[ Ведро Basis Aqua ]</div>
-                    <div class="product-step">Микростеклосферы</div>
+                    <div class="product-step badge-blue">Микростеклосферы</div>
                     <h3>Basis Aqua</h3>
                     <p class="product-desc">Шпатлевка тонкого помола. Зимняя формула. Идеальна под ленты Strait-Flex, влажные зоны и дефектовку.</p>
                     <div class="product-specs">
@@ -924,9 +975,9 @@
                 </div>
 
                 <!-- Продукт 4 -->
-                <div class="product-card">
+                <div class="product-card card-paint">
                     <div class="product-image-window">[ Ведро Premium Keramik Matt ]</div>
-                    <div class="product-step">Моющаяся керамика</div>
+                    <div class="product-step badge-white">Моющаяся керамика</div>
                     <h3>Keramik Matt</h3>
                     <p class="product-desc">Премиальная матовая краска. Создает плотную мембрану, устойчивую к бытовым жирам и мытью.</p>
                     <div class="product-specs">
