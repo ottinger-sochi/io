@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* БАЗОВЫЕ НАСТРОЙКИ (СВЕТЛАЯ ТЕМА ИЗ ПРЕЗЕНТАЦИИ) */
+        /* БАЗОВЫЕ НАСТРОЙКИ */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -25,6 +25,7 @@
             line-height: 1.4;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            position: relative;
         }
         
         /* ШАПКА САЙТА (HEADER) */
@@ -73,6 +74,27 @@
         }
         .phone:hover {
             color: #ff5722;
+        }
+
+        /* ФИРМЕННЫЕ ВЕКТОРНЫЕ ЛИНИИ OTTINGER НА ФОНЕ */
+        .bg-vortex {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .vortex-top-right {
+            top: -100px;
+            right: -150px;
+            width: 700px;
+            height: 700px;
+            opacity: 0.85;
+        }
+        .vortex-bottom-left {
+            bottom: -200px;
+            left: -200px;
+            width: 900px;
+            height: 900px;
+            opacity: 0.6;
         }
 
         /* ОБЩИЕ СТИЛИ СЕКЦИЙ */
@@ -152,8 +174,8 @@
         .image-window {
             width: 100%;
             height: 220px;
-            background-color: #f7f7f7;
-            border: 1px dashed #d0d0d0;
+            background-color: #f9f9f9;
+            border: 1px dashed #d8d8d8;
             border-radius: 6px;
             display: flex;
             justify-content: center;
@@ -177,20 +199,6 @@
             min-height: calc(100vh - 80px);
             justify-content: center;
             position: relative;
-        }
-        /* Фирменный легкий фон */
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 87, 34, 0.04) 0%, rgba(255,255,255,0) 70%);
-            border-radius: 50%;
-            z-index: 1;
-            pointer-events: none;
         }
         .hero-content {
             margin-bottom: 30px;
@@ -222,13 +230,13 @@
             max-width: 600px;
             border-radius: 8px;
             overflow: hidden;
-            background-color: #f7f7f7;
+            background-color: #f9f9f9;
             aspect-ratio: 16 / 9;
-            border: 1px solid #e0e0e0;
+            border: 1px solid #e5e5e5;
             margin: 0 auto 30px auto;
             position: relative;
             z-index: 2;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
         }
         .hero-media img {
             width: 100%;
@@ -241,6 +249,7 @@
             background-color: #ffffff;
             padding: 80px 20px;
             border-top: 1px solid #eaeaea;
+            position: relative;
         }
         .editorial-list {
             display: flex;
@@ -283,6 +292,8 @@
             background-color: #fcfcfc;
             padding: 80px 20px;
             border-top: 1px solid #eaeaea;
+            position: relative;
+            overflow: hidden;
         }
         .pie-comparison-grid {
             display: grid;
@@ -296,6 +307,8 @@
             border-radius: 8px;
             padding: 30px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            position: relative;
+            z-index: 2;
         }
         .pie-card.highlight {
             border-color: #ff5722;
@@ -340,6 +353,7 @@
             background-color: #ffffff;
             padding: 80px 20px;
             border-top: 1px solid #eaeaea;
+            position: relative;
         }
         .tech-grid {
             display: grid;
@@ -352,6 +366,8 @@
             border-radius: 8px;
             padding: 25px;
             transition: all 0.2s ease;
+            position: relative;
+            z-index: 2;
         }
         .tech-card:hover {
             border-color: #ff5722;
@@ -380,7 +396,7 @@
         .tech-image-window {
             width: 100%;
             height: 140px;
-            background-color: #f7f7f7;
+            background-color: #f9f9f9;
             border: 1px dashed #d0d0d0;
             border-radius: 6px;
             margin-bottom: 20px;
@@ -407,6 +423,8 @@
             padding: 30px;
             border-radius: 0 8px 8px 0;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            position: relative;
+            z-index: 2;
         }
         .myth-box h3 {
             font-size: 1.3rem;
@@ -448,12 +466,15 @@
             background-color: #ffffff;
             padding: 80px 20px;
             border-top: 1px solid #eaeaea;
+            position: relative;
         }
         .product-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 25px;
             margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
         }
         .product-card {
             background-color: #ffffff;
@@ -468,7 +489,6 @@
             transition: all 0.2s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
-        /* Фирменные цветные полоски внизу карточек */
         .product-card::after {
             content: "";
             position: absolute;
@@ -490,7 +510,7 @@
         .product-image-window {
             width: 100%;
             height: 180px;
-            background-color: #f7f7f7;
+            background-color: #f9f9f9;
             border: 1px dashed #d0d0d0;
             border-radius: 6px;
             margin-bottom: 20px;
@@ -531,7 +551,6 @@
             min-height: 55px;
         }
         
-        /* Таблица характеристик */
         .product-specs {
             border-top: 1px solid #f0f0f0;
             padding-top: 15px;
@@ -542,7 +561,7 @@
             justify-content: space-between;
             font-size: 0.82rem;
             padding: 6px 0;
-            border-bottom: 1px solid #f7f7f7;
+            border-bottom: 1px solid #f9f9f9;
         }
         .spec-lbl { color: #888888; text-transform: uppercase; font-size: 0.72rem; font-weight: 700; }
         .spec-val { font-weight: 800; color: #111111; }
@@ -564,6 +583,8 @@
             text-align: left;
             max-width: 1100px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
         .callout-text h3 {
             font-size: 1.25rem;
@@ -628,7 +649,7 @@
 
         /* БЛОК 8: ГЛАВНЫЙ CTA */
         .cta-section {
-            background-color: #f7f7f7;
+            background-color: #f9f9f9;
             padding: 80px 20px;
             border-top: 1px solid #eaeaea;
             text-align: center;
@@ -652,7 +673,7 @@
             line-height: 1.5;
         }
 
-        /* БЛОК 9: КОНТАКТЫ (FOOTER ПО СТРАНИЦЕ 119 КАТАЛОГА) */
+        /* БЛОК 9: КОНТАКТЫ (FOOTER) */
         footer {
             background-color: #ffffff;
             padding: 60px 20px;
@@ -764,6 +785,15 @@
 </head>
 <body>
 
+    <!-- ВЕКТОРНЫЕ КОНЦЕНТРИЧЕСКИЕ ДУГИ OTTINGER В ПРАВОМ ВЕРХНЕМ УГЛУ -->
+    <svg class="bg-vortex vortex-top-right" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="800" cy="0" r="200" stroke="#ff5722" stroke-width="1.5" stroke-opacity="0.12" stroke-dasharray="8 6"/>
+        <circle cx="800" cy="0" r="320" stroke="#111111" stroke-width="2" stroke-opacity="0.05"/>
+        <circle cx="800" cy="0" r="450" stroke="#ff5722" stroke-width="2.5" stroke-opacity="0.08"/>
+        <circle cx="800" cy="0" r="580" stroke="#111111" stroke-width="3" stroke-opacity="0.04"/>
+        <circle cx="800" cy="0" r="720" stroke="#111111" stroke-width="4" stroke-opacity="0.03"/>
+    </svg>
+
     <!-- ШАПКА -->
     <header>
         <div class="logo-box">
@@ -837,6 +867,14 @@
 
     <!-- БЛОК 3: МАЛЯРНЫЙ ПИРОГ -->
     <section class="pie-section">
+        <!-- ФОНОВЫЕ ДУГИ В СЕКЦИИ ПИРОГА -->
+        <svg class="bg-vortex vortex-bottom-left" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="0" cy="900" r="300" stroke="#111111" stroke-width="2" stroke-opacity="0.04"/>
+            <circle cx="0" cy="900" r="450" stroke="#ff5722" stroke-width="2.5" stroke-opacity="0.08"/>
+            <circle cx="0" cy="900" r="620" stroke="#111111" stroke-width="3" stroke-opacity="0.03"/>
+            <circle cx="0" cy="900" r="800" stroke="#ff5722" stroke-width="1.5" stroke-opacity="0.06"/>
+        </svg>
+
         <div class="section-container">
             <span class="section-tag">Сравнение технологий</span>
             <h2 class="section-title">Малярный пирог: <span class="accent-color">3 слоя</span> вместо <span class="accent-color">7–15 классических</span> операций</h2>
@@ -951,7 +989,7 @@
                     <h3>Primer Konzentrat</h3>
                     <p class="product-desc">Честный концентрат 1:4. Глубоко укрепляет штукатурку и связывает складскую пыль на ГКЛ.</p>
                     <div class="product-specs">
-                        <div class="spec-row"><span class="spec-lbl">Разбавление:</span><span class="spec-val">до 1:4</span></div>
+                        <div class="spec-row"><span class="spec-lbl">Разбавление:</span><span class="spec-val">водой до 1:4</span></div>
                         <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">~10 м²/л</span></div>
                         <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5л / 10л</span></div>
                     </div>
