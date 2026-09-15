@@ -150,7 +150,7 @@
         /* ОКНА-ПЛЕЙСХОЛДЕРЫ ДЛЯ ИЗОБРАЖЕНИЙ */
         .image-window {
             width: 100%;
-            height: 220px;
+            height: 200px;
             background-color: #f8f8f8;
             border: 1px dashed #d6d6d6;
             border-radius: 6px;
@@ -166,7 +166,7 @@
             padding: 15px;
         }
 
-        /* БЛОК 1: ПЕРВЫЙ ЭКРАН (БЕЗ ВЕРХНЕГО ЛОГОТИПА) */
+        /* БЛОК 1: ПЕРВЫЙ ЭКРАН */
         .hero {
             display: flex;
             flex-direction: column;
@@ -188,6 +188,7 @@
         h1 {
             font-size: 1.55rem;
             line-height: 1.35;
+            margin-bottom: 25px;
             font-weight: 900;
             color: #111111;
             letter-spacing: 0.5px;
@@ -213,8 +214,6 @@
             height: 100%;
             object-fit: cover;
         }
-        
-        /* Подзаголовок строго под GIF-файлом */
         .hero-subhead {
             font-size: 0.85rem;
             font-weight: 700;
@@ -231,7 +230,6 @@
             color: #ff5722;
             font-weight: 900;
         }
-
         .cta-container {
             display: flex;
             justify-content: center;
@@ -241,47 +239,97 @@
             z-index: 2;
         }
 
-        /* БЛОК 2: РЕАЛЬНОСТЬ СТРОЙКИ (EDITORIAL) */
+        /* АНИМИРОВАННЫЙ БЛОК 2: АККОРДЕОН ПРОБЛЕМ */
         .editorial-section {
             background-color: #ffffff;
             padding: 80px 20px;
             border-top: 1px solid #eaeaea;
             position: relative;
         }
-        .editorial-list {
+        .accordion-list {
             display: flex;
             flex-direction: column;
-        }
-        .editorial-item {
-            display: flex;
-            flex-direction: column;
-            padding: 35px 0;
             border-top: 1px solid #eaeaea;
-            gap: 25px;
         }
-        .editorial-item:last-child {
+        .accordion-item {
             border-bottom: 1px solid #eaeaea;
+            overflow: hidden;
+            transition: background-color 0.2s ease;
         }
-        .item-num {
-            font-size: 2.2rem;
+        .accordion-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 25px 0;
+            cursor: pointer;
+            gap: 15px;
+            user-select: none;
+        }
+        .accordion-header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex: 1;
+        }
+        .accordion-header-left .item-num {
+            font-size: 1.8rem;
             font-weight: 900;
-            color: #ff5722; 
-            margin-bottom: 12px;
-            line-height: 1;
+            color: #ff5722;
             font-family: monospace;
+            line-height: 1;
+            min-width: 45px;
         }
-        .item-text h3 {
-            font-size: 1.35rem;
+        .accordion-header-left h3 {
+            font-size: 1.15rem;
             font-weight: 800;
             color: #111111;
-            margin-bottom: 10px;
             letter-spacing: -0.3px;
+            text-align: left;
+            margin: 0;
         }
-        .item-text p {
+        .accordion-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid #dcdcdc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ff5722;
+            flex-shrink: 0;
+            transition: transform 0.3s ease, background-color 0.2s ease;
+        }
+        .accordion-item.active .accordion-icon {
+            transform: rotate(45deg); /* Плавный поворот плюсика в крестик */
+            background-color: #fff5f2;
+            border-color: #ff5722;
+        }
+        
+        /* Выпадающее анимированное тело */
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
+            opacity: 0;
+        }
+        .accordion-item.active .accordion-body {
+            max-height: 600px;
+            opacity: 1;
+        }
+        .accordion-inner {
+            padding: 0 0 30px 65px; /* Отступ под цифрой */
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .accordion-inner p {
             color: #666666;
             font-size: 0.95rem;
             line-height: 1.5;
             max-width: 750px;
+            margin: 0;
         }
 
         /* БЛОК 3: ИНТЕРАКТИВНЫЙ МАЛЯРНЫЙ ПИРОГ */
@@ -1143,19 +1191,17 @@
                 margin-bottom: 30px;
             }
 
+            /* Аккордеон Блока 2 на ПК */
             .editorial-section { padding: 120px 40px; }
             .section-title { font-size: 2.8rem; margin-bottom: 70px; }
-            .editorial-item {
-                flex-direction: row;
+            .accordion-header-left h3 { font-size: 1.4rem; }
+            .accordion-inner {
+                flex-direction: row; /* На ПК текст слева, окно справа */
                 align-items: center;
-                padding: 50px 0;
                 gap: 50px;
             }
-            .item-num { font-size: 3.5rem; min-width: 120px; margin-bottom: 0; }
-            .item-text { flex: 1; }
-            .item-text h3 { font-size: 1.5rem; }
-            .item-text p { font-size: 1rem; }
-            .image-window { width: 380px; height: 240px; flex-shrink: 0; }
+            .accordion-inner p { flex: 1; font-size: 1.05rem; }
+            .accordion-inner .image-window { width: 380px; height: 220px; flex-shrink: 0; }
 
             .pie-section { padding: 120px 40px; }
             .process-section { padding: 120px 40px; }
@@ -1236,7 +1282,7 @@
             <img src="ottinger-demo.gif" alt="Демонстрация нанесения OTTINGER" loading="eager">
         </div>
 
-        <!-- Подзаголовок строго под GIF-файлом -->
+        <!-- Подзаголовок строго под GIF -->
         <p class="hero-subhead">
             Инновационная полимерная система отделки с <span>10-микронным фиброволокном</span>. Сокращает малярный пирог до 3 слоев без использования стеклохолста.
         </p>
@@ -1246,39 +1292,65 @@
         </div>
     </main>
 
-    <!-- БЛОК 2: РЕАЛЬНОСТЬ СТРОЙКИ -->
+    <!-- АНИМИРОВАННЫЙ БЛОК 2: АККОРДЕОН ПРОБЛЕМ (РАСКРЫВАЕТСЯ ПО КЛИКУ) -->
     <section class="editorial-section" id="how-it-works">
         <div class="section-container">
             <span class="section-tag">Суровая правда малярки</span>
             <h2 class="section-title">Почему за любые трещины на стене <span class="accent-color">всегда платит маляр</span>?</h2>
             
-            <div class="editorial-list">
-                <div class="editorial-item">
-                    <div class="item-num">01</div>
-                    <div class="item-text">
-                        <h3>Принял основание — плати за чужие косяки</h3>
-                        <p>По судебной практике и требованиям технадзора маляр, начавший покраску, несет ответственность за весь пирог вплоть до бетона. Аргумент «новостройка дала усадку» не работает в суде — если основание лопнуло, переделки ложатся на маляра.</p>
+            <div class="accordion-list">
+                
+                <!-- Пункт 01 (Открыт по умолчанию) -->
+                <div class="accordion-item active" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <div class="accordion-header-left">
+                            <span class="item-num">01</span>
+                            <h3>Принял основание — плати за чужие косяки</h3>
+                        </div>
+                        <div class="accordion-icon">+</div>
                     </div>
-                    <div class="image-window">[ Фото дефекта основания ]</div>
+                    <div class="accordion-body">
+                        <div class="accordion-inner">
+                            <p>По судебной практике и требованиям технадзора маляр, начавший покраску, несет ответственность за весь пирог вплоть до бетона. Аргумент «новостройка дала усадку» не работает в суде — если основание лопнуло, переделки ложатся на маляра.</p>
+                            <div class="image-window">[ Фото дефекта основания ]</div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="editorial-item">
-                    <div class="item-num">02</div>
-                    <div class="item-text">
-                        <h3>Скрытые дефекты холста: сухие проплешины и дыры</h3>
-                        <p>При механизированном нанесении клея края факела дают тонкий опыл. Образуются сухие пустоты, где холст пузырится при покраске. А если случайно прошкурить холст до дыр — армирование в этом месте аннулируется.</p>
+                <!-- Пункт 02 -->
+                <div class="accordion-item" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <div class="accordion-header-left">
+                            <span class="item-num">02</span>
+                            <h3>Скрытые дефекты холста: сухие проплешины и дыры</h3>
+                        </div>
+                        <div class="accordion-icon">+</div>
                     </div>
-                    <div class="image-window">[ Фото пузырей холста ]</div>
+                    <div class="accordion-body">
+                        <div class="accordion-inner">
+                            <p>При механизированном нанесении клея края факела дают тонкий опыл. Образуются сухие пустоты, где холст пузырится при покраске. А если случайно прошкурить холст до дыр — армирование в этом месте аннулируется.</p>
+                            <div class="image-window">[ Фото пузырей холста ]</div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="editorial-item">
-                    <div class="item-num">03</div>
-                    <div class="item-text">
-                        <h3>Вы сошкуриваете свои деньги в мусорные мешки</h3>
-                        <p>Покупая 20 мешков обычной гипсовой смеси, маляры наносят ее с запасом из-за сильной усадки, а затем 10 мешков сошкуривают на пол в виде пыли. Это ваши выброшенные деньги и тяжелый мусор.</p>
+                <!-- Пункт 03 -->
+                <div class="accordion-item" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <div class="accordion-header-left">
+                            <span class="item-num">03</span>
+                            <h3>Вы сошкуриваете свои деньги в мусорные мешки</h3>
+                        </div>
+                        <div class="accordion-icon">+</div>
                     </div>
-                    <div class="image-window">[ Фото мешков с пылью ]</div>
+                    <div class="accordion-body">
+                        <div class="accordion-inner">
+                            <p>Покупая 20 мешков обычной гипсовой смеси, маляры наносят ее с запасом из-за сильной усадки, а затем 10 мешков сошкуривают на пол в виде пыли. Это ваши выброшенные деньги и тяжелый мусор.</p>
+                            <div class="image-window">[ Фото мешков с пылью ]</div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -1717,6 +1789,20 @@
 
     <!-- JS СКРИПТЫ -->
     <script>
+        // Анимация аккордеона в Блоке 2
+        function toggleAccordion(item) {
+            const allItems = document.querySelectorAll('.accordion-item');
+            const isActive = item.classList.contains('active');
+            
+            // Закрываем остальные пункты
+            allItems.forEach(i => i.classList.remove('active'));
+            
+            // Если текущий был закрыт - открываем его
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
         // Табы пирога
         function switchPieTab(type) {
             const buttons = document.querySelectorAll('.pie-tab-btn');
