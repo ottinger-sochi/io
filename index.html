@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* БАЗОВЫЕ НАСТРОЙКИ (СВЕТЛАЯ ТЕМА) */
+        /* БАЗОВЫЕ НАСТРОЙКИ (СВЕТЛАЯ СЕРО-БЕЛАЯ ТЕМА) */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -147,7 +147,7 @@
             transform: scale(0.98);
         }
 
-        /* ОКНА-ПЛЕЙСХОЛДЕРЫ */
+        /* ОКНА-ПЛЕЙСХОЛДЕРЫ ДЛЯ ИЗОБРАЖЕНИЙ */
         .image-window {
             width: 100%;
             height: 220px;
@@ -166,7 +166,7 @@
             padding: 15px;
         }
 
-        /* БЛОК 1: ПЕРВЫЙ ЭКРАН (С ФИРМЕННЫМ ЛОГОТИПОМ) */
+        /* БЛОК 1: ПЕРВЫЙ ЭКРАН (БЕЗ ВЕРХНЕГО ЛОГОТИПА) */
         .hero {
             display: flex;
             flex-direction: column;
@@ -178,43 +178,9 @@
             justify-content: flex-start;
             position: relative;
         }
-        /* Водяной знак вихря на фоне */
-        .hero-watermark {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 450px;
-            height: 450px;
-            opacity: 0.04;
-            pointer-events: none;
-            z-index: 1;
-        }
-        
-        /* Фирменный логотип-эмблема в начале блока */
-        .hero-brand-badge {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
-        }
-        .hero-emblem {
-            width: 55px;
-            height: 55px;
-            margin-bottom: 10px;
-        }
-        .hero-brand-title {
-            font-size: 1.1rem;
-            font-weight: 900;
-            letter-spacing: 4px;
-            color: #111111;
-            text-transform: uppercase;
-        }
-
         .hero-content {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+            margin-top: 10px;
             width: 100%;
             position: relative;
             z-index: 2;
@@ -222,26 +188,44 @@
         h1 {
             font-size: 1.55rem;
             line-height: 1.35;
-            margin-bottom: 18px;
             font-weight: 900;
             color: #111111;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
             max-width: 900px;
         }
+        .hero-media {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #f8f8f8;
+            aspect-ratio: 16 / 9;
+            border: 1px solid #e0e0e0;
+            margin: 0 auto 20px auto;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+        .hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         
-        /* Новый подзаголовок в стиле слайда */
+        /* Подзаголовок строго под GIF-файлом */
         .hero-subhead {
             font-size: 0.85rem;
             font-weight: 700;
             color: #666666;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            max-width: 700px;
-            margin: 0 auto;
+            max-width: 750px;
+            margin: 0 auto 25px auto;
             line-height: 1.5;
+            position: relative;
+            z-index: 2;
         }
         .hero-subhead span {
             color: #ff5722;
@@ -255,24 +239,6 @@
             width: 100%;
             position: relative;
             z-index: 2;
-        }
-        .hero-media {
-            width: 100%;
-            max-width: 600px;
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: #f8f8f8;
-            aspect-ratio: 16 / 9;
-            border: 1px solid #e0e0e0;
-            margin: 0 auto 25px auto;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-        }
-        .hero-media img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         /* БЛОК 2: РЕАЛЬНОСТЬ СТРОЙКИ (EDITORIAL) */
@@ -1164,15 +1130,6 @@
                 min-height: calc(100vh - 85px);
                 justify-content: center;
             }
-            .hero-emblem {
-                width: 70px;
-                height: 70px;
-                margin-bottom: 15px;
-            }
-            .hero-brand-title {
-                font-size: 1.3rem;
-                letter-spacing: 6px;
-            }
             h1 {
                 font-size: 2.8rem;
                 line-height: 1.3;
@@ -1182,7 +1139,7 @@
             }
             .hero-subhead {
                 font-size: 1rem;
-                letter-spacing: 2px;
+                letter-spacing: 1.5px;
                 margin-bottom: 30px;
             }
 
@@ -1265,43 +1222,24 @@
         <a href="tel:+79219121895" class="phone">+7 (921) 912-18-95</a>
     </header>
 
-    <!-- БЛОК 1: ПЕРВЫЙ ЭКРАН (С ФИРМЕННЫМ ЛОГОТИПОМ И ПОДЗАГОЛОВКОМ) -->
+    <!-- БЛОК 1: ПЕРВЫЙ ЭКРАН -->
     <main class="hero">
-        
-        <!-- Водяной знак на фоне -->
-        <svg class="hero-watermark" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="300" cy="300" r="100" stroke="#111111" stroke-width="2" stroke-dasharray="8 6"/>
-            <circle cx="300" cy="300" r="160" stroke="#111111" stroke-width="3"/>
-            <circle cx="300" cy="300" r="230" stroke="#111111" stroke-width="4"/>
-            <circle cx="300" cy="300" r="290" stroke="#111111" stroke-width="5"/>
-        </svg>
-
-        <!-- Фирменная эмблема и надпись над заголовком -->
-        <div class="hero-brand-badge">
-            <svg class="hero-emblem" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="46" stroke="#111111" stroke-width="4"/>
-                <circle cx="50" cy="50" r="35" stroke="#ff5722" stroke-width="3"/>
-                <circle cx="50" cy="50" r="24" stroke="#111111" stroke-width="3"/>
-                <circle cx="50" cy="50" r="13" stroke="#ff5722" stroke-width="4"/>
-            </svg>
-            <div class="hero-brand-title">OTTINGER PROFESSIONAL</div>
-        </div>
-
         <div class="hero-content">
             <h1>
                 КАК НАВСЕГДА ИЗБАВИТЬ <br>
                 МАЛЯРНЫЕ РАБОТЫ <br>
                 ОТ <span class="accent-color">БРАКА И ПЕРЕДЕЛОК</span>
             </h1>
-            <!-- Новый подзаголовок в фирменном стиле -->
-            <p class="hero-subhead">
-                Инновационная полимерная система отделки с <span>10-микронным фиброволокном</span>. Сокращает малярный пирог до 3 слоев без использования стеклохолста.
-            </p>
         </div>
 
         <div class="hero-media">
             <img src="ottinger-demo.gif" alt="Демонстрация нанесения OTTINGER" loading="eager">
         </div>
+
+        <!-- Подзаголовок строго под GIF-файлом -->
+        <p class="hero-subhead">
+            Инновационная полимерная система отделки с <span>10-микронным фиброволокном</span>. Сокращает малярный пирог до 3 слоев без использования стеклохолста.
+        </p>
 
         <div class="cta-container">
             <a href="#how-it-works" class="btn btn-primary">Как это работает ↓</a>
@@ -1493,7 +1431,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 7: ВИДЕО-КАРУСЕЛЬ (СО СТРЕЛКАМИ) -->
+    <!-- БЛОК 7: ВИДЕО-КАРУСЕЛЬ СО СТРЕЛКАМИ -->
     <section class="video-section">
         <div class="section-container">
             <span class="section-tag">Видео-доказательства</span>
