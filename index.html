@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* БАЗОВЫЕ НАСТРОЙКИ */
+        /* БАЗОВЫЕ НАСТРОЙКИ (СВЕТЛАЯ ТЕМА ИЗ ПРЕЗЕНТАЦИИ) */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -20,8 +20,8 @@
         }
         body {
             font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: #050505;
-            color: #ffffff;
+            background-color: #ffffff;
+            color: #111111;
             line-height: 1.4;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
@@ -35,7 +35,7 @@
             padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
-            border-bottom: 1px solid #141414;
+            border-bottom: 1px solid #eaeaea;
             position: relative;
             z-index: 10;
         }
@@ -48,7 +48,7 @@
             font-weight: 900;
             font-size: 1.35rem;
             letter-spacing: 3px;
-            color: #ffffff;
+            color: #111111;
             text-transform: uppercase;
         }
         .logo-text span {
@@ -58,13 +58,13 @@
             font-size: 0.65rem;
             font-weight: 800;
             letter-spacing: 2px;
-            color: #888888;
+            color: #777777;
             text-transform: uppercase;
             border-left: 2px solid #ff5722;
             padding-left: 10px;
         }
         .phone {
-            color: #ffffff;
+            color: #111111;
             text-decoration: none;
             font-weight: 700;
             font-size: 0.9rem;
@@ -91,7 +91,7 @@
             max-width: 900px;
             letter-spacing: -0.5px;
             text-transform: uppercase;
-            color: #ffffff;
+            color: #111111;
         }
         .section-title.text-center {
             text-align: center;
@@ -137,11 +137,11 @@
             background-color: #ff5722;
             color: #ffffff;
             border: 1px solid #ff5722;
-            box-shadow: 0 4px 25px rgba(255, 87, 34, 0.35);
+            box-shadow: 0 4px 20px rgba(255, 87, 34, 0.25);
         }
         .btn-primary:hover {
             background-color: #e64a19;
-            box-shadow: 0 6px 30px rgba(255, 87, 34, 0.5);
+            box-shadow: 0 6px 25px rgba(255, 87, 34, 0.35);
             transform: translateY(-2px);
         }
         .btn-primary:active {
@@ -152,20 +152,20 @@
         .image-window {
             width: 100%;
             height: 220px;
-            background-color: #0f0f0f;
-            border: 1px dashed #282828;
+            background-color: #f7f7f7;
+            border: 1px dashed #d0d0d0;
             border-radius: 6px;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #555555;
+            color: #888888;
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 700;
         }
 
-        /* БЛОК 1: ПЕРВЫЙ ЭКРАН (С ФИРМЕННЫМ ГРАФИЧЕСКИМ ФОНОМ) */
+        /* БЛОК 1: ПЕРВЫЙ ЭКРАН */
         .hero {
             display: flex;
             flex-direction: column;
@@ -178,7 +178,7 @@
             justify-content: center;
             position: relative;
         }
-        /* Фирменные концентрические круги OTTINGER на фоне */
+        /* Фирменный легкий фон */
         .hero::before {
             content: "";
             position: absolute;
@@ -187,7 +187,7 @@
             transform: translate(-50%, -50%);
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(255, 87, 34, 0.05) 0%, rgba(0,0,0,0) 70%);
+            background: radial-gradient(circle, rgba(255, 87, 34, 0.04) 0%, rgba(255,255,255,0) 70%);
             border-radius: 50%;
             z-index: 1;
             pointer-events: none;
@@ -201,8 +201,9 @@
         h1 {
             font-size: 1.6rem;
             line-height: 1.35;
+            margin-bottom: 25px;
             font-weight: 900;
-            color: #ffffff;
+            color: #111111;
             letter-spacing: 0.5px;
             text-transform: uppercase;
             margin: 0 auto;
@@ -221,12 +222,13 @@
             max-width: 600px;
             border-radius: 8px;
             overflow: hidden;
-            background-color: #0f0f0f;
+            background-color: #f7f7f7;
             aspect-ratio: 16 / 9;
-            border: 1px solid #1a1a1a;
+            border: 1px solid #e0e0e0;
             margin: 0 auto 30px auto;
             position: relative;
             z-index: 2;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
         .hero-media img {
             width: 100%;
@@ -234,11 +236,11 @@
             object-fit: cover;
         }
 
-        /* БЛОК 2: РЕАЛЬНОСТЬ СТРОЙКИ */
+        /* БЛОК 2: РЕАЛЬНОСТЬ СТРОЙКИ (EDITORIAL) */
         .editorial-section {
-            background-color: #080808;
+            background-color: #ffffff;
             padding: 80px 20px;
-            border-top: 1px solid #141414;
+            border-top: 1px solid #eaeaea;
         }
         .editorial-list {
             display: flex;
@@ -248,11 +250,11 @@
             display: flex;
             flex-direction: column;
             padding: 35px 0;
-            border-top: 1px solid #191919;
+            border-top: 1px solid #eaeaea;
             gap: 25px;
         }
         .editorial-item:last-child {
-            border-bottom: 1px solid #191919;
+            border-bottom: 1px solid #eaeaea;
         }
         .item-num {
             font-size: 2.2rem;
@@ -265,12 +267,12 @@
         .item-text h3 {
             font-size: 1.35rem;
             font-weight: 800;
-            color: #ffffff;
+            color: #111111;
             margin-bottom: 10px;
             letter-spacing: -0.3px;
         }
         .item-text p {
-            color: #8c8c8c;
+            color: #666666;
             font-size: 0.95rem;
             line-height: 1.5;
             max-width: 750px;
@@ -278,9 +280,9 @@
 
         /* БЛОК 3: МАЛЯРНЫЙ ПИРОГ */
         .pie-section {
-            background-color: #050505;
+            background-color: #fcfcfc;
             padding: 80px 20px;
-            border-top: 1px solid #141414;
+            border-top: 1px solid #eaeaea;
         }
         .pie-comparison-grid {
             display: grid;
@@ -289,14 +291,16 @@
             margin-bottom: 30px;
         }
         .pie-card {
-            background-color: #0c0c0c;
-            border: 1px solid #1a1a1a;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
             border-radius: 8px;
             padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
         .pie-card.highlight {
             border-color: #ff5722;
-            background: linear-gradient(180deg, #140d0a 0%, #0c0c0c 100%);
+            background: linear-gradient(180deg, #fff5f2 0%, #ffffff 100%);
+            box-shadow: 0 4px 20px rgba(255, 87, 34, 0.08);
         }
         .pie-card-header {
             font-size: 1.25rem;
@@ -306,6 +310,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            color: #111111;
         }
         .pie-tag {
             font-size: 0.7rem;
@@ -314,27 +319,27 @@
             font-weight: 800;
             text-transform: uppercase;
         }
-        .tag-red { background-color: #331515; color: #ff5252; }
+        .tag-red { background-color: #ffebee; color: #d32f2f; }
         .tag-orange { background-color: #ff5722; color: #ffffff; }
         .pie-steps-list {
             list-style: none;
         }
         .pie-steps-list li {
             padding: 10px 0;
-            border-bottom: 1px solid #141414;
+            border-bottom: 1px solid #f0f0f0;
             font-size: 0.9rem;
-            color: #b3b3b3;
+            color: #555555;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        .pie-steps-list li strong { color: #ffffff; }
+        .pie-steps-list li strong { color: #111111; }
 
         /* БЛОК 4: ФИЗИКА OTTINGER */
         .tech-section {
-            background-color: #080808;
+            background-color: #ffffff;
             padding: 80px 20px;
-            border-top: 1px solid #141414;
+            border-top: 1px solid #eaeaea;
         }
         .tech-grid {
             display: grid;
@@ -342,8 +347,8 @@
             gap: 20px;
         }
         .tech-card {
-            background-color: #0c0c0c;
-            border: 1px solid #1a1a1a;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
             border-radius: 8px;
             padding: 25px;
             transition: all 0.2s ease;
@@ -351,6 +356,7 @@
         .tech-card:hover {
             border-color: #ff5722;
             transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
         }
         .tech-num {
             font-size: 1.5rem;
@@ -362,26 +368,26 @@
         .tech-card h3 {
             font-size: 1.25rem;
             font-weight: 800;
-            color: #ffffff;
+            color: #111111;
             margin-bottom: 12px;
             letter-spacing: -0.3px;
         }
         .tech-card p {
-            color: #8c8c8c;
+            color: #666666;
             font-size: 0.9rem;
             line-height: 1.5;
         }
         .tech-image-window {
             width: 100%;
             height: 140px;
-            background-color: #050505;
-            border: 1px dashed #222222;
+            background-color: #f7f7f7;
+            border: 1px dashed #d0d0d0;
             border-radius: 6px;
             margin-bottom: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #444444;
+            color: #888888;
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -390,26 +396,27 @@
 
         /* БЛОК 5: ЛАЙФХАК ПО ШЛИФОВКЕ */
         .myth-section {
-            background-color: #050505;
+            background-color: #fcfcfc;
             padding: 60px 20px;
-            border-top: 1px solid #141414;
+            border-top: 1px solid #eaeaea;
         }
         .myth-box {
-            border: 1px solid #222222;
+            border: 1px solid #e0e0e0;
             border-left: 4px solid #ff5722;
-            background-color: #0c0c0c;
+            background-color: #ffffff;
             padding: 30px;
             border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
         .myth-box h3 {
             font-size: 1.3rem;
             font-weight: 900;
-            color: #ffffff;
+            color: #111111;
             margin-bottom: 15px;
             text-transform: uppercase;
         }
         .myth-box p {
-            color: #a0a0a0;
+            color: #666666;
             font-size: 0.95rem;
             line-height: 1.5;
             margin-bottom: 15px;
@@ -425,7 +432,7 @@
             align-items: center;
             gap: 12px;
             font-size: 0.9rem;
-            color: #ffffff;
+            color: #111111;
             font-weight: 700;
         }
         .step-badge {
@@ -436,11 +443,11 @@
             font-size: 0.75rem;
         }
 
-        /* БЛОК 6: КАТАЛОГ МАТЕРИАЛОВ (В СТИЛЕ БРЕНДБУКА OTTINGER) */
+        /* БЛОК 6: КАТАЛОГ МАТЕРИАЛОВ */
         .products-section {
-            background-color: #080808;
+            background-color: #ffffff;
             padding: 80px 20px;
-            border-top: 1px solid #141414;
+            border-top: 1px solid #eaeaea;
         }
         .product-grid {
             display: grid;
@@ -449,8 +456,8 @@
             margin-bottom: 40px;
         }
         .product-card {
-            background-color: #0c0c0c;
-            border: 1px solid #1a1a1a;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
             border-radius: 8px;
             padding: 25px;
             display: flex;
@@ -458,9 +465,10 @@
             justify-content: space-between;
             position: relative;
             overflow: hidden;
-            transition: border-color 0.2s ease;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
-        /* Фирменные цветные полоски внизу карточек как в каталоге */
+        /* Фирменные цветные полоски внизу карточек */
         .product-card::after {
             content: "";
             position: absolute;
@@ -471,23 +479,25 @@
             background-color: #ff5722;
         }
         .card-aqua::after { background-color: #00b0ff; }
-        .card-paint::after { background-color: #ffffff; }
+        .card-paint::after { background-color: #111111; }
         .card-primer::after { background-color: #777777; }
 
         .product-card:hover {
-            border-color: #333333;
+            border-color: #ff5722;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
         }
         .product-image-window {
             width: 100%;
             height: 180px;
-            background-color: #050505;
-            border: 1px dashed #222222;
+            background-color: #f7f7f7;
+            border: 1px dashed #d0d0d0;
             border-radius: 6px;
             margin-bottom: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #444444;
+            color: #888888;
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -502,28 +512,28 @@
             margin-bottom: 6px;
         }
         .badge-blue { color: #00b0ff; }
-        .badge-white { color: #ffffff; }
-        .badge-gray { color: #888888; }
+        .badge-dark { color: #111111; }
+        .badge-gray { color: #777777; }
 
         .product-card h3 {
             font-size: 1.35rem;
             font-weight: 900;
-            color: #ffffff;
+            color: #111111;
             margin-bottom: 10px;
             letter-spacing: -0.3px;
             text-transform: uppercase;
         }
         .product-desc {
-            color: #8c8c8c;
+            color: #666666;
             font-size: 0.88rem;
             line-height: 1.45;
             margin-bottom: 20px;
             min-height: 55px;
         }
         
-        /* Фирменная таблица характеристик OTTINGER */
+        /* Таблица характеристик */
         .product-specs {
-            border-top: 1px solid #1a1a1a;
+            border-top: 1px solid #f0f0f0;
             padding-top: 15px;
             margin-bottom: 20px;
         }
@@ -531,11 +541,11 @@
             display: flex;
             justify-content: space-between;
             font-size: 0.82rem;
-            padding: 5px 0;
-            border-bottom: 1px solid #111111;
+            padding: 6px 0;
+            border-bottom: 1px solid #f7f7f7;
         }
-        .spec-lbl { color: #666666; text-transform: uppercase; font-size: 0.72rem; font-weight: 700; }
-        .spec-val { font-weight: 800; color: #ffffff; }
+        .spec-lbl { color: #888888; text-transform: uppercase; font-size: 0.72rem; font-weight: 700; }
+        .spec-val { font-weight: 800; color: #111111; }
         .btn-catalog {
             font-size: 0.85rem;
             padding: 14px 18px;
@@ -544,8 +554,8 @@
 
         /* БАНЕР ПОЛНОГО КАТАЛОГА */
         .catalog-callout {
-            border: 1px solid #1a1a1a;
-            background-color: #0c0c0c;
+            border: 1px solid #e0e0e0;
+            background-color: #fcfcfc;
             border-radius: 8px;
             padding: 30px;
             display: flex;
@@ -558,19 +568,19 @@
         .callout-text h3 {
             font-size: 1.25rem;
             font-weight: 900;
-            color: #ffffff;
+            color: #111111;
             margin-bottom: 8px;
             text-transform: uppercase;
         }
         .callout-text p {
-            color: #8c8c8c;
+            color: #666666;
             font-size: 0.9rem;
             line-height: 1.4;
         }
         .btn-callout {
             background-color: transparent;
-            color: #ffffff;
-            border: 1px solid #333333;
+            color: #111111;
+            border: 1px solid #cccccc;
             font-size: 0.85rem;
             padding: 14px 28px;
             max-width: 100%;
@@ -579,14 +589,15 @@
         }
         .btn-callout:hover {
             border-color: #ff5722;
-            background-color: #140d0a;
+            color: #ff5722;
+            background-color: #fff5f2;
         }
 
-        /* БЛОК 7: ЦЕНООБРАЗОВАНИЕ (МЕТРИКИ) */
+        /* БЛОК 7: ЦЕНООБРАЗОВАНИЕ */
         .metrics-section {
-            background-color: #050505;
+            background-color: #ffffff;
             padding: 80px 20px;
-            border-top: 1px solid #141414;
+            border-top: 1px solid #eaeaea;
         }
         .metrics-grid {
             display: grid;
@@ -594,7 +605,7 @@
             gap: 25px;
         }
         .metric-card {
-            border-top: 1px solid #1a1a1a;
+            border-top: 1px solid #eaeaea;
             padding-top: 20px;
             display: flex;
             flex-direction: column;
@@ -603,23 +614,23 @@
         .metric-val {
             font-size: 2.8rem;
             font-weight: 900;
-            color: #ffffff;
+            color: #111111;
             line-height: 1;
             margin-bottom: 10px;
             letter-spacing: -0.5px;
         }
         .metric-label {
             font-size: 0.92rem;
-            color: #8c8c8c;
+            color: #666666;
             line-height: 1.4;
         }
-        .metric-label strong { color: #ffffff; }
+        .metric-label strong { color: #111111; }
 
-        /* БЛОК 8: ГЛАВНЫЙ CTA (ТЕСТ-ДРАЙВ) */
+        /* БЛОК 8: ГЛАВНЫЙ CTA */
         .cta-section {
-            background-color: #0c0c0c;
+            background-color: #f7f7f7;
             padding: 80px 20px;
-            border-top: 1px solid #1a1a1a;
+            border-top: 1px solid #eaeaea;
             text-align: center;
         }
         .cta-box {
@@ -632,19 +643,20 @@
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: -0.5px;
+            color: #111111;
         }
         .cta-box p {
-            color: #b3b3b3;
+            color: #666666;
             font-size: 0.95rem;
             margin-bottom: 30px;
             line-height: 1.5;
         }
 
-        /* БЛОК 9: КОНТАКТЫ (FOOTER) */
+        /* БЛОК 9: КОНТАКТЫ (FOOTER ПО СТРАНИЦЕ 119 КАТАЛОГА) */
         footer {
-            background-color: #030303;
+            background-color: #ffffff;
             padding: 60px 20px;
-            border-top: 1px solid #141414;
+            border-top: 1px solid #eaeaea;
         }
         .footer-container {
             max-width: 1100px;
@@ -656,7 +668,7 @@
         .footer-info h2 {
             font-size: 1.6rem;
             font-weight: 900;
-            color: #ffffff;
+            color: #111111;
             margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -665,18 +677,18 @@
         .footer-contacts-list { list-style: none; }
         .footer-contacts-list li {
             font-size: 0.95rem;
-            color: #8c8c8c;
+            color: #666666;
             margin-bottom: 10px;
         }
         .footer-contacts-list a {
-            color: #ffffff;
+            color: #111111;
             text-decoration: none;
             font-weight: 700;
         }
         .footer-hours {
             font-size: 0.85rem;
-            color: #555555;
-            border-top: 1px solid #141414;
+            color: #888888;
+            border-top: 1px solid #eaeaea;
             padding-top: 15px;
         }
 
@@ -689,7 +701,7 @@
                 justify-content: center;
             }
             h1 {
-                font-size: 3rem;
+                font-size: 2.8rem;
                 line-height: 1.3;
                 max-width: 1100px;
                 margin: 0 auto 30px auto;
@@ -924,7 +936,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 6: КАТАЛОГ МАТЕРИАЛОВ (В СТИЛЕ БРЕНДБУКА OTTINGER) -->
+    <!-- БЛОК 6: КАТАЛОГ МАТЕРИАЛОВ -->
     <section class="products-section" id="products">
         <div class="section-container">
             <span class="section-tag">Базовая линейка</span>
@@ -977,7 +989,7 @@
                 <!-- Продукт 4 -->
                 <div class="product-card card-paint">
                     <div class="product-image-window">[ Ведро Premium Keramik Matt ]</div>
-                    <div class="product-step badge-white">Моющаяся керамика</div>
+                    <div class="product-step badge-dark">Моющаяся керамика</div>
                     <h3>Keramik Matt</h3>
                     <p class="product-desc">Премиальная матовая краска. Создает плотную мембрану, устойчивую к бытовым жирам и мытью.</p>
                     <div class="product-specs">
@@ -1039,7 +1051,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 9: КОНТАКТЫ (FOOTER) -->
+    <!-- БЛОК 9: КОНТАКТЫ (FOOTER ПО СТРАНИЦЕ 119 КАТАЛОГА) -->
     <footer>
         <div class="footer-container">
             <div class="footer-info">
