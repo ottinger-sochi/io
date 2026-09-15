@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* БАЗОВЫЕ НАСТРОЙКИ */
+        /* БАЗОВЫЕ НАСТРОЙКИ (СВЕТЛАЯ СЕРО-БЕЛАЯ ТЕМА) */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -147,10 +147,10 @@
             transform: scale(0.98);
         }
 
-        /* ОКНА-ПЛЕЙСХОЛДЕРЫ */
+        /* ОКНА-ПЛЕЙСХОЛДЕРЫ ДЛЯ ИЗОБРАЖЕНИЙ */
         .image-window {
             width: 100%;
-            height: 220px;
+            height: 200px;
             background-color: #f8f8f8;
             border: 1px dashed #d6d6d6;
             border-radius: 6px;
@@ -239,57 +239,86 @@
             z-index: 2;
         }
 
-        /* БЛОК 2: АВТОМАТИЧЕСКИЙ СКРОЛЛ-СПИСОК (БЕЗ КЛИКОВ) */
+        /* БЛОК 2: АВТОМАТИЧЕСКИЙ СКРОЛЛ-АККОРДЕОН (SCROLL-DRIVEN FOCUS) */
         .editorial-section {
             background-color: #ffffff;
             padding: 80px 20px;
             border-top: 1px solid #eaeaea;
             position: relative;
         }
-        .editorial-list {
+        .scroll-accordion-list {
             display: flex;
             flex-direction: column;
-        }
-        .editorial-item {
-            display: flex;
-            flex-direction: column;
-            padding: 40px 0;
             border-top: 1px solid #eaeaea;
-            gap: 25px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
         }
-        .editorial-item.revealed {
+        .scroll-accordion-item {
+            border-bottom: 1px solid #eaeaea;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+        }
+        .scroll-accordion-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px 0;
+            cursor: pointer;
+        }
+        .scroll-accordion-header .item-num {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #cccccc; /* Неактивные цифры приглушены */
+            font-family: monospace;
+            line-height: 1;
+            min-width: 45px;
+            transition: color 0.4s ease, transform 0.4s ease;
+        }
+        .scroll-accordion-header h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #888888; /* Неактивный заголовок серый */
+            letter-spacing: -0.3px;
+            text-align: left;
+            margin: 0;
+            transition: color 0.4s ease;
+        }
+        
+        /* Стили активного пункта, который находится по центру экрана */
+        .scroll-accordion-item.active .scroll-accordion-header .item-num {
+            color: #ff5722; /* Яркий оранжевый */
+            transform: scale(1.15);
+        }
+        .scroll-accordion-item.active .scroll-accordion-header h3 {
+            color: #111111; /* Контрастный черный */
+        }
+        
+        /* Плавное автоматическое раскрытие тела */
+        .scroll-accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: max-height 0.45s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease, transform 0.35s ease;
+        }
+        .scroll-accordion-item.active .scroll-accordion-body {
+            max-height: 600px;
             opacity: 1;
             transform: translateY(0);
         }
-        .editorial-item:last-child {
-            border-bottom: 1px solid #eaeaea;
+        .scroll-accordion-inner {
+            padding: 5px 0 25px 65px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
-        .item-num {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: #ff5722; 
-            margin-bottom: 12px;
-            line-height: 1;
-            font-family: monospace;
-        }
-        .item-text h3 {
-            font-size: 1.35rem;
-            font-weight: 800;
-            color: #111111;
-            margin-bottom: 10px;
-            letter-spacing: -0.3px;
-        }
-        .item-text p {
-            color: #666666;
+        .scroll-accordion-inner p {
+            color: #555555;
             font-size: 0.95rem;
             line-height: 1.5;
             max-width: 750px;
+            margin: 0;
         }
 
-        /* БЛОК 3: МАЛЯРНЫЙ ПИРОГ (ОТКРЫТОЕ СРАВНЕНИЕ БЕЗ ВКЛАДОК) */
+        /* БЛОК 3: МАЛЯРНЫЙ ПИРОГ (ОТКРЫТОЕ СРАВНЕНИЕ) */
         .pie-section {
             background-color: #f8f8f8;
             padding: 80px 20px;
@@ -1115,23 +1144,19 @@
                 margin-bottom: 30px;
             }
 
+            /* Аккордеон Блока 2 на ПК */
             .editorial-section { padding: 120px 40px; }
             .section-title { font-size: 2.8rem; margin-bottom: 70px; }
-            .editorial-item {
+            .scroll-accordion-header h3 { font-size: 1.4rem; }
+            .scroll-accordion-inner {
                 flex-direction: row;
                 align-items: center;
-                padding: 50px 0;
                 gap: 50px;
             }
-            .item-num { font-size: 3.5rem; min-width: 120px; margin-bottom: 0; }
-            .item-text { flex: 1; }
-            .item-text h3 { font-size: 1.5rem; }
-            .item-text p { font-size: 1rem; }
-            .image-window { width: 380px; height: 240px; flex-shrink: 0; }
+            .scroll-accordion-inner p { flex: 1; font-size: 1.05rem; }
+            .scroll-accordion-inner .image-window { width: 380px; height: 220px; flex-shrink: 0; }
 
             .pie-section { padding: 120px 40px; }
-            .pie-comparison-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
-
             .process-section { padding: 120px 40px; }
             .process-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
 
@@ -1210,6 +1235,7 @@
             <img src="ottinger-demo.gif" alt="Демонстрация нанесения OTTINGER" loading="eager">
         </div>
 
+        <!-- Подзаголовок строго под GIF -->
         <p class="hero-subhead">
             Инновационная полимерная система отделки с <span>10-микронным фиброволокном</span>. Сокращает малярный пирог до 3 слоев без использования стеклохолста.
         </p>
@@ -1219,57 +1245,67 @@
         </div>
     </main>
 
-    <!-- БЛОК 2: РЕАЛЬНОСТЬ СТРОЙКИ (АВТОМАТИЧЕСКАЯ СКРОЛЛ-АНИМАЦИЯ) -->
+    <!-- БЛОК 2: АВТОМАТИЧЕСКИЙ СКРОЛЛ-АККОРДЕОН (ОТКРЫВАЕТСЯ ПРИ СКРОЛЛЕ) -->
     <section class="editorial-section" id="how-it-works">
         <div class="section-container">
             <span class="section-tag">Суровая правда малярки</span>
             <h2 class="section-title">Почему за любые трещины на стене <span class="accent-color">всегда платит маляр</span>?</h2>
             
-            <div class="editorial-list">
+            <div class="scroll-accordion-list">
                 
                 <!-- Пункт 01 -->
-                <div class="editorial-item">
-                    <div class="item-num">01</div>
-                    <div class="item-text">
+                <div class="scroll-accordion-item active" id="item-1">
+                    <div class="scroll-accordion-header">
+                        <span class="item-num">01</span>
                         <h3>Принял основание — плати за чужие косяки</h3>
-                        <p>По судебной практике и требованиям технадзора маляр, начавший покраску, несет ответственность за весь пирог вплоть до бетона. Аргумент «новостройка дала усадку» не работает в суде — если основание лопнуло, переделки ложатся на маляра.</p>
                     </div>
-                    <div class="image-window">[ Фото дефекта основания ]</div>
+                    <div class="scroll-accordion-body">
+                        <div class="scroll-accordion-inner">
+                            <p>По судебной практике и требованиям технадзора маляр, начавший покраску, несет ответственность за весь пирог вплоть до бетона. Аргумент «новостройка дала усадку» не работает в суде — если основание лопнуло, переделки ложатся на маляра.</p>
+                            <div class="image-window">[ Фото дефекта основания ]</div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Пункт 02 -->
-                <div class="editorial-item">
-                    <div class="item-num">02</div>
-                    <div class="item-text">
+                <div class="scroll-accordion-item" id="item-2">
+                    <div class="scroll-accordion-header">
+                        <span class="item-num">02</span>
                         <h3>Скрытые дефекты холста: сухие проплешины и дыры</h3>
-                        <p>При механизированном нанесении клея края факела дают тонкий опыл. Образуются сухие пустоты, где холст пузырится при покраске. А если случайно прошкурить холст до дыр — армирование в этом месте аннулируется.</p>
                     </div>
-                    <div class="image-window">[ Фото пузырей холста ]</div>
+                    <div class="scroll-accordion-body">
+                        <div class="scroll-accordion-inner">
+                            <p>При механизированном нанесении клея края факела дают тонкий опыл. Образуются сухие пустоты, где холст пузырится при покраске. А если случайно прошкурить холст до дыр — армирование в этом месте аннулируется.</p>
+                            <div class="image-window">[ Фото пузырей холста ]</div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Пункт 03 -->
-                <div class="editorial-item">
-                    <div class="item-num">03</div>
-                    <div class="item-text">
+                <div class="scroll-accordion-item" id="item-3">
+                    <div class="scroll-accordion-header">
+                        <span class="item-num">03</span>
                         <h3>Вы сошкуриваете свои деньги в мусорные мешки</h3>
-                        <p>Покупая 20 мешков обычной гипсовой смеси, маляры наносят ее с запасом из-за сильной усадки, а затем 10 мешков сошкуривают на пол в виде пыли. Это ваши выброшенные деньги и тяжелый мусор.</p>
                     </div>
-                    <div class="image-window">[ Фото мешков с пылью ]</div>
+                    <div class="scroll-accordion-body">
+                        <div class="scroll-accordion-inner">
+                            <p>Покупая 20 мешков обычной гипсовой смеси, маляры наносят ее с запасом из-за сильной усадки, а затем 10 мешков сошкуривают на пол в виде пыли. Это ваши выброшенные деньги и тяжелый мусор.</p>
+                            <div class="image-window">[ Фото мешков с пылью ]</div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
-
         </div>
     </section>
 
-    <!-- БЛОК 3: МАЛЯРНЫЙ ПИРОГ (ОТКРЫТОЕ СРАВНЕНИЕ БЕЗ ВКЛАДОК) -->
+    <!-- БЛОК 3: МАЛЯРНЫЙ ПИРОГ -->
     <section class="pie-section">
         <div class="section-container">
             <span class="section-tag">Сравнение технологий</span>
             <h2 class="section-title text-center">Малярный пирог: <span class="accent-color">3 слоя</span> вместо <span class="accent-color">7–15 классических</span> операций</h2>
             
             <div class="pie-comparison-grid">
-                
                 <!-- Классический пирог -->
                 <div class="pie-card">
                     <div class="pie-card-header">
@@ -1305,7 +1341,6 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
 
             <div class="pie-savings-banner">
@@ -1691,19 +1726,33 @@
         </div>
     </footer>
 
-    <!-- JS СКРИПТЫ: ПЛАВНЫЙ СКРОЛЛ-РЕВИЛ, ВИДЕО И КАРУСЕЛЬ -->
+    <!-- JS СКРИПТЫ: АВТО-СКРОЛЛ ФОКУС, КАРУСЕЛЬ И ВИДЕО -->
     <script>
-        // Автоматическое плавное появление элементов при скролле (Блок 2)
-        const observer = new IntersectionObserver((entries) => {
+        // Автоматическое раскрытие пунктов Блока 2 по ходу скролла
+        const accordionItems = document.querySelectorAll('.scroll-accordion-item');
+        
+        const scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
+                    // Закрываем все, открываем тот, который находится по центру экрана
+                    accordionItems.forEach(item => item.classList.remove('active'));
+                    entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.15 });
+        }, {
+            root: null,
+            rootMargin: '-25% 0px -25% 0px', /* Активная зона - центральные 50% экрана */
+            threshold: 0.2
+        });
 
-        document.querySelectorAll('.editorial-item').forEach(item => {
-            observer.observe(item);
+        accordionItems.forEach(item => scrollObserver.observe(item));
+
+        // Также оставляем возможность кликнуть вручную, если пользователь захочет
+        accordionItems.forEach(item => {
+            item.addEventListener('click', () => {
+                accordionItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+            });
         });
 
         // Перелистывание карусели стрелками
