@@ -147,7 +147,7 @@
             transform: scale(0.98);
         }
 
-        /* ОКНА-ПЛЕЙСХОЛДЕРЫ ДЛЯ ИЗОБРАЖЕНИЙ */
+        /* ОКНА-ПЛЕЙСХОЛДЕРЫ */
         .image-window {
             width: 100%;
             height: 240px;
@@ -401,7 +401,7 @@
             font-weight: 900;
         }
 
-        /* НОВЫЙ ШАХМАТНЫЙ БЛОК 4: ЗИГЗАГ-ПРОЦЕСС (СЛЕВА НАПРАВО, СПРАВА НАЛЕВО) */
+        /* БЛОК 4: ШАХМАТНЫЙ ЗИГЗАГ-ПРОЦЕСС */
         .process-section {
             background-color: #ffffff;
             padding: 90px 20px;
@@ -582,6 +582,25 @@
             border-top: 1px solid #eaeaea;
             position: relative;
         }
+        .mobile-swipe-hint {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #ff5722;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+        }
+        .hint-arrow {
+            animation: bounce 1.5s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(4px); }
+        }
         .video-carousel-wrapper {
             position: relative;
             display: flex;
@@ -603,22 +622,24 @@
             display: none;
         }
         .video-card {
-            flex: 0 0 220px;
+            flex: 0 0 calc(75vw - 15px);
+            max-width: 250px;
             aspect-ratio: 9 / 16;
             background-color: #1a1a1a;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
             border: 1px solid #e0e0e0;
             position: relative;
             cursor: pointer;
-            scroll-snap-align: start;
+            scroll-snap-align: center;
             transition: all 0.2s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 15px;
+            padding: 16px;
             background-size: cover;
             background-position: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
         }
         .video-card::before {
             content: "";
@@ -633,15 +654,15 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         .video-play-icon {
-            width: 44px;
-            height: 44px;
+            width: 48px;
+            height: 48px;
             background-color: rgba(255, 87, 34, 0.95);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             color: #ffffff;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -682,18 +703,17 @@
             color: #cccccc;
             line-height: 1.3;
         }
-
         .carousel-arrow {
-            width: 46px;
-            height: 46px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background-color: #ffffff;
             border: 1px solid #e0e0e0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            display: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 900;
             color: #111111;
             cursor: pointer;
@@ -706,8 +726,8 @@
             color: #ffffff;
             border-color: #ff5722;
         }
-        .arrow-left { left: -25px; }
-        .arrow-right { right: -25px; }
+        .arrow-left { left: -10px; }
+        .arrow-right { right: -10px; }
 
         /* МОДАЛЬНОЕ ОКНО ДЛЯ ВИДЕО */
         .video-modal {
@@ -799,7 +819,7 @@
             font-size: 0.75rem;
         }
 
-        /* БЛОК 9: КАТАЛОГ МАТЕРИАЛОВ */
+        /* БЛОК 9: ОПТИМИЗИРОВАННЫЙ КАТАЛОГ МАТЕРИАЛОВ */
         .products-section {
             background-color: #ffffff;
             padding: 80px 20px;
@@ -821,7 +841,7 @@
             justify-content: space-between;
             position: relative;
             overflow: hidden;
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
         .product-card::after {
@@ -837,31 +857,34 @@
 
         .product-card:hover {
             border-color: #ff5722;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
-        .product-image-window {
+        .product-image-box {
             width: 100%;
-            height: 180px;
-            background-color: #f8f8f8;
-            border: 1px dashed #d0d0d0;
+            height: 230px;
+            background-color: #fbfbfb;
             border-radius: 6px;
             margin-bottom: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #888888;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
+            padding: 15px;
+            position: relative;
             overflow: hidden;
+            border: 1px solid #f0f0f0;
         }
-        .product-image-window img {
+        .product-image-box img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            filter: drop-shadow(0 8px 15px rgba(0,0,0,0.12));
         }
+        .product-card:hover .product-image-box img {
+            transform: scale(1.06);
+        }
+
         .product-step {
             font-size: 0.7rem;
             color: #ff5722;
@@ -1159,7 +1182,7 @@
             padding-top: 15px;
         }
 
-        /* АДАПТИВНОСТЬ ДЛЯ ПК (DESKTOP) */
+        /* АДАПТИВНОСТЬ ДЛЯ ПК */
         @media (min-width: 768px) {
             header { padding: 22px 40px; }
             .phone { font-size: 1.25rem; font-weight: 900; }
@@ -1215,24 +1238,17 @@
             .process-section { padding: 120px 40px; }
             .process-zigzag-list { gap: 80px; margin-top: 60px; }
             .process-zigzag-row {
-                flex-direction: row; /* Слева направо */
+                flex-direction: row;
                 align-items: center;
                 gap: 60px;
                 padding: 40px;
             }
-            /* Реверс для второго шага (Справа налево) */
             .process-zigzag-row.reverse {
                 flex-direction: row-reverse;
             }
-            .process-text-side {
-                flex: 1;
-            }
-            .process-text-side h3 {
-                font-size: 1.6rem;
-            }
-            .process-text-side p {
-                font-size: 1.05rem;
-            }
+            .process-text-side { flex: 1; }
+            .process-text-side h3 { font-size: 1.6rem; }
+            .process-text-side p { font-size: 1.05rem; }
             .process-media-side {
                 width: 420px;
                 height: 480px;
@@ -1250,11 +1266,17 @@
                 justify-content: flex-start;
                 gap: 20px;
             }
-            .video-card { flex: 0 0 250px; }
-            .carousel-arrow { display: flex; }
+            .video-card { flex: 0 0 250px; aspect-ratio: 9 / 16; }
+            .arrow-left { left: -25px; }
+            .arrow-right { right: -25px; }
 
+            /* Грид каталога на ПК */
             .products-section { padding: 120px 40px; }
-            .product-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+            .product-grid { 
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px; 
+            }
+            .product-image-box { height: 250px; }
             .catalog-callout {
                 flex-direction: row;
                 justify-content: space-between;
@@ -1426,7 +1448,7 @@
         </div>
     </section>
 
-    <!-- НОВЫЙ ШАХМАТНЫЙ БЛОК 4: ЗИГЗАГ-ПРОЦЕСС (СЛЕВА НАПРАВО, СПРАВА НАЛЕВО) -->
+    <!-- БЛОК 4: ПОШАГОВЫЙ ПРОЦЕСС НАНЕСЕНИЯ -->
     <section class="process-section">
         <div class="section-container">
             <span class="section-tag">Технология в действии</span>
@@ -1434,7 +1456,7 @@
             
             <div class="process-zigzag-list">
                 
-                <!-- Шаг 01: Текст слева, GIF справа -->
+                <!-- Шаг 01 -->
                 <div class="process-zigzag-row">
                     <div class="process-text-side">
                         <div class="process-step-badge">Этап 01</div>
@@ -1446,7 +1468,7 @@
                     </div>
                 </div>
 
-                <!-- Шаг 02: GIF слева, Текст справа (РЕВЕРС) -->
+                <!-- Шаг 02 (РЕВЕРС) -->
                 <div class="process-zigzag-row reverse">
                     <div class="process-text-side">
                         <div class="process-step-badge">Этап 02</div>
@@ -1459,7 +1481,7 @@
                     </div>
                 </div>
 
-                <!-- Шаг 03: Текст слева, GIF справа -->
+                <!-- Шаг 03 -->
                 <div class="process-zigzag-row">
                     <div class="process-text-side">
                         <div class="process-step-badge">Этап 03</div>
@@ -1532,12 +1554,17 @@
         </div>
     </section>
 
-    <!-- БЛОК 7: ВИДЕО-КАРУСЕЛЬ СО СТРЕЛКАМИ -->
+    <!-- БЛОК 7: ОПТИМИЗИРОВАННАЯ ВИДЕО-КАРУСЕЛЬ ДЛЯ МОБИЛЬНЫХ -->
     <section class="video-section">
         <div class="section-container">
             <span class="section-tag">Видео-доказательства</span>
             <h2 class="section-title text-center">OTTINGER в деле: <span class="accent-color">Смотрите краш-тесты</span></h2>
             
+            <!-- Подсказка для свайпа на смартфонах -->
+            <div class="mobile-swipe-hint">
+                <span class="hint-arrow">←</span> Листайте ролики <span class="hint-arrow">→</span>
+            </div>
+
             <div class="video-carousel-wrapper">
                 <button class="carousel-arrow arrow-left" onclick="scrollCarousel(-1)">&#8249;</button>
 
@@ -1614,73 +1641,82 @@
         </div>
     </section>
 
-    <!-- БЛОК 9: КАТАЛОГ МАТЕРИАЛОВ -->
+    <!-- БЛОК 9: ОПТИМИЗИРОВАННЫЙ КАТАЛОГ МАТЕРИАЛОВ -->
     <section class="products-section" id="products">
         <div class="section-container">
             <span class="section-tag">Базовая линейка</span>
             <h2 class="section-title text-center"><span class="accent-color">4 материала</span>, закрывающих <span class="accent-color">100% задач</span></h2>
             
             <div class="product-grid">
+                
+                <!-- Продукт 1 (Канистра Primer Konzentrat) -->
                 <div class="product-card card-primer">
-                    <div class="product-image-window">
-                        <img src="images/primer-konzentrat.png" alt="Primer Konzentrat" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <span style="display: none;">[ Канистра Primer Konzentrat ]</span>
+                    <div class="product-image-box">
+                        <img src="primer-konzentrat.png" alt="Primer Konzentrat" onerror="this.src='images/primer-konzentrat.png';">
                     </div>
-                    <div class="product-step badge-gray">Грунт 20% остатка</div>
-                    <h3>Primer Konzentrat</h3>
-                    <p class="product-desc">Честный концентрат 1:4. Глубоко укрепляет штукатурку и связывает складскую пыль на ГКЛ.</p>
-                    <div class="product-specs">
-                        <div class="spec-row"><span class="spec-lbl">Разбавление:</span><span class="spec-val">водой до 1:4</span></div>
-                        <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">~10 м²/л</span></div>
-                        <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5л / 10л</span></div>
+                    <div>
+                        <div class="product-step badge-gray">Грунт 20% остатка</div>
+                        <h3>Primer Konzentrat</h3>
+                        <p class="product-desc">Честный концентрат 1:4. Глубоко укрепляет штукатурку и связывает складскую пыль на ГКЛ.</p>
+                        <div class="product-specs">
+                            <div class="spec-row"><span class="spec-lbl">Разбавление:</span><span class="spec-val">водой до 1:4</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">~10 м²/л</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5л / 10л</span></div>
+                        </div>
                     </div>
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20грунта%20Primer%20Konzentrat." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
+                <!-- Продукт 2 (Ведро Basis Start) -->
                 <div class="product-card">
-                    <div class="product-image-window">
-                        <img src="images/basis-start.png" alt="Basis Start" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <span style="display: none;">[ Ведро Basis Start ]</span>
+                    <div class="product-image-box">
+                        <img src="basis-start.png" alt="Basis Start" onerror="this.src='images/basis-start.png';">
                     </div>
-                    <div class="product-step">Доминанта (90% задач)</div>
-                    <h3>Basis Start</h3>
-                    <p class="product-desc">Базовая шпатлевка с 10-микронной фиброй. Держит слой до 5 мм, заменяет стеклохолст и клей.</p>
-                    <div class="product-specs">
-                        <div class="spec-row"><span class="spec-lbl">Толщина слоя:</span><span class="spec-val">до 5 мм</span></div>
-                        <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">от 0.5 кг/м²</span></div>
-                        <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5кг / 25кг</span></div>
+                    <div>
+                        <div class="product-step">Доминанта (90% задач)</div>
+                        <h3>Basis Start</h3>
+                        <p class="product-desc">Базовая шпатлевка с 10-микронной фиброй. Держит слой до 5 мм, заменяет стеклохолст и клей.</p>
+                        <div class="product-specs">
+                            <div class="spec-row"><span class="spec-lbl">Толщина слоя:</span><span class="spec-val">до 5 мм</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">от 0.5 кг/м²</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5кг / 25кг</span></div>
+                        </div>
                     </div>
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20шпатлевки%20Basis%20Start." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
+                <!-- Продукт 3 (Ведро Basis Aqua) -->
                 <div class="product-card card-aqua">
-                    <div class="product-image-window">
-                        <img src="images/basis-aqua.png" alt="Basis Aqua" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <span style="display: none;">[ Ведро Basis Aqua ]</span>
+                    <div class="product-image-box">
+                        <img src="basis-aqua.png" alt="Basis Aqua" onerror="this.src='images/basis-aqua.png';">
                     </div>
-                    <div class="product-step badge-blue">Микростеклосферы</div>
-                    <h3>Basis Aqua</h3>
-                    <p class="product-desc">Шпатлевка тонкого помола. Зимняя формула. Идеальна под ленты Strait-Flex, влажные зоны и дефектовку.</p>
-                    <div class="product-specs">
-                        <div class="spec-row"><span class="spec-lbl">Толщина слоя:</span><span class="spec-val">до 2 мм</span></div>
-                        <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">от 0.5 кг/м²</span></div>
-                        <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5кг / 25кг</span></div>
+                    <div>
+                        <div class="product-step badge-blue">Микростеклосферы</div>
+                        <h3>Basis Aqua</h3>
+                        <p class="product-desc">Шпатлевка тонкого помола. Зимняя формула. Идеальна под ленты Strait-Flex, влажные зоны и дефектовку.</p>
+                        <div class="product-specs">
+                            <div class="spec-row"><span class="spec-lbl">Толщина слоя:</span><span class="spec-val">до 2 мм</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">от 0.5 кг/м²</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5кг / 25кг</span></div>
+                        </div>
                     </div>
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20шпатлевки%20Basis%20Aqua." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
+                <!-- Продукт 4 (Ведро Keramik Matt) -->
                 <div class="product-card card-paint">
-                    <div class="product-image-window">
-                        <img src="images/keramik-matt.png" alt="Premium Keramik Matt" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <span style="display: none;">[ Ведро Premium Keramik Matt ]</span>
+                    <div class="product-image-box">
+                        <img src="keramik-matt.png" alt="Premium Keramik Matt" onerror="this.src='images/keramik-matt.png';">
                     </div>
-                    <div class="product-step badge-dark">Моющаяся керамика</div>
-                    <h3>Keramik Matt</h3>
-                    <p class="product-desc">Премиальная матовая краска. Создает плотную мембрану, устойчивую к бытовым жирам и мытью.</p>
-                    <div class="product-specs">
-                        <div class="spec-row"><span class="spec-lbl">Степень глянца:</span><span class="spec-val">матовая 5</span></div>
-                        <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">10 м²/л</span></div>
-                        <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">0.9л / 2.5л / 9л</span></div>
+                    <div>
+                        <div class="product-step badge-dark">Моющаяся керамика</div>
+                        <h3>Keramik Matt</h3>
+                        <p class="product-desc">Премиальная матовая краска. Создает плотную мембрану, устойчивую к бытовым жирам и мытью.</p>
+                        <div class="product-specs">
+                            <div class="spec-row"><span class="spec-lbl">Степень глянца:</span><span class="spec-val">матовая 5</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">10 м²/л</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">0.9л / 2.5л / 9л</span></div>
+                        </div>
                     </div>
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20краски%20Premium%20Keramik%20Matt." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
@@ -1755,8 +1791,7 @@
             <div class="cases-grid">
                 <div class="case-card">
                     <div class="case-image-window">
-                        <img src="images/case1.jpg" alt="Апартаменты под сдачу" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <span style="display: none;">[ Фото готовых стен в апартаментах ]</span>
+                        <img src="case1.jpg" alt="Апартаменты под сдачу" onerror="this.src='images/case1.jpg';">
                     </div>
                     <h3>Апартаменты под сдачу в Сочи</h3>
                     <p>Стены подготовлены без использования стеклохолста. Финишный слой краски с керамикой выдерживает влажную уборку и любые бытовые пятна.</p>
@@ -1764,8 +1799,7 @@
 
                 <div class="case-card">
                     <div class="case-image-window">
-                        <img src="images/case2.jpg" alt="Коридор гостиницы" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <span style="display: none;">[ Фото коридора отеля ]</span>
+                        <img src="case2.jpg" alt="Коридор гостиницы" onerror="this.src='images/case2.jpg';">
                     </div>
                     <h3>Коридор гостиничного комплекса</h3>
                     <p>Проходная зона с экстремальной нагрузкой. Упругая полимерная база шпатлевки защищает углы от сколов при ударах чемоданами и колясками.</p>
@@ -1773,8 +1807,7 @@
 
                 <div class="case-card">
                     <div class="case-image-window">
-                        <img src="images/case3.jpg" alt="Премиальный интерьер" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <span style="display: none;">[ Фото готового интерьера ]</span>
+                        <img src="case3.jpg" alt="Премиальный интерьер" onerror="this.src='images/case3.jpg';">
                     </div>
                     <h3>Премиальный жилой интерьер</h3>
                     <p>Стены подготовлены под строгий проявочный свет (качество Q4). Глубокоматовая краска не дает бликов и затертостей в проходных зонах.</p>
