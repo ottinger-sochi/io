@@ -292,7 +292,7 @@
             margin: 0;
         }
 
-        /* БЛОК 3: МАРКЕТИНГОВОЕ СРАВНЕНИЕ В 2 СТОЛБЦА (СТАРЫЙ VS НОВЫЙ МЕТОД) */
+        /* БЛОК 3: МАРКЕТИНГОВОЕ СРАВНЕНИЕ В 2 СТОЛБЦА */
         .pie-section {
             background-color: #f8f8f8;
             padding: 80px 20px;
@@ -317,7 +317,7 @@
         }
         .pie-card.old-way {
             background-color: #fafafa;
-            border-top: 4px solid #d32f2f; /* Красный маркер старого метода */
+            border-top: 4px solid #d32f2f;
         }
         .pie-card.new-way {
             border: 1px solid #ff5722;
@@ -395,7 +395,7 @@
             font-weight: 900;
         }
 
-        /* БЛОК 4: ПОШАГОВЫЙ ПРОЦЕСС НАНЕСЕНИЯ */
+        /* БЛОК 4: ПОШАГОВЫЙ ПРОЦЕСС НАНЕСЕНИЯ (С ВЕРТИКАЛЬНЫМИ GIF) */
         .process-section {
             background-color: #ffffff;
             padding: 80px 20px;
@@ -421,22 +421,34 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.06);
         }
+        
+        /* Вертикальный контейнер под GIF 9:16 */
         .process-gif-window {
             width: 100%;
-            aspect-ratio: 16 / 10;
-            background-color: #f8f8f8;
+            height: 380px; /* Высота для вертикальной анимации */
+            background-color: #121212;
             border-bottom: 1px solid #eaeaea;
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .process-gif-window img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .process-placeholder-text {
             color: #777777;
             font-size: 0.75rem;
             text-transform: uppercase;
             font-weight: 800;
             letter-spacing: 1px;
-            padding: 15px;
+            padding: 20px;
             text-align: center;
         }
+
         .process-info {
             padding: 25px;
         }
@@ -1126,7 +1138,7 @@
             padding-top: 15px;
         }
 
-        /* АДАПТИВНОСТЬ ДЛЯ ПК (DESKTOP) */
+        /* АДАПТИВНОСТЬ ДЛЯ ПК */
         @media (min-width: 768px) {
             header { padding: 22px 40px; }
             .phone { font-size: 1.25rem; font-weight: 900; }
@@ -1171,16 +1183,16 @@
             .step-header h3 { font-size: 1.6rem; }
             .step-num-badge { font-size: 3rem; }
 
-            /* Двухколоночный пирог на ПК */
             .pie-section { padding: 120px 40px; }
             .pie-comparison-grid { 
-                grid-template-columns: 1fr 1fr; /* Ровно 2 колонки на ПК */
+                grid-template-columns: 1fr 1fr;
                 gap: 30px; 
             }
             .pie-card { padding: 40px; }
 
             .process-section { padding: 120px 40px; }
             .process-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
+            .process-gif-window { height: 420px; }
 
             .rules-section { padding: 100px 40px; }
             .rules-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
@@ -1267,7 +1279,7 @@
         </div>
     </main>
 
-    <!-- БЛОК 2: ПРОСТОРНЫЙ ПОШАГОВЫЙ СТОРИ-СКРОЛЛ -->
+    <!-- БЛОК 2: ПОШАГОВЫЙ СТОРИ-СКРОЛЛ -->
     <section class="editorial-section" id="how-it-works">
         <div class="section-container">
             <span class="section-tag">Суровая правда малярки</span>
@@ -1315,7 +1327,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 3: МАЛЯРНЫЙ ПИРОГ (МАРКЕТИНГОВЫЙ БАТТЛ В 2 СТОЛБЦА) -->
+    <!-- БЛОК 3: МАЛЯРНЫЙ ПИРОГ (2 СТОЛБЦА) -->
     <section class="pie-section">
         <div class="section-container">
             <span class="section-tag">Сравнение технологий</span>
@@ -1323,7 +1335,7 @@
             
             <div class="pie-comparison-grid">
                 
-                <!-- Левый столбец: Старый метод -->
+                <!-- Левый столбец -->
                 <div class="pie-card old-way">
                     <div>
                         <div class="pie-card-header">
@@ -1342,7 +1354,7 @@
                     </div>
                 </div>
 
-                <!-- Правый столбец: Инновация OTTINGER -->
+                <!-- Правый столбец -->
                 <div class="pie-card new-way">
                     <div>
                         <div class="pie-card-header">
@@ -1363,22 +1375,25 @@
 
             </div>
 
-            <!-- Живая плашка экономии -->
             <div class="pie-savings-banner">
                 Результат: <span>минус 80% рутины</span>, <span>экономия 4 дней сушки</span> и <span>сдача с первого раза</span>
             </div>
         </div>
     </section>
 
-    <!-- БЛОК 4: ПОШАГОВЫЙ ПРОЦЕСС НАНЕСЕНИЯ -->
+    <!-- БЛОК 4: ПОШАГОВЫЙ ПРОЦЕСС НАНЕСЕНИЯ (С ВЕРТИКАЛЬНЫМИ GIF) -->
     <section class="process-section">
         <div class="section-container">
             <span class="section-tag">Технология в действии</span>
             <h2 class="section-title text-center">Как наносится система: <span class="accent-color">3 шага до идеальной стены</span></h2>
             
             <div class="process-grid">
+                
+                <!-- Шаг 1 (Загрузка step1-apply.gif) -->
                 <div class="process-card">
-                    <div class="process-gif-window">[ GIF 1: Нанесение безвоздушкой / валиком ]</div>
+                    <div class="process-gif-window">
+                        <img src="step1-apply.gif" alt="Механизированное нанесение OTTINGER">
+                    </div>
                     <div class="process-info">
                         <div class="process-step-num">Этап 01</div>
                         <h3>Нанесение шпатлевки</h3>
@@ -1386,8 +1401,11 @@
                     </div>
                 </div>
 
+                <!-- Шаг 2 (Окно под step2-sand.gif) -->
                 <div class="process-card">
-                    <div class="process-gif-window">[ GIF 2: Шлифовка жирафом / машинкой ]</div>
+                    <div class="process-gif-window">
+                        <div class="process-placeholder-text">[ GIF 2: Шлифовка жирафом / машинкой ]</div>
+                    </div>
                     <div class="process-info">
                         <div class="process-step-num">Этап 02</div>
                         <h3>Шлифовка без пыли</h3>
@@ -1395,14 +1413,18 @@
                     </div>
                 </div>
 
+                <!-- Шаг 3 (Окно под step3-paint.gif) -->
                 <div class="process-card">
-                    <div class="process-gif-window">[ GIF 3: Нанесение финишной краски Keramik Matt ]</div>
+                    <div class="process-gif-window">
+                        <div class="process-placeholder-text">[ GIF 3: Нанесение финишной краски Keramik Matt ]</div>
+                    </div>
                     <div class="process-info">
                         <div class="process-step-num">Этап 03</div>
                         <h3>Финишное окрашивание</h3>
                         <p>Окрашивание валиком или безвоздушкой в 2 слоя. Создается сверхплотная керамическая мембрана, которую легко мыть и невозможно затереть.</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -1747,7 +1769,7 @@
         </div>
     </footer>
 
-    <!-- JS СКРИПТЫ: КАРУСЕЛЬ И ВИДЕО МОДАЛКА -->
+    <!-- JS СКРИПТЫ -->
     <script>
         // Перелистывание карусели стрелками
         function scrollCarousel(direction) {
