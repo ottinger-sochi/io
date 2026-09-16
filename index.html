@@ -295,7 +295,7 @@
         }
         .pie-savings-banner span { color: #ff5722; font-weight: 900; }
 
-        /* БЛОК 3: КАРУСЕЛЬ 16 ВИДЕОРОЛИКОВ С АВТО-КАДРАМИ */
+        /* БЛОК 3: МАРКЕТИНГОВЫЙ БЛОК С ВИДЕО */
         .video-section {
             background-color: #ffffff;
             padding: 80px 20px;
@@ -362,7 +362,6 @@
             box-shadow: 0 12px 30px rgba(255, 87, 34, 0.25);
         }
         
-        /* Авто-кадр из видео */
         .video-card-thumb {
             position: absolute;
             top: 0;
@@ -379,7 +378,6 @@
             transform: scale(1.06);
         }
         
-        /* Затемнение для читаемости текста */
         .video-card-overlay {
             position: absolute;
             top: 0;
@@ -397,25 +395,26 @@
             position: relative;
             z-index: 3;
         }
-        .video-num {
-            color: #ffffff;
-            font-size: 0.8rem;
-            font-weight: 900;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-        }
         .video-badge {
             background-color: rgba(0, 0, 0, 0.75);
             color: #ffffff;
             font-size: 0.65rem;
             font-weight: 800;
-            padding: 3px 6px;
+            padding: 4px 8px;
             border-radius: 3px;
             text-transform: uppercase;
             backdrop-filter: blur(4px);
+            letter-spacing: 0.5px;
         }
         .badge-hit {
             background-color: #ff5722;
             color: #ffffff;
+        }
+        .video-duration {
+            color: #dddddd;
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
         }
         .video-play-icon {
             width: 52px;
@@ -845,7 +844,7 @@
             Инновационная полимерная система отделки с <span>10-микронным фиброволокном</span>. Сокращает малярный пирог до 3 слоев без стеклохолста.
         </p>
 
-        <a href="#video-gallery" class="btn btn-primary">Смотреть 16 видео ↓</a>
+        <a href="#video-gallery" class="btn btn-primary">Смотреть краш-тесты ↓</a>
     </main>
 
     <!-- БЛОК 2: МАЛЯРНЫЙ ПИРОГ -->
@@ -892,14 +891,14 @@
         </div>
     </section>
 
-    <!-- БЛОК 3: 16 ВИДЕОРОЛИКОВ (АВТОМАТИЧЕСКИЕ КАДРЫ ИЗ ВИДЕО) -->
+    <!-- БЛОК 3: МАРКЕТИНГОВЫЙ БЛОК С ВИДЕО -->
     <section class="video-section" id="video-gallery">
         <div class="section-container">
             <span class="section-tag">Видео-доказательства</span>
-            <h2 class="section-title text-center">Все тесты и практика: <span class="accent-color">16 видеороликов</span></h2>
+            <h2 class="section-title text-center">Система OTTINGER в действии: <span class="accent-color">Краш-тесты и практика мастеров</span></h2>
             
             <div class="mobile-swipe-hint">
-                <span>← Листайте ролики →</span>
+                <span>← Листайте видео →</span>
             </div>
 
             <div class="video-carousel-wrapper">
@@ -911,7 +910,10 @@
                     <div class="video-card" onclick="openVideoModal(0)">
                         <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video1.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
-                        <div class="video-top-row"><span class="video-num">01 / 16</span><span class="video-badge badge-hit">КРАШ-ТЕСТ</span></div>
+                        <div class="video-top-row">
+                            <span class="video-badge badge-hit">КРАШ-ТЕСТ</span>
+                            <span class="video-duration">0:45</span>
+                        </div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Вино, кофе и кетчуп</h4><p>Проверяем стойкость краски Keramik Matt: удаляем пятна влажной салфеткой.</p></div>
                     </div>
@@ -920,135 +922,180 @@
                     <div class="video-card" onclick="openVideoModal(1)">
                         <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video2.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
-                        <div class="video-top-row"><span class="video-num">02 / 16</span><span class="video-badge">0:45</span></div>
+                        <div class="video-top-row">
+                            <span class="video-badge">ЭЛАСТИЧНОСТЬ</span>
+                            <span class="video-duration">0:45</span>
+                        </div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Тест на упругость</h4><p>Сворачиваем слой шпатлевки в трубку без трещин.</p></div>
+                        <div class="video-info"><h4>Тест на упругость</h4><p>Сворачиваем полимерный слой Basis Start в трубку без трещин.</p></div>
                     </div>
 
                     <!-- 3 -->
                     <div class="video-card" onclick="openVideoModal(2)">
                         <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video3.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
-                        <div class="video-top-row"><span class="video-num">03 / 16</span><span class="video-badge">0:30</span></div>
+                        <div class="video-top-row">
+                            <span class="video-badge">КРАШ-ТЕСТ</span>
+                            <span class="video-duration">0:30</span>
+                        </div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Краш-тест ручкой</h4><p>Проверка на сколы и продавливание металлическим острием.</p></div>
+                        <div class="video-info"><h4>Тест острием ручки</h4><p>Проверка на сколы, вмятины и продавливание металлическим острием.</p></div>
                     </div>
 
                     <!-- 4 -->
                     <div class="video-card" onclick="openVideoModal(3)">
                         <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video4.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
-                        <div class="video-top-row"><span class="video-num">04 / 16</span><span class="video-badge">1:15</span></div>
+                        <div class="video-top-row">
+                            <span class="video-badge">ЛАЙФХАК</span>
+                            <span class="video-duration">1:15</span>
+                        </div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Шлифовка жирафом</h4><p>Лайфхак: вскрытие P40 и чистовая доводка P120.</p></div>
+                        <div class="video-info"><h4>Шлифовка жирафом</h4><p>Секретная техника: вскрытие P40 за 3 мин и доводка керамикой P120.</p></div>
                     </div>
 
                     <!-- 5 -->
                     <div class="video-card" onclick="openVideoModal(4)">
                         <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video5.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
-                        <div class="video-top-row"><span class="video-num">05 / 16</span><span class="video-badge">1:40</span></div>
+                        <div class="video-top-row">
+                            <span class="video-badge">ТЕХНОЛОГИЯ</span>
+                            <span class="video-duration">1:40</span>
+                        </div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Метод «1000 линий»</h4><p>Как правильно наносить Basis Start крест-накрест.</p></div>
+                        <div class="video-info"><h4>Метод «1000 линий»</h4><p>Как правильно наносить шпатлевку крест-накрест без стеклохолста.</p></div>
                     </div>
 
                     <!-- 6 -->
                     <div class="video-card" onclick="openVideoModal(5)">
                         <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video6.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
-                        <div class="video-top-row"><span class="video-num">06 / 16</span><span class="video-badge">1:10</span></div>
+                        <div class="video-top-row">
+                            <span class="video-badge">ТЕХНОЛОГИЯ</span>
+                            <span class="video-duration">1:10</span>
+                        </div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Нанесение валиком</h4><p>Быстрое раскатывание шпатлевки без сложного оборудования.</p></div>
+                        <div class="video-info"><h4>Нанесение валиком</h4><p>Быстрая раскатка полимера на объекте без сложного оборудования.</p></div>
                     </div>
 
                     <!-- 7 -->
                     <div class="video-card" onclick="openVideoModal(6)">
                         <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video7.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
-                        <div class="video-top-row"><span class="video-num">07 / 16</span><span class="video-badge">1:55</span></div>
+                        <div class="video-top-row">
+                            <span class="video-badge">МЕХАНИЗАЦИЯ</span>
+                            <span class="video-duration">1:55</span>
+                        </div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Безвоздушный аппарат</h4><p>Механизация больших площадей соплами 531–535.</p></div>
+                        <div class="video-info"><h4>Безвоздушный аппарат</h4><p>Высокая скорость на больших объемах: работа соплами 531–535.</p></div>
                     </div>
 
                     <!-- 8 -->
                     <div class="video-card" onclick="openVideoModal(7)">
                         <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video8.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
-                        <div class="video-top-row"><span class="video-num">08 / 16</span><span class="video-badge">0:40</span></div>
+                        <div class="video-top-row">
+                            <span class="video-badge">ЧИСТОТА</span>
+                            <span class="video-duration">0:40</span>
+                        </div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Тест на тяжелую пыль</h4><p>Почему полимерная пыль падает на пол, а не висит в воздухе.</p></div>
+                        <div class="video-info"><h4>Тест на тяжелую пыль</h4><p>Всего 1 мешок мусора со 100 м²: пыль сразу падает на пол.</p></div>
                     </div>
 
                     <!-- 9 -->
                     <div class="video-card" onclick="openVideoModal(8)">
                         <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video9.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
-                        <div class="video-top-row"><span class="video-num">09 / 16</span><span class="video-badge">1:20</span></div>
+                        <div class="video-top-row">
+                            <span class="video-badge">УГЛЫ И СТЫКИ</span>
+                            <span class="video-duration">1:20</span>
+                        </div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Монтаж Strait-Flex</h4><p>Вклейка композитных лент на шпатлевку Basis Aqua.</p></div>
+                        <div class="video-info"><h4>Монтаж Strait-Flex</h4><p>Надежная вклейка композитных лент на шпатлевку Basis Aqua.</p></div>
                     </div>
 
                     <!-- 10 -->
                     <div class="video-card" onclick="openVideoModal(9)">
                         <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video10.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
-                        <div class="video-top-row"><span class="video-num">10 / 16</span><span class="video-badge">0:55</span></div>
+                        <div class="video-top-row">
+                            <span class="video-badge">ПОДГОТОВКА</span>
+                            <span class="video-duration">0:55</span>
+                        </div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Грунтовка 1:4</h4><p>Укрепление штукатурки грунтом Primer Konzentrat.</p></div>
+                        <div class="video-info"><h4>Грунтовка 1:4</h4><p>Честный 20% концентрат Primer Konzentrat для связывания пыли на ГКЛ.</p></div>
                     </div>
 
                     <!-- 11 -->
                     <div class="video-card" onclick="openVideoModal(10)">
                         <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video11.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
-                        <div class="video-top-row"><span class="video-num">11 / 16</span><span class="video-badge">1:30</span></div>
+                        <div class="video-top-row">
+                            <span class="video-badge">СРАВНЕНИЕ</span>
+                            <span class="video-duration">1:30</span>
+                        </div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Гипс vs Полимер</h4><p>Наглядное сравнение прочности двух систем.</p></div>
+                        <div class="video-info"><h4>Гипс против OTTINGER</h4><p>Наглядный баттл прочности классической и полимерной отделки.</p></div>
                     </div>
 
                     <!-- 12 -->
                     <div class="video-card" onclick="openVideoModal(11)">
                         <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video12.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
-                        <div class="video-top-row"><span class="video-num">12 / 16</span><span class="video-badge">0:35</span></div>
+                        <div class="video-top-row">
+                            <span class="video-badge">КРАШ-ТЕСТ</span>
+                            <span class="video-duration">0:35</span>
+                        </div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Удар по углу</h4><p>Имитация удара чемоданом или стремянкой в проходной зоне.</p></div>
+                        <div class="video-info"><h4>Удар по внешнему углу</h4><p>Защита от сколов при ударах мебелью, стремянками и чемоданами.</p></div>
                     </div>
 
                     <!-- 13 -->
                     <div class="video-card" onclick="openVideoModal(12)">
                         <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video13.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
-                        <div class="video-top-row"><span class="video-num">13 / 16</span><span class="video-badge">1:05</span></div>
+                        <div class="video-top-row">
+                            <span class="video-badge">КАЧЕСТВО Q4</span>
+                            <span class="video-duration">1:05</span>
+                        </div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Проявочный свет Q4</h4><p>Проверка плоскости мощной малярной лампой Lossew.</p></div>
+                        <div class="video-info"><h4>Проявочный свет Lossew</h4><p>Проверка плоскости мощной косопадающей малярной лампой.</p></div>
                     </div>
 
                     <!-- 14 -->
                     <div class="video-card" onclick="openVideoModal(13)">
                         <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video14.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
-                        <div class="video-top-row"><span class="video-num">14 / 16</span><span class="video-badge">1:45</span></div>
+                        <div class="video-top-row">
+                            <span class="video-badge">ОБЪЕКТ В СОЧИ</span>
+                            <span class="video-duration">1:45</span>
+                        </div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Объект в Сочи</h4><p>Обзор готовых апартаментов 85 м² без стеклохолста.</p></div>
+                        <div class="video-info"><h4>Апартаменты 85 м²</h4><p>Обзор полностью готового объекта без единого метра стеклохолста.</p></div>
                     </div>
 
                     <!-- 15 -->
                     <div class="video-card" onclick="openVideoModal(14)">
                         <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video15.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
-                        <div class="video-top-row"><span class="video-num">15 / 16</span><span class="video-badge">1:50</span></div>
+                        <div class="video-top-row">
+                            <span class="video-badge">ОТЗЫВ</span>
+                            <span class="video-duration">1:50</span>
+                        </div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Отзыв мастера</h4><p>Реальные впечатления маляра после 3 сданных квартир.</p></div>
+                        <div class="video-info"><h4>Отзыв мастера-маляра</h4><p>Реальный опыт и экономия времени после 3 сданных квартир.</p></div>
                     </div>
 
                     <!-- 16 -->
                     <div class="video-card" onclick="openVideoModal(15)">
                         <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video16.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
-                        <div class="video-top-row"><span class="video-num">16 / 16</span><span class="video-badge">1:10</span></div>
+                        <div class="video-top-row">
+                            <span class="video-badge badge-hit">ТЕСТ-ДРАЙВ</span>
+                            <span class="video-duration">1:10</span>
+                        </div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Тест-драйв на выезде</h4><p>Как проходит бесплатная демонстрация у вас на объекте.</p></div>
+                        <div class="video-info"><h4>Выезд на ваш объект</h4><p>Как проходит бесплатная демонстрация со своими ведрами в Сочи.</p></div>
                     </div>
 
                 </div>
@@ -1068,7 +1115,7 @@
             <div class="video-modal-content" id="modalSwipeArea">
                 <div class="modal-top-bar">
                     <div class="modal-video-title" id="modalVideoTitle">
-                        <span id="modalVideoNum">01 / 16</span> <span id="modalVideoName">Вино, кофе и кетчуп</span>
+                        <span id="modalVideoTag">КРАШ-ТЕСТ</span> <span id="modalVideoName">Вино, кофе и кетчуп</span>
                     </div>
                     <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
                 </div>
@@ -1224,22 +1271,22 @@
     <!-- СКРИПТЫ -->
     <script>
         const videosList = [
-            { src: 'video1.mp4', title: 'Вино, кофе и кетчуп', num: '01 / 16' },
-            { src: 'video2.mp4', title: 'Тест на упругость', num: '02 / 16' },
-            { src: 'video3.mp4', title: 'Краш-тест ручкой', num: '03 / 16' },
-            { src: 'video4.mp4', title: 'Шлифовка жирафом', num: '04 / 16' },
-            { src: 'video5.mp4', title: 'Метод «1000 линий»', num: '05 / 16' },
-            { src: 'video6.mp4', title: 'Нанесение валиком', num: '06 / 16' },
-            { src: 'video7.mp4', title: 'Безвоздушный аппарат', num: '07 / 16' },
-            { src: 'video8.mp4', title: 'Тест на тяжелую пыль', num: '08 / 16' },
-            { src: 'video9.mp4', title: 'Монтаж Strait-Flex', num: '09 / 16' },
-            { src: 'video10.mp4', title: 'Грунтовка 1:4', num: '10 / 16' },
-            { src: 'video11.mp4', title: 'Гипс vs Полимер', num: '11 / 16' },
-            { src: 'video12.mp4', title: 'Удар по углу', num: '12 / 16' },
-            { src: 'video13.mp4', title: 'Проявочный свет Q4', num: '13 / 16' },
-            { src: 'video14.mp4', title: 'Объект в Сочи', num: '14 / 16' },
-            { src: 'video15.mp4', title: 'Отзыв мастера', num: '15 / 16' },
-            { src: 'video16.mp4', title: 'Тест-драйв на выезде', num: '16 / 16' }
+            { src: 'video1.mp4', title: 'Вино, кофе и кетчуп', tag: 'КРАШ-ТЕСТ' },
+            { src: 'video2.mp4', title: 'Тест на упругость', tag: 'ЭЛАСТИЧНОСТЬ' },
+            { src: 'video3.mp4', title: 'Тест острием ручки', tag: 'КРАШ-ТЕСТ' },
+            { src: 'video4.mp4', title: 'Шлифовка жирафом', tag: 'ЛАЙФХАК' },
+            { src: 'video5.mp4', title: 'Метод «1000 линий»', tag: 'ТЕХНОЛОГИЯ' },
+            { src: 'video6.mp4', title: 'Нанесение валиком', tag: 'ТЕХНОЛОГИЯ' },
+            { src: 'video7.mp4', title: 'Безвоздушный аппарат', tag: 'МЕХАНИЗАЦИЯ' },
+            { src: 'video8.mp4', title: 'Тест на тяжелую пыль', tag: 'ЧИСТОТА' },
+            { src: 'video9.mp4', title: 'Монтаж Strait-Flex', tag: 'УГЛЫ И СТЫКИ' },
+            { src: 'video10.mp4', title: 'Грунтовка 1:4', tag: 'ПОДГОТОВКА' },
+            { src: 'video11.mp4', title: 'Гипс против OTTINGER', tag: 'СРАВНЕНИЕ' },
+            { src: 'video12.mp4', title: 'Удар по внешнему углу', tag: 'КРАШ-ТЕСТ' },
+            { src: 'video13.mp4', title: 'Проявочный свет Lossew', tag: 'КАЧЕСТВО Q4' },
+            { src: 'video14.mp4', title: 'Апартаменты 85 м²', tag: 'ОБЪЕКТ В СОЧИ' },
+            { src: 'video15.mp4', title: 'Отзыв мастера-маляра', tag: 'ОТЗЫВ' },
+            { src: 'video16.mp4', title: 'Выезд на ваш объект', tag: 'ТЕСТ-ДРАЙВ' }
         ];
 
         let currentVideoIndex = 0;
@@ -1254,7 +1301,7 @@
         const player = document.getElementById('modalPlayer');
         const errorBox = document.getElementById('videoError');
         const directLink = document.getElementById('videoDirectLink');
-        const modalNum = document.getElementById('modalVideoNum');
+        const modalTag = document.getElementById('modalVideoTag');
         const modalName = document.getElementById('modalVideoName');
 
         player.onerror = function() {
@@ -1270,7 +1317,7 @@
             player.style.display = 'block';
             directLink.href = videoData.src;
             
-            modalNum.textContent = videoData.num;
+            modalTag.textContent = videoData.tag;
             modalName.textContent = videoData.title;
 
             player.src = videoData.src;
