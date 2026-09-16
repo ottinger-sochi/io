@@ -150,10 +150,10 @@
         /* ОКНА-ПЛЕЙСХОЛДЕРЫ ДЛЯ ИЗОБРАЖЕНИЙ */
         .image-window {
             width: 100%;
-            height: 200px;
+            height: 240px;
             background-color: #f8f8f8;
             border: 1px dashed #d6d6d6;
-            border-radius: 6px;
+            border-radius: 8px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -239,81 +239,55 @@
             z-index: 2;
         }
 
-        /* БЛОК 2: АВТОМАТИЧЕСКИЙ СКРОЛЛ-АККОРДЕОН (SCROLL-DRIVEN FOCUS) */
+        /* БЛОК 2: ПРОСТОРНЫЙ ПОШАГОВЫЙ СТОРИ-СКРОЛЛ (КАЖДЫЙ ПУНКТ НА СВОЙ ЭКРАН) */
         .editorial-section {
             background-color: #ffffff;
-            padding: 80px 20px;
+            padding: 80px 20px 40px 20px;
             border-top: 1px solid #eaeaea;
             position: relative;
         }
-        .scroll-accordion-list {
+        .step-story-container {
             display: flex;
             flex-direction: column;
             border-top: 1px solid #eaeaea;
         }
-        .scroll-accordion-item {
+        .step-story-card {
+            min-height: 70vh; /* Занимает 70-80% экрана на мобильном для спокойного чтения */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 50px 0;
             border-bottom: 1px solid #eaeaea;
-            padding: 10px 0;
-            transition: all 0.3s ease;
+            gap: 25px;
         }
-        .scroll-accordion-header {
+        .step-story-card:last-child {
+            border-bottom: none;
+        }
+        .step-header {
             display: flex;
             align-items: center;
-            gap: 20px;
-            padding: 15px 0;
-            cursor: pointer;
+            gap: 15px;
         }
-        .scroll-accordion-header .item-num {
-            font-size: 1.8rem;
+        .step-num-badge {
+            font-size: 2.2rem;
             font-weight: 900;
-            color: #cccccc; /* Неактивные цифры приглушены */
+            color: #ff5722;
             font-family: monospace;
             line-height: 1;
-            min-width: 45px;
-            transition: color 0.4s ease, transform 0.4s ease;
         }
-        .scroll-accordion-header h3 {
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: #888888; /* Неактивный заголовок серый */
+        .step-header h3 {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: #111111;
             letter-spacing: -0.3px;
             text-align: left;
             margin: 0;
-            transition: color 0.4s ease;
+            line-height: 1.3;
         }
-        
-        /* Стили активного пункта, который находится по центру экрана */
-        .scroll-accordion-item.active .scroll-accordion-header .item-num {
-            color: #ff5722; /* Яркий оранжевый */
-            transform: scale(1.15);
-        }
-        .scroll-accordion-item.active .scroll-accordion-header h3 {
-            color: #111111; /* Контрастный черный */
-        }
-        
-        /* Плавное автоматическое раскрытие тела */
-        .scroll-accordion-body {
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(8px);
-            transition: max-height 0.45s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease, transform 0.35s ease;
-        }
-        .scroll-accordion-item.active .scroll-accordion-body {
-            max-height: 600px;
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .scroll-accordion-inner {
-            padding: 5px 0 25px 65px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .scroll-accordion-inner p {
+        .step-text {
             color: #555555;
-            font-size: 0.95rem;
-            line-height: 1.5;
+            font-size: 1rem;
+            line-height: 1.55;
             max-width: 750px;
             margin: 0;
         }
@@ -1122,7 +1096,7 @@
             padding-top: 15px;
         }
 
-        /* АДАПТИВНОСТЬ ДЛЯ ПК */
+        /* АДАПТИВНОСТЬ ДЛЯ ПК (DESKTOP) */
         @media (min-width: 768px) {
             header { padding: 22px 40px; }
             .phone { font-size: 1.25rem; font-weight: 900; }
@@ -1144,19 +1118,33 @@
                 margin-bottom: 30px;
             }
 
-            /* Аккордеон Блока 2 на ПК */
-            .editorial-section { padding: 120px 40px; }
+            /* Просторный пошаговый Блок 2 на ПК */
+            .editorial-section { padding: 120px 40px 60px 40px; }
             .section-title { font-size: 2.8rem; margin-bottom: 70px; }
-            .scroll-accordion-header h3 { font-size: 1.4rem; }
-            .scroll-accordion-inner {
-                flex-direction: row;
+            .step-story-card {
+                min-height: 65vh; /* На десктопе карточки комфортно центрируются */
+                flex-direction: row; /* Текст слева, фото справа */
                 align-items: center;
-                gap: 50px;
+                gap: 60px;
+                padding: 60px 0;
             }
-            .scroll-accordion-inner p { flex: 1; font-size: 1.05rem; }
-            .scroll-accordion-inner .image-window { width: 380px; height: 220px; flex-shrink: 0; }
+            .step-story-card-left {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            .step-story-card .image-window {
+                width: 420px;
+                height: 260px;
+                flex-shrink: 0;
+            }
+            .step-header h3 { font-size: 1.6rem; }
+            .step-num-badge { font-size: 3rem; }
 
             .pie-section { padding: 120px 40px; }
+            .pie-comparison-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+
             .process-section { padding: 120px 40px; }
             .process-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
 
@@ -1245,54 +1233,48 @@
         </div>
     </main>
 
-    <!-- БЛОК 2: АВТОМАТИЧЕСКИЙ СКРОЛЛ-АККОРДЕОН (ОТКРЫВАЕТСЯ ПРИ СКРОЛЛЕ) -->
+    <!-- БЛОК 2: ПРОСТОРНЫЙ ПОШАГОВЫЙ СТОРИ-СКРОЛЛ (КАЖДЫЙ ПУНКТ НА СВОЙ ЭКРАН) -->
     <section class="editorial-section" id="how-it-works">
         <div class="section-container">
             <span class="section-tag">Суровая правда малярки</span>
             <h2 class="section-title">Почему за любые трещины на стене <span class="accent-color">всегда платит маляр</span>?</h2>
             
-            <div class="scroll-accordion-list">
+            <div class="step-story-container">
                 
-                <!-- Пункт 01 -->
-                <div class="scroll-accordion-item active" id="item-1">
-                    <div class="scroll-accordion-header">
-                        <span class="item-num">01</span>
-                        <h3>Принял основание — плати за чужие косяки</h3>
-                    </div>
-                    <div class="scroll-accordion-body">
-                        <div class="scroll-accordion-inner">
-                            <p>По судебной практике и требованиям технадзора маляр, начавший покраску, несет ответственность за весь пирог вплоть до бетона. Аргумент «новостройка дала усадку» не работает в суде — если основание лопнуло, переделки ложатся на маляра.</p>
-                            <div class="image-window">[ Фото дефекта основания ]</div>
+                <!-- Шаг 01 (Полноразмерный экран) -->
+                <div class="step-story-card">
+                    <div class="step-story-card-left">
+                        <div class="step-header">
+                            <span class="step-num-badge">01</span>
+                            <h3>Принял основание — плати за чужие косяки</h3>
                         </div>
+                        <p class="step-text">По судебной практике и требованиям технадзора маляр, начавший покраску, несет ответственность за весь пирог вплоть до бетона. Аргумент «новостройка дала усадку» не работает в суде — если основание лопнуло, переделки ложатся на маляра.</p>
                     </div>
+                    <div class="image-window">[ Фото дефекта основания ]</div>
                 </div>
 
-                <!-- Пункт 02 -->
-                <div class="scroll-accordion-item" id="item-2">
-                    <div class="scroll-accordion-header">
-                        <span class="item-num">02</span>
-                        <h3>Скрытые дефекты холста: сухие проплешины и дыры</h3>
-                    </div>
-                    <div class="scroll-accordion-body">
-                        <div class="scroll-accordion-inner">
-                            <p>При механизированном нанесении клея края факела дают тонкий опыл. Образуются сухие пустоты, где холст пузырится при покраске. А если случайно прошкурить холст до дыр — армирование в этом месте аннулируется.</p>
-                            <div class="image-window">[ Фото пузырей холста ]</div>
+                <!-- Шаг 02 (Полноразмерный экран) -->
+                <div class="step-story-card">
+                    <div class="step-story-card-left">
+                        <div class="step-header">
+                            <span class="step-num-badge">02</span>
+                            <h3>Скрытые дефекты холста: сухие проплешины и дыры</h3>
                         </div>
+                        <p class="step-text">При механизированном нанесении клея края факела дают тонкий опыл. Образуются сухие пустоты, где холст пузырится при покраске. А если случайно прошкурить холст до дыр — армирование в этом месте аннулируется.</p>
                     </div>
+                    <div class="image-window">[ Фото пузырей холста ]</div>
                 </div>
 
-                <!-- Пункт 03 -->
-                <div class="scroll-accordion-item" id="item-3">
-                    <div class="scroll-accordion-header">
-                        <span class="item-num">03</span>
-                        <h3>Вы сошкуриваете свои деньги в мусорные мешки</h3>
-                    </div>
-                    <div class="scroll-accordion-body">
-                        <div class="scroll-accordion-inner">
-                            <p>Покупая 20 мешков обычной гипсовой смеси, маляры наносят ее с запасом из-за сильной усадки, а затем 10 мешков сошкуривают на пол в виде пыли. Это ваши выброшенные деньги и тяжелый мусор.</p>
-                            <div class="image-window">[ Фото мешков с пылью ]</div>
+                <!-- Шаг 03 (Полноразмерный экран) -->
+                <div class="step-story-card">
+                    <div class="step-story-card-left">
+                        <div class="step-header">
+                            <span class="step-num-badge">03</span>
+                            <h3>Вы сошкуриваете свои деньги в мусорные мешки</h3>
                         </div>
+                        <p class="step-text">Покупая 20 мешков обычной гипсовой смеси, маляры наносят ее с запасом из-за сильной усадки, а затем 10 мешков сошкуривают на пол в виде пыли. Это ваши выброшенные деньги и тяжелый мусор.</p>
                     </div>
+                    <div class="image-window">[ Фото мешков с пылью ]</div>
                 </div>
 
             </div>
@@ -1726,35 +1708,8 @@
         </div>
     </footer>
 
-    <!-- JS СКРИПТЫ: АВТО-СКРОЛЛ ФОКУС, КАРУСЕЛЬ И ВИДЕО -->
+    <!-- JS СКРИПТЫ: КАРУСЕЛЬ И ВИДЕО МОДАЛКА -->
     <script>
-        // Автоматическое раскрытие пунктов Блока 2 по ходу скролла
-        const accordionItems = document.querySelectorAll('.scroll-accordion-item');
-        
-        const scrollObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Закрываем все, открываем тот, который находится по центру экрана
-                    accordionItems.forEach(item => item.classList.remove('active'));
-                    entry.target.classList.add('active');
-                }
-            });
-        }, {
-            root: null,
-            rootMargin: '-25% 0px -25% 0px', /* Активная зона - центральные 50% экрана */
-            threshold: 0.2
-        });
-
-        accordionItems.forEach(item => scrollObserver.observe(item));
-
-        // Также оставляем возможность кликнуть вручную, если пользователь захочет
-        accordionItems.forEach(item => {
-            item.addEventListener('click', () => {
-                accordionItems.forEach(i => i.classList.remove('active'));
-                item.classList.add('active');
-            });
-        });
-
         // Перелистывание карусели стрелками
         function scrollCarousel(direction) {
             const carousel = document.getElementById('videoCarousel');
