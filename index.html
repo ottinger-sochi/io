@@ -295,7 +295,7 @@
         }
         .pie-savings-banner span { color: #ff5722; font-weight: 900; }
 
-        /* БЛОК 3: КАРУСЕЛЬ 16 ВИДЕОРОЛИКОВ */
+        /* БЛОК 3: КАРУСЕЛЬ 16 ВИДЕОРОЛИКОВ С ОБЛОЖКАМИ */
         .video-section {
             background-color: #ffffff;
             padding: 80px 20px;
@@ -350,66 +350,94 @@
             position: relative;
             cursor: pointer;
             scroll-snap-align: start;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             padding: 16px;
-            background: linear-gradient(180deg, rgba(20,20,20,0.4) 0%, rgba(10,10,10,0.95) 100%), #222;
         }
         .video-card:hover {
             border-color: #ff5722;
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(255, 87, 34, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(255, 87, 34, 0.25);
         }
+        
+        /* СЛОИ ОБЛОЖКИ И ЗАТЕМНЕНИЯ */
+        .video-card-cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            transition: transform 0.35s ease;
+        }
+        .video-card:hover .video-card-cover {
+            transform: scale(1.06);
+        }
+        .video-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.9) 100%);
+            z-index: 2;
+        }
+
         .video-top-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 2;
+            position: relative;
+            z-index: 3;
         }
         .video-num {
-            color: #ff5722;
+            color: #ffffff;
             font-size: 0.8rem;
             font-weight: 900;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
         .video-badge {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.75);
             color: #ffffff;
             font-size: 0.65rem;
             font-weight: 800;
             padding: 3px 6px;
             border-radius: 3px;
             text-transform: uppercase;
+            backdrop-filter: blur(4px);
         }
         .badge-hit {
             background-color: #ff5722;
             color: #ffffff;
         }
         .video-play-icon {
-            width: 50px;
-            height: 50px;
+            width: 52px;
+            height: 52px;
             background-color: #ff5722;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             color: #ffffff;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 2;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            transition: transform 0.2s ease;
+            z-index: 3;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+            transition: transform 0.25s ease, background-color 0.25s ease;
         }
         .video-card:hover .video-play-icon {
-            transform: translate(-50%, -50%) scale(1.12);
+            transform: translate(-50%, -50%) scale(1.15);
+            background-color: #e64a19;
         }
         .video-info {
             position: relative;
-            z-index: 2;
+            z-index: 3;
         }
         .video-info h4 {
             font-size: 0.95rem;
@@ -417,11 +445,13 @@
             color: #ffffff;
             margin-bottom: 6px;
             line-height: 1.3;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
         .video-info p {
             font-size: 0.78rem;
-            color: #bbbbbb;
+            color: #d6d6d6;
             line-height: 1.35;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
         }
 
         .carousel-arrow {
@@ -738,7 +768,7 @@
         </h1>
 
         <div class="hero-media">
-            <img src="ottinger-demo.gif" alt="Демонстрация OTTINGER" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<span style=\'color:#999;font-weight:800;text-transform:uppercase;\'>OTTINGER DEMO</span>';">
+            <img src="ottinger-demo.gif" alt="Демонстрация нанесения OTTINGER" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<span style=\'color:#999;font-weight:800;text-transform:uppercase;\'>OTTINGER DEMO</span>';">
         </div>
 
         <p class="hero-subhead">
@@ -792,7 +822,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 3: 16 ВИДЕОРОЛИКОВ (КАРУСЕЛЬ) -->
+    <!-- БЛОК 3: 16 ВИДЕОРОЛИКОВ (КАРУСЕЛЬ С ОБЛОЖКАМИ) -->
     <section class="video-section" id="video-gallery">
         <div class="section-container">
             <span class="section-tag">Видео-доказательства</span>
@@ -807,8 +837,10 @@
 
                 <div class="video-carousel" id="videoCarousel">
                     
-                    <!-- 1. Краш-тест (Вино, кофе и кетчуп) - ФАЙЛ ПРЯМО В КОРНЕ -->
+                    <!-- 1. Краш-тест (Вино, кофе и кетчуп) -->
                     <div class="video-card" onclick="openVideoModal('video1.mp4')">
+                        <img src="cover1.jpg" class="video-card-cover" alt="Краш-тест" loading="lazy" onerror="this.style.display='none';">
+                        <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">01 / 16</span><span class="video-badge badge-hit">КРАШ-ТЕСТ</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Вино, кофе и кетчуп</h4><p>Проверяем стойкость краски Keramik Matt: удаляем пятна влажной салфеткой.</p></div>
@@ -816,6 +848,8 @@
 
                     <!-- 2 -->
                     <div class="video-card" onclick="openVideoModal('video2.mp4')">
+                        <img src="cover2.jpg" class="video-card-cover" alt="Тест на упругость" loading="lazy" onerror="this.style.display='none';">
+                        <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">02 / 16</span><span class="video-badge">0:45</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Тест на упругость</h4><p>Сворачиваем слой шпатлевки в трубку без трещин.</p></div>
@@ -823,6 +857,8 @@
 
                     <!-- 3 -->
                     <div class="video-card" onclick="openVideoModal('video3.mp4')">
+                        <img src="cover3.jpg" class="video-card-cover" alt="Краш-тест ручкой" loading="lazy" onerror="this.style.display='none';">
+                        <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">03 / 16</span><span class="video-badge">0:30</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Краш-тест ручкой</h4><p>Проверка на сколы и продавливание металлическим острием.</p></div>
@@ -830,6 +866,8 @@
 
                     <!-- 4 -->
                     <div class="video-card" onclick="openVideoModal('video4.mp4')">
+                        <img src="cover4.jpg" class="video-card-cover" alt="Шлифовка жирафом" loading="lazy" onerror="this.style.display='none';">
+                        <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">04 / 16</span><span class="video-badge">1:15</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Шлифовка жирафом</h4><p>Лайфхак: вскрытие P40 и чистовая доводка P120.</p></div>
@@ -837,6 +875,8 @@
 
                     <!-- 5 -->
                     <div class="video-card" onclick="openVideoModal('video5.mp4')">
+                        <img src="cover5.jpg" class="video-card-cover" alt="Метод 1000 линий" loading="lazy" onerror="this.style.display='none';">
+                        <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">05 / 16</span><span class="video-badge">1:40</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Метод «1000 линий»</h4><p>Как правильно наносить Basis Start крест-накрест.</p></div>
@@ -844,6 +884,8 @@
 
                     <!-- 6 -->
                     <div class="video-card" onclick="openVideoModal('video6.mp4')">
+                        <img src="cover6.jpg" class="video-card-cover" alt="Нанесение валиком" loading="lazy" onerror="this.style.display='none';">
+                        <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">06 / 16</span><span class="video-badge">1:10</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Нанесение валиком</h4><p>Быстрое раскатывание шпатлевки без сложного оборудования.</p></div>
@@ -851,6 +893,8 @@
 
                     <!-- 7 -->
                     <div class="video-card" onclick="openVideoModal('video7.mp4')">
+                        <img src="cover7.jpg" class="video-card-cover" alt="Безвоздушный аппарат" loading="lazy" onerror="this.style.display='none';">
+                        <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">07 / 16</span><span class="video-badge">1:55</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Безвоздушный аппарат</h4><p>Механизация больших площадей соплами 531–535.</p></div>
@@ -858,6 +902,8 @@
 
                     <!-- 8 -->
                     <div class="video-card" onclick="openVideoModal('video8.mp4')">
+                        <img src="cover8.jpg" class="video-card-cover" alt="Тест на тяжелую пыль" loading="lazy" onerror="this.style.display='none';">
+                        <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">08 / 16</span><span class="video-badge">0:40</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Тест на тяжелую пыль</h4><p>Почему полимерная пыль падает на пол, а не висит в воздухе.</p></div>
@@ -865,6 +911,8 @@
 
                     <!-- 9 -->
                     <div class="video-card" onclick="openVideoModal('video9.mp4')">
+                        <img src="cover9.jpg" class="video-card-cover" alt="Монтаж Strait-Flex" loading="lazy" onerror="this.style.display='none';">
+                        <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">09 / 16</span><span class="video-badge">1:20</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Монтаж Strait-Flex</h4><p>Вклейка композитных лент на шпатлевку Basis Aqua.</p></div>
@@ -872,6 +920,8 @@
 
                     <!-- 10 -->
                     <div class="video-card" onclick="openVideoModal('video10.mp4')">
+                        <img src="cover10.jpg" class="video-card-cover" alt="Грунтовка 1:4" loading="lazy" onerror="this.style.display='none';">
+                        <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">10 / 16</span><span class="video-badge">0:55</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Грунтовка 1:4</h4><p>Укрепление штукатурки грунтом Primer Konzentrat.</p></div>
@@ -879,6 +929,8 @@
 
                     <!-- 11 -->
                     <div class="video-card" onclick="openVideoModal('video11.mp4')">
+                        <img src="cover11.jpg" class="video-card-cover" alt="Гипс vs Полимер" loading="lazy" onerror="this.style.display='none';">
+                        <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">11 / 16</span><span class="video-badge">1:30</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Гипс vs Полимер</h4><p>Наглядное сравнение прочности двух систем.</p></div>
@@ -886,6 +938,8 @@
 
                     <!-- 12 -->
                     <div class="video-card" onclick="openVideoModal('video12.mp4')">
+                        <img src="cover12.jpg" class="video-card-cover" alt="Удар по углу" loading="lazy" onerror="this.style.display='none';">
+                        <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">12 / 16</span><span class="video-badge">0:35</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Удар по углу</h4><p>Имитация удара чемоданом или стремянкой в проходной зоне.</p></div>
@@ -893,6 +947,8 @@
 
                     <!-- 13 -->
                     <div class="video-card" onclick="openVideoModal('video13.mp4')">
+                        <img src="cover13.jpg" class="video-card-cover" alt="Проявочный свет Q4" loading="lazy" onerror="this.style.display='none';">
+                        <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">13 / 16</span><span class="video-badge">1:05</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Проявочный свет Q4</h4><p>Проверка плоскости мощной малярной лампой Lossew.</p></div>
@@ -900,6 +956,8 @@
 
                     <!-- 14 -->
                     <div class="video-card" onclick="openVideoModal('video14.mp4')">
+                        <img src="cover14.jpg" class="video-card-cover" alt="Объект в Сочи" loading="lazy" onerror="this.style.display='none';">
+                        <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">14 / 16</span><span class="video-badge">1:45</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Объект в Сочи</h4><p>Обзор готовых апартаментов 85 м² без стеклохолста.</p></div>
@@ -907,6 +965,8 @@
 
                     <!-- 15 -->
                     <div class="video-card" onclick="openVideoModal('video15.mp4')">
+                        <img src="cover15.jpg" class="video-card-cover" alt="Отзыв мастера" loading="lazy" onerror="this.style.display='none';">
+                        <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">15 / 16</span><span class="video-badge">1:50</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Отзыв мастера</h4><p>Реальные впечатления маляра после 3 сданных квартир.</p></div>
@@ -914,6 +974,8 @@
 
                     <!-- 16 -->
                     <div class="video-card" onclick="openVideoModal('video16.mp4')">
+                        <img src="cover16.jpg" class="video-card-cover" alt="Тест-драйв на выезде" loading="lazy" onerror="this.style.display='none';">
+                        <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">16 / 16</span><span class="video-badge">1:10</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Тест-драйв на выезде</h4><p>Как проходит бесплатная демонстрация у вас на объекте.</p></div>
