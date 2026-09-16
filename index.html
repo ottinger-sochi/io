@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OTTINGER Sochi — Профессиональные отделочные материалы</title>
-    <!-- Шрифты -->
+    <!-- Подключение фирменного шрифта Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
             overflow: hidden;
         }
         
-        /* ШАПКА САЙТА */
+        /* ШАПКА САЙТА (HEADER) */
         header {
             display: flex;
             justify-content: space-between;
@@ -79,7 +79,7 @@
             color: #ff5722;
         }
 
-        /* ОБЩИЕ СТИЛИ */
+        /* ОБЩИЕ СТИЛИ СЕКЦИЙ */
         .section-container {
             max-width: 1100px;
             margin: 0 auto;
@@ -88,7 +88,7 @@
         }
         .section-title {
             text-align: left;
-            font-size: 1.9rem;
+            font-size: 2rem;
             font-weight: 900;
             margin-bottom: 40px;
             line-height: 1.25;
@@ -295,9 +295,170 @@
         }
         .pie-savings-banner span { color: #ff5722; font-weight: 900; }
 
-        /* БЛОК 3: МАРКЕТИНГОВЫЙ БЛОК С ВИДЕО */
-        .video-section {
+        /* БЛОК 3: ШАХМАТНЫЙ ЗИГЗАГ-ПРОЦЕСС */
+        .process-section {
             background-color: #ffffff;
+            padding: 80px 20px;
+            border-top: 1px solid #eaeaea;
+        }
+        .process-zigzag-list {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        .process-zigzag-row {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            align-items: center;
+            background-color: #fafafa;
+            border: 1px solid #eaeaea;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.2s ease;
+        }
+        .process-zigzag-row:hover {
+            border-color: #ff5722;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+        }
+        .process-text-side {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .process-step-badge {
+            font-size: 0.75rem;
+            color: #ff5722;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .process-text-side h3 {
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: #111111;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        .process-text-side p {
+            color: #666666;
+            font-size: 0.95rem;
+            line-height: 1.55;
+        }
+        .process-media-side {
+            width: 100%;
+            height: 320px;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #111111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            position: relative;
+        }
+        .process-media-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* БЛОК 4: ПРАВИЛА РАБОТЫ */
+        .rules-section {
+            background-color: #f8f8f8;
+            padding: 80px 20px;
+            border-top: 1px solid #eaeaea;
+        }
+        .rules-box {
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid #ff5722;
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 0 8px 8px 0;
+            max-width: 1100px;
+            margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+        .rules-box h3 {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #111111;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 25px;
+        }
+        .rule-card {
+            background-color: #fafafa;
+            border: 1px solid #eaeaea;
+            padding: 20px;
+            border-radius: 6px;
+        }
+        .rule-card h4 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #ff5722;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .rule-card p {
+            color: #666666;
+            font-size: 0.88rem;
+            line-height: 1.45;
+        }
+
+        /* БЛОК 5: ФИЗИКА OTTINGER */
+        .tech-section {
+            background-color: #ffffff;
+            padding: 80px 20px;
+            border-top: 1px solid #eaeaea;
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .tech-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 25px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .tech-card:hover {
+            border-color: #ff5722;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        .tech-num {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #ff5722;
+            margin-bottom: 15px;
+            font-family: monospace;
+        }
+        .tech-card h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #111111;
+            margin-bottom: 12px;
+        }
+        .tech-card p {
+            color: #666666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* БЛОК 6: ВИДЕО-ДОКАЗАТЕЛЬСТВА (КАРУСЕЛЬ) */
+        .video-section {
+            background-color: #f8f8f8;
             padding: 80px 20px;
             border-top: 1px solid #eaeaea;
             position: relative;
@@ -527,7 +688,6 @@
             height: 100%;
             object-fit: contain;
         }
-
         .modal-top-bar {
             position: absolute;
             top: 0; left: 0; right: 0;
@@ -565,7 +725,6 @@
         .video-modal-close:hover {
             color: #ff5722;
         }
-
         .modal-nav-btn {
             position: absolute;
             top: 50%;
@@ -628,7 +787,58 @@
             font-weight: 800;
         }
 
-        /* БЛОК 4: КАТАЛОГ МАТЕРИАЛОВ */
+        /* БЛОК 7: ЛАЙФХАК ПО ШЛИФОВКЕ */
+        .myth-section {
+            background-color: #ffffff;
+            padding: 60px 20px;
+            border-top: 1px solid #eaeaea;
+        }
+        .myth-box {
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid #ff5722;
+            background-color: #fcfcfc;
+            padding: 30px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .myth-box h3 {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: #111111;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .myth-box p {
+            color: #666666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        .myth-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .myth-step-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: #111111;
+            font-weight: 700;
+        }
+        .step-badge {
+            background-color: #ff5722;
+            color: #ffffff;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+        }
+
+        /* БЛОК 8: КАТАЛОГ МАТЕРИАЛОВ */
         .products-section {
             background-color: #f8f8f8;
             padding: 80px 20px;
@@ -709,7 +919,111 @@
             max-width: 100%;
         }
 
-        /* ПРИМЕРЫ РАБОТ */
+        .catalog-callout {
+            border: 1px solid #e0e0e0;
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: left;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .callout-text h3 {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: #111111;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .callout-text p {
+            color: #666666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        .btn-callout {
+            background-color: transparent;
+            color: #111111;
+            border: 1px solid #cccccc;
+            font-size: 0.85rem;
+            padding: 14px 28px;
+            max-width: 100%;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+        .btn-callout:hover {
+            border-color: #ff5722;
+            color: #ff5722;
+            background-color: #fff5f2;
+        }
+
+        /* БЛОК 9: РОССИЙСКОЕ ПРОИЗВОДСТВО */
+        .factory-section {
+            background-color: #ffffff;
+            padding: 80px 20px;
+            border-top: 1px solid #eaeaea;
+        }
+        .factory-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        .factory-card {
+            background-color: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .factory-card h3 {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: #111111;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        .factory-card p {
+            color: #666666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* БЛОК 10: ЦЕНООБРАЗОВАНИЕ И ЭКОНОМИКА */
+        .metrics-section {
+            background-color: #f8f8f8;
+            padding: 80px 20px;
+            border-top: 1px solid #eaeaea;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        .metric-card {
+            border-top: 1px solid #eaeaea;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        .metric-val {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #111111;
+            line-height: 1;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        .metric-label {
+            font-size: 0.92rem;
+            color: #666666;
+            line-height: 1.4;
+        }
+        .metric-label strong { color: #111111; }
+
+        /* БЛОК 11: ПРИМЕРЫ РАБОТ */
         .cases-section {
             background-color: #ffffff;
             padding: 80px 20px;
@@ -740,9 +1054,36 @@
             object-fit: cover;
         }
 
-        /* БЛОК 5: CTA И FOOTER */
-        .cta-section {
+        /* БЛОК 12: НАМ ДОВЕРЯЮТ */
+        .partners-section {
             background-color: #f8f8f8;
+            padding: 80px 20px;
+            border-top: 1px solid #eaeaea;
+        }
+        .partners-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        .partner-card {
+            border-top: 1px solid #eaeaea;
+            padding-top: 20px;
+        }
+        .partner-card h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #ff5722;
+            margin-bottom: 10px;
+        }
+        .partner-card p {
+            color: #666666;
+            font-size: 0.95rem;
+            line-height: 1.45;
+        }
+
+        /* БЛОК 13: CTA */
+        .cta-section {
+            background-color: #ffffff;
             padding: 80px 20px;
             border-top: 1px solid #eaeaea;
             text-align: center;
@@ -765,6 +1106,7 @@
             line-height: 1.5;
         }
 
+        /* БЛОК 14: FOOTER */
         footer {
             background-color: #111111;
             color: #ffffff;
@@ -802,10 +1144,28 @@
             header { padding: 22px 40px; }
             .phone { font-size: 1.25rem; }
             h1 { font-size: 2.6rem; }
-            .carousel-arrow { display: flex; }
+            
             .pie-comparison-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+            
+            .process-zigzag-list { gap: 60px; margin-top: 50px; }
+            .process-zigzag-row { flex-direction: row; align-items: center; gap: 50px; padding: 35px; }
+            .process-zigzag-row.reverse { flex-direction: row-reverse; }
+            .process-text-side { flex: 1; }
+            .process-media-side { width: 380px; height: 380px; flex-shrink: 0; }
+            
+            .rules-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
+            .tech-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
+            
+            .carousel-arrow { display: flex; }
             .product-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+            .catalog-callout { flex-direction: row; justify-content: space-between; align-items: center; }
+            .btn-callout { max-width: 320px; }
+
+            .factory-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
+            .metrics-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
             .cases-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
+            .partners-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+
             .footer-container {
                 flex-direction: row;
                 justify-content: space-between;
@@ -891,7 +1251,111 @@
         </div>
     </section>
 
-    <!-- БЛОК 3: МАРКЕТИНГОВЫЙ БЛОК С ВИДЕО -->
+    <!-- БЛОК 3: ШАХМАТНЫЙ ЗИГЗАГ-ПРОЦЕСС -->
+    <section class="process-section">
+        <div class="section-container">
+            <span class="section-tag">Технология в действии</span>
+            <h2 class="section-title text-center">Как наносится система: <span class="accent-color">3 шага до идеальной стены</span></h2>
+            
+            <div class="process-zigzag-list">
+                
+                <!-- Шаг 01 -->
+                <div class="process-zigzag-row">
+                    <div class="process-text-side">
+                        <div class="process-step-badge">Этап 01</div>
+                        <h3>Нанесение шпатлевки</h3>
+                        <p>Наносится аппаратом или валиком без стеклохолста методом «тысяча линий». Толщина слоя от 1 мм сразу дает монолитное армирование всей плоскости.</p>
+                    </div>
+                    <div class="process-media-side">
+                        <img src="step1-apply.gif" alt="Механизированное нанесение OTTINGER" loading="lazy" onerror="this.onerror=null; this.src='';">
+                    </div>
+                </div>
+
+                <!-- Шаг 02 (РЕВЕРС) -->
+                <div class="process-zigzag-row reverse">
+                    <div class="process-text-side">
+                        <div class="process-step-badge">Этап 02</div>
+                        <h3>Шлифовка без пыли</h3>
+                        <p>Вскрываем верхнюю пленку зерном Р40 за 3 минуты и доводим керамикой Р80–Р120 под жираф. Тяжелая пыль сразу падает на пол, а не висит в воздухе неделями.</p>
+                    </div>
+                    <div class="process-media-side">
+                        <img src="step2-sand.gif" alt="Шлифовка OTTINGER" loading="lazy" onerror="this.onerror=null; this.src='';">
+                    </div>
+                </div>
+
+                <!-- Шаг 03 -->
+                <div class="process-zigzag-row">
+                    <div class="process-text-side">
+                        <div class="process-step-badge">Этап 03</div>
+                        <h3>Финишное окрашивание</h3>
+                        <p>Окрашивание валиком или безвоздушкой в 2 слоя. Создается сверхплотная керамическая мембрана, которую легко мыть и невозможно затереть мебелью.</p>
+                    </div>
+                    <div class="process-media-side">
+                        <img src="step3-paint.gif" alt="Окрашивание стен OTTINGER" loading="lazy" onerror="this.onerror=null; this.src='';">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 4: ПРАВИЛА РАБОТЫ И ЧАСТЫЕ ОШИБКИ -->
+    <section class="rules-section">
+        <div class="section-container">
+            <div class="rules-box">
+                <span class="section-tag" style="text-align:left;">Важно для мастеров</span>
+                <h3>Инновационный полимер требует нового подхода: не работайте по старым канонам</h3>
+                <p>90% трудностей на старте возникают, когда полимерную систему пытаются наносить привычными гипсовыми методами. Соблюдайте три золотых правила:</p>
+                
+                <div class="rules-grid">
+                    <div class="rule-card">
+                        <h4>1. Всё решает основание</h4>
+                        <p>Никакой полимер не спасет стену, если штукатурка бухтит, а ГКЛ не обеспылен и не загрунтован концентрированным грунтом. Качественная подготовка — залог успеха.</p>
+                    </div>
+
+                    <div class="rule-card">
+                        <h4>2. Забудьте про «на сдир»</h4>
+                        <p>Из-за микрофибры шпатлевку нельзя скрести под ноль. Нанесение идет слоем от 1 мм методом «тысяча линий» (крест-накрест: вертикально, затем горизонтально).</p>
+                    </div>
+
+                    <div class="rule-card">
+                        <h4>3. Инструмент имеет значение</h4>
+                        <p>Полимер намертво въедается в пористый алюминий обычных правил. Используйте инструмент из нержавеющей стали или правила с порошковым покрытием.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 5: ФИЗИКА И ЗАЩИТА ОТ ДУРАКА -->
+    <section class="tech-section">
+        <div class="section-container">
+            <span class="section-tag">Инженерия материалов</span>
+            <h2 class="section-title text-center">Почему основание OTTINGER <span class="accent-color">невозможно испортить</span>?</h2>
+            
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-num">01</div>
+                    <h3>Резиновая упругость</h3>
+                    <p>Застывший Basis Start превращается в упругий композит. Его можно свернуть в кольцо или с усилием царапать ручкой — он не скалывается и не крошится, как гипс.</p>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-num">02</div>
+                    <h3>Защита от дурака</h3>
+                    <p>Основание настолько плотное, что подсобник с жирафом на максимальных оборотах физически не сможет прорыть яму в плоскости стены.</p>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-num">03</div>
+                    <h3>Без ожогов и перетиров</h3>
+                    <p>Материал не переуплотняется при повторной шлифовке. Впитываемость одинаковая по всей глубине — переходов и пятен под лампой не будет.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 6: ВИДЕО-ДОКАЗАТЕЛЬСТВА (КАРУСЕЛЬ) -->
     <section class="video-section" id="video-gallery">
         <div class="section-container">
             <span class="section-tag">Видео-доказательства</span>
@@ -1136,7 +1600,27 @@
         </div>
     </div>
 
-    <!-- БЛОК 4: КАТАЛОГ МАТЕРИАЛОВ -->
+    <!-- БЛОК 7: ЛАЙФХАК ПО ШЛИФОВКЕ -->
+    <section class="myth-section">
+        <div class="section-container">
+            <div class="myth-box">
+                <h3>Миф: «OTTINGER <span class="accent-color">слишком тяжело шлифуется</span>»</h3>
+                <p>Материал набирает прочность сверху, образуя твердую полимерную корку. Если знать простую технику, стена выводится под покраску в разы быстрее обычного гипса:</p>
+                <div class="myth-steps">
+                    <div class="myth-step-item">
+                        <span class="step-badge">Шаг 1</span>
+                        Вскрываем верхнюю пленку грубым абразивом Р40 за 3 минуты на стену.
+                    </div>
+                    <div class="myth-step-item">
+                        <span class="step-badge">Шаг 2</span>
+                        Доводим плоскость керамическим абразивом Р80–Р120 под машинку.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 8: КАТАЛОГ МАТЕРИАЛОВ -->
     <section class="products-section" id="products">
         <div class="section-container">
             <span class="section-tag">Базовая линейка</span>
@@ -1154,6 +1638,7 @@
                         <div class="product-specs">
                             <div class="spec-row"><span class="spec-lbl">Разбавление:</span><span class="spec-val">до 1:4</span></div>
                             <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">~10 м²/л</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5л / 10л</span></div>
                         </div>
                     </div>
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20Primer%20Konzentrat." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
@@ -1169,7 +1654,8 @@
                         <p class="product-desc">Базовая шпатлевка с 10-микронной фиброй. Заменяет стеклохолст и клей.</p>
                         <div class="product-specs">
                             <div class="spec-row"><span class="spec-lbl">Толщина слоя:</span><span class="spec-val">до 5 мм</span></div>
-                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">25 кг</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">от 0.5 кг/м²</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5кг / 25кг</span></div>
                         </div>
                     </div>
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20Basis%20Start." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
@@ -1185,7 +1671,8 @@
                         <p class="product-desc">Влагостойкая шпатлевка. Идеальна под ленты Strait-Flex и влажные зоны.</p>
                         <div class="product-specs">
                             <div class="spec-row"><span class="spec-lbl">Толщина слоя:</span><span class="spec-val">до 2 мм</span></div>
-                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">25 кг</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">от 0.5 кг/м²</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5кг / 25кг</span></div>
                         </div>
                     </div>
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20Basis%20Aqua." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
@@ -1202,15 +1689,74 @@
                         <div class="product-specs">
                             <div class="spec-row"><span class="spec-lbl">Глянец:</span><span class="spec-val">матовая (5)</span></div>
                             <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">10 м²/л</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">0.9л / 2.5л / 9л</span></div>
                         </div>
                     </div>
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20Keramik%20Matt." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
             </div>
+
+            <div class="catalog-callout">
+                <div class="callout-text">
+                    <h3>В линейке OTTINGER более 20 специализированных материалов</h3>
+                    <p>Колеруемый клей для холста, эластичные фасадные пасты, шпатлевки для стыков Joint и грунты-краски Q3/Q4. Получите полный прайс-лист.</p>
+                </div>
+                <a href="https://t.me/Hropovic?text=Здравствуйте!%20Пришлите,%20пожалуйста,%20полный%20каталог%20и%20прайс-лист%20продукции%20OTTINGER." class="btn btn-callout" target="_blank">Получить полный прайс-лист</a>
+            </div>
         </div>
     </section>
 
-    <!-- БЛОК 5: ПРИМЕРЫ РАБОТ -->
+    <!-- БЛОК 9: РОССИЙСКОЕ ПРОИЗВОДСТВО -->
+    <section class="factory-section">
+        <div class="section-container">
+            <span class="section-tag">Надежность и доступность</span>
+            <h2 class="section-title text-center">Производство в России и <span class="accent-color">поставки без задержек</span></h2>
+            
+            <div class="factory-grid">
+                <div class="factory-card">
+                    <h3>Заводы в г. Подольск и г. Ижевск</h3>
+                    <p>Все краски, грунты и шпатлевки OTTINGER производятся на собственных заводах в РФ. Никаких санкционных рисков и зависимости от импорта.</p>
+                </div>
+
+                <div class="factory-card">
+                    <h3>Постоянное наличие на складе в Сочи</h3>
+                    <p>Вам больше не нужно ждать материал неделями. Все ходовые позиции хранятся на складе в Сочи и готовы к оперативной доставке на ваш объект.</p>
+                </div>
+
+                <div class="factory-card">
+                    <h3>Стабильное заводское качество</h3>
+                    <p>Автоматизированный контроль помола, точная дозировка 10-микронной фибры и единый химический состав в каждой партии.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 10: ЦЕНООБРАЗОВАНИЕ И ЭКОНОМИКА -->
+    <section class="metrics-section">
+        <div class="section-container">
+            <span class="section-tag">Экономика пирога</span>
+            <h2 class="section-title text-center">Считайте <span class="accent-color">стоимость пирога</span>, а не ведра</h2>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-val">25 кг</div>
+                    <div class="metric-label"><strong>Честный вес ведра OTTINGER.</strong> Вместо стандартных 15–18 кг у конкурентов.</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-val">1 мешок</div>
+                    <div class="metric-label"><strong>Пыли со 100 м² квартиры.</strong> Тяжелая пыль сразу падает на пол, а не висит в воздухе неделями.</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-val">1 ведро</div>
+                    <div class="metric-label"><strong>Заменяет 3 позиции.</strong> Базовую шпатлевку, клей для стеклохолста и сам стеклохолст.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 11: ПРИМЕРЫ РАБОТ -->
     <section class="cases-section">
         <div class="section-container">
             <span class="section-tag">Реальный опыт</span>
@@ -1222,7 +1768,7 @@
                         <img src="card1.jpg" alt="Апартаменты под сдачу" loading="lazy" onerror="this.onerror=null; this.src='';">
                     </div>
                     <h3>Апартаменты под сдачу</h3>
-                    <p>Стены подготовлены без стеклохолста. Финишный слой Keramik Matt выдерживает любую уборку.</p>
+                    <p>Стены подготовлены без стеклохолста. Финишный слой Keramik Matt выдерживает влажную уборку и любые пятна.</p>
                 </div>
 
                 <div class="case-card">
@@ -1230,7 +1776,7 @@
                         <img src="card2.jpg" alt="Гостиничный комплекс" loading="lazy" onerror="this.onerror=null; this.src='';">
                     </div>
                     <h3>Коридор отеля</h3>
-                    <p>Проходная зона высокой нагрузки. Полимерная основа шпатлевки защищает углы от сколов.</p>
+                    <p>Проходная зона высокой нагрузки. Полимерная основа шпатлевки защищает углы от сколов при ударах.</p>
                 </div>
 
                 <div class="case-card">
@@ -1238,23 +1784,48 @@
                         <img src="card3.jpg" alt="Премиум интерьер" loading="lazy" onerror="this.onerror=null; this.src='';">
                     </div>
                     <h3>Премиальный интерьер</h3>
-                    <p>Подготовка под проявочный свет Q4. Глубокоматовая краска без бликов и переходов.</p>
+                    <p>Подготовка под строгий проявочный свет Q4. Глубокоматовая краска без бликов и переходов.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- БЛОК 6: CTA -->
+    <!-- БЛОК 12: НАМ ДОВЕРЯЮТ -->
+    <section class="partners-section">
+        <div class="section-container">
+            <span class="section-tag">Профессиональное сообщество</span>
+            <h2 class="section-title text-center">Кто выбирает полимерную отделку?</h2>
+            
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <h3>Прорабы и строители</h3>
+                    <p>Сдают объекты вовремя, не переделывают работу за мебельщиками и экономят бюджет за счет исключения холста и клея.</p>
+                </div>
+
+                <div class="partner-card">
+                    <h3>Дизайнеры интерьера</h3>
+                    <p>Уверены, что их сложные проекты с глубокими матовыми стенами не затрутся и не пойдут трещинами через месяц после сдачи.</p>
+                </div>
+
+                <div class="partner-card">
+                    <h3>Владельцы и отельеры</h3>
+                    <p>Получают долговечный ремонт, который не требует обновления и косметических подкрасок перед каждым туристическим сезоном.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 13: CTA -->
     <section class="cta-section">
         <div class="cta-box">
             <span class="section-tag">Практика на объекте</span>
             <h2>Проверьте прочность материалов на своем объекте</h2>
-            <p>Бесплатно приедем на ваш объект в Сочи со своими ведрами. Покажем правильную технику нанесения и дадим лично протестировать прочность.</p>
-            <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20заказать%20бесплатный%20тест-драйв%20материалов%20OTTINGER%20в%20Сочи." class="btn btn-primary" target="_blank">Заказать тест-драйв</a>
+            <p>Мы бесплатно приедем на ваш объект в Сочи со своими ведрами. Покажем правильную технику нанесения («тысяча линий»), дадим инструмент в руки и предложим лично поцарапать или ударить стену.</p>
+            <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20заказать%20бесплатный%20тест-драйв%20материалов%20OTTINGER%20в%20Сочи." class="btn btn-primary" target="_blank">Заказать бесплатный тест-драйв</a>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- БЛОК 14: FOOTER -->
     <footer>
         <div class="footer-container">
             <div class="footer-info">
@@ -1262,7 +1833,7 @@
                 <ul class="footer-contacts-list">
                     <li>Телефон: <a href="tel:+79219121895">+7 (921) 912-18-95</a></li>
                     <li>Telegram: <a href="https://t.me/Hropovic" target="_blank">@Hropovic</a></li>
-                    <li>Склад: г. Сочи, ул. Яна Фабрициуса, 57Б</li>
+                    <li>Адрес склада: г. Сочи, ул. Яна Фабрициуса, 57Б</li>
                 </ul>
             </div>
         </div>
