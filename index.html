@@ -1023,7 +1023,7 @@
         }
         .metric-label strong { color: #111111; }
 
-        /* БЛОК 11: ПРИМЕРЫ РАБОТ */
+        /* БЛОК 11: ПРИМЕРЫ РАБОТ (8 ПРОЕКТОВ) */
         .cases-section {
             background-color: #ffffff;
             padding: 80px 20px;
@@ -1038,11 +1038,19 @@
             background-color: #fafafa;
             border: 1px solid #e0e0e0;
             border-radius: 8px;
-            padding: 20px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .case-card:hover {
+            border-color: #ff5722;
+            transform: translateY(-3px);
         }
         .case-img-box {
             width: 100%;
-            height: 200px;
+            height: 220px;
             border-radius: 6px;
             overflow: hidden;
             margin-bottom: 15px;
@@ -1052,6 +1060,22 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .case-card:hover .case-img-box img {
+            transform: scale(1.04);
+        }
+        .case-card h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #111111;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        .case-card p {
+            color: #666666;
+            font-size: 0.88rem;
+            line-height: 1.45;
         }
 
         /* БЛОК 12: НАМ ДОВЕРЯЮТ */
@@ -1163,7 +1187,10 @@
 
             .factory-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
             .metrics-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
-            .cases-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
+            
+            /* Сетка 4x2 для 8 объектов */
+            .cases-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+            
             .partners-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
 
             .footer-container {
@@ -1531,7 +1558,7 @@
                         <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video14.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
                         <div class="video-top-row">
-                            <span class="video-badge">ОБЪЕКТ В СОЧИ</span>
+                            <span class="video-badge">РЕАЛЬНЫЙ ОБЪЕКТ</span>
                             <span class="video-duration">1:45</span>
                         </div>
                         <div class="video-play-icon">▶</div>
@@ -1672,7 +1699,7 @@
                         <div class="product-specs">
                             <div class="spec-row"><span class="spec-lbl">Толщина слоя:</span><span class="spec-val">до 2 мм</span></div>
                             <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">от 0.5 кг/м²</span></div>
-                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5кг / 25кг</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">25 кг</span></div>
                         </div>
                     </div>
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20Basis%20Aqua." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
@@ -1756,36 +1783,102 @@
         </div>
     </section>
 
-    <!-- БЛОК 11: ПРИМЕРЫ РАБОТ -->
+    <!-- БЛОК 11: ПРИМЕРЫ РАБОТ (8 РЕАЛЬНЫХ ПРОЕКТОВ - ДВОЙНАЯ ПОДДЕРЖКА PNG / JPG) -->
     <section class="cases-section">
         <div class="section-container">
-            <span class="section-tag">Реальный опыт</span>
-            <h2 class="section-title text-center">Стены на объектах в Сочи</h2>
+            <span class="section-tag">Галерея проектов</span>
+            <h2 class="section-title text-center">Стены на реальных объектах: <span class="accent-color">Безупречный результат без холста</span></h2>
             
             <div class="cases-grid">
+                
+                <!-- Проект 1 -->
                 <div class="case-card">
                     <div class="case-img-box">
-                        <img src="card1.jpg" alt="Апартаменты под сдачу" loading="lazy" onerror="this.onerror=null; this.src='';">
+                        <img src="card1.png" alt="Офисные и коммерческие интерьеры" loading="lazy" onerror="this.onerror=null; this.src='card1.jpg';">
                     </div>
-                    <h3>Апартаменты под сдачу</h3>
-                    <p>Стены подготовлены без стеклохолста. Финишный слой Keramik Matt выдерживает влажную уборку и любые пятна.</p>
+                    <div>
+                        <h3>Офисные пространства</h3>
+                        <p>Комбинация гладких матовых стен и реечного декора. Повышенная стойкость к трению и повреждениям.</p>
+                    </div>
                 </div>
 
+                <!-- Проект 2 -->
                 <div class="case-card">
                     <div class="case-img-box">
-                        <img src="card2.jpg" alt="Гостиничный комплекс" loading="lazy" onerror="this.onerror=null; this.src='';">
+                        <img src="card2.png" alt="Сложные насыщенные оттенки" loading="lazy" onerror="this.onerror=null; this.src='card2.jpg';">
                     </div>
-                    <h3>Коридор отеля</h3>
-                    <p>Проходная зона высокой нагрузки. Полимерная основа шпатлевки защищает углы от сколов при ударах.</p>
+                    <div>
+                        <h3>Сложные глубокие цвета</h3>
+                        <p>Изумрудный, бордовый и графитовый цвета. Равномерная укрывистость без пятен и полошения.</p>
+                    </div>
                 </div>
 
+                <!-- Проект 3 -->
                 <div class="case-card">
                     <div class="case-img-box">
-                        <img src="card3.jpg" alt="Премиум интерьер" loading="lazy" onerror="this.onerror=null; this.src='';">
+                        <img src="card3.png" alt="Молдинги и лепной декор" loading="lazy" onerror="this.onerror=null; this.src='card3.jpg';">
                     </div>
-                    <h3>Премиальный интерьер</h3>
-                    <p>Подготовка под строгий проявочный свет Q4. Глубокоматовая краска без бликов и переходов.</p>
+                    <div>
+                        <h3>Лепной декор и молдинги</h3>
+                        <p>Сверхчеткие примыкания лепнины. Основание не трескается и не тянет влагу из финишного слоя.</p>
+                    </div>
                 </div>
+
+                <!-- Проект 4 -->
+                <div class="case-card">
+                    <div class="case-img-box">
+                        <img src="card4.png" alt="Пространства с боковым светом" loading="lazy" onerror="this.onerror=null; this.src='card4.jpg';">
+                    </div>
+                    <div>
+                        <h3>Сложный боковой свет</h3>
+                        <p>Панорамное остекление в пол. Абсолютно матовая поверхность без бликов под любым углом солнца.</p>
+                    </div>
+                </div>
+
+                <!-- Проект 5 -->
+                <div class="case-card">
+                    <div class="case-img-box">
+                        <img src="card5.png" alt="Кухни-гостиные открытой планировки" loading="lazy" onerror="this.onerror=null; this.src='card5.jpg';">
+                    </div>
+                    <div>
+                        <h3>Кухни-гостиные</h3>
+                        <p>Зона повышенной нагрузки. Стойкость к бытовым парам, брызгам и регулярной влажной уборке.</p>
+                    </div>
+                </div>
+
+                <!-- Проект 6 -->
+                <div class="case-card">
+                    <div class="case-img-box">
+                        <img src="card6.png" alt="Подготовка под свет Lossew Q4" loading="lazy" onerror="this.onerror=null; this.src='card6.jpg';">
+                    </div>
+                    <div>
+                        <h3>Контроль света Q4</h3>
+                        <p>Проверка плоскости косопадающей лампой. Идеально монолитная структура без перетиров.</p>
+                    </div>
+                </div>
+
+                <!-- Проект 7 -->
+                <div class="case-card">
+                    <div class="case-img-box">
+                        <img src="card7.png" alt="Жилые спальни и кабинеты" loading="lazy" onerror="this.onerror=null; this.src='card7.jpg';">
+                    </div>
+                    <div>
+                        <h3>Спальни и кабинеты</h3>
+                        <p>Экологичные шелковисто-матовые поверхности, устойчивые к прикосновениям и мебели.</p>
+                    </div>
+                </div>
+
+                <!-- Проект 8 -->
+                <div class="case-card">
+                    <div class="case-img-box">
+                        <img src="card8.png" alt="Прихожие и столовые зоны" loading="lazy" onerror="this.onerror=null; this.src='card8.jpg';">
+                    </div>
+                    <div>
+                        <h3>Прихожие и холлы</h3>
+                        <p>Проходные коридоры: углы не скалываются при ударах, а любые следы легко смываются салфеткой.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -1820,8 +1913,8 @@
         <div class="cta-box">
             <span class="section-tag">Практика на объекте</span>
             <h2>Проверьте прочность материалов на своем объекте</h2>
-            <p>Мы бесплатно приедем на ваш объект в Сочи со своими ведрами. Покажем правильную технику нанесения («тысяча линий»), дадим инструмент в руки и предложим лично поцарапать или ударить стену.</p>
-            <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20заказать%20бесплатный%20тест-драйв%20материалов%20OTTINGER%20в%20Сочи." class="btn btn-primary" target="_blank">Заказать бесплатный тест-драйв</a>
+            <p>Мы бесплатно приедем на ваш объект со своими ведрами. Покажем правильную технику нанесения («тысяча линий»), дадим инструмент в руки и предложим лично поцарапать или ударить стену.</p>
+            <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20заказать%20бесплатный%20тест-драйв%20материалов%20OTTINGER." class="btn btn-primary" target="_blank">Заказать бесплатный тест-драйв</a>
         </div>
     </section>
 
@@ -1855,7 +1948,7 @@
             { src: 'video11.mp4', title: 'Гипс против OTTINGER', tag: 'СРАВНЕНИЕ' },
             { src: 'video12.mp4', title: 'Удар по внешнему углу', tag: 'КРАШ-ТЕСТ' },
             { src: 'video13.mp4', title: 'Проявочный свет Lossew', tag: 'КАЧЕСТВО Q4' },
-            { src: 'video14.mp4', title: 'Апартаменты 85 м²', tag: 'ОБЪЕКТ В СОЧИ' },
+            { src: 'video14.mp4', title: 'Апартаменты 85 м²', tag: 'РЕАЛЬНЫЙ ОБЪЕКТ' },
             { src: 'video15.mp4', title: 'Отзыв мастера-маляра', tag: 'ОТЗЫВ' },
             { src: 'video16.mp4', title: 'Выезд на ваш объект', tag: 'ТЕСТ-ДРАЙВ' }
         ];
