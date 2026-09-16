@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OTTINGER Sochi — Профессиональные отделочные материалы</title>
-    <!-- Подключение фирменного шрифта Montserrat -->
+    <!-- Фирменный шрифт Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* БАЗОВЫЕ НАСТРОЙКИ (СВЕТЛАЯ СЕРО-БЕЛАЯ ТЕМА) */
+        /* БАЗОВЫЕ НАСТРОЙКИ */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -164,6 +164,12 @@
             font-weight: 700;
             text-align: center;
             padding: 15px;
+            overflow: hidden;
+        }
+        .image-window img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* БЛОК 1: ПЕРВЫЙ ЭКРАН */
@@ -395,7 +401,7 @@
             font-weight: 900;
         }
 
-        /* БЛОК 4: ПОШАГОВЫЙ ПРОЦЕСС НАНЕСЕНИЯ (С ВЕРТИКАЛЬНЫМИ GIF) */
+        /* БЛОК 4: ПОШАГОВЫЙ ПРОЦЕСС С ВЕРТИКАЛЬНЫМИ GIF */
         .process-section {
             background-color: #ffffff;
             padding: 80px 20px;
@@ -421,11 +427,9 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.06);
         }
-        
-        /* Вертикальный контейнер под GIF 9:16 */
         .process-gif-window {
             width: 100%;
-            height: 380px; /* Высота для вертикальной анимации */
+            height: 380px;
             background-color: #121212;
             border-bottom: 1px solid #eaeaea;
             display: flex;
@@ -448,7 +452,6 @@
             padding: 20px;
             text-align: center;
         }
-
         .process-info {
             padding: 25px;
         }
@@ -473,7 +476,7 @@
             line-height: 1.45;
         }
 
-        /* БЛОК 5: ПРАВИЛА РАБОТЫ И ЧАСТЫЕ ОШИБКИ */
+        /* БЛОК 5: ПРАВИЛА РАБОТЫ */
         .rules-section {
             background-color: #f8f8f8;
             padding: 80px 20px;
@@ -846,6 +849,12 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: bold;
+            overflow: hidden;
+        }
+        .product-image-window img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
         .product-step {
             font-size: 0.7rem;
@@ -1032,6 +1041,12 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: bold;
+            overflow: hidden;
+        }
+        .case-image-window img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .case-card h3 {
             font-size: 1.2rem;
@@ -1098,7 +1113,7 @@
             line-height: 1.5;
         }
 
-        /* БЛОК 15: КОНТАКТЫ (FOOTER) */
+        /* БЛОК 15: КОНТАКТЫ (FOOTER ПО СТРАНИЦЕ 119 КАТАЛОГА) */
         footer {
             background-color: #ffffff;
             padding: 60px 20px;
@@ -1269,7 +1284,6 @@
             <img src="ottinger-demo.gif" alt="Демонстрация нанесения OTTINGER" loading="eager">
         </div>
 
-        <!-- Подзаголовок строго под GIF -->
         <p class="hero-subhead">
             Инновационная полимерная система отделки с <span>10-микронным фиброволокном</span>. Сокращает малярный пирог до 3 слоев без использования стеклохолста.
         </p>
@@ -1381,7 +1395,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 4: ПОШАГОВЫЙ ПРОЦЕСС НАНЕСЕНИЯ (С ВЕРТИКАЛЬНЫМИ GIF) -->
+    <!-- БЛОК 4: ПОШАГОВЫЙ ПРОЦЕСС НАНЕСЕНИЯ -->
     <section class="process-section">
         <div class="section-container">
             <span class="section-tag">Технология в действии</span>
@@ -1389,7 +1403,7 @@
             
             <div class="process-grid">
                 
-                <!-- Шаг 1 (Загрузка step1-apply.gif) -->
+                <!-- Шаг 1 -->
                 <div class="process-card">
                     <div class="process-gif-window">
                         <img src="step1-apply.gif" alt="Механизированное нанесение OTTINGER">
@@ -1401,10 +1415,11 @@
                     </div>
                 </div>
 
-                <!-- Шаг 2 (Окно под step2-sand.gif) -->
+                <!-- Шаг 2 -->
                 <div class="process-card">
                     <div class="process-gif-window">
-                        <div class="process-placeholder-text">[ GIF 2: Шлифовка жирафом / машинкой ]</div>
+                        <img src="step2-sand.gif" alt="Шлифовка OTTINGER" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="process-placeholder-text" style="display: none;">[ GIF 2: Шлифовка жирафом / машинкой ]</div>
                     </div>
                     <div class="process-info">
                         <div class="process-step-num">Этап 02</div>
@@ -1413,10 +1428,11 @@
                     </div>
                 </div>
 
-                <!-- Шаг 3 (Окно под step3-paint.gif) -->
+                <!-- Шаг 3 -->
                 <div class="process-card">
                     <div class="process-gif-window">
-                        <div class="process-placeholder-text">[ GIF 3: Нанесение финишной краски Keramik Matt ]</div>
+                        <img src="step3-paint.gif" alt="Окрашивание стен OTTINGER" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="process-placeholder-text" style="display: none;">[ GIF 3: Нанесение финишной краски Keramik Matt ]</div>
                     </div>
                     <div class="process-info">
                         <div class="process-step-num">Этап 03</div>
@@ -1495,7 +1511,7 @@
                 <button class="carousel-arrow arrow-left" onclick="scrollCarousel(-1)">&#8249;</button>
 
                 <div class="video-carousel" id="videoCarousel">
-                    <div class="video-card" onclick="openVideoModal('ottinger-demo.gif')" style="background-image: url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80');">
+                    <div class="video-card" onclick="openVideoModal('videos/test1.mp4')" style="background-image: url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80');">
                         <span class="video-badge">0:15</span>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info">
@@ -1504,7 +1520,7 @@
                         </div>
                     </div>
 
-                    <div class="video-card" onclick="openVideoModal('ottinger-demo.gif')" style="background-image: url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=600&q=80');">
+                    <div class="video-card" onclick="openVideoModal('videos/test2.mp4')" style="background-image: url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=600&q=80');">
                         <span class="video-badge">0:20</span>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info">
@@ -1513,7 +1529,7 @@
                         </div>
                     </div>
 
-                    <div class="video-card" onclick="openVideoModal('ottinger-demo.gif')" style="background-image: url('https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=600&q=80');">
+                    <div class="video-card" onclick="openVideoModal('videos/test3.mp4')" style="background-image: url('https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=600&q=80');">
                         <span class="video-badge">0:25</span>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info">
@@ -1522,7 +1538,7 @@
                         </div>
                     </div>
 
-                    <div class="video-card" onclick="openVideoModal('ottinger-demo.gif')" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80');">
+                    <div class="video-card" onclick="openVideoModal('videos/test4.mp4')" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80');">
                         <span class="video-badge">0:18</span>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info">
@@ -1574,8 +1590,12 @@
             <h2 class="section-title text-center"><span class="accent-color">4 материала</span>, закрывающих <span class="accent-color">100% задач</span></h2>
             
             <div class="product-grid">
+                <!-- Продукт 1 -->
                 <div class="product-card card-primer">
-                    <div class="product-image-window">[ Канистра Primer Konzentrat ]</div>
+                    <div class="product-image-window">
+                        <img src="images/primer-konzentrat.png" alt="Primer Konzentrat" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span style="display: none;">[ Канистра Primer Konzentrat ]</span>
+                    </div>
                     <div class="product-step badge-gray">Грунт 20% остатка</div>
                     <h3>Primer Konzentrat</h3>
                     <p class="product-desc">Честный концентрат 1:4. Глубоко укрепляет штукатурку и связывает складскую пыль на ГКЛ.</p>
@@ -1587,8 +1607,12 @@
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20грунта%20Primer%20Konzentrat." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
+                <!-- Продукт 2 -->
                 <div class="product-card">
-                    <div class="product-image-window">[ Ведро Basis Start ]</div>
+                    <div class="product-image-window">
+                        <img src="images/basis-start.png" alt="Basis Start" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span style="display: none;">[ Ведро Basis Start ]</span>
+                    </div>
                     <div class="product-step">Доминанта (90% задач)</div>
                     <h3>Basis Start</h3>
                     <p class="product-desc">Базовая шпатлевка с 10-микронной фиброй. Держит слой до 5 мм, заменяет стеклохолст и клей.</p>
@@ -1600,8 +1624,12 @@
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20шпатлевки%20Basis%20Start." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
+                <!-- Продукт 3 -->
                 <div class="product-card card-aqua">
-                    <div class="product-image-window">[ Ведро Basis Aqua ]</div>
+                    <div class="product-image-window">
+                        <img src="images/basis-aqua.png" alt="Basis Aqua" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span style="display: none;">[ Ведро Basis Aqua ]</span>
+                    </div>
                     <div class="product-step badge-blue">Микростеклосферы</div>
                     <h3>Basis Aqua</h3>
                     <p class="product-desc">Шпатлевка тонкого помола. Зимняя формула. Идеальна под ленты Strait-Flex, влажные зоны и дефектовку.</p>
@@ -1613,8 +1641,12 @@
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20шпатлевки%20Basis%20Aqua." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
+                <!-- Продукт 4 -->
                 <div class="product-card card-paint">
-                    <div class="product-image-window">[ Ведро Premium Keramik Matt ]</div>
+                    <div class="product-image-window">
+                        <img src="images/keramik-matt.png" alt="Premium Keramik Matt" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span style="display: none;">[ Ведро Premium Keramik Matt ]</span>
+                    </div>
                     <div class="product-step badge-dark">Моющаяся керамика</div>
                     <h3>Keramik Matt</h3>
                     <p class="product-desc">Премиальная матовая краска. Создает плотную мембрану, устойчивую к бытовым жирам и мытью.</p>
@@ -1695,19 +1727,28 @@
             
             <div class="cases-grid">
                 <div class="case-card">
-                    <div class="case-image-window">[ Фото готовых стен в апартаментах ]</div>
+                    <div class="case-image-window">
+                        <img src="images/case1.jpg" alt="Апартаменты под сдачу" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span style="display: none;">[ Фото готовых стен в апартаментах ]</span>
+                    </div>
                     <h3>Апартаменты под сдачу в Сочи</h3>
                     <p>Стены подготовлены без использования стеклохолста. Финишный слой краски с керамикой выдерживает влажную уборку и любые бытовые пятна.</p>
                 </div>
 
                 <div class="case-card">
-                    <div class="case-image-window">[ Фото коридора отеля ]</div>
+                    <div class="case-image-window">
+                        <img src="images/case2.jpg" alt="Коридор гостиницы" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span style="display: none;">[ Фото коридора отеля ]</span>
+                    </div>
                     <h3>Коридор гостиничного комплекса</h3>
                     <p>Проходная зона с экстремальной нагрузкой. Упругая полимерная база шпатлевки защищает углы от сколов при ударах чемоданами и колясками.</p>
                 </div>
 
                 <div class="case-card">
-                    <div class="case-image-window">[ Фото готового интерьера ]</div>
+                    <div class="case-image-window">
+                        <img src="images/case3.jpg" alt="Премиальный интерьер" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span style="display: none;">[ Фото готового интерьера ]</span>
+                    </div>
                     <h3>Премиальный жилой интерьер</h3>
                     <p>Стены подготовлены под строгий проявочный свет (качество Q4). Глубокоматовая краска не дает бликов и затертостей в проходных зонах.</p>
                 </div>
@@ -1769,7 +1810,7 @@
         </div>
     </footer>
 
-    <!-- JS СКРИПТЫ -->
+    <!-- JS СКРИПТЫ: КАРУСЕЛЬ И ВИДЕО МОДАЛКА -->
     <script>
         // Перелистывание карусели стрелками
         function scrollCarousel(direction) {
