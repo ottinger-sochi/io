@@ -295,7 +295,7 @@
         }
         .pie-savings-banner span { color: #ff5722; font-weight: 900; }
 
-        /* БЛОК 3: КАРУСЕЛЬ 16 ВИДЕОРОЛИКОВ С ОБЛОЖКАМИ */
+        /* БЛОК 3: КАРУСЕЛЬ 16 ВИДЕОРОЛИКОВ С АВТО-КАДРАМИ */
         .video-section {
             background-color: #ffffff;
             padding: 80px 20px;
@@ -343,7 +343,7 @@
         .video-card {
             flex: 0 0 240px;
             height: 380px;
-            background-color: #1a1a1a;
+            background-color: #1f1f1f;
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid #e0e0e0;
@@ -362,7 +362,8 @@
             box-shadow: 0 12px 30px rgba(255, 87, 34, 0.25);
         }
         
-        .video-card-cover {
+        /* Авто-кадр из видео */
+        .video-card-thumb {
             position: absolute;
             top: 0;
             left: 0;
@@ -370,18 +371,22 @@
             height: 100%;
             object-fit: cover;
             z-index: 1;
+            pointer-events: none;
+            background-color: #1a1a1a;
             transition: transform 0.35s ease;
         }
-        .video-card:hover .video-card-cover {
+        .video-card:hover .video-card-thumb {
             transform: scale(1.06);
         }
+        
+        /* Затемнение для читаемости текста */
         .video-card-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.9) 100%);
+            background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.92) 100%);
             z-index: 2;
         }
 
@@ -481,7 +486,7 @@
         .arrow-left { left: -20px; }
         .arrow-right { right: -20px; }
 
-        /* МОДАЛЬНЫЙ СТОРИС-ПЛЕЕР С ПЕРЕКЛЮЧЕНИЕМ И СВАЙПАМИ */
+        /* МОДАЛЬНЫЙ СТОРИС-ПЛЕЕР */
         .video-modal {
             display: none;
             position: fixed;
@@ -524,7 +529,6 @@
             object-fit: contain;
         }
 
-        /* Шапка внутри модалки */
         .modal-top-bar {
             position: absolute;
             top: 0; left: 0; right: 0;
@@ -563,7 +567,6 @@
             color: #ff5722;
         }
 
-        /* Кнопки переключения роликов в плеере */
         .modal-nav-btn {
             position: absolute;
             top: 50%;
@@ -811,7 +814,7 @@
             }
         }
         @media (max-width: 767px) {
-            .modal-nav-btn { display: none; } /* На мобильных переключение свайпом */
+            .modal-nav-btn { display: none; }
         }
     </style>
 </head>
@@ -889,7 +892,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 3: 16 ВИДЕОРОЛИКОВ (КАРУСЕЛЬ С ОБЛОЖКАМИ) -->
+    <!-- БЛОК 3: 16 ВИДЕОРОЛИКОВ (АВТОМАТИЧЕСКИЕ КАДРЫ ИЗ ВИДЕО) -->
     <section class="video-section" id="video-gallery">
         <div class="section-container">
             <span class="section-tag">Видео-доказательства</span>
@@ -906,7 +909,7 @@
                     
                     <!-- 1. Краш-тест (Вино, кофе и кетчуп) -->
                     <div class="video-card" onclick="openVideoModal(0)">
-                        <img src="cover1.jpg" class="video-card-cover" alt="Краш-тест" loading="lazy" onerror="this.style.display='none';">
+                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video1.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">01 / 16</span><span class="video-badge badge-hit">КРАШ-ТЕСТ</span></div>
                         <div class="video-play-icon">▶</div>
@@ -915,7 +918,7 @@
 
                     <!-- 2 -->
                     <div class="video-card" onclick="openVideoModal(1)">
-                        <img src="cover2.jpg" class="video-card-cover" alt="Тест на упругость" loading="lazy" onerror="this.style.display='none';">
+                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video2.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">02 / 16</span><span class="video-badge">0:45</span></div>
                         <div class="video-play-icon">▶</div>
@@ -924,7 +927,7 @@
 
                     <!-- 3 -->
                     <div class="video-card" onclick="openVideoModal(2)">
-                        <img src="cover3.jpg" class="video-card-cover" alt="Краш-тест ручкой" loading="lazy" onerror="this.style.display='none';">
+                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video3.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">03 / 16</span><span class="video-badge">0:30</span></div>
                         <div class="video-play-icon">▶</div>
@@ -933,7 +936,7 @@
 
                     <!-- 4 -->
                     <div class="video-card" onclick="openVideoModal(3)">
-                        <img src="cover4.jpg" class="video-card-cover" alt="Шлифовка жирафом" loading="lazy" onerror="this.style.display='none';">
+                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video4.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">04 / 16</span><span class="video-badge">1:15</span></div>
                         <div class="video-play-icon">▶</div>
@@ -942,7 +945,7 @@
 
                     <!-- 5 -->
                     <div class="video-card" onclick="openVideoModal(4)">
-                        <img src="cover5.jpg" class="video-card-cover" alt="Метод 1000 линий" loading="lazy" onerror="this.style.display='none';">
+                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video5.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">05 / 16</span><span class="video-badge">1:40</span></div>
                         <div class="video-play-icon">▶</div>
@@ -951,7 +954,7 @@
 
                     <!-- 6 -->
                     <div class="video-card" onclick="openVideoModal(5)">
-                        <img src="cover6.jpg" class="video-card-cover" alt="Нанесение валиком" loading="lazy" onerror="this.style.display='none';">
+                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video6.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">06 / 16</span><span class="video-badge">1:10</span></div>
                         <div class="video-play-icon">▶</div>
@@ -960,7 +963,7 @@
 
                     <!-- 7 -->
                     <div class="video-card" onclick="openVideoModal(6)">
-                        <img src="cover7.jpg" class="video-card-cover" alt="Безвоздушный аппарат" loading="lazy" onerror="this.style.display='none';">
+                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video7.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">07 / 16</span><span class="video-badge">1:55</span></div>
                         <div class="video-play-icon">▶</div>
@@ -969,7 +972,7 @@
 
                     <!-- 8 -->
                     <div class="video-card" onclick="openVideoModal(7)">
-                        <img src="cover8.jpg" class="video-card-cover" alt="Тест на тяжелую пыль" loading="lazy" onerror="this.style.display='none';">
+                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video8.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">08 / 16</span><span class="video-badge">0:40</span></div>
                         <div class="video-play-icon">▶</div>
@@ -978,7 +981,7 @@
 
                     <!-- 9 -->
                     <div class="video-card" onclick="openVideoModal(8)">
-                        <img src="cover9.jpg" class="video-card-cover" alt="Монтаж Strait-Flex" loading="lazy" onerror="this.style.display='none';">
+                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video9.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">09 / 16</span><span class="video-badge">1:20</span></div>
                         <div class="video-play-icon">▶</div>
@@ -987,7 +990,7 @@
 
                     <!-- 10 -->
                     <div class="video-card" onclick="openVideoModal(9)">
-                        <img src="cover10.jpg" class="video-card-cover" alt="Грунтовка 1:4" loading="lazy" onerror="this.style.display='none';">
+                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video10.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">10 / 16</span><span class="video-badge">0:55</span></div>
                         <div class="video-play-icon">▶</div>
@@ -996,7 +999,7 @@
 
                     <!-- 11 -->
                     <div class="video-card" onclick="openVideoModal(10)">
-                        <img src="cover11.jpg" class="video-card-cover" alt="Гипс vs Полимер" loading="lazy" onerror="this.style.display='none';">
+                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video11.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">11 / 16</span><span class="video-badge">1:30</span></div>
                         <div class="video-play-icon">▶</div>
@@ -1005,7 +1008,7 @@
 
                     <!-- 12 -->
                     <div class="video-card" onclick="openVideoModal(11)">
-                        <img src="cover12.jpg" class="video-card-cover" alt="Удар по углу" loading="lazy" onerror="this.style.display='none';">
+                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video12.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">12 / 16</span><span class="video-badge">0:35</span></div>
                         <div class="video-play-icon">▶</div>
@@ -1014,7 +1017,7 @@
 
                     <!-- 13 -->
                     <div class="video-card" onclick="openVideoModal(12)">
-                        <img src="cover13.jpg" class="video-card-cover" alt="Проявочный свет Q4" loading="lazy" onerror="this.style.display='none';">
+                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video13.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">13 / 16</span><span class="video-badge">1:05</span></div>
                         <div class="video-play-icon">▶</div>
@@ -1023,7 +1026,7 @@
 
                     <!-- 14 -->
                     <div class="video-card" onclick="openVideoModal(13)">
-                        <img src="cover14.jpg" class="video-card-cover" alt="Объект в Сочи" loading="lazy" onerror="this.style.display='none';">
+                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video14.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">14 / 16</span><span class="video-badge">1:45</span></div>
                         <div class="video-play-icon">▶</div>
@@ -1032,7 +1035,7 @@
 
                     <!-- 15 -->
                     <div class="video-card" onclick="openVideoModal(14)">
-                        <img src="cover15.jpg" class="video-card-cover" alt="Отзыв мастера" loading="lazy" onerror="this.style.display='none';">
+                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video15.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">15 / 16</span><span class="video-badge">1:50</span></div>
                         <div class="video-play-icon">▶</div>
@@ -1041,7 +1044,7 @@
 
                     <!-- 16 -->
                     <div class="video-card" onclick="openVideoModal(15)">
-                        <img src="cover16.jpg" class="video-card-cover" alt="Тест-драйв на выезде" loading="lazy" onerror="this.style.display='none';">
+                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video16.mp4#t=0.5"></video>
                         <div class="video-card-overlay"></div>
                         <div class="video-top-row"><span class="video-num">16 / 16</span><span class="video-badge">1:10</span></div>
                         <div class="video-play-icon">▶</div>
@@ -1220,7 +1223,6 @@
 
     <!-- СКРИПТЫ -->
     <script>
-        // Список всех 16 видеороликов
         const videosList = [
             { src: 'video1.mp4', title: 'Вино, кофе и кетчуп', num: '01 / 16' },
             { src: 'video2.mp4', title: 'Тест на упругость', num: '02 / 16' },
@@ -1306,7 +1308,6 @@
             errorBox.style.display = 'none';
         }
 
-        // Управление с клавиатуры (Стрелки влево/вправо и Escape)
         document.addEventListener('keydown', (e) => {
             if (!modal.classList.contains('active')) return;
             if (e.key === 'Escape') closeVideoModal();
@@ -1314,7 +1315,6 @@
             if (e.key === 'ArrowLeft') prevVideo();
         });
 
-        // Свайпы на мобильных устройствах (Touch Swipe)
         const swipeArea = document.getElementById('modalSwipeArea');
         let touchStartX = 0;
         let touchEndX = 0;
@@ -1329,11 +1329,11 @@
         }, { passive: true });
 
         function handleSwipe() {
-            const threshold = 45; // чувствительность свайпа
+            const threshold = 45;
             if (touchStartX - touchEndX > threshold) {
-                nextVideo(); // свайп влево -> следующее видео
+                nextVideo();
             } else if (touchEndX - touchStartX > threshold) {
-                prevVideo(); // свайп вправо -> предыдущее видео
+                prevVideo();
             }
         }
     </script>
