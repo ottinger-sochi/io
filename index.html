@@ -31,7 +31,7 @@
             overflow: hidden;
         }
         
-        /* ШАПКА */
+        /* ШАПКА САЙТА */
         header {
             display: flex;
             justify-content: space-between;
@@ -79,7 +79,7 @@
             color: #ff5722;
         }
 
-        /* ОБЩИЕ СТИЛИ СЕКЦИЙ */
+        /* ОБЩИЕ СТИЛИ */
         .section-container {
             max-width: 1100px;
             margin: 0 auto;
@@ -88,10 +88,10 @@
         }
         .section-title {
             text-align: left;
-            font-size: 2rem;
+            font-size: 1.9rem;
             font-weight: 900;
             margin-bottom: 40px;
-            line-height: 1.2;
+            line-height: 1.25;
             max-width: 900px;
             letter-spacing: -0.5px;
             text-transform: uppercase;
@@ -295,7 +295,7 @@
         }
         .pie-savings-banner span { color: #ff5722; font-weight: 900; }
 
-        /* БЛОК: 16 ВИДЕО-РОЛИКОВ (КАРУСЕЛЬ) */
+        /* БЛОК 3: КАРУСЕЛЬ 16 ВИДЕОРОЛИКОВ */
         .video-section {
             background-color: #ffffff;
             padding: 80px 20px;
@@ -382,6 +382,10 @@
             border-radius: 3px;
             text-transform: uppercase;
         }
+        .badge-hit {
+            background-color: #ff5722;
+            color: #ffffff;
+        }
         .video-play-icon {
             width: 50px;
             height: 50px;
@@ -448,12 +452,12 @@
         .arrow-left { left: -20px; }
         .arrow-right { right: -20px; }
 
-        /* МОДАЛЬНОЕ ОКНО ДЛЯ ВИДЕО */
+        /* МОДАЛЬНЫЙ ПЛЕЕР ДЛЯ ВИДЕО */
         .video-modal {
             display: none;
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(0, 0, 0, 0.92);
+            background-color: rgba(0, 0, 0, 0.94);
             z-index: 9999;
             justify-content: center;
             align-items: center;
@@ -465,7 +469,7 @@
         .video-modal-content {
             position: relative;
             width: 100%;
-            max-width: 400px;
+            max-width: 420px;
             aspect-ratio: 9 / 16;
             background-color: #000000;
             border-radius: 12px;
@@ -490,7 +494,7 @@
             line-height: 1;
         }
 
-        /* КАТАЛОГ МАТЕРИАЛОВ */
+        /* БЛОК 4: КАТАЛОГ МАТЕРИАЛОВ */
         .products-section {
             background-color: #f8f8f8;
             padding: 80px 20px;
@@ -571,7 +575,7 @@
             max-width: 100%;
         }
 
-        /* CTA И FOOTER */
+        /* БЛОК 5: CTA И FOOTER */
         .cta-section {
             background-color: #ffffff;
             padding: 80px 20px;
@@ -664,7 +668,7 @@
         </h1>
 
         <div class="hero-media">
-            <img src="ottinger-demo.gif" alt="Демонстрация OTTINGER" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<span style=\'color:#999;font-weight:800;\'>OTTINGER DEMO</span>';">
+            <img src="ottinger-demo.gif" alt="Демонстрация нанесения OTTINGER" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<span style=\'color:#999;font-weight:800;text-transform:uppercase;\'>OTTINGER DEMO</span>';">
         </div>
 
         <p class="hero-subhead">
@@ -718,7 +722,7 @@
         </div>
     </section>
 
-    <!-- БЛОК: 16 ВИДЕО-РОЛИКОВ -->
+    <!-- БЛОК 3: 16 ВИДЕОРОЛИКОВ (КАРУСЕЛЬ) -->
     <section class="video-section" id="video-gallery">
         <div class="section-container">
             <span class="section-tag">Видео-доказательства</span>
@@ -733,32 +737,32 @@
 
                 <div class="video-carousel" id="videoCarousel">
                     
-                    <!-- 1 -->
+                    <!-- 1. Краш-тест (Вино, кофе и кетчуп) -->
                     <div class="video-card" onclick="openVideoModal('videos/video1.mp4')">
-                        <div class="video-top-row"><span class="video-num">01 / 16</span><span class="video-badge">0:45</span></div>
+                        <div class="video-top-row"><span class="video-num">01 / 16</span><span class="video-badge badge-hit">КРАШ-ТЕСТ</span></div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Тест на упругость</h4><p>Сворачиваем слой шпатлевки в трубку без трещин.</p></div>
+                        <div class="video-info"><h4>Вино, кофе и кетчуп</h4><p>Проверяем стойкость краски Keramik Matt: удаляем пятна влажной салфеткой.</p></div>
                     </div>
 
                     <!-- 2 -->
                     <div class="video-card" onclick="openVideoModal('videos/video2.mp4')">
-                        <div class="video-top-row"><span class="video-num">02 / 16</span><span class="video-badge">0:30</span></div>
+                        <div class="video-top-row"><span class="video-num">02 / 16</span><span class="video-badge">0:45</span></div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Краш-тест ручкой</h4><p>Проверка на сколы и продавливание металлическим острием.</p></div>
+                        <div class="video-info"><h4>Тест на упругость</h4><p>Сворачиваем слой шпатлевки в трубку без трещин.</p></div>
                     </div>
 
                     <!-- 3 -->
                     <div class="video-card" onclick="openVideoModal('videos/video3.mp4')">
-                        <div class="video-top-row"><span class="video-num">03 / 16</span><span class="video-badge">1:15</span></div>
+                        <div class="video-top-row"><span class="video-num">03 / 16</span><span class="video-badge">0:30</span></div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Шлифовка жирафом</h4><p>Лайфхак: вскрытие P40 и чистовая доводка P120.</p></div>
+                        <div class="video-info"><h4>Краш-тест ручкой</h4><p>Проверка на сколы и продавливание металлическим острием.</p></div>
                     </div>
 
                     <!-- 4 -->
                     <div class="video-card" onclick="openVideoModal('videos/video4.mp4')">
-                        <div class="video-top-row"><span class="video-num">04 / 16</span><span class="video-badge">0:50</span></div>
+                        <div class="video-top-row"><span class="video-num">04 / 16</span><span class="video-badge">1:15</span></div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Мокрая очистка</h4><p>Смываем кофе, жир и маркер с краски Keramik Matt.</p></div>
+                        <div class="video-info"><h4>Шлифовка жирафом</h4><p>Лайфхак: вскрытие P40 и чистовая доводка P120.</p></div>
                     </div>
 
                     <!-- 5 -->
@@ -772,21 +776,21 @@
                     <div class="video-card" onclick="openVideoModal('videos/video6.mp4')">
                         <div class="video-top-row"><span class="video-num">06 / 16</span><span class="video-badge">1:10</span></div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Нанесение валиком</h4><p>Быстрое раскатывание шпатлевки без дорогого оборудования.</p></div>
+                        <div class="video-info"><h4>Нанесение валиком</h4><p>Быстрое раскатывание шпатлевки без сложного оборудования.</p></div>
                     </div>
 
                     <!-- 7 -->
                     <div class="video-card" onclick="openVideoModal('videos/video7.mp4')">
                         <div class="video-top-row"><span class="video-num">07 / 16</span><span class="video-badge">1:55</span></div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Безвоздушный аппарат</h4><p>Механизация больших объемов соплом 531–535.</p></div>
+                        <div class="video-info"><h4>Безвоздушный аппарат</h4><p>Механизация больших площадей соплами 531–535.</p></div>
                     </div>
 
                     <!-- 8 -->
                     <div class="video-card" onclick="openVideoModal('videos/video8.mp4')">
                         <div class="video-top-row"><span class="video-num">08 / 16</span><span class="video-badge">0:40</span></div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Тест на пыль</h4><p>Почему тяжелая полимерная пыль не висит в воздухе.</p></div>
+                        <div class="video-info"><h4>Тест на тяжелую пыль</h4><p>Почему полимерная пыль падает на пол, а не висит в воздухе.</p></div>
                     </div>
 
                     <!-- 9 -->
@@ -800,21 +804,21 @@
                     <div class="video-card" onclick="openVideoModal('videos/video10.mp4')">
                         <div class="video-top-row"><span class="video-num">10 / 16</span><span class="video-badge">0:55</span></div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Грунтовка 1:4</h4><p>Правильное укрепление штукатурки грунтом Primer Konzentrat.</p></div>
+                        <div class="video-info"><h4>Грунтовка 1:4</h4><p>Укрепление штукатурки грунтом Primer Konzentrat.</p></div>
                     </div>
 
                     <!-- 11 -->
                     <div class="video-card" onclick="openVideoModal('videos/video11.mp4')">
                         <div class="video-top-row"><span class="video-num">11 / 16</span><span class="video-badge">1:30</span></div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Гипс против Полимера</h4><p>Наглядное сравнение на образцах под нагрузкой.</p></div>
+                        <div class="video-info"><h4>Гипс vs Полимер</h4><p>Наглядное сравнение прочности двух систем.</p></div>
                     </div>
 
                     <!-- 12 -->
                     <div class="video-card" onclick="openVideoModal('videos/video12.mp4')">
                         <div class="video-top-row"><span class="video-num">12 / 16</span><span class="video-badge">0:35</span></div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Удар по углу</h4><p>Имитация удара чемоданом или стремянкой.</p></div>
+                        <div class="video-info"><h4>Удар по углу</h4><p>Имитация удара чемоданом или стремянкой в проходной зоне.</p></div>
                     </div>
 
                     <!-- 13 -->
@@ -835,14 +839,14 @@
                     <div class="video-card" onclick="openVideoModal('videos/video15.mp4')">
                         <div class="video-top-row"><span class="video-num">15 / 16</span><span class="video-badge">1:50</span></div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Отзыв мастера</h4><p>Реальные впечатления маляра после 3 объектов.</p></div>
+                        <div class="video-info"><h4>Отзыв мастера</h4><p>Реальные впечатления маляра после 3 сданных квартир.</p></div>
                     </div>
 
                     <!-- 16 -->
                     <div class="video-card" onclick="openVideoModal('videos/video16.mp4')">
                         <div class="video-top-row"><span class="video-num">16 / 16</span><span class="video-badge">1:10</span></div>
                         <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Тест-драйв на выезде</h4><p>Как проходит бесплатный показ материалов на объектах.</p></div>
+                        <div class="video-info"><h4>Тест-драйв на выезде</h4><p>Как проходит бесплатная демонстрация у вас на объекте.</p></div>
                     </div>
 
                 </div>
@@ -856,13 +860,13 @@
     <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
         <div class="video-modal-content" onclick="event.stopPropagation()">
             <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
-            <video id="modalPlayer" controls playsinline preload="none">
-                <source src="" type="video/mp4">
+            <video id="modalPlayer" controls playsinline webkit-playsinline preload="auto">
+                Ваш браузер не поддерживает встроенное видео.
             </video>
         </div>
     </div>
 
-    <!-- БЛОК 3: КАТАЛОГ МАТЕРИАЛОВ -->
+    <!-- БЛОК 4: КАТАЛОГ МАТЕРИАЛОВ -->
     <section class="products-section" id="products">
         <div class="section-container">
             <span class="section-tag">Базовая линейка</span>
@@ -936,7 +940,7 @@
         </div>
     </section>
 
-    <!-- БЛОК: CTA -->
+    <!-- БЛОК 5: CTA -->
     <section class="cta-section">
         <div class="cta-box">
             <span class="section-tag">Практика на объекте</span>
@@ -962,30 +966,46 @@
 
     <!-- СКРИПТЫ -->
     <script>
+        // Прокрутка карусели стрелками
         function scrollCarousel(direction) {
             const carousel = document.getElementById('videoCarousel');
-            carousel.scrollBy({ left: 260 * direction, behavior: 'smooth' });
+            const scrollAmount = 260 * direction;
+            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         }
 
+        // Открытие и загрузка видео
         function openVideoModal(videoSrc) {
             const modal = document.getElementById('videoModal');
             const player = document.getElementById('modalPlayer');
+            
             player.src = videoSrc;
+            player.load();
+            
             modal.classList.add('active');
             document.body.classList.add('modal-open');
-            player.play().catch(() => {});
+            
+            const playPromise = player.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log("Автозапуск ожидает действия пользователя:", error);
+                });
+            }
         }
 
+        // Закрытие и полная выгрузка видео
         function closeVideoModal() {
             const modal = document.getElementById('videoModal');
             const player = document.getElementById('modalPlayer');
+            
             player.pause();
-            player.src = '';
+            player.removeAttribute('src');
+            player.load();
+            
             modal.classList.remove('active');
             document.body.classList.remove('modal-open');
         }
 
-        // Закрытие по клавише Escape
+        // Закрытие по кнопке Escape
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeVideoModal();
         });
