@@ -239,7 +239,7 @@
             z-index: 2;
         }
 
-        /* БЛОК 2: ПРОСТОРНЫЙ ПОШАГОВЫЙ СТОРИ-СКРОЛЛ (КАЖДЫЙ ПУНКТ НА СВОЙ ЭКРАН) */
+        /* БЛОК 2: ПОШАГОВЫЙ СТОРИ-СКРОЛЛ */
         .editorial-section {
             background-color: #ffffff;
             padding: 80px 20px 40px 20px;
@@ -252,7 +252,7 @@
             border-top: 1px solid #eaeaea;
         }
         .step-story-card {
-            min-height: 70vh; /* Занимает 70-80% экрана на мобильном для спокойного чтения */
+            min-height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -292,7 +292,7 @@
             margin: 0;
         }
 
-        /* БЛОК 3: МАЛЯРНЫЙ ПИРОГ (ОТКРЫТОЕ СРАВНЕНИЕ) */
+        /* БЛОК 3: МАРКЕТИНГОВОЕ СРАВНЕНИЕ В 2 СТОЛБЦА (СТАРЫЙ VS НОВЫЙ МЕТОД) */
         .pie-section {
             background-color: #f8f8f8;
             padding: 80px 20px;
@@ -311,54 +311,84 @@
             border-radius: 8px;
             padding: 30px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        .pie-card.highlight {
-            border-color: #ff5722;
+        .pie-card.old-way {
+            background-color: #fafafa;
+            border-top: 4px solid #d32f2f; /* Красный маркер старого метода */
+        }
+        .pie-card.new-way {
+            border: 1px solid #ff5722;
+            border-top: 4px solid #ff5722;
             background: linear-gradient(180deg, #fff5f2 0%, #ffffff 100%);
-            box-shadow: 0 6px 25px rgba(255, 87, 34, 0.1);
+            box-shadow: 0 8px 30px rgba(255, 87, 34, 0.12);
         }
         .pie-card-header {
-            font-size: 1.25rem;
-            font-weight: 900;
-            text-transform: uppercase;
             margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
+        }
+        .pie-card-title {
+            font-size: 1.3rem;
+            font-weight: 900;
+            text-transform: uppercase;
             color: #111111;
+            line-height: 1.2;
         }
         .pie-tag {
             font-size: 0.7rem;
             padding: 4px 8px;
             border-radius: 3px;
-            font-weight: 800;
+            font-weight: 900;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
         }
         .tag-red { background-color: #ffebee; color: #d32f2f; }
         .tag-orange { background-color: #ff5722; color: #ffffff; }
-        .pie-steps-list {
+        
+        .pie-points-list {
             list-style: none;
+            margin-bottom: 20px;
         }
-        .pie-steps-list li {
-            padding: 11px 0;
+        .pie-points-list li {
+            padding: 12px 0;
             border-bottom: 1px solid #f0f0f0;
             font-size: 0.92rem;
             color: #555555;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 12px;
+            line-height: 1.45;
         }
-        .pie-steps-list li strong { color: #111111; }
+        .pie-points-list li strong { color: #111111; }
+        .point-icon-bad { color: #d32f2f; font-weight: 900; font-size: 1.1rem; }
+        .point-icon-good { color: #ff5722; font-weight: 900; font-size: 1.1rem; }
+
+        .pie-card-footer {
+            border-top: 1px solid #e5e5e5;
+            padding-top: 15px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .footer-bad { color: #d32f2f; }
+        .footer-good { color: #ff5722; }
+
         .pie-savings-banner {
             background-color: #111111;
             color: #ffffff;
-            padding: 20px 30px;
+            padding: 22px 30px;
             border-radius: 6px;
             text-align: center;
             font-size: 0.95rem;
             font-weight: 700;
             max-width: 1100px;
             margin: 0 auto;
+            letter-spacing: 0.5px;
         }
         .pie-savings-banner span {
             color: #ff5722;
@@ -1118,12 +1148,11 @@
                 margin-bottom: 30px;
             }
 
-            /* Просторный пошаговый Блок 2 на ПК */
             .editorial-section { padding: 120px 40px 60px 40px; }
             .section-title { font-size: 2.8rem; margin-bottom: 70px; }
             .step-story-card {
-                min-height: 65vh; /* На десктопе карточки комфортно центрируются */
-                flex-direction: row; /* Текст слева, фото справа */
+                min-height: 65vh;
+                flex-direction: row;
                 align-items: center;
                 gap: 60px;
                 padding: 60px 0;
@@ -1142,8 +1171,13 @@
             .step-header h3 { font-size: 1.6rem; }
             .step-num-badge { font-size: 3rem; }
 
+            /* Двухколоночный пирог на ПК */
             .pie-section { padding: 120px 40px; }
-            .pie-comparison-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+            .pie-comparison-grid { 
+                grid-template-columns: 1fr 1fr; /* Ровно 2 колонки на ПК */
+                gap: 30px; 
+            }
+            .pie-card { padding: 40px; }
 
             .process-section { padding: 120px 40px; }
             .process-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
@@ -1233,7 +1267,7 @@
         </div>
     </main>
 
-    <!-- БЛОК 2: ПРОСТОРНЫЙ ПОШАГОВЫЙ СТОРИ-СКРОЛЛ (КАЖДЫЙ ПУНКТ НА СВОЙ ЭКРАН) -->
+    <!-- БЛОК 2: ПРОСТОРНЫЙ ПОШАГОВЫЙ СТОРИ-СКРОЛЛ -->
     <section class="editorial-section" id="how-it-works">
         <div class="section-container">
             <span class="section-tag">Суровая правда малярки</span>
@@ -1241,7 +1275,7 @@
             
             <div class="step-story-container">
                 
-                <!-- Шаг 01 (Полноразмерный экран) -->
+                <!-- Шаг 01 -->
                 <div class="step-story-card">
                     <div class="step-story-card-left">
                         <div class="step-header">
@@ -1253,7 +1287,7 @@
                     <div class="image-window">[ Фото дефекта основания ]</div>
                 </div>
 
-                <!-- Шаг 02 (Полноразмерный экран) -->
+                <!-- Шаг 02 -->
                 <div class="step-story-card">
                     <div class="step-story-card-left">
                         <div class="step-header">
@@ -1265,7 +1299,7 @@
                     <div class="image-window">[ Фото пузырей холста ]</div>
                 </div>
 
-                <!-- Шаг 03 (Полноразмерный экран) -->
+                <!-- Шаг 03 -->
                 <div class="step-story-card">
                     <div class="step-story-card-left">
                         <div class="step-header">
@@ -1281,52 +1315,57 @@
         </div>
     </section>
 
-    <!-- БЛОК 3: МАЛЯРНЫЙ ПИРОГ -->
+    <!-- БЛОК 3: МАЛЯРНЫЙ ПИРОГ (МАРКЕТИНГОВЫЙ БАТТЛ В 2 СТОЛБЦА) -->
     <section class="pie-section">
         <div class="section-container">
             <span class="section-tag">Сравнение технологий</span>
             <h2 class="section-title text-center">Малярный пирог: <span class="accent-color">3 слоя</span> вместо <span class="accent-color">7–15 классических</span> операций</h2>
             
             <div class="pie-comparison-grid">
-                <!-- Классический пирог -->
-                <div class="pie-card">
-                    <div class="pie-card-header">
-                        Классический пирог
-                        <span class="pie-tag tag-red">7–15 операций</span>
+                
+                <!-- Левый столбец: Старый метод -->
+                <div class="pie-card old-way">
+                    <div>
+                        <div class="pie-card-header">
+                            <div class="pie-card-title">Старый метод</div>
+                            <span class="pie-tag tag-red">Прошлый век</span>
+                        </div>
+                        <ul class="pie-points-list">
+                            <li><span class="point-icon-bad">✕</span> <span><strong>7–15 долгих операций:</strong> грунт, база, сушка, клей, поклейка холста, грунт-краска, 2 слоя финиша, вышкуривание.</span></li>
+                            <li><span class="point-icon-bad">✕</span> <span><strong>Высокий риск брака:</strong> сухие проплешины клея от безвоздушки вздуваются пузырями при покраске.</span></li>
+                            <li><span class="point-icon-bad">✕</span> <span><strong>Деньги на полу:</strong> из-за усадки гипса до 10 мешков материала сошкуривается в мусор.</span></li>
+                            <li><span class="point-icon-bad">✕</span> <span><strong>Хрупкая стена:</strong> любой случайный скол от мебели требует перекраски от угла до угла.</span></li>
+                        </ul>
                     </div>
-                    <ul class="pie-steps-list">
-                        <li>1. Шлифовка штукатурки + обеспыливание</li>
-                        <li>2. Грунтование основания</li>
-                        <li>3. Базовое шпатлевание (1-й слой)</li>
-                        <li>4. Базовое шпатлевание (2-й слой)</li>
-                        <li>5. Шлифовка базы + повторный грунт</li>
-                        <li>6. Нанесение клея для холста</li>
-                        <li>7. Поклейка стеклохолста (риск пузырей)</li>
-                        <li>8. Нанесение стабилизирующей грунт-краски</li>
-                        <li>9. Финишная шпатлевка (в 2 слоя)</li>
-                        <li>10. Долгая шлифовка под Р240 + горы мусора</li>
-                    </ul>
+                    <div class="pie-card-footer footer-bad">
+                        Итог: долго, пыльно, постоянные переделки за свой счет
+                    </div>
                 </div>
 
-                <!-- Пирог OTTINGER -->
-                <div class="pie-card highlight">
-                    <div class="pie-card-header">
-                        Пирог OTTINGER
-                        <span class="pie-tag tag-orange">Всего 3 монолитных слоя</span>
+                <!-- Правый столбец: Инновация OTTINGER -->
+                <div class="pie-card new-way">
+                    <div>
+                        <div class="pie-card-header">
+                            <div class="pie-card-title">Система OTTINGER</div>
+                            <span class="pie-tag tag-orange">Инновация</span>
+                        </div>
+                        <ul class="pie-points-list">
+                            <li><span class="point-icon-good">✓</span> <span><strong>Всего 3 монолитных слоя:</strong> Primer Konzentrat → 2 слоя Basis Start с фиброй → краска Keramik Matt.</span></li>
+                            <li><span class="point-icon-good">✓</span> <span><strong>Без стеклохолста и клея:</strong> 10-микронная фибра уже замешана на заводе и армирует всю толщину стены.</span></li>
+                            <li><span class="point-icon-good">✓</span> <span><strong>Чистая работа:</strong> нулевая усадка и тяжелая пыль, всего 1 мешок мусора со 100 м² квартиры.</span></li>
+                            <li><span class="point-icon-good">✓</span> <span><strong>Резиновая упругость:</strong> плоскость и углы не скалываются от случайных ударов инструментом.</span></li>
+                        </ul>
                     </div>
-                    <ul class="pie-steps-list">
-                        <li><strong>1. Primer Konzentrat:</strong> честные 20% сухого остатка, укрепляет ГКЛ и связывает пыль.</li>
-                        <li><strong>2. Двойной слой Basis Start:</strong> 10-микронная фибра заменяет холст и клей.</li>
-                        <li><strong>3. Premium Keramik Matt:</strong> моющийся финиш без затертостей и глянцевых пятен.</li>
-                        <li style="border: none; color: #ff5722; font-weight: 800; padding-top: 15px;">
-                            ✓ Исключены клей, холст, лишние промежуточные сушки и пыль.
-                        </li>
-                    </ul>
+                    <div class="pie-card-footer footer-good">
+                        Итог: сдача объекта в 1.5 раза быстрее и 0 ₽ на переделки
+                    </div>
                 </div>
+
             </div>
 
+            <!-- Живая плашка экономии -->
             <div class="pie-savings-banner">
-                Результат: <span>минус 12 операций</span>, <span>на 40% быстрее сдача</span> и <span>0 ₽ на переделки</span>
+                Результат: <span>минус 80% рутины</span>, <span>экономия 4 дней сушки</span> и <span>сдача с первого раза</span>
             </div>
         </div>
     </section>
