@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OTTINGER Sochi — Профессиональные отделочные материалы</title>
-    <!-- Фирменный шрифт Montserrat -->
+    <!-- Подключение фирменного шрифта Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* БАЗОВЫЕ НАСТРОЙКИ */
+        /* БАЗОВЫЕ НАСТРОЙКИ (СВЕТЛАЯ СЕРО-БЕЛАЯ ТЕМА) */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -401,44 +401,73 @@
             font-weight: 900;
         }
 
-        /* БЛОК 4: ПОШАГОВЫЙ ПРОЦЕСС С ВЕРТИКАЛЬНЫМИ GIF */
+        /* НОВЫЙ ШАХМАТНЫЙ БЛОК 4: ЗИГЗАГ-ПРОЦЕСС (СЛЕВА НАПРАВО, СПРАВА НАЛЕВО) */
         .process-section {
             background-color: #ffffff;
-            padding: 80px 20px;
+            padding: 90px 20px;
             border-top: 1px solid #eaeaea;
         }
-        .process-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
-        .process-card {
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            overflow: hidden;
+        .process-zigzag-list {
             display: flex;
             flex-direction: column;
+            gap: 60px;
+            margin-top: 40px;
+        }
+        .process-zigzag-row {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+            background-color: #fafafa;
+            border: 1px solid #eaeaea;
+            border-radius: 12px;
+            padding: 25px;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
-        .process-card:hover {
+        .process-zigzag-row:hover {
             border-color: #ff5722;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
         }
-        .process-gif-window {
+        .process-text-side {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .process-step-badge {
+            font-size: 0.75rem;
+            color: #ff5722;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .process-text-side h3 {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #111111;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: -0.3px;
+        }
+        .process-text-side p {
+            color: #666666;
+            font-size: 0.95rem;
+            line-height: 1.55;
+        }
+        
+        .process-media-side {
             width: 100%;
             height: 380px;
-            background-color: #121212;
-            border-bottom: 1px solid #eaeaea;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #111111;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
             position: relative;
         }
-        .process-gif-window img {
+        .process-media-side img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -451,29 +480,6 @@
             letter-spacing: 1px;
             padding: 20px;
             text-align: center;
-        }
-        .process-info {
-            padding: 25px;
-        }
-        .process-step-num {
-            font-size: 0.75rem;
-            color: #ff5722;
-            font-weight: 900;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-        .process-info h3 {
-            font-size: 1.3rem;
-            font-weight: 900;
-            color: #111111;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-        .process-info p {
-            color: #666666;
-            font-size: 0.9rem;
-            line-height: 1.45;
         }
 
         /* БЛОК 5: ПРАВИЛА РАБОТЫ */
@@ -1153,7 +1159,7 @@
             padding-top: 15px;
         }
 
-        /* АДАПТИВНОСТЬ ДЛЯ ПК */
+        /* АДАПТИВНОСТЬ ДЛЯ ПК (DESKTOP) */
         @media (min-width: 768px) {
             header { padding: 22px 40px; }
             .phone { font-size: 1.25rem; font-weight: 900; }
@@ -1205,9 +1211,33 @@
             }
             .pie-card { padding: 40px; }
 
+            /* Шахматный Зигзаг Блока 4 на ПК */
             .process-section { padding: 120px 40px; }
-            .process-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
-            .process-gif-window { height: 420px; }
+            .process-zigzag-list { gap: 80px; margin-top: 60px; }
+            .process-zigzag-row {
+                flex-direction: row; /* Слева направо */
+                align-items: center;
+                gap: 60px;
+                padding: 40px;
+            }
+            /* Реверс для второго шага (Справа налево) */
+            .process-zigzag-row.reverse {
+                flex-direction: row-reverse;
+            }
+            .process-text-side {
+                flex: 1;
+            }
+            .process-text-side h3 {
+                font-size: 1.6rem;
+            }
+            .process-text-side p {
+                font-size: 1.05rem;
+            }
+            .process-media-side {
+                width: 420px;
+                height: 480px;
+                flex-shrink: 0;
+            }
 
             .rules-section { padding: 100px 40px; }
             .rules-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
@@ -1284,6 +1314,7 @@
             <img src="ottinger-demo.gif" alt="Демонстрация нанесения OTTINGER" loading="eager">
         </div>
 
+        <!-- Подзаголовок строго под GIF -->
         <p class="hero-subhead">
             Инновационная полимерная система отделки с <span>10-микронным фиброволокном</span>. Сокращает малярный пирог до 3 слоев без использования стеклохолста.
         </p>
@@ -1395,49 +1426,49 @@
         </div>
     </section>
 
-    <!-- БЛОК 4: ПОШАГОВЫЙ ПРОЦЕСС НАНЕСЕНИЯ -->
+    <!-- НОВЫЙ ШАХМАТНЫЙ БЛОК 4: ЗИГЗАГ-ПРОЦЕСС (СЛЕВА НАПРАВО, СПРАВА НАЛЕВО) -->
     <section class="process-section">
         <div class="section-container">
             <span class="section-tag">Технология в действии</span>
             <h2 class="section-title text-center">Как наносится система: <span class="accent-color">3 шага до идеальной стены</span></h2>
             
-            <div class="process-grid">
+            <div class="process-zigzag-list">
                 
-                <!-- Шаг 1 -->
-                <div class="process-card">
-                    <div class="process-gif-window">
-                        <img src="step1-apply.gif" alt="Механизированное нанесение OTTINGER">
-                    </div>
-                    <div class="process-info">
-                        <div class="process-step-num">Этап 01</div>
+                <!-- Шаг 01: Текст слева, GIF справа -->
+                <div class="process-zigzag-row">
+                    <div class="process-text-side">
+                        <div class="process-step-badge">Этап 01</div>
                         <h3>Нанесение шпатлевки</h3>
-                        <p>Наносится аппаратом или валиком без стеклохолста методом «тысяча линий». Толщина слоя от 1 мм сразу дает монолитное армирование.</p>
+                        <p>Наносится аппаратом или валиком без стеклохолста методом «тысяча линий». Толщина слоя от 1 мм сразу дает монолитное армирование всей плоскости.</p>
+                    </div>
+                    <div class="process-media-side">
+                        <img src="step1-apply.gif" alt="Механизированное нанесение OTTINGER">
                     </div>
                 </div>
 
-                <!-- Шаг 2 -->
-                <div class="process-card">
-                    <div class="process-gif-window">
+                <!-- Шаг 02: GIF слева, Текст справа (РЕВЕРС) -->
+                <div class="process-zigzag-row reverse">
+                    <div class="process-text-side">
+                        <div class="process-step-badge">Этап 02</div>
+                        <h3>Шлифовка без пыли</h3>
+                        <p>Вскрываем верхнюю пленку зерном Р40 за 3 минуты и доводим керамикой Р80–Р120 под жираф. Тяжелая пыль сразу падает на пол, а не висит в воздухе неделями.</p>
+                    </div>
+                    <div class="process-media-side">
                         <img src="step2-sand.gif" alt="Шлифовка OTTINGER" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <div class="process-placeholder-text" style="display: none;">[ GIF 2: Шлифовка жирафом / машинкой ]</div>
                     </div>
-                    <div class="process-info">
-                        <div class="process-step-num">Этап 02</div>
-                        <h3>Шлифовка без пыли</h3>
-                        <p>Вскрываем верхнюю пленку зерном Р40 за 3 минуты и доводим керамикой Р80–Р120. Тяжелая пыль сразу падает на пол, а не висит в воздухе.</p>
-                    </div>
                 </div>
 
-                <!-- Шаг 3 -->
-                <div class="process-card">
-                    <div class="process-gif-window">
+                <!-- Шаг 03: Текст слева, GIF справа -->
+                <div class="process-zigzag-row">
+                    <div class="process-text-side">
+                        <div class="process-step-badge">Этап 03</div>
+                        <h3>Финишное окрашивание</h3>
+                        <p>Окрашивание валиком или безвоздушкой в 2 слоя. Создается сверхплотная керамическая мембрана, которую легко мыть и невозможно затереть мебелью.</p>
+                    </div>
+                    <div class="process-media-side">
                         <img src="step3-paint.gif" alt="Окрашивание стен OTTINGER" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <div class="process-placeholder-text" style="display: none;">[ GIF 3: Нанесение финишной краски Keramik Matt ]</div>
-                    </div>
-                    <div class="process-info">
-                        <div class="process-step-num">Этап 03</div>
-                        <h3>Финишное окрашивание</h3>
-                        <p>Окрашивание валиком или безвоздушкой в 2 слоя. Создается сверхплотная керамическая мембрана, которую легко мыть и невозможно затереть.</p>
                     </div>
                 </div>
 
@@ -1590,7 +1621,6 @@
             <h2 class="section-title text-center"><span class="accent-color">4 материала</span>, закрывающих <span class="accent-color">100% задач</span></h2>
             
             <div class="product-grid">
-                <!-- Продукт 1 -->
                 <div class="product-card card-primer">
                     <div class="product-image-window">
                         <img src="images/primer-konzentrat.png" alt="Primer Konzentrat" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
@@ -1607,7 +1637,6 @@
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20грунта%20Primer%20Konzentrat." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
-                <!-- Продукт 2 -->
                 <div class="product-card">
                     <div class="product-image-window">
                         <img src="images/basis-start.png" alt="Basis Start" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
@@ -1624,7 +1653,6 @@
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20шпатлевки%20Basis%20Start." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
-                <!-- Продукт 3 -->
                 <div class="product-card card-aqua">
                     <div class="product-image-window">
                         <img src="images/basis-aqua.png" alt="Basis Aqua" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
@@ -1641,7 +1669,6 @@
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20шпатлевки%20Basis%20Aqua." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
                 </div>
 
-                <!-- Продукт 4 -->
                 <div class="product-card card-paint">
                     <div class="product-image-window">
                         <img src="images/keramik-matt.png" alt="Premium Keramik Matt" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
@@ -1791,7 +1818,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 15: КОНТАКТЫ (FOOTER) -->
+    <!-- БЛОК 15: КОНТАКТЫ (FOOTER ПО СТРАНИЦЕ 119 КАТАЛОГА) -->
     <footer>
         <div class="footer-container">
             <div class="footer-info">
@@ -1810,7 +1837,7 @@
         </div>
     </footer>
 
-    <!-- JS СКРИПТЫ: КАРУСЕЛЬ И ВИДЕО МОДАЛКА -->
+    <!-- JS СКРИПТЫ -->
     <script>
         // Перелистывание карусели стрелками
         function scrollCarousel(direction) {
