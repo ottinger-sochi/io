@@ -475,11 +475,49 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         .video-modal-content video {
             width: 100%;
             height: 100%;
             object-fit: contain;
+        }
+        .video-error-box {
+            display: none;
+            padding: 25px;
+            text-align: center;
+            color: #ffffff;
+            position: absolute;
+            background: rgba(15,15,15,0.95);
+            border-radius: 8px;
+            margin: 15px;
+            border: 1px solid #ff5722;
+            z-index: 5;
+        }
+        .video-error-box h5 {
+            color: #ff5722;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .video-error-box p {
+            font-size: 0.85rem;
+            color: #cccccc;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        .video-error-box a {
+            display: inline-block;
+            background-color: #ff5722;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 800;
         }
         .video-modal-close {
             position: absolute;
@@ -575,9 +613,40 @@
             max-width: 100%;
         }
 
+        /* ПРИМЕРЫ РАБОТ */
+        .cases-section {
+            background-color: #ffffff;
+            padding: 80px 20px;
+            border-top: 1px solid #eaeaea;
+        }
+        .cases-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        .case-card {
+            background-color: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .case-img-box {
+            width: 100%;
+            height: 200px;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            background-color: #eaeaea;
+        }
+        .case-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         /* БЛОК 5: CTA И FOOTER */
         .cta-section {
-            background-color: #ffffff;
+            background-color: #f8f8f8;
             padding: 80px 20px;
             border-top: 1px solid #eaeaea;
             text-align: center;
@@ -640,6 +709,7 @@
             .carousel-arrow { display: flex; }
             .pie-comparison-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
             .product-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+            .cases-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
             .footer-container {
                 flex-direction: row;
                 justify-content: space-between;
@@ -659,7 +729,7 @@
         <a href="tel:+79219121895" class="phone">+7 (921) 912-18-95</a>
     </header>
 
-    <!-- БЛОК 1: ПЕРВЫЙ ЭКРАН -->
+    <!-- БЛОК 1: HERO -->
     <main class="hero">
         <h1>
             КАК НАВСЕГДА ИЗБАВИТЬ <br>
@@ -668,7 +738,7 @@
         </h1>
 
         <div class="hero-media">
-            <img src="ottinger-demo.gif" alt="Демонстрация нанесения OTTINGER" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<span style=\'color:#999;font-weight:800;text-transform:uppercase;\'>OTTINGER DEMO</span>';">
+            <img src="ottinger-demo.gif" alt="Демонстрация OTTINGER" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<span style=\'color:#999;font-weight:800;text-transform:uppercase;\'>OTTINGER DEMO</span>';">
         </div>
 
         <p class="hero-subhead">
@@ -737,113 +807,113 @@
 
                 <div class="video-carousel" id="videoCarousel">
                     
-                    <!-- 1. Краш-тест (Вино, кофе и кетчуп) -->
-                    <div class="video-card" onclick="openVideoModal('videos/video1.mp4')">
+                    <!-- 1. Краш-тест (Вино, кофе и кетчуп) - ФАЙЛ ПРЯМО В КОРНЕ -->
+                    <div class="video-card" onclick="openVideoModal('video1.mp4')">
                         <div class="video-top-row"><span class="video-num">01 / 16</span><span class="video-badge badge-hit">КРАШ-ТЕСТ</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Вино, кофе и кетчуп</h4><p>Проверяем стойкость краски Keramik Matt: удаляем пятна влажной салфеткой.</p></div>
                     </div>
 
                     <!-- 2 -->
-                    <div class="video-card" onclick="openVideoModal('videos/video2.mp4')">
+                    <div class="video-card" onclick="openVideoModal('video2.mp4')">
                         <div class="video-top-row"><span class="video-num">02 / 16</span><span class="video-badge">0:45</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Тест на упругость</h4><p>Сворачиваем слой шпатлевки в трубку без трещин.</p></div>
                     </div>
 
                     <!-- 3 -->
-                    <div class="video-card" onclick="openVideoModal('videos/video3.mp4')">
+                    <div class="video-card" onclick="openVideoModal('video3.mp4')">
                         <div class="video-top-row"><span class="video-num">03 / 16</span><span class="video-badge">0:30</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Краш-тест ручкой</h4><p>Проверка на сколы и продавливание металлическим острием.</p></div>
                     </div>
 
                     <!-- 4 -->
-                    <div class="video-card" onclick="openVideoModal('videos/video4.mp4')">
+                    <div class="video-card" onclick="openVideoModal('video4.mp4')">
                         <div class="video-top-row"><span class="video-num">04 / 16</span><span class="video-badge">1:15</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Шлифовка жирафом</h4><p>Лайфхак: вскрытие P40 и чистовая доводка P120.</p></div>
                     </div>
 
                     <!-- 5 -->
-                    <div class="video-card" onclick="openVideoModal('videos/video5.mp4')">
+                    <div class="video-card" onclick="openVideoModal('video5.mp4')">
                         <div class="video-top-row"><span class="video-num">05 / 16</span><span class="video-badge">1:40</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Метод «1000 линий»</h4><p>Как правильно наносить Basis Start крест-накрест.</p></div>
                     </div>
 
                     <!-- 6 -->
-                    <div class="video-card" onclick="openVideoModal('videos/video6.mp4')">
+                    <div class="video-card" onclick="openVideoModal('video6.mp4')">
                         <div class="video-top-row"><span class="video-num">06 / 16</span><span class="video-badge">1:10</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Нанесение валиком</h4><p>Быстрое раскатывание шпатлевки без сложного оборудования.</p></div>
                     </div>
 
                     <!-- 7 -->
-                    <div class="video-card" onclick="openVideoModal('videos/video7.mp4')">
+                    <div class="video-card" onclick="openVideoModal('video7.mp4')">
                         <div class="video-top-row"><span class="video-num">07 / 16</span><span class="video-badge">1:55</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Безвоздушный аппарат</h4><p>Механизация больших площадей соплами 531–535.</p></div>
                     </div>
 
                     <!-- 8 -->
-                    <div class="video-card" onclick="openVideoModal('videos/video8.mp4')">
+                    <div class="video-card" onclick="openVideoModal('video8.mp4')">
                         <div class="video-top-row"><span class="video-num">08 / 16</span><span class="video-badge">0:40</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Тест на тяжелую пыль</h4><p>Почему полимерная пыль падает на пол, а не висит в воздухе.</p></div>
                     </div>
 
                     <!-- 9 -->
-                    <div class="video-card" onclick="openVideoModal('videos/video9.mp4')">
+                    <div class="video-card" onclick="openVideoModal('video9.mp4')">
                         <div class="video-top-row"><span class="video-num">09 / 16</span><span class="video-badge">1:20</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Монтаж Strait-Flex</h4><p>Вклейка композитных лент на шпатлевку Basis Aqua.</p></div>
                     </div>
 
                     <!-- 10 -->
-                    <div class="video-card" onclick="openVideoModal('videos/video10.mp4')">
+                    <div class="video-card" onclick="openVideoModal('video10.mp4')">
                         <div class="video-top-row"><span class="video-num">10 / 16</span><span class="video-badge">0:55</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Грунтовка 1:4</h4><p>Укрепление штукатурки грунтом Primer Konzentrat.</p></div>
                     </div>
 
                     <!-- 11 -->
-                    <div class="video-card" onclick="openVideoModal('videos/video11.mp4')">
+                    <div class="video-card" onclick="openVideoModal('video11.mp4')">
                         <div class="video-top-row"><span class="video-num">11 / 16</span><span class="video-badge">1:30</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Гипс vs Полимер</h4><p>Наглядное сравнение прочности двух систем.</p></div>
                     </div>
 
                     <!-- 12 -->
-                    <div class="video-card" onclick="openVideoModal('videos/video12.mp4')">
+                    <div class="video-card" onclick="openVideoModal('video12.mp4')">
                         <div class="video-top-row"><span class="video-num">12 / 16</span><span class="video-badge">0:35</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Удар по углу</h4><p>Имитация удара чемоданом или стремянкой в проходной зоне.</p></div>
                     </div>
 
                     <!-- 13 -->
-                    <div class="video-card" onclick="openVideoModal('videos/video13.mp4')">
+                    <div class="video-card" onclick="openVideoModal('video13.mp4')">
                         <div class="video-top-row"><span class="video-num">13 / 16</span><span class="video-badge">1:05</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Проявочный свет Q4</h4><p>Проверка плоскости мощной малярной лампой Lossew.</p></div>
                     </div>
 
                     <!-- 14 -->
-                    <div class="video-card" onclick="openVideoModal('videos/video14.mp4')">
+                    <div class="video-card" onclick="openVideoModal('video14.mp4')">
                         <div class="video-top-row"><span class="video-num">14 / 16</span><span class="video-badge">1:45</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Объект в Сочи</h4><p>Обзор готовых апартаментов 85 м² без стеклохолста.</p></div>
                     </div>
 
                     <!-- 15 -->
-                    <div class="video-card" onclick="openVideoModal('videos/video15.mp4')">
+                    <div class="video-card" onclick="openVideoModal('video15.mp4')">
                         <div class="video-top-row"><span class="video-num">15 / 16</span><span class="video-badge">1:50</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Отзыв мастера</h4><p>Реальные впечатления маляра после 3 сданных квартир.</p></div>
                     </div>
 
                     <!-- 16 -->
-                    <div class="video-card" onclick="openVideoModal('videos/video16.mp4')">
+                    <div class="video-card" onclick="openVideoModal('video16.mp4')">
                         <div class="video-top-row"><span class="video-num">16 / 16</span><span class="video-badge">1:10</span></div>
                         <div class="video-play-icon">▶</div>
                         <div class="video-info"><h4>Тест-драйв на выезде</h4><p>Как проходит бесплатная демонстрация у вас на объекте.</p></div>
@@ -851,7 +921,7 @@
 
                 </div>
 
-                <button class="carousel-arrow arrow-right" onclick="scrollCarousel(1)">&#8250;</button>
+                <button class="carousel-arrow arrow-right" onclick="scrollCarousel(1)">&#8249;</button>
             </div>
         </div>
     </section>
@@ -860,6 +930,13 @@
     <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
         <div class="video-modal-content" onclick="event.stopPropagation()">
             <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
+            
+            <div id="videoError" class="video-error-box">
+                <h5>Ошибка загрузки</h5>
+                <p id="videoErrorMsg">Файл не найден или сохранен в несовместимом кодеке.</p>
+                <a id="videoDirectLink" href="#" target="_blank">Открыть файл напрямую ↗</a>
+            </div>
+
             <video id="modalPlayer" controls playsinline webkit-playsinline preload="auto">
                 Ваш браузер не поддерживает встроенное видео.
             </video>
@@ -940,7 +1017,41 @@
         </div>
     </section>
 
-    <!-- БЛОК 5: CTA -->
+    <!-- БЛОК 5: ПРИМЕРЫ РАБОТ -->
+    <section class="cases-section">
+        <div class="section-container">
+            <span class="section-tag">Реальный опыт</span>
+            <h2 class="section-title text-center">Стены на объектах в Сочи</h2>
+            
+            <div class="cases-grid">
+                <div class="case-card">
+                    <div class="case-img-box">
+                        <img src="card1.jpg" alt="Апартаменты под сдачу" loading="lazy" onerror="this.onerror=null; this.src='';">
+                    </div>
+                    <h3>Апартаменты под сдачу</h3>
+                    <p>Стены подготовлены без стеклохолста. Финишный слой Keramik Matt выдерживает любую уборку.</p>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-img-box">
+                        <img src="card2.jpg" alt="Гостиничный комплекс" loading="lazy" onerror="this.onerror=null; this.src='';">
+                    </div>
+                    <h3>Коридор отеля</h3>
+                    <p>Проходная зона высокой нагрузки. Полимерная основа шпатлевки защищает углы от сколов.</p>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-img-box">
+                        <img src="card3.jpg" alt="Премиум интерьер" loading="lazy" onerror="this.onerror=null; this.src='';">
+                    </div>
+                    <h3>Премиальный интерьер</h3>
+                    <p>Подготовка под проявочный свет Q4. Глубокоматовая краска без бликов и переходов.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 6: CTA -->
     <section class="cta-section">
         <div class="cta-box">
             <span class="section-tag">Практика на объекте</span>
@@ -966,17 +1077,26 @@
 
     <!-- СКРИПТЫ -->
     <script>
-        // Прокрутка карусели стрелками
         function scrollCarousel(direction) {
             const carousel = document.getElementById('videoCarousel');
             const scrollAmount = 260 * direction;
             carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         }
 
-        // Открытие и загрузка видео
+        const modal = document.getElementById('videoModal');
+        const player = document.getElementById('modalPlayer');
+        const errorBox = document.getElementById('videoError');
+        const directLink = document.getElementById('videoDirectLink');
+
+        player.onerror = function() {
+            errorBox.style.display = 'block';
+            player.style.display = 'none';
+        };
+
         function openVideoModal(videoSrc) {
-            const modal = document.getElementById('videoModal');
-            const player = document.getElementById('modalPlayer');
+            errorBox.style.display = 'none';
+            player.style.display = 'block';
+            directLink.href = videoSrc;
             
             player.src = videoSrc;
             player.load();
@@ -987,25 +1107,21 @@
             const playPromise = player.play();
             if (playPromise !== undefined) {
                 playPromise.catch(error => {
-                    console.log("Автозапуск ожидает действия пользователя:", error);
+                    console.log("Автозапуск ожидает клика пользователя:", error);
                 });
             }
         }
 
-        // Закрытие и полная выгрузка видео
         function closeVideoModal() {
-            const modal = document.getElementById('videoModal');
-            const player = document.getElementById('modalPlayer');
-            
             player.pause();
             player.removeAttribute('src');
             player.load();
             
             modal.classList.remove('active');
             document.body.classList.remove('modal-open');
+            errorBox.style.display = 'none';
         }
 
-        // Закрытие по кнопке Escape
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeVideoModal();
         });
