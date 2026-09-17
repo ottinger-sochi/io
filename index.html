@@ -463,18 +463,6 @@
             border-top: 1px solid #eaeaea;
             position: relative;
         }
-        .mobile-swipe-hint {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 0.8rem;
-            font-weight: 800;
-            color: #ff5722;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 20px;
-        }
         .video-carousel-wrapper {
             position: relative;
             max-width: 1100px;
@@ -545,7 +533,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.92) 100%);
+            background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.85) 100%);
             z-index: 2;
         }
 
@@ -559,10 +547,10 @@
         .video-badge {
             background-color: rgba(0, 0, 0, 0.75);
             color: #ffffff;
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             font-weight: 800;
-            padding: 4px 8px;
-            border-radius: 3px;
+            padding: 4px 10px;
+            border-radius: 4px;
             text-transform: uppercase;
             backdrop-filter: blur(4px);
             letter-spacing: 0.5px;
@@ -571,22 +559,16 @@
             background-color: #ff5722;
             color: #ffffff;
         }
-        .video-duration {
-            color: #dddddd;
-            font-size: 0.72rem;
-            font-weight: 800;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
-        }
         .video-play-icon {
-            width: 52px;
-            height: 52px;
+            width: 54px;
+            height: 54px;
             background-color: #ff5722;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             color: #ffffff;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -599,28 +581,21 @@
             transform: translate(-50%, -50%) scale(1.15);
             background-color: #e64a19;
         }
-        .video-info {
+        .video-bottom-label {
             position: relative;
             z-index: 3;
-        }
-        .video-info h4 {
-            font-size: 0.95rem;
-            font-weight: 900;
             color: #ffffff;
-            margin-bottom: 6px;
-            line-height: 1.3;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-        }
-        .video-info p {
-            font-size: 0.78rem;
-            color: #d6d6d6;
-            line-height: 1.35;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.9);
         }
 
+        /* Стрелки карусели на десктопе */
         .carousel-arrow {
-            width: 46px;
-            height: 46px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             background-color: #ffffff;
             border: 1px solid #e0e0e0;
@@ -628,23 +603,25 @@
             display: none;
             justify-content: center;
             align-items: center;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 900;
             color: #111111;
             cursor: pointer;
             position: absolute;
-            top: 45%;
+            top: 50%;
             transform: translateY(-50%);
             z-index: 10;
             transition: all 0.2s ease;
+            line-height: 1;
+            user-select: none;
         }
         .carousel-arrow:hover {
             background-color: #ff5722;
             color: #ffffff;
             border-color: #ff5722;
         }
-        .arrow-left { left: -20px; }
-        .arrow-right { right: -20px; }
+        .arrow-left { left: -22px; }
+        .arrow-right { right: -22px; }
 
         /* МОДАЛЬНЫЙ СТОРИС-ПЛЕЕР */
         .video-modal {
@@ -704,12 +681,11 @@
             font-size: 0.85rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
         .modal-video-title span {
             color: #ff5722;
-            margin-right: 5px;
         }
         .video-modal-close {
             color: #ffffff;
@@ -744,6 +720,7 @@
             transition: all 0.2s ease;
             backdrop-filter: blur(5px);
             user-select: none;
+            line-height: 1;
         }
         .modal-nav-btn:hover {
             background-color: #ff5722;
@@ -751,6 +728,33 @@
         }
         .modal-prev-btn { left: -60px; }
         .modal-next-btn { right: -60px; }
+
+        /* Анимированная подсказка свайпа для мобильных */
+        .modal-swipe-hint {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 30px;
+            z-index: 15;
+            pointer-events: none;
+            animation: fadeInOut 2.8s forwards;
+            white-space: nowrap;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translate(-50%, 15px); }
+            20% { opacity: 1; transform: translate(-50%, 0); }
+            80% { opacity: 1; transform: translate(-50%, 0); }
+            100% { opacity: 0; transform: translate(-50%, -10px); display: none; }
+        }
 
         .video-error-box {
             display: none;
@@ -1023,7 +1027,7 @@
         }
         .metric-label strong { color: #111111; }
 
-        /* БЛОК 11: ПРИМЕРЫ РАБОТ (8 ПРОЕКТОВ) */
+        /* БЛОК 11: ПРИМЕРЫ РАБОТ */
         .cases-section {
             background-color: #ffffff;
             padding: 80px 20px;
@@ -1187,10 +1191,7 @@
 
             .factory-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
             .metrics-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
-            
-            /* Сетка 4x2 для 8 объектов */
             .cases-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
-            
             .partners-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
 
             .footer-container {
@@ -1382,216 +1383,21 @@
         </div>
     </section>
 
-    <!-- БЛОК 6: ВИДЕО-ДОКАЗАТЕЛЬСТВА (КАРУСЕЛЬ) -->
+    <!-- БЛОК 6: ВИДЕО-ДОКАЗАТЕЛЬСТВА (ДИНАМИЧЕСКИЙ РЕНДЕР БЕЗ ПУСТЫХ КАРТОЧЕК) -->
     <section class="video-section" id="video-gallery">
         <div class="section-container">
             <span class="section-tag">Видео-доказательства</span>
             <h2 class="section-title text-center">Система OTTINGER в действии: <span class="accent-color">Краш-тесты и практика мастеров</span></h2>
             
-            <div class="mobile-swipe-hint">
-                <span>← Листайте видео →</span>
-            </div>
-
             <div class="video-carousel-wrapper">
+                <!-- Стрелка влево -->
                 <button class="carousel-arrow arrow-left" onclick="scrollCarousel(-1)">&#8249;</button>
 
-                <div class="video-carousel" id="videoCarousel">
-                    
-                    <!-- 1. Краш-тест (Вино, кофе и кетчуп) -->
-                    <div class="video-card" onclick="openVideoModal(0)">
-                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video1.mp4#t=0.5"></video>
-                        <div class="video-card-overlay"></div>
-                        <div class="video-top-row">
-                            <span class="video-badge badge-hit">КРАШ-ТЕСТ</span>
-                            <span class="video-duration">0:45</span>
-                        </div>
-                        <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Вино, кофе и кетчуп</h4><p>Проверяем стойкость краски Keramik Matt: удаляем пятна влажной салфеткой.</p></div>
-                    </div>
+                <!-- Контейнер заполняется динамически -->
+                <div class="video-carousel" id="videoCarousel"></div>
 
-                    <!-- 2 -->
-                    <div class="video-card" onclick="openVideoModal(1)">
-                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video2.mp4#t=0.5"></video>
-                        <div class="video-card-overlay"></div>
-                        <div class="video-top-row">
-                            <span class="video-badge">ЭЛАСТИЧНОСТЬ</span>
-                            <span class="video-duration">0:45</span>
-                        </div>
-                        <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Тест на упругость</h4><p>Сворачиваем полимерный слой Basis Start в трубку без трещин.</p></div>
-                    </div>
-
-                    <!-- 3 -->
-                    <div class="video-card" onclick="openVideoModal(2)">
-                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video3.mp4#t=0.5"></video>
-                        <div class="video-card-overlay"></div>
-                        <div class="video-top-row">
-                            <span class="video-badge">КРАШ-ТЕСТ</span>
-                            <span class="video-duration">0:30</span>
-                        </div>
-                        <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Тест острием ручки</h4><p>Проверка на сколы, вмятины и продавливание металлическим острием.</p></div>
-                    </div>
-
-                    <!-- 4 -->
-                    <div class="video-card" onclick="openVideoModal(3)">
-                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video4.mp4#t=0.5"></video>
-                        <div class="video-card-overlay"></div>
-                        <div class="video-top-row">
-                            <span class="video-badge">ЛАЙФХАК</span>
-                            <span class="video-duration">1:15</span>
-                        </div>
-                        <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Шлифовка жирафом</h4><p>Секретная техника: вскрытие P40 за 3 мин и доводка керамикой P120.</p></div>
-                    </div>
-
-                    <!-- 5 -->
-                    <div class="video-card" onclick="openVideoModal(4)">
-                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video5.mp4#t=0.5"></video>
-                        <div class="video-card-overlay"></div>
-                        <div class="video-top-row">
-                            <span class="video-badge">ТЕХНОЛОГИЯ</span>
-                            <span class="video-duration">1:40</span>
-                        </div>
-                        <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Метод «1000 линий»</h4><p>Как правильно наносить шпатлевку крест-накрест без стеклохолста.</p></div>
-                    </div>
-
-                    <!-- 6 -->
-                    <div class="video-card" onclick="openVideoModal(5)">
-                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video6.mp4#t=0.5"></video>
-                        <div class="video-card-overlay"></div>
-                        <div class="video-top-row">
-                            <span class="video-badge">ТЕХНОЛОГИЯ</span>
-                            <span class="video-duration">1:10</span>
-                        </div>
-                        <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Нанесение валиком</h4><p>Быстрая раскатка полимера на объекте без сложного оборудования.</p></div>
-                    </div>
-
-                    <!-- 7 -->
-                    <div class="video-card" onclick="openVideoModal(6)">
-                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video7.mp4#t=0.5"></video>
-                        <div class="video-card-overlay"></div>
-                        <div class="video-top-row">
-                            <span class="video-badge">МЕХАНИЗАЦИЯ</span>
-                            <span class="video-duration">1:55</span>
-                        </div>
-                        <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Безвоздушный аппарат</h4><p>Высокая скорость на больших объемах: работа соплами 531–535.</p></div>
-                    </div>
-
-                    <!-- 8 -->
-                    <div class="video-card" onclick="openVideoModal(7)">
-                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video8.mp4#t=0.5"></video>
-                        <div class="video-card-overlay"></div>
-                        <div class="video-top-row">
-                            <span class="video-badge">ЧИСТОТА</span>
-                            <span class="video-duration">0:40</span>
-                        </div>
-                        <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Тест на тяжелую пыль</h4><p>Всего 1 мешок мусора со 100 м²: пыль сразу падает на пол.</p></div>
-                    </div>
-
-                    <!-- 9 -->
-                    <div class="video-card" onclick="openVideoModal(8)">
-                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video9.mp4#t=0.5"></video>
-                        <div class="video-card-overlay"></div>
-                        <div class="video-top-row">
-                            <span class="video-badge">УГЛЫ И СТЫКИ</span>
-                            <span class="video-duration">1:20</span>
-                        </div>
-                        <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Монтаж Strait-Flex</h4><p>Надежная вклейка композитных лент на шпатлевку Basis Aqua.</p></div>
-                    </div>
-
-                    <!-- 10 -->
-                    <div class="video-card" onclick="openVideoModal(9)">
-                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video10.mp4#t=0.5"></video>
-                        <div class="video-card-overlay"></div>
-                        <div class="video-top-row">
-                            <span class="video-badge">ПОДГОТОВКА</span>
-                            <span class="video-duration">0:55</span>
-                        </div>
-                        <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Грунтовка 1:4</h4><p>Честный 20% концентрат Primer Konzentrat для связывания пыли на ГКЛ.</p></div>
-                    </div>
-
-                    <!-- 11 -->
-                    <div class="video-card" onclick="openVideoModal(10)">
-                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video11.mp4#t=0.5"></video>
-                        <div class="video-card-overlay"></div>
-                        <div class="video-top-row">
-                            <span class="video-badge">СРАВНЕНИЕ</span>
-                            <span class="video-duration">1:30</span>
-                        </div>
-                        <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Гипс против OTTINGER</h4><p>Наглядный баттл прочности классической и полимерной отделки.</p></div>
-                    </div>
-
-                    <!-- 12 -->
-                    <div class="video-card" onclick="openVideoModal(11)">
-                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video12.mp4#t=0.5"></video>
-                        <div class="video-card-overlay"></div>
-                        <div class="video-top-row">
-                            <span class="video-badge">КРАШ-ТЕСТ</span>
-                            <span class="video-duration">0:35</span>
-                        </div>
-                        <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Удар по внешнему углу</h4><p>Защита от сколов при ударах мебелью, стремянками и чемоданами.</p></div>
-                    </div>
-
-                    <!-- 13 -->
-                    <div class="video-card" onclick="openVideoModal(12)">
-                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video13.mp4#t=0.5"></video>
-                        <div class="video-card-overlay"></div>
-                        <div class="video-top-row">
-                            <span class="video-badge">КАЧЕСТВО Q4</span>
-                            <span class="video-duration">1:05</span>
-                        </div>
-                        <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Проявочный свет Lossew</h4><p>Проверка плоскости мощной косопадающей малярной лампой.</p></div>
-                    </div>
-
-                    <!-- 14 -->
-                    <div class="video-card" onclick="openVideoModal(13)">
-                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video14.mp4#t=0.5"></video>
-                        <div class="video-card-overlay"></div>
-                        <div class="video-top-row">
-                            <span class="video-badge">РЕАЛЬНЫЙ ОБЪЕКТ</span>
-                            <span class="video-duration">1:45</span>
-                        </div>
-                        <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Апартаменты 85 м²</h4><p>Обзор полностью готового объекта без единого метра стеклохолста.</p></div>
-                    </div>
-
-                    <!-- 15 -->
-                    <div class="video-card" onclick="openVideoModal(14)">
-                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video15.mp4#t=0.5"></video>
-                        <div class="video-card-overlay"></div>
-                        <div class="video-top-row">
-                            <span class="video-badge">ОТЗЫВ</span>
-                            <span class="video-duration">1:50</span>
-                        </div>
-                        <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Отзыв мастера-маляра</h4><p>Реальный опыт и экономия времени после 3 сданных квартир.</p></div>
-                    </div>
-
-                    <!-- 16 -->
-                    <div class="video-card" onclick="openVideoModal(15)">
-                        <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video16.mp4#t=0.5"></video>
-                        <div class="video-card-overlay"></div>
-                        <div class="video-top-row">
-                            <span class="video-badge badge-hit">ТЕСТ-ДРАЙВ</span>
-                            <span class="video-duration">1:10</span>
-                        </div>
-                        <div class="video-play-icon">▶</div>
-                        <div class="video-info"><h4>Выезд на ваш объект</h4><p>Как проходит бесплатная демонстрация со своими ведрами в Сочи.</p></div>
-                    </div>
-
-                </div>
-
-                <button class="carousel-arrow arrow-right" onclick="scrollCarousel(1)">&#8249;</button>
+                <!-- Стрелка вправо -->
+                <button class="carousel-arrow arrow-right" onclick="scrollCarousel(1)">&#8250;</button>
             </div>
         </div>
     </section>
@@ -1605,11 +1411,14 @@
 
             <div class="video-modal-content" id="modalSwipeArea">
                 <div class="modal-top-bar">
-                    <div class="modal-video-title" id="modalVideoTitle">
-                        <span id="modalVideoTag">КРАШ-ТЕСТ</span> <span id="modalVideoName">Вино, кофе и кетчуп</span>
+                    <div class="modal-video-title">
+                        <span>OTTINGER</span> | <span id="modalVideoName">ВИДЕО #01</span>
                     </div>
                     <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
                 </div>
+
+                <!-- Всплывающая подсказка свайпа -->
+                <div class="modal-swipe-hint" id="modalSwipeHint">👈 Свайпайте для переключения 👉</div>
 
                 <div id="videoError" class="video-error-box">
                     <h5>Ошибка загрузки</h5>
@@ -1934,26 +1743,52 @@
 
     <!-- СКРИПТЫ -->
     <script>
-        const videosList = [
-            { src: 'video1.mp4', title: 'Вино, кофе и кетчуп', tag: 'КРАШ-ТЕСТ' },
-            { src: 'video2.mp4', title: 'Тест на упругость', tag: 'ЭЛАСТИЧНОСТЬ' },
-            { src: 'video3.mp4', title: 'Тест острием ручки', tag: 'КРАШ-ТЕСТ' },
-            { src: 'video4.mp4', title: 'Шлифовка жирафом', tag: 'ЛАЙФХАК' },
-            { src: 'video5.mp4', title: 'Метод «1000 линий»', tag: 'ТЕХНОЛОГИЯ' },
-            { src: 'video6.mp4', title: 'Нанесение валиком', tag: 'ТЕХНОЛОГИЯ' },
-            { src: 'video7.mp4', title: 'Безвоздушный аппарат', tag: 'МЕХАНИЗАЦИЯ' },
-            { src: 'video8.mp4', title: 'Тест на тяжелую пыль', tag: 'ЧИСТОТА' },
-            { src: 'video9.mp4', title: 'Монтаж Strait-Flex', tag: 'УГЛЫ И СТЫКИ' },
-            { src: 'video10.mp4', title: 'Грунтовка 1:4', tag: 'ПОДГОТОВКА' },
-            { src: 'video11.mp4', title: 'Гипс против OTTINGER', tag: 'СРАВНЕНИЕ' },
-            { src: 'video12.mp4', title: 'Удар по внешнему углу', tag: 'КРАШ-ТЕСТ' },
-            { src: 'video13.mp4', title: 'Проявочный свет Lossew', tag: 'КАЧЕСТВО Q4' },
-            { src: 'video14.mp4', title: 'Апартаменты 85 м²', tag: 'РЕАЛЬНЫЙ ОБЪЕКТ' },
-            { src: 'video15.mp4', title: 'Отзыв мастера-маляра', tag: 'ОТЗЫВ' },
-            { src: 'video16.mp4', title: 'Выезд на ваш объект', tag: 'ТЕСТ-ДРАЙВ' }
+        // ==========================================
+        // СПИСОК РЕАЛЬНО ЗАГРУЖЕННЫХ ВИДЕО
+        // Чтобы добавить новое видео, просто раскомментируйте строчку:
+        // ==========================================
+        const activeVideos = [
+            { src: 'video1.mp4', label: 'ВИДЕО #01' },
+            // { src: 'video2.mp4', label: 'ВИДЕО #02' },
+            // { src: 'video3.mp4', label: 'ВИДЕО #03' },
+            // { src: 'video4.mp4', label: 'ВИДЕО #04' },
+            // { src: 'video5.mp4', label: 'ВИДЕО #05' },
+            // { src: 'video6.mp4', label: 'ВИДЕО #06' },
+            // { src: 'video7.mp4', label: 'ВИДЕО #07' },
+            // { src: 'video8.mp4', label: 'ВИДЕО #08' },
+            // { src: 'video9.mp4', label: 'ВИДЕО #09' },
+            // { src: 'video10.mp4', label: 'ВИДЕО #10' },
+            // { src: 'video11.mp4', label: 'ВИДЕО #11' },
+            // { src: 'video12.mp4', label: 'ВИДЕО #12' },
+            // { src: 'video13.mp4', label: 'ВИДЕО #13' },
+            // { src: 'video14.mp4', label: 'ВИДЕО #14' },
+            // { src: 'video15.mp4', label: 'ВИДЕО #15' },
+            // { src: 'video16.mp4', label: 'ВИДЕО #16' }
         ];
 
         let currentVideoIndex = 0;
+
+        // Генерация только существующих карточек
+        function renderVideoCarousel() {
+            const carousel = document.getElementById('videoCarousel');
+            carousel.innerHTML = '';
+
+            activeVideos.forEach((vid, index) => {
+                const card = document.createElement('div');
+                card.className = 'video-card';
+                card.onclick = () => openVideoModal(index);
+                card.innerHTML = `
+                    <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="${vid.src}#t=0.5"></video>
+                    <div class="video-card-overlay"></div>
+                    <div class="video-top-row"><span class="video-badge badge-hit">${vid.label}</span></div>
+                    <div class="video-play-icon">▶</div>
+                    <div class="video-bottom-label">OTTINGER TEST</div>
+                `;
+                carousel.appendChild(card);
+            });
+        }
+
+        renderVideoCarousel();
 
         function scrollCarousel(direction) {
             const carousel = document.getElementById('videoCarousel');
@@ -1965,8 +1800,8 @@
         const player = document.getElementById('modalPlayer');
         const errorBox = document.getElementById('videoError');
         const directLink = document.getElementById('videoDirectLink');
-        const modalTag = document.getElementById('modalVideoTag');
         const modalName = document.getElementById('modalVideoName');
+        const swipeHint = document.getElementById('modalSwipeHint');
 
         player.onerror = function() {
             errorBox.style.display = 'block';
@@ -1974,15 +1809,14 @@
         };
 
         function loadVideo(index) {
+            if (activeVideos.length === 0) return;
             currentVideoIndex = index;
-            const videoData = videosList[currentVideoIndex];
+            const videoData = activeVideos[currentVideoIndex];
             
             errorBox.style.display = 'none';
             player.style.display = 'block';
             directLink.href = videoData.src;
-            
-            modalTag.textContent = videoData.tag;
-            modalName.textContent = videoData.title;
+            modalName.textContent = videoData.label;
 
             player.src = videoData.src;
             player.load();
@@ -1997,16 +1831,26 @@
             loadVideo(index);
             modal.classList.add('active');
             document.body.classList.add('modal-open');
+
+            if (swipeHint) {
+                swipeHint.style.animation = 'none';
+                swipeHint.offsetHeight;
+                swipeHint.style.animation = 'fadeInOut 2.8s forwards';
+            }
         }
 
+        // Бесконечное переключение вперед по кругу
         function nextVideo() {
-            let nextIndex = (currentVideoIndex + 1) % videosList.length;
-            loadVideo(nextIndex);
+            if (activeVideos.length <= 1) return;
+            currentVideoIndex = (currentVideoIndex + 1) % activeVideos.length;
+            loadVideo(currentVideoIndex);
         }
 
+        // Бесконечное переключение назад по кругу
         function prevVideo() {
-            let prevIndex = (currentVideoIndex - 1 + videosList.length) % videosList.length;
-            loadVideo(prevIndex);
+            if (activeVideos.length <= 1) return;
+            currentVideoIndex = (currentVideoIndex - 1 + activeVideos.length) % activeVideos.length;
+            loadVideo(currentVideoIndex);
         }
 
         function closeVideoModal() {
@@ -2040,11 +1884,11 @@
         }, { passive: true });
 
         function handleSwipe() {
-            const threshold = 45;
+            const threshold = 40;
             if (touchStartX - touchEndX > threshold) {
-                nextVideo();
+                nextVideo(); // свайп влево -> следующее по кругу
             } else if (touchEndX - touchStartX > threshold) {
-                prevVideo();
+                prevVideo(); // свайп вправо -> предыдущее по кругу
             }
         }
     </script>
