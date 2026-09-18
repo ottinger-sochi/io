@@ -31,11 +31,11 @@
             overflow: hidden;
         }
         
-        /* ШАПКА САЙТА (STICKY HEADER) */
+        /* ШАПКА САЙТА (STICKY HEADER С ЗАЩИТОЙ ОТ ПЕРЕПОЛНЕНИЯ) */
         header {
             position: sticky;
             top: 0;
-            background-color: rgba(255, 255, 255, 0.97);
+            background-color: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid #eaeaea;
             z-index: 1000;
@@ -45,20 +45,22 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 20px;
-            max-width: 1200px;
+            padding: 12px 20px;
+            max-width: 1260px;
             margin: 0 auto;
+            gap: 15px; /* Защита от слипания блоков */
         }
         .logo-box {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             text-decoration: none;
+            flex-shrink: 0; /* Логотип никогда не сжимается */
         }
         .logo-text {
             font-weight: 900;
-            font-size: 1.35rem;
-            letter-spacing: 3px;
+            font-size: 1.25rem;
+            letter-spacing: 2px;
             color: #111111;
             text-transform: uppercase;
         }
@@ -66,31 +68,36 @@
             color: #ff5722;
         }
         .logo-sub {
-            font-size: 0.65rem;
+            font-size: 0.62rem;
             font-weight: 800;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             color: #777777;
             text-transform: uppercase;
             border-left: 2px solid #ff5722;
-            padding-left: 10px;
+            padding-left: 8px;
+            margin-right: 5px;
         }
 
         /* Навигация на ПК */
         .desktop-nav {
             display: none;
             align-items: center;
-            gap: 20px;
+            justify-content: center;
+            gap: 14px;
+            flex: 1;
+            padding: 0 10px;
         }
         .desktop-nav a {
             color: #222222;
             text-decoration: none;
-            font-size: 0.78rem;
+            font-size: 0.74rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.4px;
+            white-space: nowrap; /* Запрет переноса текста */
             transition: color 0.2s ease;
             position: relative;
-            padding: 4px 0;
+            padding: 6px 2px;
         }
         .desktop-nav a::after {
             content: '';
@@ -110,13 +117,14 @@
         .header-right {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
+            flex-shrink: 0; /* Телефон никогда не сжимается */
         }
         .phone {
             color: #111111;
             text-decoration: none;
             font-weight: 900;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             white-space: nowrap;
             transition: color 0.2s ease;
         }
@@ -126,8 +134,8 @@
 
         /* Кнопка бургера */
         .burger-btn {
-            width: 40px;
-            height: 40px;
+            width: 38px;
+            height: 38px;
             background: #f8f8f8;
             border: 1px solid #e0e0e0;
             border-radius: 6px;
@@ -136,7 +144,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
             padding: 8px;
             transition: all 0.2s;
         }
@@ -145,14 +153,14 @@
             background: #fff5f2;
         }
         .burger-btn span {
-            width: 20px;
+            width: 18px;
             height: 2px;
             background-color: #111111;
             transition: all 0.25s ease;
             border-radius: 2px;
         }
 
-        /* БОКОВАЯ ШТОРКА (ДЛЯ МОБИЛЬНЫХ) */
+        /* БОКОВАЯ ШТОРКА (ДЛЯ МОБИЛЬНЫХ И ПЛАНШЕТОВ) */
         .mobile-drawer-backdrop {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -171,7 +179,7 @@
         .mobile-drawer {
             position: fixed;
             top: 0; right: 0; bottom: 0;
-            width: 82%;
+            width: 85%;
             max-width: 320px;
             background-color: #ffffff;
             z-index: 2001;
@@ -218,7 +226,7 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
             margin: 20px 0;
         }
         .drawer-links li a {
@@ -227,7 +235,7 @@
             gap: 12px;
             text-decoration: none;
             color: #111111;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 800;
             text-transform: uppercase;
             padding: 10px 12px;
@@ -1274,7 +1282,7 @@
             line-height: 1.45;
         }
 
-        /* БЛОК 12 (НОВЫЙ): ПРИГЛАШЕНИЕ В МАЛЯРНЫЙ ЦЕХ */
+        /* БЛОК 12: ПРИГЛАШЕНИЕ В МАЛЯРНЫЙ ЦЕХ */
         .workshop-section {
             background-color: #111111;
             color: #ffffff;
@@ -1357,7 +1365,7 @@
             color: #ffffff;
         }
 
-        /* БЛОК 13 (НОВЫЙ): ОТЗЫВЫ ЛЮДЕЙ С ФОТО И ПРОФИЛЯМИ */
+        /* БЛОК 13: ОТЗЫВЫ */
         .reviews-section {
             background-color: #f8f8f8;
             padding: 90px 20px;
@@ -1422,7 +1430,6 @@
             font-size: 0.92rem;
             line-height: 1.6;
             font-style: normal;
-            position: relative;
         }
         .review-rating {
             color: #ff5722;
@@ -1489,12 +1496,11 @@
             font-weight: 700;
         }
 
-        /* АДАПТИВНОСТЬ ДЛЯ ПК */
-        @media (min-width: 992px) {
+        /* АДАПТИВНОСТЬ ДЛЯ ДЕСКТОПА */
+        @media (min-width: 1100px) {
             .desktop-nav { display: flex; }
-            .burger-btn { display: none; }
-            .header-container { padding: 16px 40px; }
-            .phone { font-size: 1.15rem; }
+            .burger-btn { display: none; } /* Бургер скрыт на десктопе */
+            .header-container { padding: 14px 30px; }
             h1 { font-size: 2.6rem; }
             
             .product-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
@@ -1518,13 +1524,11 @@
             .metrics-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
             .cases-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
             
-            /* Цех на 2 колонки */
             .workshop-box { flex-direction: row; gap: 60px; }
             .workshop-image-side { width: 50%; height: 420px; flex-shrink: 0; }
             .workshop-text-side { width: 50%; }
             .workshop-text-side h2 { font-size: 2.3rem; }
 
-            /* Отзывы на 3 колонки */
             .reviews-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
 
             .footer-container {
@@ -1533,22 +1537,28 @@
                 align-items: flex-start;
             }
         }
-        @media (max-width: 991px) {
+        @media (min-width: 1240px) {
+            .desktop-nav { gap: 20px; }
+            .desktop-nav a { font-size: 0.78rem; letter-spacing: 0.5px; }
+        }
+        @media (max-width: 1099px) {
             .modal-nav-btn { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ШАПКА -->
+    <!-- ШАПКА: ЧЕТКОЕ РАЗДЕЛЕНИЕ НА 3 БЛОКА БЕЗ СЛИПАНИЯ -->
     <header id="mainHeader">
         <div class="header-container">
+            
+            <!-- Логотип (Слева) -->
             <a href="#top" class="logo-box">
                 <div class="logo-text">OTTINGER<span>.</span></div>
                 <div class="logo-sub">SOCHI</div>
             </a>
 
-            <!-- Навигация на ПК -->
+            <!-- Навигация (По центру, никогда не переносится в 2 строки) -->
             <nav class="desktop-nav">
                 <a href="#system">Инновация</a>
                 <a href="#pie">Сравнение</a>
@@ -1560,6 +1570,7 @@
                 <a href="#contacts">Контакты</a>
             </nav>
 
+            <!-- Телефон и кнопка бургера (Справа) -->
             <div class="header-right">
                 <a href="tel:+79219121895" class="phone">+7 (921) 912-18-95</a>
                 <button class="burger-btn" id="burgerBtn" onclick="toggleDrawer()" aria-label="Открыть меню">
@@ -1568,6 +1579,7 @@
                     <span></span>
                 </button>
             </div>
+
         </div>
     </header>
 
@@ -2077,7 +2089,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 12 (НОВЫЙ): ПРИГЛАШЕНИЕ В МАЛЯРНЫЙ ЦЕХ -->
+    <!-- БЛОК 12: ПРИГЛАШЕНИЕ В МАЛЯРНЫЙ ЦЕХ -->
     <section class="workshop-section" id="workshop">
         <div class="section-container">
             <div class="workshop-box">
@@ -2111,7 +2123,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 13 (НОВЫЙ): ОТЗЫВЫ ЛЮДЕЙ С ФОТО И ПРОФИЛЯМИ -->
+    <!-- БЛОК 13: ОТЗЫВЫ -->
     <section class="reviews-section" id="reviews">
         <div class="section-container">
             <span class="section-tag">Сообщество профессионалов</span>
@@ -2358,8 +2370,10 @@
                 closeVideoModal();
                 closeDrawer();
             }
-            if (e.key === 'ArrowRight') nextVideo();
-            if (e.key === 'ArrowLeft') prevVideo();
+            if (modal.classList.contains('active')) {
+                if (e.key === 'ArrowRight') nextVideo();
+                if (e.key === 'ArrowLeft') prevVideo();
+            }
         });
 
         const swipeArea = document.getElementById('modalSwipeArea');
@@ -2378,9 +2392,9 @@
         function handleSwipe() {
             const threshold = 40;
             if (touchStartX - touchEndX > threshold) {
-                nextVideo();
+                nextVideo(); // свайп влево -> следующее по кругу
             } else if (touchEndX - touchStartX > threshold) {
-                prevVideo();
+                prevVideo(); // свайп вправо -> предыдущее по кругу
             }
         }
     </script>
