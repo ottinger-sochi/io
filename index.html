@@ -1,26 +1,8 @@
-Готово! Теперь блок «Галерея проектов» превратился в полноценную интерактивную
-фотогалерею (Lightbox):
-
-Что добавлено:
-
-1.  Увеличение в полный экран: при клике на любую из 8 фотографий она
-    открывается в высоком разрешении на затемненном фоне.
-2.  Свайп пальцем влево и вправо на смартфонах: можно листать все фотографии
-    объектов не закрывая окно.
-3.  Бесконечный циклический просмотр: фото листаются по кругу в обе стороны (1
-    ➔ 8 ➔ 1).
-4.  Стрелки на ПК и клавиатура: переключение стрелками на экране или клавишами ←
-    / → / ESC.
-5.  Индикатор и название: сверху отображается номер фото и тип помещения
-    (например, 03 / 08 • Кухни-гостиные).
-
-Полный обновлённый код index.html:
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>OTTINGER Sochi — Профессиональные отделочные материалы</title>
     <!-- Подключение фирменного шрифта Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -215,7 +197,6 @@
             color: #ff5722;
         }
 
-        /* Кнопка быстрого вызова на смартфонах */
         .phone-icon-btn {
             display: none;
             width: 38px;
@@ -1399,18 +1380,18 @@
             line-height: 1.45;
         }
 
-        /* ПОЛНОЭКРАННЫЙ ЛАЙТБОКС ДЛЯ ФОТОГРАФИЙ (PHOTO MODAL) */
+        /* ПОЛНОЭКРАННЫЙ ЛАЙТБОКС С МИКРО-ЗУМОМ (PINCH-TO-ZOOM) */
         .photo-modal {
             display: none;
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(6, 6, 6, 0.96);
-            backdrop-filter: blur(10px);
+            background-color: rgba(5, 5, 5, 0.98);
+            backdrop-filter: blur(12px);
             z-index: 99999;
             justify-content: center;
             align-items: center;
-            padding: 15px;
-            touch-action: pan-y;
+            padding: 10px;
+            touch-action: none; /* Захват всех жестов зума */
         }
         .photo-modal.active {
             display: flex;
@@ -1421,29 +1402,36 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            max-width: 960px;
-            height: 85vh;
+            height: 100%;
+            max-width: 1100px;
         }
         .photo-modal-content {
             position: relative;
             width: 100%;
-            height: 100%;
+            height: 85vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
             user-select: none;
         }
         .photo-modal-img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-            transition: transform 0.25s ease;
+            border-radius: 6px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.9);
+            transform-origin: center center;
+            will-change: transform;
+            cursor: grab;
         }
+        .photo-modal-img.zoomed {
+            cursor: move;
+        }
+
         .photo-top-bar {
             position: absolute;
-            top: 15px; left: 20px; right: 20px;
+            top: 15px; left: 15px; right: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -1452,11 +1440,15 @@
         }
         .photo-title-text {
             color: #ffffff;
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.6);
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.15);
         }
         .photo-title-text span {
             color: #ff5722;
@@ -1466,15 +1458,23 @@
             font-size: 2.4rem;
             font-weight: bold;
             cursor: pointer;
-            background: none;
-            border: none;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             line-height: 1;
             pointer-events: auto;
-            transition: color 0.2s;
+            transition: all 0.2s;
         }
         .photo-close-btn:hover {
-            color: #ff5722;
+            background-color: #ff5722;
+            border-color: #ff5722;
         }
+
         .photo-nav-btn {
             position: absolute;
             top: 50%;
@@ -1503,23 +1503,38 @@
         .photo-prev-btn { left: -65px; }
         .photo-next-btn { right: -65px; }
 
-        .photo-swipe-hint {
+        .photo-zoom-controls {
             position: absolute;
             bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            gap: 10px;
+            z-index: 105;
+            background: rgba(0, 0, 0, 0.75);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 14px;
+            border-radius: 30px;
+            backdrop-filter: blur(6px);
+            align-items: center;
+        }
+        .zoom-btn {
+            background: none;
+            border: none;
             color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            padding: 2px 8px;
+            transition: color 0.2s;
+        }
+        .zoom-btn:hover { color: #ff5722; }
+        .zoom-hint-text {
+            color: #aaaaaa;
             font-size: 0.75rem;
             font-weight: 700;
-            padding: 8px 16px;
-            border-radius: 30px;
-            z-index: 105;
-            pointer-events: none;
-            animation: fadeInOut 2.8s forwards;
-            white-space: nowrap;
-            backdrop-filter: blur(6px);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding-left: 6px;
+            border-left: 1px solid #444;
         }
 
         /* БЛОК 12: ПРИГЛАШЕНИЕ В МАЛЯРНЫЙ ЦЕХ */
@@ -1785,20 +1800,12 @@
 
         /* АДАПТИВНОСТЬ ДЛЯ СМАРТФОНОВ */
         @media (max-width: 576px) {
-            .phone-text {
-                display: none;
-            }
-            .phone-icon-btn {
-                display: flex;
-            }
+            .phone-text { display: none; }
+            .phone-icon-btn { display: flex; }
         }
         @media (min-width: 577px) {
-            .phone-icon-btn {
-                display: none;
-            }
-            .phone-text {
-                display: inline-block;
-            }
+            .phone-icon-btn { display: none; }
+            .phone-text { display: inline-block; }
         }
         @media (max-width: 1099px) {
             .modal-nav-btn, .photo-nav-btn { display: none; }
@@ -2191,7 +2198,7 @@
         </div>
     </section>
 
-    <!-- МОДАЛЬНЫЙ СТОРИС-ПЛЕЕР -->
+    <!-- МОДАЛЬНЫЙ СТОРИС-ПЛЕЕР ДЛЯ ВИДЕО -->
     <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
         <div class="video-modal-wrapper" onclick="event.stopPropagation()">
             
@@ -2292,7 +2299,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 11: ПРИМЕРЫ РАБОТ (ПОЛНОЭКРАННАЯ ГАЛЕРЕЯ С ЗУМОМ И СВАЙПАМИ) -->
+    <!-- БЛОК 11: ПРИМЕРЫ РАБОТ (С МИКРО-ЗУМОМ И ПЕРЕМЕЩЕНИЕМ ПАЛЬЦЕМ) -->
     <section class="cases-section" id="cases">
         <div class="section-container">
             <span class="section-tag">Галерея проектов</span>
@@ -2304,7 +2311,7 @@
                 <div class="case-card" onclick="openPhotoModal(0)">
                     <div class="case-img-box">
                         <img src="card1.png" alt="Офисные пространства и рейки" loading="lazy" onerror="this.onerror=null; this.src='card1.jpg';">
-                        <span class="case-zoom-hint">🔍 Увеличить</span>
+                        <span class="case-zoom-hint">🔍 Приблизить</span>
                     </div>
                     <div>
                         <h3>Офисные пространства</h3>
@@ -2316,7 +2323,7 @@
                 <div class="case-card" onclick="openPhotoModal(1)">
                     <div class="case-img-box">
                         <img src="card2.png" alt="Спальни и кабинеты" loading="lazy" onerror="this.onerror=null; this.src='card2.jpg';">
-                        <span class="case-zoom-hint">🔍 Увеличить</span>
+                        <span class="case-zoom-hint">🔍 Приблизить</span>
                     </div>
                     <div>
                         <h3>Спальни и кабинеты</h3>
@@ -2328,7 +2335,7 @@
                 <div class="case-card" onclick="openPhotoModal(2)">
                     <div class="case-img-box">
                         <img src="card3.png" alt="Кухни-гостиные" loading="lazy" onerror="this.onerror=null; this.src='card3.jpg';">
-                        <span class="case-zoom-hint">🔍 Увеличить</span>
+                        <span class="case-zoom-hint">🔍 Приблизить</span>
                     </div>
                     <div>
                         <h3>Кухни-гостиные</h3>
@@ -2340,7 +2347,7 @@
                 <div class="case-card" onclick="openPhotoModal(3)">
                     <div class="case-img-box">
                         <img src="card4.png" alt="Прихожие и столовые зоны" loading="lazy" onerror="this.onerror=null; this.src='card4.jpg';">
-                        <span class="case-zoom-hint">🔍 Увеличить</span>
+                        <span class="case-zoom-hint">🔍 Приблизить</span>
                     </div>
                     <div>
                         <h3>Прихожие и столовые</h3>
@@ -2352,7 +2359,7 @@
                 <div class="case-card" onclick="openPhotoModal(4)">
                     <div class="case-img-box">
                         <img src="card5.png" alt="Сложный боковой свет" loading="lazy" onerror="this.onerror=null; this.src='card5.jpg';">
-                        <span class="case-zoom-hint">🔍 Увеличить</span>
+                        <span class="case-zoom-hint">🔍 Приблизить</span>
                     </div>
                     <div>
                         <h3>Сложный боковой свет</h3>
@@ -2364,7 +2371,7 @@
                 <div class="case-card" onclick="openPhotoModal(5)">
                     <div class="case-img-box">
                         <img src="card6.png" alt="Лепной декор и молдинги" loading="lazy" onerror="this.onerror=null; this.src='card6.jpg';">
-                        <span class="case-zoom-hint">🔍 Увеличить</span>
+                        <span class="case-zoom-hint">🔍 Приблизить</span>
                     </div>
                     <div>
                         <h3>Лепной декор и молдинги</h3>
@@ -2376,7 +2383,7 @@
                 <div class="case-card" onclick="openPhotoModal(6)">
                     <div class="case-img-box">
                         <img src="card7.png" alt="Контроль света Q4" loading="lazy" onerror="this.onerror=null; this.src='card7.jpg';">
-                        <span class="case-zoom-hint">🔍 Увеличить</span>
+                        <span class="case-zoom-hint">🔍 Приблизить</span>
                     </div>
                     <div>
                         <h3>Контроль света Q4</h3>
@@ -2388,7 +2395,7 @@
                 <div class="case-card" onclick="openPhotoModal(7)">
                     <div class="case-img-box">
                         <img src="card8.png" alt="Сложные глубокие цвета" loading="lazy" onerror="this.onerror=null; this.src='card8.jpg';">
-                        <span class="case-zoom-hint">🔍 Увеличить</span>
+                        <span class="case-zoom-hint">🔍 Приблизить</span>
                     </div>
                     <div>
                         <h3>Сложные глубокие цвета</h3>
@@ -2400,7 +2407,7 @@
         </div>
     </section>
 
-    <!-- ПОЛНОЭКРАННЫЙ ЛАЙТБОКС ДЛЯ ФОТОГРАФИЙ С КРУГОВЫМ СВАЙПОМ -->
+    <!-- ПОЛНОЭКРАННЫЙ ЛАЙТБОКС С PINCH-TO-ZOOM И ПЕРЕМЕЩЕНИЕМ -->
     <div id="photoModal" class="photo-modal" onclick="closePhotoModal()">
         <div class="photo-modal-wrapper" onclick="event.stopPropagation()">
             
@@ -2414,9 +2421,16 @@
                     <button class="photo-close-btn" onclick="closePhotoModal()">&times;</button>
                 </div>
 
-                <div class="photo-swipe-hint" id="photoSwipeHint">👈 Листайте фотографии 👉</div>
-
+                <!-- Изображение с микро-зумом -->
                 <img src="" id="photoModalImg" class="photo-modal-img" alt="Увеличенное фото объекта">
+
+                <!-- Панель управления зумом -->
+                <div class="photo-zoom-controls">
+                    <button class="zoom-btn" onclick="zoomIn(event)">＋</button>
+                    <button class="zoom-btn" onclick="zoomOut(event)">－</button>
+                    <button class="zoom-btn" onclick="resetZoom(event)">↺ Сброс</button>
+                    <span class="zoom-hint-text">Двойной клик или 2 пальца</span>
+                </div>
             </div>
 
             <button class="photo-nav-btn photo-next-btn" onclick="nextPhoto()">&#8250;</button>
@@ -2561,7 +2575,7 @@
         }
 
         // ==========================================
-        // ГАЛЕРЕЯ ФОТОГРАФИЙ (LIGHTBOX ЗУМ И СВАЙП)
+        // ГАЛЕРЕЯ ФОТОГРАФИЙ (PINCH-TO-ZOOM И СВАЙП)
         // ==========================================
         const photosList = [
             { src: 'card1.png', fallback: 'card1.jpg', title: 'Офисные пространства' },
@@ -2579,16 +2593,62 @@
         const photoModalImg = document.getElementById('photoModalImg');
         const photoCounter = document.getElementById('photoCounter');
         const photoName = document.getElementById('photoName');
-        const photoSwipeHint = document.getElementById('photoSwipeHint');
+
+        // Переменные зума и перемещения
+        let scale = 1;
+        let panX = 0, panY = 0;
+        let startX = 0, startY = 0;
+        let initialDistance = 0;
+        let isPanning = false;
+        let lastTap = 0;
+
+        function updatePhotoTransform(smooth = false) {
+            if (smooth) {
+                photoModalImg.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)';
+            } else {
+                photoModalImg.style.transition = 'none';
+            }
+
+            if (scale <= 1) {
+                scale = 1;
+                panX = 0;
+                panY = 0;
+                photoModalImg.classList.remove('zoomed');
+            } else {
+                photoModalImg.classList.add('zoomed');
+            }
+
+            photoModalImg.style.transform = `translate3d(${panX}px, ${panY}px, 0) scale(${scale})`;
+        }
+
+        function resetZoom(e) {
+            if (e) e.stopPropagation();
+            scale = 1;
+            panX = 0;
+            panY = 0;
+            updatePhotoTransform(true);
+        }
+
+        function zoomIn(e) {
+            if (e) e.stopPropagation();
+            scale = Math.min(scale + 0.8, 4);
+            updatePhotoTransform(true);
+        }
+
+        function zoomOut(e) {
+            if (e) e.stopPropagation();
+            scale = Math.max(scale - 0.8, 1);
+            updatePhotoTransform(true);
+        }
 
         function loadPhoto(index) {
+            resetZoom();
             currentPhotoIndex = index;
             const photo = photosList[currentPhotoIndex];
             
             photoCounter.textContent = `${(currentPhotoIndex + 1).toString().padStart(2, '0')} / 08`;
             photoName.textContent = photo.title;
 
-            // Двойная проверка расширения
             photoModalImg.onerror = function() {
                 this.onerror = null;
                 this.src = photo.fallback;
@@ -2600,12 +2660,6 @@
             loadPhoto(index);
             photoModal.classList.add('active');
             document.body.classList.add('modal-open');
-
-            if (photoSwipeHint) {
-                photoSwipeHint.style.animation = 'none';
-                photoSwipeHint.offsetHeight;
-                photoSwipeHint.style.animation = 'fadeInOut 2.8s forwards';
-            }
         }
 
         function nextPhoto() {
@@ -2619,33 +2673,74 @@
         }
 
         function closePhotoModal() {
+            resetZoom();
             photoModal.classList.remove('active');
             document.body.classList.remove('modal-open');
         }
 
-        // Свайпы для фотографий на смартфонах
+        // ЖЕСТЫ ЗУМА И ПЕРЕМЕЩЕНИЯ (TOUCH PINCH & PAN)
         const photoSwipeArea = document.getElementById('photoSwipeArea');
-        let photoTouchStartX = 0;
-        let photoTouchEndX = 0;
 
         if (photoSwipeArea) {
             photoSwipeArea.addEventListener('touchstart', (e) => {
-                photoTouchStartX = e.changedTouches[0].screenX;
-            }, { passive: true });
+                if (e.touches.length === 2) {
+                    // Щипок двумя пальцами
+                    initialDistance = Math.hypot(
+                        e.touches[0].clientX - e.touches[1].clientX,
+                        e.touches[0].clientY - e.touches[1].clientY
+                    );
+                } else if (e.touches.length === 1) {
+                    // Проверка двойного тапа
+                    const now = Date.now();
+                    if (now - lastTap < 300) {
+                        if (scale > 1) {
+                            resetZoom();
+                        } else {
+                            scale = 2.5;
+                            updatePhotoTransform(true);
+                        }
+                    }
+                    lastTap = now;
+
+                    startX = e.touches[0].clientX - panX;
+                    startY = e.touches[0].clientY - panY;
+                    isPanning = true;
+                }
+            }, { passive: false });
+
+            photoSwipeArea.addEventListener('touchmove', (e) => {
+                if (e.touches.length === 2) {
+                    e.preventDefault();
+                    const currentDist = Math.hypot(
+                        e.touches[0].clientX - e.touches[1].clientX,
+                        e.touches[0].clientY - e.touches[1].clientY
+                    );
+                    const diff = currentDist / initialDistance;
+                    scale = Math.min(Math.max(scale * diff, 0.9), 4.5);
+                    initialDistance = currentDist;
+                    updatePhotoTransform(false);
+                } else if (e.touches.length === 1 && isPanning) {
+                    if (scale > 1) {
+                        // Перемещение в приближенном состоянии
+                        e.preventDefault();
+                        panX = e.touches[0].clientX - startX;
+                        panY = e.touches[0].clientY - startY;
+                        updatePhotoTransform(false);
+                    }
+                }
+            }, { passive: false });
 
             photoSwipeArea.addEventListener('touchend', (e) => {
-                photoTouchEndX = e.changedTouches[0].screenX;
-                handlePhotoSwipe();
-            }, { passive: true });
-        }
-
-        function handlePhotoSwipe() {
-            const threshold = 40;
-            if (photoTouchStartX - photoTouchEndX > threshold) {
-                nextPhoto(); // свайп влево -> следующее фото по кругу
-            } else if (photoTouchEndX - photoTouchStartX > threshold) {
-                prevPhoto(); // свайп вправо -> предыдущее фото по кругу
-            }
+                isPanning = false;
+                if (scale < 1) {
+                    resetZoom();
+                } else if (scale === 1 && e.changedTouches.length === 1) {
+                    // Свайп между фото только если нет зума
+                    const deltaX = e.changedTouches[0].clientX - (startX + panX);
+                    if (deltaX < -45) nextPhoto();
+                    if (deltaX > 45) prevPhoto();
+                }
+            });
         }
 
         // ==========================================
@@ -2781,19 +2876,17 @@
             errorBox.style.display = 'none';
         }
 
-        // Управление клавиатурой для видео и фото
+        // Управление клавиатурой
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeVideoModal();
                 closePhotoModal();
                 closeDrawer();
             }
-            // Если открыто видео
             if (modal.classList.contains('active')) {
                 if (e.key === 'ArrowRight') nextVideo();
                 if (e.key === 'ArrowLeft') prevVideo();
             }
-            // Если открыто фото
             if (photoModal.classList.contains('active')) {
                 if (e.key === 'ArrowRight') nextPhoto();
                 if (e.key === 'ArrowLeft') prevPhoto();
