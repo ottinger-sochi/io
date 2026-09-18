@@ -456,7 +456,7 @@
             line-height: 1.5;
         }
 
-        /* БЛОК 6: ВИДЕО-ДОКАЗАТЕЛЬСТВА (КАРУСЕЛЬ) */
+        /* БЛОК 6: АВТО-ОБНАРУЖЕНИЕ ВИДЕО (КАРУСЕЛЬ) */
         .video-section {
             background-color: #f8f8f8;
             padding: 80px 20px;
@@ -592,7 +592,6 @@
             text-shadow: 0 2px 6px rgba(0,0,0,0.9);
         }
 
-        /* Стрелки карусели на десктопе */
         .carousel-arrow {
             width: 48px;
             height: 48px;
@@ -729,7 +728,6 @@
         .modal-prev-btn { left: -60px; }
         .modal-next-btn { right: -60px; }
 
-        /* Анимированная подсказка свайпа для мобильных */
         .modal-swipe-hint {
             position: absolute;
             bottom: 25px;
@@ -1383,7 +1381,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 6: ВИДЕО-ДОКАЗАТЕЛЬСТВА (ДИНАМИЧЕСКИЙ РЕНДЕР БЕЗ ПУСТЫХ КАРТОЧЕК) -->
+    <!-- БЛОК 6: АВТО-ОБНАРУЖЕНИЕ ВИДЕО (КАРУСЕЛЬ) -->
     <section class="video-section" id="video-gallery">
         <div class="section-container">
             <span class="section-tag">Видео-доказательства</span>
@@ -1393,7 +1391,7 @@
                 <!-- Стрелка влево -->
                 <button class="carousel-arrow arrow-left" onclick="scrollCarousel(-1)">&#8249;</button>
 
-                <!-- Контейнер заполняется динамически -->
+                <!-- Контейнер автоматически наполняется только вашими видео -->
                 <div class="video-carousel" id="videoCarousel"></div>
 
                 <!-- Стрелка вправо -->
@@ -1422,7 +1420,7 @@
 
                 <div id="videoError" class="video-error-box">
                     <h5>Ошибка загрузки</h5>
-                    <p id="videoErrorMsg">Файл ещё не загружен или не поддерживается.</p>
+                    <p id="videoErrorMsg">Файл ещё не загружен на сервер.</p>
                     <a id="videoDirectLink" href="#" target="_blank">Открыть файл напрямую ↗</a>
                 </div>
 
@@ -1741,46 +1739,60 @@
         </div>
     </footer>
 
-    <!-- СКРИПТЫ -->
+    <!-- СКРИПТЫ (АВТОМАТИЧЕСКИЙ СКАНЕР ФАЙЛОВ) -->
     <script>
-        // ==========================================
-        // СПИСОК РЕАЛЬНО ЗАГРУЖЕННЫХ ВИДЕО
-        // Чтобы добавить новое видео, просто раскомментируйте строчку:
-        // ==========================================
-        const activeVideos = [
-            { src: 'video1.mp4', label: 'ВИДЕО #01' },
-            // { src: 'video2.mp4', label: 'ВИДЕО #02' },
-            // { src: 'video3.mp4', label: 'ВИДЕО #03' },
-            // { src: 'video4.mp4', label: 'ВИДЕО #04' },
-            // { src: 'video5.mp4', label: 'ВИДЕО #05' },
-            // { src: 'video6.mp4', label: 'ВИДЕО #06' },
-            // { src: 'video7.mp4', label: 'ВИДЕО #07' },
-            // { src: 'video8.mp4', label: 'ВИДЕО #08' },
-            // { src: 'video9.mp4', label: 'ВИДЕО #09' },
-            // { src: 'video10.mp4', label: 'ВИДЕО #10' },
-            // { src: 'video11.mp4', label: 'ВИДЕО #11' },
-            // { src: 'video12.mp4', label: 'ВИДЕО #12' },
-            // { src: 'video13.mp4', label: 'ВИДЕО #13' },
-            // { src: 'video14.mp4', label: 'ВИДЕО #14' },
-            // { src: 'video15.mp4', label: 'ВИДЕО #15' },
-            // { src: 'video16.mp4', label: 'ВИДЕО #16' }
-        ];
-
+        let availableVideos = [];
         let currentVideoIndex = 0;
 
-        // Генерация только существующих карточек
+        // Автоматическая проверка наличия видеофайлов на сервере (от video1 до video16)
+        async function autoDiscoverVideos() {
+            const potentialList = [];
+            for (let i = 1; i <= 16; i++) {
+                potentialList.push({
+                    src: `video${i}.mp4`,
+                    name: `ВИДЕО #${i.toString().padStart(2, '0')}`
+                });
+            }
+
+            // Быстрая параллельная проверка доступности файлов через HEAD-запрос
+            const checks = await Promise.all(potentialList.map(async (vid) => {
+                try {
+                    const res = await fetch(vid.src, { method: 'HEAD' });
+                    return res.ok ? vid : null;
+                } catch (e) {
+                    return null;
+                }
+            }));
+
+            // Оставляем только те видео, которые реально загружены
+            availableVideos = checks.filter(v => v !== null);
+
+            // Если запуск локально без сервера (file://), показываем минимум video1
+            if (availableVideos.length === 0) {
+                availableVideos = [{ src: 'video1.mp4', name: 'ВИДЕО #01' }];
+            }
+
+            renderVideoCarousel();
+        }
+
+        // Отрисовка только существующих карточек
         function renderVideoCarousel() {
             const carousel = document.getElementById('videoCarousel');
             carousel.innerHTML = '';
 
-            activeVideos.forEach((vid, index) => {
+            availableVideos.forEach((vid, index) => {
                 const card = document.createElement('div');
                 card.className = 'video-card';
                 card.onclick = () => openVideoModal(index);
+                
+                const badgeClass = (index === 0) ? 'badge-hit' : '';
+
                 card.innerHTML = `
                     <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="${vid.src}#t=0.5"></video>
                     <div class="video-card-overlay"></div>
-                    <div class="video-top-row"><span class="video-badge badge-hit">${vid.label}</span></div>
+                    <div class="video-top-row">
+                        <span class="video-badge ${badgeClass}">${vid.name}</span>
+                    </div>
                     <div class="video-play-icon">▶</div>
                     <div class="video-bottom-label">OTTINGER TEST</div>
                 `;
@@ -1788,7 +1800,8 @@
             });
         }
 
-        renderVideoCarousel();
+        // Запуск сканера
+        autoDiscoverVideos();
 
         function scrollCarousel(direction) {
             const carousel = document.getElementById('videoCarousel');
@@ -1809,14 +1822,14 @@
         };
 
         function loadVideo(index) {
-            if (activeVideos.length === 0) return;
+            if (availableVideos.length === 0) return;
             currentVideoIndex = index;
-            const videoData = activeVideos[currentVideoIndex];
+            const videoData = availableVideos[currentVideoIndex];
             
             errorBox.style.display = 'none';
             player.style.display = 'block';
             directLink.href = videoData.src;
-            modalName.textContent = videoData.label;
+            modalName.textContent = videoData.name;
 
             player.src = videoData.src;
             player.load();
@@ -1839,17 +1852,17 @@
             }
         }
 
-        // Бесконечное переключение вперед по кругу
+        // Бесконечный циклический переход вперед (по кругу)
         function nextVideo() {
-            if (activeVideos.length <= 1) return;
-            currentVideoIndex = (currentVideoIndex + 1) % activeVideos.length;
+            if (availableVideos.length <= 1) return;
+            currentVideoIndex = (currentVideoIndex + 1) % availableVideos.length;
             loadVideo(currentVideoIndex);
         }
 
-        // Бесконечное переключение назад по кругу
+        // Бесконечный циклический переход назад (по кругу)
         function prevVideo() {
-            if (activeVideos.length <= 1) return;
-            currentVideoIndex = (currentVideoIndex - 1 + activeVideos.length) % activeVideos.length;
+            if (availableVideos.length <= 1) return;
+            currentVideoIndex = (currentVideoIndex - 1 + availableVideos.length) % availableVideos.length;
             loadVideo(currentVideoIndex);
         }
 
