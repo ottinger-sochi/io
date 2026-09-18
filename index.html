@@ -27,26 +27,33 @@
             overflow-x: hidden;
             position: relative;
         }
-        body.modal-open {
+        body.modal-open, body.menu-open {
             overflow: hidden;
         }
         
         /* ШАПКА САЙТА (HEADER) */
         header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #eaeaea;
+            z-index: 100;
+            width: 100%;
+        }
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 20px;
+            padding: 16px 20px;
             max-width: 1200px;
             margin: 0 auto;
-            border-bottom: 1px solid #eaeaea;
-            position: relative;
-            z-index: 10;
         }
         .logo-box {
             display: flex;
             align-items: center;
             gap: 12px;
+            text-decoration: none;
         }
         .logo-text {
             font-weight: 900;
@@ -67,6 +74,31 @@
             border-left: 2px solid #ff5722;
             padding-left: 10px;
         }
+
+        /* Навигация на ПК */
+        .desktop-nav {
+            display: none;
+            align-items: center;
+            gap: 25px;
+        }
+        .desktop-nav a {
+            color: #333333;
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.2s ease;
+        }
+        .desktop-nav a:hover {
+            color: #ff5722;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
         .phone {
             color: #111111;
             text-decoration: none;
@@ -77,6 +109,93 @@
         }
         .phone:hover {
             color: #ff5722;
+        }
+
+        /* Кнопка бургера */
+        .burger-btn {
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            padding: 8px;
+            z-index: 1001;
+            transition: border-color 0.2s;
+        }
+        .burger-btn:hover {
+            border-color: #ff5722;
+        }
+        .burger-btn span {
+            width: 22px;
+            height: 2px;
+            background-color: #111111;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        .burger-btn.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+            background-color: #ff5722;
+        }
+        .burger-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .burger-btn.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+            background-color: #ff5722;
+        }
+
+        /* Мобильное выпадающее меню */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 30px;
+        }
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .mobile-menu-links {
+            list-style: none;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            margin-bottom: 30px;
+        }
+        .mobile-menu-links a {
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.2s ease;
+        }
+        .mobile-menu-links a:hover {
+            color: #ff5722;
+        }
+        .mobile-menu-phone {
+            color: #ff5722;
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-decoration: none;
+            letter-spacing: 1px;
         }
 
         /* ОБЩИЕ СТИЛИ СЕКЦИЙ */
@@ -154,7 +273,7 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 30px 15px 50px 15px;
+            padding: 40px 15px 50px 15px;
             max-width: 1100px;
             margin: 0 auto;
         }
@@ -201,9 +320,130 @@
             font-weight: 900;
         }
 
-        /* БЛОК 2: МАЛЯРНЫЙ ПИРОГ */
-        .pie-section {
+        /* БЛОК 2 (ПЕРЕНЕСЕН): ИННОВАЦИОННАЯ СИСТЕМА (4 БАЗОВЫХ МАТЕРИАЛА) */
+        .products-section {
             background-color: #f8f8f8;
+            padding: 80px 20px;
+            border-top: 1px solid #eaeaea;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .product-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+        .product-image-box {
+            width: 100%;
+            height: 220px;
+            background-color: #fcfcfc;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #f0f0f0;
+        }
+        .product-image-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .product-step {
+            font-size: 0.7rem;
+            color: #ff5722;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+        .product-card h3 {
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: #111111;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .product-desc {
+            color: #666666;
+            font-size: 0.88rem;
+            line-height: 1.45;
+            margin-bottom: 20px;
+            min-height: 50px;
+        }
+        .product-specs {
+            border-top: 1px solid #f0f0f0;
+            padding-top: 15px;
+            margin-bottom: 20px;
+        }
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            padding: 6px 0;
+            border-bottom: 1px solid #f8f8f8;
+        }
+        .spec-lbl { color: #888888; text-transform: uppercase; font-size: 0.72rem; font-weight: 700; }
+        .spec-val { font-weight: 800; color: #111111; }
+        .btn-catalog {
+            font-size: 0.85rem;
+            padding: 14px 18px;
+            max-width: 100%;
+        }
+
+        .catalog-callout {
+            border: 1px solid #e0e0e0;
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: left;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .callout-text h3 {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: #111111;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .callout-text p {
+            color: #666666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        .btn-callout {
+            background-color: transparent;
+            color: #111111;
+            border: 1px solid #cccccc;
+            font-size: 0.85rem;
+            padding: 14px 28px;
+            max-width: 100%;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+        .btn-callout:hover {
+            border-color: #ff5722;
+            color: #ff5722;
+            background-color: #fff5f2;
+        }
+
+        /* БЛОК 3: МАЛЯРНЫЙ ПИРОГ */
+        .pie-section {
+            background-color: #ffffff;
             padding: 80px 20px;
             border-top: 1px solid #eaeaea;
         }
@@ -295,9 +535,9 @@
         }
         .pie-savings-banner span { color: #ff5722; font-weight: 900; }
 
-        /* БЛОК 3: ШАХМАТНЫЙ ЗИГЗАГ-ПРОЦЕСС */
+        /* БЛОК 4: ШАХМАТНЫЙ ЗИГЗАГ-ПРОЦЕСС */
         .process-section {
-            background-color: #ffffff;
+            background-color: #f8f8f8;
             padding: 80px 20px;
             border-top: 1px solid #eaeaea;
         }
@@ -312,7 +552,7 @@
             flex-direction: column;
             gap: 25px;
             align-items: center;
-            background-color: #fafafa;
+            background-color: #ffffff;
             border: 1px solid #eaeaea;
             border-radius: 12px;
             padding: 25px;
@@ -365,16 +605,16 @@
             object-fit: cover;
         }
 
-        /* БЛОК 4: ПРАВИЛА РАБОТЫ */
+        /* БЛОК 5: ПРАВИЛА РАБОТЫ */
         .rules-section {
-            background-color: #f8f8f8;
+            background-color: #ffffff;
             padding: 80px 20px;
             border-top: 1px solid #eaeaea;
         }
         .rules-box {
             border: 1px solid #e0e0e0;
             border-left: 4px solid #ff5722;
-            background: #ffffff;
+            background: #fafafa;
             padding: 35px;
             border-radius: 0 8px 8px 0;
             max-width: 1100px;
@@ -395,7 +635,7 @@
             margin-top: 25px;
         }
         .rule-card {
-            background-color: #fafafa;
+            background-color: #ffffff;
             border: 1px solid #eaeaea;
             padding: 20px;
             border-radius: 6px;
@@ -413,9 +653,9 @@
             line-height: 1.45;
         }
 
-        /* БЛОК 5: ФИЗИКА OTTINGER */
+        /* БЛОК 6: ФИЗИКА OTTINGER */
         .tech-section {
-            background-color: #ffffff;
+            background-color: #f8f8f8;
             padding: 80px 20px;
             border-top: 1px solid #eaeaea;
         }
@@ -456,9 +696,9 @@
             line-height: 1.5;
         }
 
-        /* БЛОК 6: АВТО-ОБНАРУЖЕНИЕ ВИДЕО (КАРУСЕЛЬ) */
+        /* БЛОК 7: АВТО-ОБНАРУЖЕНИЕ ВИДЕО */
         .video-section {
-            background-color: #f8f8f8;
+            background-color: #ffffff;
             padding: 80px 20px;
             border-top: 1px solid #eaeaea;
             position: relative;
@@ -789,16 +1029,16 @@
             font-weight: 800;
         }
 
-        /* БЛОК 7: ЛАЙФХАК ПО ШЛИФОВКЕ */
+        /* БЛОК 8: ЛАЙФХАК ПО ШЛИФОВКЕ */
         .myth-section {
-            background-color: #ffffff;
+            background-color: #f8f8f8;
             padding: 60px 20px;
             border-top: 1px solid #eaeaea;
         }
         .myth-box {
             border: 1px solid #e0e0e0;
             border-left: 4px solid #ff5722;
-            background-color: #fcfcfc;
+            background-color: #ffffff;
             padding: 30px;
             border-radius: 0 8px 8px 0;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
@@ -838,127 +1078,6 @@
             padding: 4px 8px;
             border-radius: 3px;
             font-size: 0.75rem;
-        }
-
-        /* БЛОК 8: КАТАЛОГ МАТЕРИАЛОВ */
-        .products-section {
-            background-color: #f8f8f8;
-            padding: 80px 20px;
-            border-top: 1px solid #eaeaea;
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-        .product-card {
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-        }
-        .product-image-box {
-            width: 100%;
-            height: 220px;
-            background-color: #fcfcfc;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 15px;
-            border: 1px solid #f0f0f0;
-        }
-        .product-image-box img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-        .product-step {
-            font-size: 0.7rem;
-            color: #ff5722;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 6px;
-        }
-        .product-card h3 {
-            font-size: 1.35rem;
-            font-weight: 900;
-            color: #111111;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-        .product-desc {
-            color: #666666;
-            font-size: 0.88rem;
-            line-height: 1.45;
-            margin-bottom: 20px;
-            min-height: 50px;
-        }
-        .product-specs {
-            border-top: 1px solid #f0f0f0;
-            padding-top: 15px;
-            margin-bottom: 20px;
-        }
-        .spec-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.82rem;
-            padding: 6px 0;
-            border-bottom: 1px solid #f8f8f8;
-        }
-        .spec-lbl { color: #888888; text-transform: uppercase; font-size: 0.72rem; font-weight: 700; }
-        .spec-val { font-weight: 800; color: #111111; }
-        .btn-catalog {
-            font-size: 0.85rem;
-            padding: 14px 18px;
-            max-width: 100%;
-        }
-
-        .catalog-callout {
-            border: 1px solid #e0e0e0;
-            background-color: #ffffff;
-            border-radius: 8px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            text-align: left;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .callout-text h3 {
-            font-size: 1.25rem;
-            font-weight: 900;
-            color: #111111;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
-        .callout-text p {
-            color: #666666;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-        .btn-callout {
-            background-color: transparent;
-            color: #111111;
-            border: 1px solid #cccccc;
-            font-size: 0.85rem;
-            padding: 14px 28px;
-            max-width: 100%;
-            text-transform: uppercase;
-            font-weight: 800;
-        }
-        .btn-callout:hover {
-            border-color: #ff5722;
-            color: #ff5722;
-            background-color: #fff5f2;
         }
 
         /* БЛОК 9: РОССИЙСКОЕ ПРОИЗВОДСТВО */
@@ -1167,10 +1286,15 @@
 
         /* АДАПТИВНОСТЬ ДЛЯ ПК */
         @media (min-width: 768px) {
-            header { padding: 22px 40px; }
-            .phone { font-size: 1.25rem; }
+            .desktop-nav { display: flex; }
+            .header-container { padding: 18px 40px; }
+            .phone { font-size: 1.15rem; }
             h1 { font-size: 2.6rem; }
             
+            .product-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+            .catalog-callout { flex-direction: row; justify-content: space-between; align-items: center; }
+            .btn-callout { max-width: 320px; }
+
             .pie-comparison-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
             
             .process-zigzag-list { gap: 60px; margin-top: 50px; }
@@ -1183,9 +1307,6 @@
             .tech-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
             
             .carousel-arrow { display: flex; }
-            .product-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
-            .catalog-callout { flex-direction: row; justify-content: space-between; align-items: center; }
-            .btn-callout { max-width: 320px; }
 
             .factory-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
             .metrics-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
@@ -1205,17 +1326,51 @@
 </head>
 <body>
 
-    <!-- ШАПКА -->
+    <!-- ШАПКА С БУРГЕРОМ И НАВИГАЦИЕЙ -->
     <header>
-        <div class="logo-box">
-            <div class="logo-text">OTTINGER<span>.</span></div>
-            <div class="logo-sub">SOCHI</div>
+        <div class="header-container">
+            <a href="#" class="logo-box">
+                <div class="logo-text">OTTINGER<span>.</span></div>
+                <div class="logo-sub">SOCHI</div>
+            </a>
+
+            <!-- Меню на ПК -->
+            <nav class="desktop-nav">
+                <a href="#system">Инновация</a>
+                <a href="#pie">Сравнение</a>
+                <a href="#process">Технология</a>
+                <a href="#video-gallery">Видео-тесты</a>
+                <a href="#cases">Объекты</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+
+            <div class="header-right">
+                <a href="tel:+79219121895" class="phone">+7 (921) 912-18-95</a>
+                <!-- Кнопка Бургера -->
+                <button class="burger-btn" id="burgerBtn" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
-        <a href="tel:+79219121895" class="phone">+7 (921) 912-18-95</a>
     </header>
 
-    <!-- БЛОК 1: HERO -->
-    <main class="hero">
+    <!-- ВЫПАДАЮЩЕЕ БУРГЕР-МЕНЮ (ДЛЯ СМАРТФОНОВ) -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <ul class="mobile-menu-links">
+            <li><a href="#system" onclick="closeMenu()">Инновационная система</a></li>
+            <li><a href="#pie" onclick="closeMenu()">Сравнение технологий</a></li>
+            <li><a href="#process" onclick="closeMenu()">Процесс нанесения</a></li>
+            <li><a href="#video-gallery" onclick="closeMenu()">Видео-краш-тесты</a></li>
+            <li><a href="#cases" onclick="closeMenu()">Реальные объекты</a></li>
+            <li><a href="#contacts" onclick="closeMenu()">Контакты и склад</a></li>
+        </ul>
+        <a href="tel:+79219121895" class="mobile-menu-phone">+7 (921) 912-18-95</a>
+    </div>
+
+    <!-- БЛОК 1: HERO (ПЕРВЫЙ ЭКРАН) -->
+    <main class="hero" id="top">
         <h1>
             КАК НАВСЕГДА ИЗБАВИТЬ <br>
             МАЛЯРНЫЕ РАБОТЫ <br>
@@ -1223,18 +1378,109 @@
         </h1>
 
         <div class="hero-media">
-            <img src="ottinger-demo.gif" alt="Демонстрация нанесения OTTINGER" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<span style=\'color:#999;font-weight:800;text-transform:uppercase;\'>OTTINGER DEMO</span>';">
+            <img src="ottinger-demo.gif" alt="Демонстрация нанесения OTTINGER" loading="eager" onerror="this.onerror=null; this.parentElement.innerHTML='<span style=\'color:#999;font-weight:800;text-transform:uppercase;\'>OTTINGER DEMO</span>';">
         </div>
 
         <p class="hero-subhead">
             Инновационная полимерная система отделки с <span>10-микронным фиброволокном</span>. Сокращает малярный пирог до 3 слоев без стеклохолста.
         </p>
 
-        <a href="#video-gallery" class="btn btn-primary">Смотреть краш-тесты ↓</a>
+        <a href="#system" class="btn btn-primary">Изучить систему ↓</a>
     </main>
 
-    <!-- БЛОК 2: МАЛЯРНЫЙ ПИРОГ -->
-    <section class="pie-section" id="how-it-works">
+    <!-- БЛОК 2 (ПЕРЕНЕСЕН): ИННОВАЦИОННАЯ СИСТЕМА (4 БАЗОВЫХ МАТЕРИАЛА) -->
+    <section class="products-section" id="system">
+        <div class="section-container">
+            <span class="section-tag">Инновационная система</span>
+            <h2 class="section-title text-center">Основа технологии: <span class="accent-color">4 материала</span>, закрывающих <span class="accent-color">100% задач</span></h2>
+            
+            <div class="product-grid">
+                
+                <!-- Товар 1: Primer -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="primer-konzentrat.png" alt="Primer Konzentrat" loading="lazy" onerror="this.onerror=null; this.src=''; this.parentElement.innerText='[Канистра Primer 10л]';">
+                    </div>
+                    <div>
+                        <div class="product-step">Грунт 20% остатка</div>
+                        <h3>Primer Konzentrat</h3>
+                        <p class="product-desc">Честный концентрат 1:4. Глубоко укрепляет штукатурку и обеспыливает ГКЛ.</p>
+                        <div class="product-specs">
+                            <div class="spec-row"><span class="spec-lbl">Разбавление:</span><span class="spec-val">до 1:4</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">~10 м²/л</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5л / 10л</span></div>
+                        </div>
+                    </div>
+                    <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20Primer%20Konzentrat." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
+                </div>
+
+                <!-- Товар 2: Basis Start -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="basis-start.png" alt="Basis Start" loading="lazy" onerror="this.onerror=null; this.src=''; this.parentElement.innerText='[Ведро Basis Start 25кг]';">
+                    </div>
+                    <div>
+                        <div class="product-step">Доминанта (90% задач)</div>
+                        <h3>Basis Start</h3>
+                        <p class="product-desc">Базовая шпатлевка с 10-микронной фиброй. Заменяет стеклохолст и клей.</p>
+                        <div class="product-specs">
+                            <div class="spec-row"><span class="spec-lbl">Толщина слоя:</span><span class="spec-val">до 5 мм</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">от 0.5 кг/м²</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5кг / 25кг</span></div>
+                        </div>
+                    </div>
+                    <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20Basis%20Start." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
+                </div>
+
+                <!-- Товар 3: Basis Aqua -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="basis-aqua.png" alt="Basis Aqua" loading="lazy" onerror="this.onerror=null; this.src=''; this.parentElement.innerText='[Ведро Basis Aqua 25кг]';">
+                    </div>
+                    <div>
+                        <div class="product-step">Микростеклосферы</div>
+                        <h3>Basis Aqua</h3>
+                        <p class="product-desc">Влагостойкая шпатлевка. Идеальна под ленты Strait-Flex и влажные зоны.</p>
+                        <div class="product-specs">
+                            <div class="spec-row"><span class="spec-lbl">Толщина слоя:</span><span class="spec-val">до 2 мм</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">от 0.5 кг/м²</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5кг / 25кг</span></div>
+                        </div>
+                    </div>
+                    <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20Basis%20Aqua." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
+                </div>
+
+                <!-- Товар 4: Keramik Matt -->
+                <div class="product-card">
+                    <div class="product-image-box">
+                        <img src="keramik-matt.png" alt="Keramik Matt" loading="lazy" onerror="this.onerror=null; this.src=''; this.parentElement.innerText='[Ведро Keramik Matt 9л]';">
+                    </div>
+                    <div>
+                        <div class="product-step">Моющаяся керамика</div>
+                        <h3>Keramik Matt</h3>
+                        <p class="product-desc">Премиальная матовая краска. Устойчива к бытовым жирам и постоянному мытью.</p>
+                        <div class="product-specs">
+                            <div class="spec-row"><span class="spec-lbl">Глянец:</span><span class="spec-val">матовая (5)</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">10 м²/л</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">0.9л / 2.5л / 9л</span></div>
+                        </div>
+                    </div>
+                    <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20Keramik%20Matt." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
+                </div>
+            </div>
+
+            <div class="catalog-callout">
+                <div class="callout-text">
+                    <h3>В линейке OTTINGER более 20 специализированных материалов</h3>
+                    <p>Колеруемый клей для холста, эластичные фасадные пасты, шпатлевки для стыков Joint и грунты-краски Q3/Q4. Получите полный прайс-лист.</p>
+                </div>
+                <a href="https://t.me/Hropovic?text=Здравствуйте!%20Пришлите,%20пожалуйста,%20полный%20каталог%20и%20прайс-лист%20продукции%20OTTINGER." class="btn btn-callout" target="_blank">Получить полный прайс-лист</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 3: МАЛЯРНЫЙ ПИРОГ (СРАВНЕНИЕ) -->
+    <section class="pie-section" id="pie">
         <div class="section-container">
             <span class="section-tag">Сравнение технологий</span>
             <h2 class="section-title text-center">Малярный пирог: <span class="accent-color">3 слоя</span> вместо <span class="accent-color">7–15 операций</span></h2>
@@ -1277,8 +1523,8 @@
         </div>
     </section>
 
-    <!-- БЛОК 3: ШАХМАТНЫЙ ЗИГЗАГ-ПРОЦЕСС -->
-    <section class="process-section">
+    <!-- БЛОК 4: ШАХМАТНЫЙ ЗИГЗАГ-ПРОЦЕСС -->
+    <section class="process-section" id="process">
         <div class="section-container">
             <span class="section-tag">Технология в действии</span>
             <h2 class="section-title text-center">Как наносится система: <span class="accent-color">3 шага до идеальной стены</span></h2>
@@ -1325,7 +1571,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 4: ПРАВИЛА РАБОТЫ И ЧАСТЫЕ ОШИБКИ -->
+    <!-- БЛОК 5: ПРАВИЛА РАБОТЫ И ЧАСТЫЕ ОШИБКИ -->
     <section class="rules-section">
         <div class="section-container">
             <div class="rules-box">
@@ -1353,7 +1599,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 5: ФИЗИКА И ЗАЩИТА ОТ ДУРАКА -->
+    <!-- БЛОК 6: ФИЗИКА И ЗАЩИТА ОТ ДУРАКА -->
     <section class="tech-section">
         <div class="section-container">
             <span class="section-tag">Инженерия материалов</span>
@@ -1381,7 +1627,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 6: АВТО-ОБНАРУЖЕНИЕ ВИДЕО (КАРУСЕЛЬ) -->
+    <!-- БЛОК 7: АВТО-ОБНАРУЖЕНИЕ ВИДЕО (КАРУСЕЛЬ) -->
     <section class="video-section" id="video-gallery">
         <div class="section-container">
             <span class="section-tag">Видео-доказательства</span>
@@ -1434,7 +1680,7 @@
         </div>
     </div>
 
-    <!-- БЛОК 7: ЛАЙФХАК ПО ШЛИФОВКЕ -->
+    <!-- БЛОК 8: ЛАЙФХАК ПО ШЛИФОВКЕ -->
     <section class="myth-section">
         <div class="section-container">
             <div class="myth-box">
@@ -1450,92 +1696,6 @@
                         Доводим плоскость керамическим абразивом Р80–Р120 под машинку.
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- БЛОК 8: КАТАЛОГ МАТЕРИАЛОВ -->
-    <section class="products-section" id="products">
-        <div class="section-container">
-            <span class="section-tag">Базовая линейка</span>
-            <h2 class="section-title text-center"><span class="accent-color">4 материала</span> для 100% задач</h2>
-            
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-image-box">
-                        <img src="primer-konzentrat.png" alt="Primer Konzentrat" loading="lazy" onerror="this.onerror=null; this.src=''; this.parentElement.innerText='[Канистра Primer 10л]';">
-                    </div>
-                    <div>
-                        <div class="product-step">Грунт 20% остатка</div>
-                        <h3>Primer Konzentrat</h3>
-                        <p class="product-desc">Честный концентрат 1:4. Глубоко укрепляет штукатурку и обеспыливает ГКЛ.</p>
-                        <div class="product-specs">
-                            <div class="spec-row"><span class="spec-lbl">Разбавление:</span><span class="spec-val">до 1:4</span></div>
-                            <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">~10 м²/л</span></div>
-                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5л / 10л</span></div>
-                        </div>
-                    </div>
-                    <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20Primer%20Konzentrat." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image-box">
-                        <img src="basis-start.png" alt="Basis Start" loading="lazy" onerror="this.onerror=null; this.src=''; this.parentElement.innerText='[Ведро Basis Start 25кг]';">
-                    </div>
-                    <div>
-                        <div class="product-step">Доминанта (90% задач)</div>
-                        <h3>Basis Start</h3>
-                        <p class="product-desc">Базовая шпатлевка с 10-микронной фиброй. Заменяет стеклохолст и клей.</p>
-                        <div class="product-specs">
-                            <div class="spec-row"><span class="spec-lbl">Толщина слоя:</span><span class="spec-val">до 5 мм</span></div>
-                            <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">от 0.5 кг/м²</span></div>
-                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5кг / 25кг</span></div>
-                        </div>
-                    </div>
-                    <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20Basis%20Start." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image-box">
-                        <img src="basis-aqua.png" alt="Basis Aqua" loading="lazy" onerror="this.onerror=null; this.src=''; this.parentElement.innerText='[Ведро Basis Aqua 25кг]';">
-                    </div>
-                    <div>
-                        <div class="product-step">Микростеклосферы</div>
-                        <h3>Basis Aqua</h3>
-                        <p class="product-desc">Влагостойкая шпатлевка. Идеальна под ленты Strait-Flex и влажные зоны.</p>
-                        <div class="product-specs">
-                            <div class="spec-row"><span class="spec-lbl">Толщина слоя:</span><span class="spec-val">до 2 мм</span></div>
-                            <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">от 0.5 кг/м²</span></div>
-                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">25 кг</span></div>
-                        </div>
-                    </div>
-                    <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20Basis%20Aqua." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image-box">
-                        <img src="keramik-matt.png" alt="Keramik Matt" loading="lazy" onerror="this.onerror=null; this.src=''; this.parentElement.innerText='[Ведро Keramik Matt 9л]';">
-                    </div>
-                    <div>
-                        <div class="product-step">Моющаяся керамика</div>
-                        <h3>Keramik Matt</h3>
-                        <p class="product-desc">Премиальная матовая краска. Устойчива к бытовым жирам и постоянному мытью.</p>
-                        <div class="product-specs">
-                            <div class="spec-row"><span class="spec-lbl">Глянец:</span><span class="spec-val">матовая (5)</span></div>
-                            <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">10 м²/л</span></div>
-                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">0.9л / 2.5л / 9л</span></div>
-                        </div>
-                    </div>
-                    <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20Keramik%20Matt." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
-                </div>
-            </div>
-
-            <div class="catalog-callout">
-                <div class="callout-text">
-                    <h3>В линейке OTTINGER более 20 специализированных материалов</h3>
-                    <p>Колеруемый клей для холста, эластичные фасадные пасты, шпатлевки для стыков Joint и грунты-краски Q3/Q4. Получите полный прайс-лист.</p>
-                </div>
-                <a href="https://t.me/Hropovic?text=Здравствуйте!%20Пришлите,%20пожалуйста,%20полный%20каталог%20и%20прайс-лист%20продукции%20OTTINGER." class="btn btn-callout" target="_blank">Получить полный прайс-лист</a>
             </div>
         </div>
     </section>
@@ -1591,7 +1751,7 @@
     </section>
 
     <!-- БЛОК 11: ПРИМЕРЫ РАБОТ (ТОЧНОЕ СООТВЕТСТВИЕ ФОТОГРАФИЯМ) -->
-    <section class="cases-section">
+    <section class="cases-section" id="cases">
         <div class="section-container">
             <span class="section-tag">Галерея проектов</span>
             <h2 class="section-title text-center">Стены на реальных объектах: <span class="accent-color">Безупречный результат без холста</span></h2>
@@ -1726,7 +1886,7 @@
     </section>
 
     <!-- БЛОК 14: FOOTER -->
-    <footer>
+    <footer id="contacts">
         <div class="footer-container">
             <div class="footer-info">
                 <h2>OTTINGER<span>.</span> SOCHI</h2>
@@ -1739,12 +1899,34 @@
         </div>
     </footer>
 
-    <!-- СКРИПТЫ (АВТОМАТИЧЕСКИЙ СКАНЕР ФАЙЛОВ) -->
+    <!-- СКРИПТЫ -->
     <script>
+        // Принудительное открытие сайта с 1-го экрана при загрузке
+        if (window.location.hash) {
+            history.replaceState(null, null, window.location.pathname);
+            window.scrollTo(0, 0);
+        }
+
+        // Логика Бургер-меню
+        const burgerBtn = document.getElementById('burgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        burgerBtn.addEventListener('click', () => {
+            burgerBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+
+        function closeMenu() {
+            burgerBtn.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+
+        // Авто-обнаружение загруженных видеофайлов
         let availableVideos = [];
         let currentVideoIndex = 0;
 
-        // Автоматическая проверка наличия видеофайлов на сервере (от video1 до video16)
         async function autoDiscoverVideos() {
             const potentialList = [];
             for (let i = 1; i <= 16; i++) {
@@ -1754,7 +1936,6 @@
                 });
             }
 
-            // Быстрая параллельная проверка доступности файлов через HEAD-запрос
             const checks = await Promise.all(potentialList.map(async (vid) => {
                 try {
                     const res = await fetch(vid.src, { method: 'HEAD' });
@@ -1764,10 +1945,8 @@
                 }
             }));
 
-            // Оставляем только те видео, которые реально загружены
             availableVideos = checks.filter(v => v !== null);
 
-            // Если запуск локально без сервера (file://), показываем минимум video1
             if (availableVideos.length === 0) {
                 availableVideos = [{ src: 'video1.mp4', name: 'ВИДЕО #01' }];
             }
@@ -1775,7 +1954,6 @@
             renderVideoCarousel();
         }
 
-        // Отрисовка только существующих карточек
         function renderVideoCarousel() {
             const carousel = document.getElementById('videoCarousel');
             carousel.innerHTML = '';
@@ -1800,7 +1978,6 @@
             });
         }
 
-        // Запуск сканера
         autoDiscoverVideos();
 
         function scrollCarousel(direction) {
@@ -1852,14 +2029,12 @@
             }
         }
 
-        // Бесконечный циклический переход вперед (по кругу)
         function nextVideo() {
             if (availableVideos.length <= 1) return;
             currentVideoIndex = (currentVideoIndex + 1) % availableVideos.length;
             loadVideo(currentVideoIndex);
         }
 
-        // Бесконечный циклический переход назад (по кругу)
         function prevVideo() {
             if (availableVideos.length <= 1) return;
             currentVideoIndex = (currentVideoIndex - 1 + availableVideos.length) % availableVideos.length;
@@ -1899,9 +2074,9 @@
         function handleSwipe() {
             const threshold = 40;
             if (touchStartX - touchEndX > threshold) {
-                nextVideo(); // свайп влево -> следующее по кругу
+                nextVideo();
             } else if (touchEndX - touchStartX > threshold) {
-                prevVideo(); // свайп вправо -> предыдущее по кругу
+                prevVideo();
             }
         }
     </script>
