@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Генератор</title></head>
+<body style="background:#111;color:#fff;font-family:sans-serif;text-align:center;padding:50px;">
+    <h2>Генератор баннера OTTINGER Sochi</h2>
+    <button onclick="downloadBanner()" style="background:#ff5722;color:#fff;border:none;padding:15px 30px;font-size:18px;font-weight:bold;border-radius:6px;cursor:pointer;margin-top:20px;">⬇ Скачать preview.png</button>
+    <canvas id="c" width="1200" height="630" style="display:none;"></canvas>
+    <script>
+    function downloadBanner() {
+        const c = document.getElementById('c');
+        const ctx = c.getContext('2d');
+        ctx.fillStyle = '#0a0a0a';
+        ctx.fillRect(0, 0, 1200, 630);
+        const g = ctx.createRadialGradient(1000, 100, 50, 1000, 100, 600);
+        g.addColorStop(0, 'rgba(255, 87, 34, 0.28)');
+        g.addColorStop(1, 'rgba(10, 10, 10, 0)');
+        ctx.fillStyle = g;
+        ctx.fillRect(0, 0, 1200, 630);
+        ctx.strokeStyle = '#222222';
+        ctx.lineWidth = 4;
+        ctx.strokeRect(30, 30, 1140, 570);
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '900 44px Arial, sans-serif';
+        ctx.fillText('OTTINGER', 80, 110);
+        ctx.fillStyle = '#ff5722';
+        ctx.fillText('.', 330, 110);
+        ctx.fillRect(355, 76, 4, 40);
+        ctx.fillStyle = '#888888';
+        ctx.font = '800 24px Arial, sans-serif';
+        ctx.fillText('SOCHI', 375, 107);
+        ctx.strokeStyle = '#ff5722';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(770, 72, 350, 46);
+        ctx.fillStyle = '#ff5722';
+        ctx.font = '800 16px Arial, sans-serif';
+        ctx.fillText('10-МИКРОННАЯ МИКРОФИБРА', 795, 101);
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '900 52px Arial, sans-serif';
+        ctx.fillText('ИННОВАЦИОННАЯ ПОЛИМЕРНАЯ', 80, 235);
+        ctx.fillStyle = '#ff5722';
+        ctx.fillText('СИСТЕМА ОТДЕЛКИ СТЕН', 80, 300);
+        ctx.fillStyle = '#cccccc';
+        ctx.font = '600 24px Arial, sans-serif';
+        ctx.fillText('Малярные работы без брака и стеклохолста с 10-микронной фиброй.', 80, 375);
+        ctx.fillText('Сокращает малярный пирог до 3 слоев, исключает трещины и сколы.', 80, 415);
+        const tags = ['✓ 3 СЛОЯ ВМЕСТО 7–15', '✓ БЕЗ СТЕКЛОХОЛСТА', '✓ СКЛАД И ЦЕХ В СОЧИ'];
+        let tx = 80;
+        ctx.font = '800 17px Arial, sans-serif';
+        tags.forEach(t => {
+            const w = ctx.measureText(t).width + 36;
+            ctx.fillStyle = '#181818';
+            ctx.fillRect(tx, 480, w, 48);
+            ctx.strokeStyle = '#333333';
+            ctx.lineWidth = 1;
+            ctx.strokeRect(tx, 480, w, 48);
+            ctx.fillStyle = '#ffffff';
+            ctx.fillText(t, tx + 18, 511);
+            tx += w + 20;
+        });
+        const a = document.createElement('a');
+        a.download = 'preview.png';
+        a.href = c.toDataURL('image/png');
+        a.click();
+    }
+    </script>
+</body>
+</html>
