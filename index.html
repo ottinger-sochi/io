@@ -27,25 +27,25 @@
             overflow-x: hidden;
             position: relative;
         }
-        body.modal-open, body.menu-open {
+        body.modal-open, body.drawer-open {
             overflow: hidden;
         }
         
-        /* ШАПКА САЙТА (HEADER) */
+        /* ШАПКА САЙТА (STICKY HEADER) */
         header {
             position: sticky;
             top: 0;
-            background-color: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid #eaeaea;
-            z-index: 100;
+            z-index: 1000;
             width: 100%;
         }
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 20px;
+            padding: 14px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -79,19 +79,32 @@
         .desktop-nav {
             display: none;
             align-items: center;
-            gap: 25px;
+            gap: 20px;
         }
         .desktop-nav a {
-            color: #333333;
+            color: #222222;
             text-decoration: none;
-            font-size: 0.82rem;
-            font-weight: 700;
+            font-size: 0.78rem;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             transition: color 0.2s ease;
+            position: relative;
+            padding: 4px 0;
+        }
+        .desktop-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 0%;
+            height: 2px;
+            background-color: #ff5722;
+            transition: width 0.2s ease;
         }
         .desktop-nav a:hover {
             color: #ff5722;
+        }
+        .desktop-nav a:hover::after {
+            width: 100%;
         }
 
         .header-right {
@@ -102,8 +115,8 @@
         .phone {
             color: #111111;
             text-decoration: none;
-            font-weight: 800;
-            font-size: 0.95rem;
+            font-weight: 900;
+            font-size: 0.92rem;
             white-space: nowrap;
             transition: color 0.2s ease;
         }
@@ -115,7 +128,7 @@
         .burger-btn {
             width: 40px;
             height: 40px;
-            background: none;
+            background: #f8f8f8;
             border: 1px solid #e0e0e0;
             border-radius: 6px;
             cursor: pointer;
@@ -125,77 +138,139 @@
             align-items: center;
             gap: 5px;
             padding: 8px;
-            z-index: 1001;
-            transition: border-color 0.2s;
+            transition: all 0.2s;
         }
         .burger-btn:hover {
             border-color: #ff5722;
+            background: #fff5f2;
         }
         .burger-btn span {
-            width: 22px;
+            width: 20px;
             height: 2px;
             background-color: #111111;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
             border-radius: 2px;
         }
-        .burger-btn.active span:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-            background-color: #ff5722;
-        }
-        .burger-btn.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .burger-btn.active span:nth-child(3) {
-            transform: translateY(-7px) rotate(-45deg);
-            background-color: #ff5722;
-        }
 
-        /* Мобильное выпадающее меню */
-        .mobile-menu-overlay {
+        /* БОКОВАЯ ШТОРКА (ДЛЯ МОБИЛЬНЫХ) */
+        .mobile-drawer-backdrop {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(12px);
-            z-index: 999;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease;
-            padding: 30px;
         }
-        .mobile-menu-overlay.active {
+        .mobile-drawer-backdrop.active {
             opacity: 1;
             pointer-events: auto;
         }
-        .mobile-menu-links {
-            list-style: none;
-            text-align: center;
+
+        .mobile-drawer {
+            position: fixed;
+            top: 0; right: 0; bottom: 0;
+            width: 82%;
+            max-width: 320px;
+            background-color: #ffffff;
+            z-index: 2001;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+            transform: translateX(100%);
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             display: flex;
             flex-direction: column;
-            gap: 22px;
-            margin-bottom: 30px;
+            justify-content: space-between;
+            padding: 25px 20px;
         }
-        .mobile-menu-links a {
-            color: #ffffff;
-            font-size: 1.25rem;
-            font-weight: 800;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transition: color 0.2s ease;
+        .mobile-drawer.active {
+            transform: translateX(0);
         }
-        .mobile-menu-links a:hover {
-            color: #ff5722;
+
+        .drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
         }
-        .mobile-menu-phone {
-            color: #ff5722;
-            font-size: 1.2rem;
+        .drawer-logo {
             font-weight: 900;
+            font-size: 1.15rem;
+            letter-spacing: 2px;
+            color: #111111;
+        }
+        .drawer-logo span { color: #ff5722; }
+        .drawer-close-btn {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #888888;
+            cursor: pointer;
+            line-height: 1;
+            padding: 5px;
+        }
+        .drawer-close-btn:hover {
+            color: #ff5722;
+        }
+
+        .drawer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 20px 0;
+        }
+        .drawer-links li a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
-            letter-spacing: 1px;
+            color: #111111;
+            font-size: 0.9rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 10px 12px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            background: #fafafa;
+        }
+        .drawer-links li a span {
+            color: #ff5722;
+            font-size: 0.72rem;
+            font-weight: 900;
+        }
+        .drawer-links li a:hover {
+            background: #fff5f2;
+            color: #ff5722;
+            transform: translateX(4px);
+        }
+
+        .drawer-footer {
+            border-top: 1px solid #f0f0f0;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .drawer-phone {
+            color: #111111;
+            font-weight: 900;
+            font-size: 1.05rem;
+            text-decoration: none;
+            text-align: center;
+        }
+        .drawer-tg-btn {
+            background-color: #229ED9;
+            color: #ffffff;
+            text-decoration: none;
+            text-align: center;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         /* ОБЩИЕ СТИЛИ СЕКЦИЙ */
@@ -320,7 +395,7 @@
             font-weight: 900;
         }
 
-        /* БЛОК 2 (ПЕРЕНЕСЕН): ИННОВАЦИОННАЯ СИСТЕМА (4 БАЗОВЫХ МАТЕРИАЛА) */
+        /* БЛОК 2: ИННОВАЦИОННАЯ СИСТЕМА (4 МАТЕРИАЛА) */
         .products-section {
             background-color: #f8f8f8;
             padding: 80px 20px;
@@ -696,7 +771,7 @@
             line-height: 1.5;
         }
 
-        /* БЛОК 7: АВТО-ОБНАРУЖЕНИЕ ВИДЕО */
+        /* БЛОК 7: ВИДЕО-ДОКАЗАТЕЛЬСТВА */
         .video-section {
             background-color: #ffffff;
             padding: 80px 20px;
@@ -1199,34 +1274,164 @@
             line-height: 1.45;
         }
 
-        /* БЛОК 12: НАМ ДОВЕРЯЮТ */
-        .partners-section {
+        /* БЛОК 12 (НОВЫЙ): ПРИГЛАШЕНИЕ В МАЛЯРНЫЙ ЦЕХ */
+        .workshop-section {
+            background-color: #111111;
+            color: #ffffff;
+            padding: 90px 20px;
+            position: relative;
+        }
+        .workshop-box {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .workshop-image-side {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #333333;
+            aspect-ratio: 16 / 10;
+            background-color: #1f1f1f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+        }
+        .workshop-image-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .workshop-text-side {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .workshop-text-side h2 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 1.25;
+            color: #ffffff;
+        }
+        .workshop-text-side p {
+            color: #bbbbbb;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .workshop-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 10px 0;
+        }
+        .workshop-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.92rem;
+            color: #e0e0e0;
+            line-height: 1.4;
+        }
+        .workshop-features li span {
+            color: #ff5722;
+            font-weight: 900;
+            font-size: 1.1rem;
+        }
+        .workshop-address-card {
+            background: #1a1a1a;
+            border-left: 4px solid #ff5722;
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+            color: #cccccc;
+        }
+        .workshop-address-card strong {
+            color: #ffffff;
+        }
+
+        /* БЛОК 13 (НОВЫЙ): ОТЗЫВЫ ЛЮДЕЙ С ФОТО И ПРОФИЛЯМИ */
+        .reviews-section {
             background-color: #f8f8f8;
-            padding: 80px 20px;
+            padding: 90px 20px;
             border-top: 1px solid #eaeaea;
         }
-        .partners-grid {
+        .reviews-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 25px;
         }
-        .partner-card {
-            border-top: 1px solid #eaeaea;
-            padding-top: 20px;
+        .review-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            transition: all 0.25s ease;
         }
-        .partner-card h3 {
-            font-size: 1.25rem;
-            font-weight: 800;
+        .review-card:hover {
+            border-color: #ff5722;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+        }
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+        .review-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #e0e0e0;
+            border: 2px solid #ff5722;
+            flex-shrink: 0;
+        }
+        .review-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .author-info h4 {
+            font-size: 1.05rem;
+            font-weight: 900;
+            color: #111111;
+            margin-bottom: 3px;
+        }
+        .author-info p {
+            font-size: 0.75rem;
+            color: #777777;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .review-text {
+            color: #555555;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            font-style: normal;
+            position: relative;
+        }
+        .review-rating {
             color: #ff5722;
-            margin-bottom: 10px;
-        }
-        .partner-card p {
-            color: #666666;
-            font-size: 0.95rem;
-            line-height: 1.45;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            font-weight: 900;
         }
 
-        /* БЛОК 13: CTA */
+        /* БЛОК 14: CTA */
         .cta-section {
             background-color: #ffffff;
             padding: 80px 20px;
@@ -1251,7 +1456,7 @@
             line-height: 1.5;
         }
 
-        /* БЛОК 14: FOOTER */
+        /* БЛОК 15: FOOTER */
         footer {
             background-color: #111111;
             color: #ffffff;
@@ -1285,9 +1490,10 @@
         }
 
         /* АДАПТИВНОСТЬ ДЛЯ ПК */
-        @media (min-width: 768px) {
+        @media (min-width: 992px) {
             .desktop-nav { display: flex; }
-            .header-container { padding: 18px 40px; }
+            .burger-btn { display: none; }
+            .header-container { padding: 16px 40px; }
             .phone { font-size: 1.15rem; }
             h1 { font-size: 2.6rem; }
             
@@ -1311,7 +1517,15 @@
             .factory-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
             .metrics-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
             .cases-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
-            .partners-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+            
+            /* Цех на 2 колонки */
+            .workshop-box { flex-direction: row; gap: 60px; }
+            .workshop-image-side { width: 50%; height: 420px; flex-shrink: 0; }
+            .workshop-text-side { width: 50%; }
+            .workshop-text-side h2 { font-size: 2.3rem; }
+
+            /* Отзывы на 3 колонки */
+            .reviews-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
 
             .footer-container {
                 flex-direction: row;
@@ -1319,35 +1533,36 @@
                 align-items: flex-start;
             }
         }
-        @media (max-width: 767px) {
+        @media (max-width: 991px) {
             .modal-nav-btn { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ШАПКА С БУРГЕРОМ И НАВИГАЦИЕЙ -->
-    <header>
+    <!-- ШАПКА -->
+    <header id="mainHeader">
         <div class="header-container">
-            <a href="#" class="logo-box">
+            <a href="#top" class="logo-box">
                 <div class="logo-text">OTTINGER<span>.</span></div>
                 <div class="logo-sub">SOCHI</div>
             </a>
 
-            <!-- Меню на ПК -->
+            <!-- Навигация на ПК -->
             <nav class="desktop-nav">
                 <a href="#system">Инновация</a>
                 <a href="#pie">Сравнение</a>
                 <a href="#process">Технология</a>
                 <a href="#video-gallery">Видео-тесты</a>
                 <a href="#cases">Объекты</a>
+                <a href="#workshop">Малярный цех</a>
+                <a href="#reviews">Отзывы</a>
                 <a href="#contacts">Контакты</a>
             </nav>
 
             <div class="header-right">
                 <a href="tel:+79219121895" class="phone">+7 (921) 912-18-95</a>
-                <!-- Кнопка Бургера -->
-                <button class="burger-btn" id="burgerBtn" aria-label="Меню">
+                <button class="burger-btn" id="burgerBtn" onclick="toggleDrawer()" aria-label="Открыть меню">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -1356,18 +1571,30 @@
         </div>
     </header>
 
-    <!-- ВЫПАДАЮЩЕЕ БУРГЕР-МЕНЮ (ДЛЯ СМАРТФОНОВ) -->
-    <div class="mobile-menu-overlay" id="mobileMenu">
-        <ul class="mobile-menu-links">
-            <li><a href="#system" onclick="closeMenu()">Инновационная система</a></li>
-            <li><a href="#pie" onclick="closeMenu()">Сравнение технологий</a></li>
-            <li><a href="#process" onclick="closeMenu()">Процесс нанесения</a></li>
-            <li><a href="#video-gallery" onclick="closeMenu()">Видео-краш-тесты</a></li>
-            <li><a href="#cases" onclick="closeMenu()">Реальные объекты</a></li>
-            <li><a href="#contacts" onclick="closeMenu()">Контакты и склад</a></li>
-        </ul>
-        <a href="tel:+79219121895" class="mobile-menu-phone">+7 (921) 912-18-95</a>
-    </div>
+    <!-- АККУРАТНАЯ БОКОВАЯ ШТОРКА (МОБИЛЬНАЯ) -->
+    <div class="mobile-drawer-backdrop" id="drawerBackdrop" onclick="closeDrawer()"></div>
+    <aside class="mobile-drawer" id="mobileDrawer">
+        <div>
+            <div class="drawer-header">
+                <div class="drawer-logo">OTTINGER<span>.</span></div>
+                <button class="drawer-close-btn" onclick="closeDrawer()" aria-label="Закрыть">&times;</button>
+            </div>
+            <ul class="drawer-links">
+                <li><a href="#system" onclick="closeDrawer()"><span>01</span> Инновация</a></li>
+                <li><a href="#pie" onclick="closeDrawer()"><span>02</span> Сравнение пирога</a></li>
+                <li><a href="#process" onclick="closeDrawer()"><span>03</span> Процесс нанесения</a></li>
+                <li><a href="#video-gallery" onclick="closeDrawer()"><span>04</span> Видео-тесты</a></li>
+                <li><a href="#cases" onclick="closeDrawer()"><span>05</span> Реальные объекты</a></li>
+                <li><a href="#workshop" onclick="closeDrawer()"><span>06</span> Малярный цех</a></li>
+                <li><a href="#reviews" onclick="closeDrawer()"><span>07</span> Отзывы мастеров</a></li>
+                <li><a href="#contacts" onclick="closeDrawer()"><span>08</span> Контакты и склад</a></li>
+            </ul>
+        </div>
+        <div class="drawer-footer">
+            <a href="tel:+79219121895" class="drawer-phone">+7 (921) 912-18-95</a>
+            <a href="https://t.me/Hropovic" target="_blank" class="drawer-tg-btn">Написать в Telegram</a>
+        </div>
+    </aside>
 
     <!-- БЛОК 1: HERO (ПЕРВЫЙ ЭКРАН) -->
     <main class="hero" id="top">
@@ -1388,7 +1615,7 @@
         <a href="#system" class="btn btn-primary">Изучить систему ↓</a>
     </main>
 
-    <!-- БЛОК 2 (ПЕРЕНЕСЕН): ИННОВАЦИОННАЯ СИСТЕМА (4 БАЗОВЫХ МАТЕРИАЛА) -->
+    <!-- БЛОК 2: ИННОВАЦИОННАЯ СИСТЕМА (4 БАЗОВЫХ МАТЕРИАЛА) -->
     <section class="products-section" id="system">
         <div class="section-container">
             <span class="section-tag">Инновационная система</span>
@@ -1444,7 +1671,7 @@
                         <div class="product-specs">
                             <div class="spec-row"><span class="spec-lbl">Толщина слоя:</span><span class="spec-val">до 2 мм</span></div>
                             <div class="spec-row"><span class="spec-lbl">Расход:</span><span class="spec-val">от 0.5 кг/м²</span></div>
-                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">5кг / 25кг</span></div>
+                            <div class="spec-row"><span class="spec-lbl">Фасовка:</span><span class="spec-val">25 кг</span></div>
                         </div>
                     </div>
                     <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20запросить%20образец%20Basis%20Aqua." class="btn btn-primary btn-catalog" target="_blank">Запросить образец</a>
@@ -1637,7 +1864,7 @@
                 <!-- Стрелка влево -->
                 <button class="carousel-arrow arrow-left" onclick="scrollCarousel(-1)">&#8249;</button>
 
-                <!-- Контейнер автоматически наполняется только вашими видео -->
+                <!-- Контейнер автоматически наполняется вашими видео -->
                 <div class="video-carousel" id="videoCarousel"></div>
 
                 <!-- Стрелка вправо -->
@@ -1850,32 +2077,104 @@
         </div>
     </section>
 
-    <!-- БЛОК 12: НАМ ДОВЕРЯЮТ -->
-    <section class="partners-section">
+    <!-- БЛОК 12 (НОВЫЙ): ПРИГЛАШЕНИЕ В МАЛЯРНЫЙ ЦЕХ -->
+    <section class="workshop-section" id="workshop">
         <div class="section-container">
-            <span class="section-tag">Профессиональное сообщество</span>
-            <h2 class="section-title text-center">Кто выбирает полимерную отделку?</h2>
-            
-            <div class="partners-grid">
-                <div class="partner-card">
-                    <h3>Прорабы и строители</h3>
-                    <p>Сдают объекты вовремя, не переделывают работу за мебельщиками и экономят бюджет за счет исключения холста и клея.</p>
+            <div class="workshop-box">
+                
+                <!-- Место под фото цеха (workshop.jpg / workshop.png) -->
+                <div class="workshop-image-side">
+                    <img src="workshop.jpg" alt="Малярный цех OTTINGER Sochi" loading="lazy" onerror="this.onerror=null; this.src='workshop.png'; this.parentElement.innerHTML='<span style=\'color:#777;font-weight:800;text-transform:uppercase;\'>[ Фото малярного цеха OTTINGER ]</span>';">
                 </div>
 
-                <div class="partner-card">
-                    <h3>Дизайнеры интерьера</h3>
-                    <p>Уверены, что их сложные проекты с глубокими матовыми стенами не затрутся и не пойдут трещинами через месяц после сдачи.</p>
+                <!-- Текстовая часть с приглашением -->
+                <div class="workshop-text-side">
+                    <span class="section-tag" style="text-align:left; margin-bottom:0;">Открытая площадка в Сочи</span>
+                    <h2>Приглашаем в наш <span class="accent-color">малярный цех</span></h2>
+                    <p>Не верьте на слово — испытайте инновационный полимер сами. Мы открыли двери нашего малярного цеха в Сочи для мастеров, прорабов и дизайнеров интерьера.</p>
+                    
+                    <ul class="workshop-features">
+                        <li><span>✓</span> <strong>Дадим инструмент в руки:</strong> попробуйте нанести Basis Start аппаратом или валиком прямо на наших тестовых стендах.</li>
+                        <li><span>✓</span> <strong>Личные краш-тесты:</strong> разрежем, согнем в трубку, ударим углы и попытаемся поцарапать готовые образцы.</li>
+                        <li><span>✓</span> <strong>Бесплатные образцы:</strong> укомплектуем вас пробниками грунта, шпатлевки и краски для тестирования на вашем объекте.</li>
+                    </ul>
+
+                    <div class="workshop-address-card">
+                        📍 <strong>Адрес цеха и склада:</strong> г. Сочи, ул. Яна Фабрициуса, 57Б <br>
+                        ⏱ <strong>График:</strong> ПН–ПТ 8:00–18:00 | СБ 8:00–16:00
+                    </div>
+
+                    <a href="https://t.me/Hropovic?text=Здравствуйте!%20Хочу%20записаться%20на%20встречу%20в%20малярный%20цех%20OTTINGER%20в%20Сочи." class="btn btn-primary" target="_blank" style="max-width: 360px;">Записаться на встречу в цех</a>
                 </div>
 
-                <div class="partner-card">
-                    <h3>Владельцы и отельеры</h3>
-                    <p>Получают долговечный ремонт, который не требует обновления и косметических подкрасок перед каждым туристическим сезоном.</p>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- БЛОК 13: CTA -->
+    <!-- БЛОК 13 (НОВЫЙ): ОТЗЫВЫ ЛЮДЕЙ С ФОТО И ПРОФИЛЯМИ -->
+    <section class="reviews-section" id="reviews">
+        <div class="section-container">
+            <span class="section-tag">Сообщество профессионалов</span>
+            <h2 class="section-title text-center">Что говорят те, кто уже <span class="accent-color">перешел на OTTINGER</span></h2>
+            
+            <div class="reviews-grid">
+                
+                <!-- Отзыв 1 -->
+                <div class="review-card">
+                    <div>
+                        <div class="review-author">
+                            <div class="review-avatar">
+                                <img src="review1.jpg" alt="Алексей Громов" loading="lazy" onerror="this.onerror=null; this.src='review1.png'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:#ff5722;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;\'>АГ</div>';">
+                            </div>
+                            <div class="author-info">
+                                <h4>Алексей Громов</h4>
+                                <p>Руководитель бригады отделки</p>
+                            </div>
+                        </div>
+                        <p class="review-text">«Сдали уже 4 объекта в Сириусе и Красной Поляне полностью без стеклохолста. Сначала бригада сопротивлялась, но когда поняли, что вместо 8 операций делаем 3 и не дышим стекловатой — на старый метод больше никто не соглашается. По времени экономим минимум 4–5 дней на каждой квартире!»</p>
+                    </div>
+                    <div class="review-rating">★★★★★ Опыт работы: 6 месяцев</div>
+                </div>
+
+                <!-- Отзыв 2 -->
+                <div class="review-card">
+                    <div>
+                        <div class="review-author">
+                            <div class="review-avatar">
+                                <img src="review2.jpg" alt="Елена Васильева" loading="lazy" onerror="this.onerror=null; this.src='review2.png'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:#ff5722;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;\'>ЕВ</div>';">
+                            </div>
+                            <div class="author-info">
+                                <h4>Елена Васильева</h4>
+                                <p>Дизайнер интерьеров (студия ARTE)</p>
+                            </div>
+                        </div>
+                        <p class="review-text">«В проектах мы часто используем сложные темные оттенки: изумруд, графит, винный. Обычные краски быстро затираются в проходных зонах. Краска Keramik Matt с керамикой решила эту проблему навсегда — глубокий благородный мат, который можно мыть хоть каждый день без глянцевых пятен.»</p>
+                    </div>
+                    <div class="review-rating">★★★★★ Проектов реализовано: 8</div>
+                </div>
+
+                <!-- Отзыв 3 -->
+                <div class="review-card">
+                    <div>
+                        <div class="review-author">
+                            <div class="review-avatar">
+                                <img src="review3.jpg" alt="Дмитрий Ковалев" loading="lazy" onerror="this.onerror=null; this.src='review3.png'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:#ff5722;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;\'>ДК</div>';">
+                            </div>
+                            <div class="author-info">
+                                <h4>Дмитрий Ковалев</h4>
+                                <p>Мастер-маляр, стаж 12 лет</p>
+                            </div>
+                        </div>
+                        <p class="review-text">«Главный лайфхак — не пытаться шкурить полимер мелким зерном. Вскрыл корку зерном P40 за пару минут, прошелся жирафом P120 — и стена как стекло под лампу Lossew. И самое приятное: пыль тяжелая, падает сразу на пол, а не висит в воздухе неделями. Очень рекомендую заехать к ребятам в цех и попробовать.»</p>
+                    </div>
+                    <div class="review-rating">★★★★★ Опыт работы: 1.5 года</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- БЛОК 14: CTA -->
     <section class="cta-section">
         <div class="cta-box">
             <span class="section-tag">Практика на объекте</span>
@@ -1885,7 +2184,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 14: FOOTER -->
+    <!-- БЛОК 15: FOOTER -->
     <footer id="contacts">
         <div class="footer-container">
             <div class="footer-info">
@@ -1893,7 +2192,7 @@
                 <ul class="footer-contacts-list">
                     <li>Телефон: <a href="tel:+79219121895">+7 (921) 912-18-95</a></li>
                     <li>Telegram: <a href="https://t.me/Hropovic" target="_blank">@Hropovic</a></li>
-                    <li>Адрес склада: г. Сочи, ул. Яна Фабрициуса, 57Б</li>
+                    <li>Адрес склада и цеха: г. Сочи, ул. Яна Фабрициуса, 57Б</li>
                 </ul>
             </div>
         </div>
@@ -1907,23 +2206,23 @@
             window.scrollTo(0, 0);
         }
 
-        // Логика Бургер-меню
-        const burgerBtn = document.getElementById('burgerBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
+        // Логика боковой мобильной шторки (Drawer)
+        const drawerBackdrop = document.getElementById('drawerBackdrop');
+        const mobileDrawer = document.getElementById('mobileDrawer');
 
-        burgerBtn.addEventListener('click', () => {
-            burgerBtn.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
-        });
-
-        function closeMenu() {
-            burgerBtn.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            document.body.classList.remove('menu-open');
+        function toggleDrawer() {
+            drawerBackdrop.classList.toggle('active');
+            mobileDrawer.classList.toggle('active');
+            document.body.classList.toggle('drawer-open');
         }
 
-        // Авто-обнаружение загруженных видеофайлов
+        function closeDrawer() {
+            drawerBackdrop.classList.remove('active');
+            mobileDrawer.classList.remove('active');
+            document.body.classList.remove('drawer-open');
+        }
+
+        // Авто-обнаружение видеофайлов на сервере
         let availableVideos = [];
         let currentVideoIndex = 0;
 
@@ -2029,12 +2328,14 @@
             }
         }
 
+        // Круговой свайп вперед
         function nextVideo() {
             if (availableVideos.length <= 1) return;
             currentVideoIndex = (currentVideoIndex + 1) % availableVideos.length;
             loadVideo(currentVideoIndex);
         }
 
+        // Круговой свайп назад
         function prevVideo() {
             if (availableVideos.length <= 1) return;
             currentVideoIndex = (currentVideoIndex - 1 + availableVideos.length) % availableVideos.length;
@@ -2053,7 +2354,10 @@
 
         document.addEventListener('keydown', (e) => {
             if (!modal.classList.contains('active')) return;
-            if (e.key === 'Escape') closeVideoModal();
+            if (e.key === 'Escape') {
+                closeVideoModal();
+                closeDrawer();
+            }
             if (e.key === 'ArrowRight') nextVideo();
             if (e.key === 'ArrowLeft') prevVideo();
         });
